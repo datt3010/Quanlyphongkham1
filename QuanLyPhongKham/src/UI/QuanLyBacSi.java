@@ -41,7 +41,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         lblTieuDe = new javax.swing.JLabel();
         lblDay = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
-        lblAnhNVDangNhap = new rojerusan.RSFotoCircle();
         jLabel1 = new javax.swing.JLabel();
         pnlLeft = new javax.swing.JPanel();
         lblDanhMuc = new javax.swing.JLabel();
@@ -90,9 +89,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         btnFirst = new javax.swing.JButton();
         btnPrevious = new javax.swing.JButton();
         btnNext = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblDSBacSi = new rojeru_san.complementos.RSTableMetro();
-        cldNgaySinh = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ PHÒNG KHÁM");
@@ -125,9 +121,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         pnlHeaderLayout.setHorizontalGroup(
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHeaderLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(lblAnhNVDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(141, 141, 141)
                 .addComponent(lblXinChao, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlHeaderLayout.createSequentialGroup()
@@ -136,7 +130,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
                     .addGroup(pnlHeaderLayout.createSequentialGroup()
                         .addGap(289, 289, 289)
                         .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
                 .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeaderLayout.createSequentialGroup()
                         .addComponent(lblDay, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -162,8 +156,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
                         .addComponent(lblDay)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblTime)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(lblAnhNVDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pnlTong.add(pnlHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 100));
@@ -611,44 +604,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         });
         pnlRight.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 290, 80, 35));
 
-        tblDSBacSi.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Mã BS", "Họ và Tên", "Giới Tính", "Số ĐT", "Email", "Ngày Sinh"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tblDSBacSi.setAltoHead(35);
-        tblDSBacSi.setColorSelBackgound(new java.awt.Color(255, 51, 0));
-        tblDSBacSi.setRowHeight(26);
-        jScrollPane1.setViewportView(tblDSBacSi);
-        if (tblDSBacSi.getColumnModel().getColumnCount() > 0) {
-            tblDSBacSi.getColumnModel().getColumn(0).setMinWidth(100);
-            tblDSBacSi.getColumnModel().getColumn(0).setPreferredWidth(100);
-            tblDSBacSi.getColumnModel().getColumn(0).setMaxWidth(100);
-            tblDSBacSi.getColumnModel().getColumn(2).setMinWidth(100);
-            tblDSBacSi.getColumnModel().getColumn(2).setPreferredWidth(100);
-            tblDSBacSi.getColumnModel().getColumn(2).setMaxWidth(100);
-        }
-
-        pnlRight.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 890, 310));
-
-        cldNgaySinh.setDateFormatString("dd/MM/yyyy");
-        cldNgaySinh.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        pnlRight.add(cldNgaySinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 270, 30));
-
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 990, 660));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -970,12 +925,9 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
     private javax.swing.JComboBox<String> cboGioiTinh;
-    private com.toedter.calendar.JDateChooser cldNgaySinh;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAnhBS;
-    private rojerusan.RSFotoCircle lblAnhNVDangNhap;
     private javax.swing.JLabel lblDanhMuc;
     private javax.swing.JLabel lblDay;
     private javax.swing.JLabel lblEmail;
@@ -1013,7 +965,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     private javax.swing.JPanel pnlQuanLyThuoc;
     private javax.swing.JPanel pnlRight;
     private javax.swing.JPanel pnlTong;
-    private rojeru_san.complementos.RSTableMetro tblDSBacSi;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtMaBacSi;
     private javax.swing.JTextField txtMaChuyenNganh;
