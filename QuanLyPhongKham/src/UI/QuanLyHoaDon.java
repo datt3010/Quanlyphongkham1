@@ -484,6 +484,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         pnlRight.add(lblMaDichVu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
         btnLast.setBackground(new java.awt.Color(0, 112, 192));
+        btnLast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_end_32px_1.png"))); // NOI18N
         btnLast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLastActionPerformed(evt);
@@ -536,6 +537,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         pnlRight.add(btnMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 80, 35));
 
         btnFirst.setBackground(new java.awt.Color(0, 112, 192));
+        btnFirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_skip_to_start_32px_1.png"))); // NOI18N
         btnFirst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFirstActionPerformed(evt);
@@ -544,6 +546,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         pnlRight.add(btnFirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, 80, 35));
 
         btnPrevious.setBackground(new java.awt.Color(0, 112, 192));
+        btnPrevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_rewind_32px.png"))); // NOI18N
         btnPrevious.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPreviousActionPerformed(evt);
@@ -552,6 +555,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         pnlRight.add(btnPrevious, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 290, 80, 35));
 
         btnNext.setBackground(new java.awt.Color(0, 112, 192));
+        btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_fast_forward_32px.png"))); // NOI18N
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
