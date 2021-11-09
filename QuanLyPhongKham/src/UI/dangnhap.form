@@ -88,8 +88,9 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\Testjava\demo1\src\background\favicon.png"/>
+                  <Image iconType="3" name="/Icon/icons8-change-user-100.png"/>
                 </Property>
               </Properties>
             </Component>

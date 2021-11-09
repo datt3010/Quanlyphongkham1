@@ -51,7 +51,8 @@ public class dangnhap extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 204));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Testjava\\demo1\\src\\background\\favicon.png")); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-change-user-100.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel2.setText("Phòng Khám An Nhiên Mang Đến Sự Bình Yên");
