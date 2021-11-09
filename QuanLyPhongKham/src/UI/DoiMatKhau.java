@@ -58,7 +58,7 @@ public class DoiMatKhau extends javax.swing.JDialog {
         pnlleft.setBackground(new java.awt.Color(0, 102, 255));
 
         lblIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIcon.setIcon(new javax.swing.ImageIcon("D:\\PRO1041\\Duan\\QuanLyPhongKham\\QuanLyPhongKham\\src\\Icon\\icons8-change-user-100.png")); // NOI18N
+        lblIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-change-user-100.png"))); // NOI18N
 
         lblLogin1.setFont(new java.awt.Font("Agency FB", 1, 30)); // NOI18N
         lblLogin1.setForeground(new java.awt.Color(255, 255, 255));
