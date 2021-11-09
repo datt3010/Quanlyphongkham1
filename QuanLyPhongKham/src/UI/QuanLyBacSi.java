@@ -42,6 +42,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         lblDay = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
         lblAnhNVDangNhap = new rojerusan.RSFotoCircle();
+        jLabel1 = new javax.swing.JLabel();
         pnlLeft = new javax.swing.JPanel();
         lblDanhMuc = new javax.swing.JLabel();
         pnlQuanLyBacSi = new javax.swing.JPanel();
@@ -116,6 +117,9 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         lblTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTime.setText("00:00  SA");
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("MANG ĐẾN SỰ BÌNH YÊN");
+
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
         pnlHeader.setLayout(pnlHeaderLayout);
         pnlHeaderLayout.setHorizontalGroup(
@@ -125,8 +129,13 @@ public class QuanLyBacSi extends javax.swing.JFrame {
                 .addComponent(lblAnhNVDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblXinChao, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(158, 158, 158)
-                .addComponent(lblTieuDe, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlHeaderLayout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(lblTieuDe, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlHeaderLayout.createSequentialGroup()
+                        .addGap(289, 289, 289)
+                        .addComponent(jLabel1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
                 .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeaderLayout.createSequentialGroup()
@@ -144,13 +153,16 @@ public class QuanLyBacSi extends javax.swing.JFrame {
                 .addGap(31, 31, 31))
             .addGroup(pnlHeaderLayout.createSequentialGroup()
                 .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTieuDe)
+                    .addGroup(pnlHeaderLayout.createSequentialGroup()
+                        .addComponent(lblTieuDe)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1))
                     .addGroup(pnlHeaderLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(lblDay)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblTime)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(lblAnhNVDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
@@ -959,6 +971,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     private javax.swing.JButton btnXoa;
     private javax.swing.JComboBox<String> cboGioiTinh;
     private com.toedter.calendar.JDateChooser cldNgaySinh;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAnhBS;
