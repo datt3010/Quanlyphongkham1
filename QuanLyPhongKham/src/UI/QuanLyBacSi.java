@@ -311,7 +311,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
 
         lblIconHoaDon.setBackground(new java.awt.Color(54, 70, 78));
         lblIconHoaDon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconHoaDon.setIcon(new javax.swing.ImageIcon("C:\\Github\\QuanLyPhongKham\\QuanLyPhongKham\\src\\Icon\\icons8_dollar_place_marker_30px.png")); // NOI18N
+        lblIconHoaDon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_dollar_place_marker_30px.png"))); // NOI18N
         lblIconHoaDon.setToolTipText("Quản Lý Hoá Đơn");
         lblIconHoaDon.setOpaque(true);
         lblIconHoaDon.addMouseListener(new java.awt.event.MouseAdapter() {

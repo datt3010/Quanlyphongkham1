@@ -414,7 +414,7 @@
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Github\QuanLyPhongKham\QuanLyPhongKham\src\Icon\icons8_dollar_place_marker_30px.png"/>
+                      <Image iconType="3" name="/Icon/icons8_dollar_place_marker_30px.png"/>
                     </Property>
                     <Property name="toolTipText" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Ho&#xe1; &#x110;&#x1a1;n"/>
                     <Property name="opaque" type="boolean" value="true"/>
