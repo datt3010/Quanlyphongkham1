@@ -15,12 +15,12 @@ import javax.swing.JPanel;
  *
  * @author OS
  */
-public class QuanLyphongkham extends javax.swing.JFrame {
+public class QuanLybenhnhan extends javax.swing.JFrame {
 
     /**
      * Creates new form QuanLyPhongKham
      */
-    public QuanLyphongkham() {
+    public QuanLybenhnhan() {
         initComponents();
         init();
     }
@@ -66,13 +66,18 @@ public class QuanLyphongkham extends javax.swing.JFrame {
         lblThongKe = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        lblAnhBS = new javax.swing.JLabel();
         lblMaChuyenNganh = new javax.swing.JLabel();
         txtMaChuyenNganh = new javax.swing.JTextField();
+        lblGioiTinh = new javax.swing.JLabel();
         txtMaBacSi = new javax.swing.JTextField();
         lblTenBacSi = new javax.swing.JLabel();
+        txtTenBacSi = new javax.swing.JTextField();
         lblMaBacSi = new javax.swing.JLabel();
+        cboGioiTinh = new javax.swing.JComboBox<>();
         lblNgaySinh = new javax.swing.JLabel();
         txtSoDienThoai = new javax.swing.JTextField();
+        lblEmail = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         lblSoDienThoai = new javax.swing.JLabel();
         btnLast = new javax.swing.JButton();
@@ -445,44 +450,65 @@ public class QuanLyphongkham extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("QUẢN LÝ PHIẾU KHÁM");
-        pnlRight.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
+        jLabel6.setText("QUẢN LÝ BỆNH NHÂN");
+        pnlRight.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
+
+        lblAnhBS.setBackground(new java.awt.Color(255, 51, 0));
+        lblAnhBS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAnhBS.setOpaque(true);
+        pnlRight.add(lblAnhBS, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 170, 210));
 
         lblMaChuyenNganh.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lblMaChuyenNganh.setText("Mã phiếu khám");
-        pnlRight.add(lblMaChuyenNganh, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
+        lblMaChuyenNganh.setText("Mã Bệnh Nhân");
+        pnlRight.add(lblMaChuyenNganh, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
 
         txtMaChuyenNganh.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         txtMaChuyenNganh.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        pnlRight.add(txtMaChuyenNganh, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 300, 30));
+        pnlRight.add(txtMaChuyenNganh, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 300, 30));
+
+        lblGioiTinh.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblGioiTinh.setText("Giới Tính");
+        pnlRight.add(lblGioiTinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, -1, -1));
 
         txtMaBacSi.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         txtMaBacSi.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         pnlRight.add(txtMaBacSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 300, 30));
 
         lblTenBacSi.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lblTenBacSi.setText("Ngày Khám");
-        pnlRight.add(lblTenBacSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
+        lblTenBacSi.setText("Họ và tên Bệnh Nhân");
+        pnlRight.add(lblTenBacSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, -1, -1));
+
+        txtTenBacSi.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        txtTenBacSi.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        pnlRight.add(txtTenBacSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 300, 30));
 
         lblMaBacSi.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lblMaBacSi.setText("Mã Bệnh Nhân");
+        lblMaBacSi.setText("Mã nhân viên");
         pnlRight.add(lblMaBacSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, -1, -1));
 
+        cboGioiTinh.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        cboGioiTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ", "Khác", " ", " " }));
+        pnlRight.add(cboGioiTinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, 230, -1));
+
         lblNgaySinh.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lblNgaySinh.setText("Mã Nhân Viên");
-        pnlRight.add(lblNgaySinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, -1, -1));
+        lblNgaySinh.setText("Ngày Sinh");
+        pnlRight.add(lblNgaySinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, -1, -1));
 
         txtSoDienThoai.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         txtSoDienThoai.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        pnlRight.add(txtSoDienThoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 300, 30));
+        pnlRight.add(txtSoDienThoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 300, 30));
+
+        lblEmail.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblEmail.setText("Địa chỉ");
+        pnlRight.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, -1, -1));
 
         txtEmail.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         txtEmail.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        pnlRight.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 300, 30));
+        pnlRight.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 300, 30));
 
         lblSoDienThoai.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lblSoDienThoai.setText("Mã Bác Sĩ");
-        pnlRight.add(lblSoDienThoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+        lblSoDienThoai.setText("Số Điện Thoại");
+        pnlRight.add(lblSoDienThoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, -1, -1));
 
         btnLast.setBackground(new java.awt.Color(0, 112, 192));
         btnLast.addActionListener(new java.awt.event.ActionListener() {
@@ -568,7 +594,7 @@ public class QuanLyphongkham extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã phiếu khám", "Ngày khám", "Mã BS", "Mã Bệnh Nhân", "Mã Nhân Viên", "Mã nhân viên", "Địa chỉ"
+                "Mã Bệnh Nhân", "Họ và Tên", "Giới Tính", "Số ĐT", "Ngày sinh", "Mã nhân viên", "Địa chỉ"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -592,10 +618,10 @@ public class QuanLyphongkham extends javax.swing.JFrame {
             tblDSBacSi.getColumnModel().getColumn(2).setMaxWidth(100);
         }
 
-        pnlRight.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 890, 310));
+        pnlRight.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 890, 310));
 
         cldNgaySinh.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        pnlRight.add(cldNgaySinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 270, 30));
+        pnlRight.add(cldNgaySinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 270, 30));
 
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 990, 660));
 
@@ -902,7 +928,7 @@ public class QuanLyphongkham extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new QuanLyphongkham().setVisible(true);
+                new QuanLybenhnhan().setVisible(true);
             }
         });
     }
@@ -916,12 +942,16 @@ public class QuanLyphongkham extends javax.swing.JFrame {
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
+    private javax.swing.JComboBox<String> cboGioiTinh;
     private com.toedter.calendar.JDateChooser cldNgaySinh;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAnhBS;
     private rojerusan.RSFotoCircle lblAnhNVDangNhap;
     private javax.swing.JLabel lblDanhMuc;
     private javax.swing.JLabel lblDay;
+    private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblGioiTinh;
     private javax.swing.JLabel lblIconBacSi;
     private javax.swing.JLabel lblIconBenhNhan;
     private javax.swing.JLabel lblIconHoaDon;
@@ -960,6 +990,7 @@ public class QuanLyphongkham extends javax.swing.JFrame {
     private javax.swing.JTextField txtMaBacSi;
     private javax.swing.JTextField txtMaChuyenNganh;
     private javax.swing.JTextField txtSoDienThoai;
+    private javax.swing.JTextField txtTenBacSi;
     // End of variables declaration//GEN-END:variables
     private void init(){
         setLocationRelativeTo(null);
