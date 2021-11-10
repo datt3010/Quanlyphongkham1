@@ -63,6 +63,8 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
         pnlQuanLyThongKe = new javax.swing.JPanel();
         lblIconThongKe = new javax.swing.JLabel();
         lblThongKe = new javax.swing.JLabel();
+        lblQuanLyThuoc1 = new javax.swing.JLabel();
+        lblIconThuoc1 = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -424,6 +426,40 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
 
         pnlLeft.add(pnlQuanLyThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 210, 40));
 
+        lblQuanLyThuoc1.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        lblQuanLyThuoc1.setForeground(new java.awt.Color(255, 255, 255));
+        lblQuanLyThuoc1.setText("Quản lý toa thuốc");
+        lblQuanLyThuoc1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblQuanLyThuoc1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblQuanLyThuoc1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblQuanLyThuoc1MouseExited(evt);
+            }
+        });
+        pnlLeft.add(lblQuanLyThuoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 140, -1));
+
+        lblIconThuoc1.setBackground(new java.awt.Color(54, 70, 78));
+        lblIconThuoc1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconThuoc1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_chart_30px.png"))); // NOI18N
+        lblIconThuoc1.setToolTipText("Quản Lý Thuốc");
+        lblIconThuoc1.setOpaque(true);
+        lblIconThuoc1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblIconThuoc1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblIconThuoc1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblIconThuoc1MouseExited(evt);
+            }
+        });
+        pnlLeft.add(lblIconThuoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 40, 40));
+
         pnlTong.add(pnlLeft, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 210, 660));
 
         pnlRight.setBackground(new java.awt.Color(255, 255, 255));
@@ -705,6 +741,30 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnXuatActionPerformed
 
+    private void lblIconThuoc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuoc1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblIconThuoc1MouseClicked
+
+    private void lblIconThuoc1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuoc1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblIconThuoc1MouseEntered
+
+    private void lblIconThuoc1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuoc1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblIconThuoc1MouseExited
+
+    private void lblQuanLyThuoc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuoc1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblQuanLyThuoc1MouseClicked
+
+    private void lblQuanLyThuoc1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuoc1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblQuanLyThuoc1MouseEntered
+
+    private void lblQuanLyThuoc1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuoc1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblQuanLyThuoc1MouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -756,12 +816,14 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
     private javax.swing.JLabel lblIconPhieuKham;
     private javax.swing.JLabel lblIconThongKe;
     private javax.swing.JLabel lblIconThuoc;
+    private javax.swing.JLabel lblIconThuoc1;
     private javax.swing.JLabel lblQuanLyBacSi;
     private javax.swing.JLabel lblQuanLyBenhNhan;
     private javax.swing.JLabel lblQuanLyHoaDon;
     private javax.swing.JLabel lblQuanLyNhanVien;
     private javax.swing.JLabel lblQuanLyPhieuKham;
     private javax.swing.JLabel lblQuanLyThuoc;
+    private javax.swing.JLabel lblQuanLyThuoc1;
     private javax.swing.JLabel lblThongKe;
     private javax.swing.JPanel pnlHeader;
     private javax.swing.JPanel pnlLeft;
