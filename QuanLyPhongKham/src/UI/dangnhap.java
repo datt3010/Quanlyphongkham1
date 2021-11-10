@@ -93,7 +93,7 @@ public class dangnhap extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(255, 153, 153));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-home-page-23.png"))); // NOI18N
-        jButton1.setText("Chưa có tài khoản?");
+        jButton1.setText("Đổi mật khẩu?");
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 190, 50));
 
         jSeparator2.setBackground(new java.awt.Color(255, 0, 0));
