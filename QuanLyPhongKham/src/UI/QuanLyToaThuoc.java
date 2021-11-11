@@ -80,8 +80,6 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         lblLieuLuong = new javax.swing.JLabel();
         lblMaChuyenNganh2 = new javax.swing.JLabel();
         lblMaChuyenNganh3 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
         jScrollPane3 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList<>();
         btnThem = new javax.swing.JButton();
@@ -94,6 +92,8 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         btnLast = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         rSTableMetro2 = new rojeru_san.complementos.RSTableMetro();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
         pnlDSThuoc = new javax.swing.JPanel();
         pnlKhoaHoc2 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
@@ -585,17 +585,6 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         lblMaChuyenNganh3.setText("Tên Thuốc");
         pnlToaThuoc.add(lblMaChuyenNganh3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 90, 30));
 
-        jList1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jList1.setToolTipText("");
-        jScrollPane2.setViewportView(jList1);
-
-        pnlToaThuoc.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 250, 160));
-
         jList2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jList2.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -699,6 +688,11 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         jScrollPane4.setViewportView(rSTableMetro2);
 
         pnlToaThuoc.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 860, 240));
+
+        jTextPane1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jScrollPane5.setViewportView(jTextPane1);
+
+        pnlToaThuoc.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 290, 160));
 
         pnlCard.add(pnlToaThuoc, "card2");
 
@@ -1111,13 +1105,13 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextPane jTextPane1;
     private rojerusan.RSFotoCircle lblAnhNV;
     private javax.swing.JLabel lblDanhMuc;
     private javax.swing.JLabel lblDay;
