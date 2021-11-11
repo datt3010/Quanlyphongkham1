@@ -28,21 +28,249 @@ public class QuenMatKhau extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlleft = new javax.swing.JPanel();
+        lblIcon = new javax.swing.JLabel();
+        lblLogin1 = new javax.swing.JLabel();
+        pnlright = new javax.swing.JPanel();
+        pnlThoat = new javax.swing.JPanel();
+        lblThoat = new javax.swing.JLabel();
+        lblLogin = new javax.swing.JLabel();
+        lblLoginID = new javax.swing.JLabel();
+        txtTenDangNhap = new javax.swing.JTextField();
+        lblLoginPassword = new javax.swing.JLabel();
+        txtMatKhauCu = new javax.swing.JPasswordField();
+        btnThoat = new rojeru_san.complementos.RSButtonHover();
+        btnXacNhan = new rojeru_san.complementos.RSButtonHover();
+        lblQuenMatKhau = new javax.swing.JLabel();
+        lblLoginPassword1 = new javax.swing.JLabel();
+        txtMatKhauMoi = new javax.swing.JPasswordField();
+        lblLoginPassword2 = new javax.swing.JLabel();
+        txtNhacLaiMatKhauMoi = new javax.swing.JPasswordField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        pnlleft.setBackground(new java.awt.Color(0, 102, 255));
+
+        lblIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-change-user-100.png"))); // NOI18N
+
+        lblLogin1.setFont(new java.awt.Font("Agency FB", 1, 30)); // NOI18N
+        lblLogin1.setForeground(new java.awt.Color(255, 255, 255));
+        lblLogin1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogin1.setText("PLEASE LOGIN BEFORE USING");
+        lblLogin1.setToolTipText("");
+
+        javax.swing.GroupLayout pnlleftLayout = new javax.swing.GroupLayout(pnlleft);
+        pnlleft.setLayout(pnlleftLayout);
+        pnlleftLayout.setHorizontalGroup(
+            pnlleftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlleftLayout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addComponent(lblIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlleftLayout.createSequentialGroup()
+                .addContainerGap(55, Short.MAX_VALUE)
+                .addComponent(lblLogin1)
+                .addGap(43, 43, 43))
+        );
+        pnlleftLayout.setVerticalGroup(
+            pnlleftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlleftLayout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addComponent(lblIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblLogin1)
+                .addContainerGap(180, Short.MAX_VALUE))
+        );
+
+        pnlright.setBackground(new java.awt.Color(255, 255, 255));
+
+        pnlThoat.setBackground(new java.awt.Color(0, 102, 255));
+        pnlThoat.setForeground(new java.awt.Color(255, 255, 255));
+        pnlThoat.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblThoat.setBackground(new java.awt.Color(0, 102, 255));
+        lblThoat.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        lblThoat.setForeground(new java.awt.Color(255, 255, 255));
+        lblThoat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblThoat.setText("X");
+        lblThoat.setOpaque(true);
+        lblThoat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblThoatMouseClicked(evt);
+            }
+        });
+        pnlThoat.add(lblThoat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 39, 40));
+
+        lblLogin.setFont(new java.awt.Font("Segoe UI", 1, 40)); // NOI18N
+        lblLogin.setForeground(new java.awt.Color(102, 102, 102));
+        lblLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogin.setText("Quên mật khẩu");
+        lblLogin.setToolTipText("");
+
+        lblLoginID.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblLoginID.setForeground(new java.awt.Color(102, 102, 102));
+        lblLoginID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLoginID.setText("Nhập tài khoản");
+
+        txtTenDangNhap.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        txtTenDangNhap.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
+
+        lblLoginPassword.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblLoginPassword.setForeground(new java.awt.Color(102, 102, 102));
+        lblLoginPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLoginPassword.setText("Nhập số điện thoại");
+
+        txtMatKhauCu.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtMatKhauCu.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
+
+        btnThoat.setText("THOÁT");
+        btnThoat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThoatActionPerformed(evt);
+            }
+        });
+
+        btnXacNhan.setText("XÁC NHẬN");
+        btnXacNhan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXacNhanActionPerformed(evt);
+            }
+        });
+
+        lblQuenMatKhau.setFont(new java.awt.Font("Agency FB", 1, 20)); // NOI18N
+        lblQuenMatKhau.setForeground(new java.awt.Color(255, 0, 0));
+        lblQuenMatKhau.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblQuenMatKhau.setText(" Forgot password ?");
+        lblQuenMatKhau.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblQuenMatKhauMouseClicked(evt);
+            }
+        });
+
+        lblLoginPassword1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblLoginPassword1.setForeground(new java.awt.Color(102, 102, 102));
+        lblLoginPassword1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLoginPassword1.setText("Nhập mã otp");
+
+        txtMatKhauMoi.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtMatKhauMoi.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
+
+        lblLoginPassword2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblLoginPassword2.setForeground(new java.awt.Color(102, 102, 102));
+        lblLoginPassword2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLoginPassword2.setText("Nhập mật khẩu mới");
+
+        txtNhacLaiMatKhauMoi.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtNhacLaiMatKhauMoi.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
+
+        javax.swing.GroupLayout pnlrightLayout = new javax.swing.GroupLayout(pnlright);
+        pnlright.setLayout(pnlrightLayout);
+        pnlrightLayout.setHorizontalGroup(
+            pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlrightLayout.createSequentialGroup()
+                .addGap(0, 26, Short.MAX_VALUE)
+                .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlrightLayout.createSequentialGroup()
+                        .addComponent(lblLogin)
+                        .addGap(18, 18, 18)
+                        .addComponent(pnlThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlrightLayout.createSequentialGroup()
+                        .addComponent(lblQuenMatKhau)
+                        .addGap(116, 116, 116))))
+            .addGroup(pnlrightLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblLoginPassword2)
+                    .addComponent(lblLoginPassword1)
+                    .addComponent(lblLoginID)
+                    .addComponent(txtTenDangNhap)
+                    .addComponent(lblLoginPassword)
+                    .addComponent(txtMatKhauCu)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlrightLayout.createSequentialGroup()
+                        .addComponent(btnXacNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                        .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMatKhauMoi)
+                    .addComponent(txtNhacLaiMatKhauMoi))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlrightLayout.setVerticalGroup(
+            pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlrightLayout.createSequentialGroup()
+                .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlrightLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblLogin)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblLoginID)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtTenDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblLoginPassword)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtMatKhauCu, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblLoginPassword1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtMatKhauMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblLoginPassword2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNhacLaiMatKhauMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnThoat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnXacNhan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(lblQuenMatKhau)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 733, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(pnlleft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, 0)
+                    .addComponent(pnlright, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 508, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(pnlleft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnlright, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblThoatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThoatMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_lblThoatMouseClicked
+
+    private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
+
+    }//GEN-LAST:event_btnThoatActionPerformed
+
+    private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXacNhanActionPerformed
+
+    }//GEN-LAST:event_btnXacNhanActionPerformed
+
+    private void lblQuenMatKhauMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuenMatKhauMouseClicked
+
+    }//GEN-LAST:event_lblQuenMatKhauMouseClicked
 
     /**
      * @param args the command line arguments
@@ -87,5 +315,23 @@ public class QuenMatKhau extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rojeru_san.complementos.RSButtonHover btnThoat;
+    private rojeru_san.complementos.RSButtonHover btnXacNhan;
+    private javax.swing.JLabel lblIcon;
+    private javax.swing.JLabel lblLogin;
+    private javax.swing.JLabel lblLogin1;
+    private javax.swing.JLabel lblLoginID;
+    private javax.swing.JLabel lblLoginPassword;
+    private javax.swing.JLabel lblLoginPassword1;
+    private javax.swing.JLabel lblLoginPassword2;
+    private javax.swing.JLabel lblQuenMatKhau;
+    private javax.swing.JLabel lblThoat;
+    private javax.swing.JPanel pnlThoat;
+    private javax.swing.JPanel pnlleft;
+    private javax.swing.JPanel pnlright;
+    private javax.swing.JPasswordField txtMatKhauCu;
+    private javax.swing.JPasswordField txtMatKhauMoi;
+    private javax.swing.JPasswordField txtNhacLaiMatKhauMoi;
+    private javax.swing.JTextField txtTenDangNhap;
     // End of variables declaration//GEN-END:variables
 }
