@@ -450,27 +450,27 @@ public class QuanLyDichVu extends javax.swing.JFrame {
 
         lblMaHoaDon.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblMaHoaDon.setText("Mã Dịch Vụ");
-        pnlRight.add(lblMaHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
+        pnlRight.add(lblMaHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
         txtMaDichVu.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         txtMaDichVu.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        pnlRight.add(txtMaDichVu, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 300, 30));
+        pnlRight.add(txtMaDichVu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 300, 30));
 
         lblMaToaThuoc.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblMaToaThuoc.setText("Tên Dịch Vụ");
-        pnlRight.add(lblMaToaThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
+        pnlRight.add(lblMaToaThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
         txtTenDichVu.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         txtTenDichVu.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        pnlRight.add(txtTenDichVu, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 300, 30));
+        pnlRight.add(txtTenDichVu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 300, 30));
 
         txtGiaTien.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         txtGiaTien.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        pnlRight.add(txtGiaTien, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 300, 30));
+        pnlRight.add(txtGiaTien, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 300, 30));
 
         lblMaDichVu.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblMaDichVu.setText("Giá Tiền");
-        pnlRight.add(lblMaDichVu, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
+        pnlRight.add(lblMaDichVu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
         btnLast.setBackground(new java.awt.Color(0, 112, 192));
         btnLast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_end_32px_1.png"))); // NOI18N
