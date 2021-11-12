@@ -165,7 +165,7 @@
                   <Component id="lblLoginPassword2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="txtNhacLaiMatKhauMoi" min="-2" pref="34" max="-2" attributes="0"/>
-                  <EmptySpace pref="30" max="32767" attributes="0"/>
+                  <EmptySpace pref="46" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnThoat" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="btnXacNhan" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -234,13 +234,13 @@
         <Component class="javax.swing.JLabel" name="lblLoginID">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Agency FB" size="18" style="1"/>
+              <Font name="Arial" size="15" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Login ID"/>
+            <Property name="text" type="java.lang.String" value="M&#xe3; Nh&#xe2;n Vi&#xea;n"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtTenDangNhap">
@@ -260,13 +260,13 @@
         <Component class="javax.swing.JLabel" name="lblLoginPassword">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Agency FB" size="18" style="1"/>
+              <Font name="Arial" size="15" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Login Old Password"/>
+            <Property name="text" type="java.lang.String" value="Nh&#x1ead;p m&#x1ead;t kh&#x1ea9;u c&#x169;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="txtMatKhauCu">
@@ -317,13 +317,13 @@
         <Component class="javax.swing.JLabel" name="lblLoginPassword1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Agency FB" size="18" style="1"/>
+              <Font name="Arial" size="15" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Login New Password"/>
+            <Property name="text" type="java.lang.String" value="Nh&#x1ead;p m&#x1ead;t kh&#x1ea9;u m&#x1edb;i"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="txtMatKhauMoi">
@@ -343,13 +343,13 @@
         <Component class="javax.swing.JLabel" name="lblLoginPassword2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Agency FB" size="18" style="1"/>
+              <Font name="Arial" size="15" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Enter a New Password"/>
+            <Property name="text" type="java.lang.String" value="Nh&#x1eaf;c l&#x1ea1;i m&#x1ead;t kh&#x1ea9;u m&#x1edb;i"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="txtNhacLaiMatKhauMoi">

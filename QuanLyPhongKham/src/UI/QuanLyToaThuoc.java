@@ -80,20 +80,18 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         lblLieuLuong = new javax.swing.JLabel();
         lblMaChuyenNganh2 = new javax.swing.JLabel();
         lblMaChuyenNganh3 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
         btnThem = new javax.swing.JButton();
         btnSua = new javax.swing.JButton();
         btnXoa = new javax.swing.JButton();
         btnMoi = new javax.swing.JButton();
-        btnFirst = new javax.swing.JButton();
-        btnPrevious = new javax.swing.JButton();
-        btnNext = new javax.swing.JButton();
-        btnLast = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         rSTableMetro2 = new rojeru_san.complementos.RSTableMetro();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextPane2 = new javax.swing.JTextPane();
+        jTextField2 = new javax.swing.JTextField();
+        btnMoi1 = new javax.swing.JButton();
         pnlDSThuoc = new javax.swing.JPanel();
         pnlKhoaHoc2 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
@@ -501,7 +499,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
 
         btnNguoiHoc.setBackground(new java.awt.Color(51, 153, 255));
         btnNguoiHoc.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 2, new java.awt.Color(255, 255, 255)));
-        btnNguoiHoc.setText("THUỐC");
+        btnNguoiHoc.setText("DS TOA THUỐC");
         btnNguoiHoc.setOpaque(true);
         btnNguoiHoc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -585,17 +583,6 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         lblMaChuyenNganh3.setText("Tên Thuốc");
         pnlToaThuoc.add(lblMaChuyenNganh3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 90, 30));
 
-        jList2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jList2.setToolTipText("");
-        jScrollPane3.setViewportView(jList2);
-
-        pnlToaThuoc.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 240, 160));
-
         btnThem.setBackground(new java.awt.Color(0, 112, 192));
         btnThem.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         btnThem.setForeground(new java.awt.Color(255, 255, 255));
@@ -632,45 +619,13 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         btnMoi.setBackground(new java.awt.Color(0, 112, 192));
         btnMoi.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         btnMoi.setForeground(new java.awt.Color(255, 255, 255));
-        btnMoi.setText("MỚI");
+        btnMoi.setText("TÌM");
         btnMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMoiActionPerformed(evt);
             }
         });
-        pnlToaThuoc.add(btnMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 80, 35));
-
-        btnFirst.setBackground(new java.awt.Color(0, 112, 192));
-        btnFirst.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFirstActionPerformed(evt);
-            }
-        });
-        pnlToaThuoc.add(btnFirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 290, 80, 35));
-
-        btnPrevious.setBackground(new java.awt.Color(0, 112, 192));
-        btnPrevious.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPreviousActionPerformed(evt);
-            }
-        });
-        pnlToaThuoc.add(btnPrevious, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 290, 80, 35));
-
-        btnNext.setBackground(new java.awt.Color(0, 112, 192));
-        btnNext.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNextActionPerformed(evt);
-            }
-        });
-        pnlToaThuoc.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 290, 80, 35));
-
-        btnLast.setBackground(new java.awt.Color(0, 112, 192));
-        btnLast.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLastActionPerformed(evt);
-            }
-        });
-        pnlToaThuoc.add(btnLast, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 290, 80, 35));
+        pnlToaThuoc.add(btnMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 290, 80, 35));
 
         rSTableMetro2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -687,12 +642,31 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         rSTableMetro2.setRowHeight(26);
         jScrollPane4.setViewportView(rSTableMetro2);
 
-        pnlToaThuoc.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 860, 240));
+        pnlToaThuoc.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 860, 230));
 
         jTextPane1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jScrollPane5.setViewportView(jTextPane1);
 
-        pnlToaThuoc.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 290, 160));
+        pnlToaThuoc.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 290, 160));
+
+        jTextPane2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jScrollPane6.setViewportView(jTextPane2);
+
+        pnlToaThuoc.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 290, 160));
+
+        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        pnlToaThuoc.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, 320, 35));
+
+        btnMoi1.setBackground(new java.awt.Color(0, 112, 192));
+        btnMoi1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        btnMoi1.setForeground(new java.awt.Color(255, 255, 255));
+        btnMoi1.setText("MỚI");
+        btnMoi1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMoi1ActionPerformed(evt);
+            }
+        });
+        pnlToaThuoc.add(btnMoi1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 80, 35));
 
         pnlCard.add(pnlToaThuoc, "card2");
 
@@ -1036,21 +1010,9 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMoiActionPerformed
 
-    private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
+    private void btnMoi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoi1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnFirstActionPerformed
-
-    private void btnPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPreviousActionPerformed
-
-    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNextActionPerformed
-
-    private void btnLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLastActionPerformed
+    }//GEN-LAST:event_btnMoi1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1091,13 +1053,10 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnFirst;
     private rojeru_san.complementos.RSButtonHover btnHocVien;
-    private javax.swing.JButton btnLast;
     private javax.swing.JButton btnMoi;
-    private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnMoi1;
     private rojeru_san.complementos.RSButtonHover btnNguoiHoc;
-    private javax.swing.JButton btnPrevious;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
@@ -1105,13 +1064,14 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JList<String> jList2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JTextPane jTextPane2;
     private rojerusan.RSFotoCircle lblAnhNV;
     private javax.swing.JLabel lblDanhMuc;
     private javax.swing.JLabel lblDay;
