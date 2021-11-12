@@ -162,6 +162,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
         lblDanhMuc.setBackground(new java.awt.Color(54, 70, 78));
         lblDanhMuc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDanhMuc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-menu-30.png"))); // NOI18N
         lblDanhMuc.setOpaque(true);
         lblDanhMuc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -181,6 +182,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
         lblIconBacSi.setBackground(new java.awt.Color(54, 70, 78));
         lblIconBacSi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconBacSi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_doctor_male_30px.png"))); // NOI18N
         lblIconBacSi.setToolTipText("Quản Lý Bác Sĩ");
         lblIconBacSi.setOpaque(true);
         lblIconBacSi.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -219,6 +221,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
         lblIconNhanVien.setBackground(new java.awt.Color(54, 70, 78));
         lblIconNhanVien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_manager_30px.png"))); // NOI18N
         lblIconNhanVien.setToolTipText("Quản Lý Nhân Viên");
         lblIconNhanVien.setOpaque(true);
         lblIconNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -257,6 +260,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
         lblIconBenhNhan.setBackground(new java.awt.Color(54, 70, 78));
         lblIconBenhNhan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconBenhNhan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-male-user-23.png"))); // NOI18N
         lblIconBenhNhan.setToolTipText("Quản Lý Bệnh Nhân");
         lblIconBenhNhan.setOpaque(true);
         lblIconBenhNhan.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -295,6 +299,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
         lblIconHoaDon.setBackground(new java.awt.Color(54, 70, 78));
         lblIconHoaDon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconHoaDon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_dollar_place_marker_30px.png"))); // NOI18N
         lblIconHoaDon.setToolTipText("Quản Lý Hoá Đơn");
         lblIconHoaDon.setOpaque(true);
         lblIconHoaDon.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -333,6 +338,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
         lblIconPhieuKham.setBackground(new java.awt.Color(54, 70, 78));
         lblIconPhieuKham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconPhieuKham.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_ticket_30px.png"))); // NOI18N
         lblIconPhieuKham.setToolTipText("Quản Lý Phiếu Khám");
         lblIconPhieuKham.setOpaque(true);
         lblIconPhieuKham.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -371,6 +377,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
         lblIconThuoc.setBackground(new java.awt.Color(54, 70, 78));
         lblIconThuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconThuoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_clinic_30px.png"))); // NOI18N
         lblIconThuoc.setToolTipText("Quản Lý Thuốc");
         lblIconThuoc.setOpaque(true);
         lblIconThuoc.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -409,6 +416,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
         lblIconThongKe.setBackground(new java.awt.Color(54, 70, 78));
         lblIconThongKe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-increase-23.png"))); // NOI18N
         lblIconThongKe.setToolTipText("Quản Lý Thống Kê");
         lblIconThongKe.setOpaque(true);
         lblIconThongKe.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -501,6 +509,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         pnlRight.add(txtDiaChi, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 240, 300, 30));
 
         btnLast.setBackground(new java.awt.Color(0, 112, 192));
+        btnLast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_end_32px_1.png"))); // NOI18N
         btnLast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLastActionPerformed(evt);
@@ -553,6 +562,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         pnlRight.add(btnMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 80, 35));
 
         btnFirst.setBackground(new java.awt.Color(0, 112, 192));
+        btnFirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_skip_to_start_32px_1.png"))); // NOI18N
         btnFirst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFirstActionPerformed(evt);
@@ -561,6 +571,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         pnlRight.add(btnFirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 280, 80, 35));
 
         btnPrevious.setBackground(new java.awt.Color(0, 112, 192));
+        btnPrevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_rewind_32px.png"))); // NOI18N
         btnPrevious.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPreviousActionPerformed(evt);
@@ -569,6 +580,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         pnlRight.add(btnPrevious, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, 80, 35));
 
         btnNext.setBackground(new java.awt.Color(0, 112, 192));
+        btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_fast_forward_32px.png"))); // NOI18N
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);

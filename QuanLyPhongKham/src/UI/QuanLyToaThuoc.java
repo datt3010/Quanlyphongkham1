@@ -574,7 +574,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         pnlToaThuoc.add(lblMaChuyenNganh, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 200, 30));
 
         lblLieuLuong.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lblLieuLuong.setText("Liều Lượng");
+        lblLieuLuong.setText("Ghi chú");
         pnlToaThuoc.add(lblLieuLuong, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 90, 110, 30));
 
         lblMaChuyenNganh2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N

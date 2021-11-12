@@ -206,7 +206,7 @@ public void login(){
     }
     else{
         Utilities.Auths.user=nhanVien; 
-        new QuanLyphongkham().setVisible(true);
+        new QuanLyphieukham().setVisible(true);
         this.dispose();
     }
 }

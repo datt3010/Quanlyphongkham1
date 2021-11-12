@@ -70,6 +70,10 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         rSTableMetro1 = new rojeru_san.complementos.RSTableMetro();
         btnXuat = new javax.swing.JButton();
+        lblMaChuyenNganh = new javax.swing.JLabel();
+        lblMaChuyenNganh1 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -139,6 +143,7 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
 
         lblDanhMuc.setBackground(new java.awt.Color(54, 70, 78));
         lblDanhMuc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDanhMuc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-menu-30.png"))); // NOI18N
         lblDanhMuc.setOpaque(true);
         lblDanhMuc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -498,6 +503,20 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
         });
         pnlRight.add(btnXuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 600, 150, 35));
 
+        lblMaChuyenNganh.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblMaChuyenNganh.setText("Năm:");
+        pnlRight.add(lblMaChuyenNganh, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
+
+        lblMaChuyenNganh1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblMaChuyenNganh1.setText("Tháng:");
+        pnlRight.add(lblMaChuyenNganh1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnlRight.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 170, -1));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnlRight.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 260, -1));
+
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 990, 660));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -802,6 +821,8 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnXuat;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -817,6 +838,8 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
     private javax.swing.JLabel lblIconThongKe;
     private javax.swing.JLabel lblIconThuoc;
     private javax.swing.JLabel lblIconThuoc1;
+    private javax.swing.JLabel lblMaChuyenNganh;
+    private javax.swing.JLabel lblMaChuyenNganh1;
     private javax.swing.JLabel lblQuanLyBacSi;
     private javax.swing.JLabel lblQuanLyBenhNhan;
     private javax.swing.JLabel lblQuanLyHoaDon;
