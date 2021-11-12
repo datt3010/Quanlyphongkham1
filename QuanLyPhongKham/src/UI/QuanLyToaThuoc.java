@@ -684,7 +684,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
             }
         ));
         rSTableMetro2.setAltoHead(30);
-        rSTableMetro2.setRowHeight(22);
+        rSTableMetro2.setRowHeight(26);
         jScrollPane4.setViewportView(rSTableMetro2);
 
         pnlToaThuoc.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 860, 240));
