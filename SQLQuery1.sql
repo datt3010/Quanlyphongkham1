@@ -105,3 +105,4 @@ constraint fk_chitiethoadon_hoadon foreign key(mahoadon) references hoadon(mahoa
 constraint fk_chitiethoadon_dichvu foreign key(madichvu) references dichvu(madichvu) on delete no action on update no action,
 constraint fk_chitiethoadon_thuoc foreign key(mathuoc) references thuoc(mathuoc) on delete no action on update no action
 )
+select * from nhanvien
