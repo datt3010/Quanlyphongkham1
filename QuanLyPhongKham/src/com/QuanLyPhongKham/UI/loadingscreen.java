@@ -5,6 +5,8 @@
  */
 package com.QuanLyPhongKham.UI;
 
+import java.awt.geom.RoundRectangle2D;
+
 /**
  *
  * @author p
@@ -18,6 +20,7 @@ public class loadingscreen extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setup();
+         setShape(new RoundRectangle2D.Double(0, 0, getWidth(),  getHeight(),  30,30));
     }
 
     /**

@@ -5,6 +5,8 @@
  */
 package com.QuanLyPhongKham.UI;
 
+import java.awt.geom.RoundRectangle2D;
+
 
 
 /**
@@ -21,6 +23,7 @@ public class Quenmatkhau extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Đổi mật khẩu");
+         setShape(new RoundRectangle2D.Double(0, 0, getWidth(),  getHeight(),  30,30));
     }
 
     /**
@@ -45,6 +48,12 @@ public class Quenmatkhau extends javax.swing.JDialog {
         btnXacNhan = new rojeru_san.complementos.RSButtonHover();
         lblLoginPassword2 = new javax.swing.JLabel();
         lblLoginPassword4 = new javax.swing.JLabel();
+        lblLoginPassword5 = new javax.swing.JLabel();
+        txtMatKhauCu1 = new javax.swing.JPasswordField();
+        lblLoginPassword6 = new javax.swing.JLabel();
+        txtMatKhauCu2 = new javax.swing.JPasswordField();
+        lblLoginPassword7 = new javax.swing.JLabel();
+        txtMatKhauCu3 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -81,10 +90,10 @@ public class Quenmatkhau extends javax.swing.JDialog {
                 .addComponent(lblIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblLogin1)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addContainerGap(349, Short.MAX_VALUE))
         );
 
-        getContentPane().add(pnlleft, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 490));
+        getContentPane().add(pnlleft, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 660));
 
         pnlright.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -141,6 +150,30 @@ public class Quenmatkhau extends javax.swing.JDialog {
         lblLoginPassword4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLoginPassword4.setText("Email");
 
+        lblLoginPassword5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lblLoginPassword5.setForeground(new java.awt.Color(102, 102, 102));
+        lblLoginPassword5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLoginPassword5.setText("Mã xác nhận");
+
+        txtMatKhauCu1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtMatKhauCu1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
+
+        lblLoginPassword6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lblLoginPassword6.setForeground(new java.awt.Color(102, 102, 102));
+        lblLoginPassword6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLoginPassword6.setText("Nhập mật khẩu mới");
+
+        txtMatKhauCu2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtMatKhauCu2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
+
+        lblLoginPassword7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lblLoginPassword7.setForeground(new java.awt.Color(102, 102, 102));
+        lblLoginPassword7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLoginPassword7.setText("Xác nhận mật khẩu");
+
+        txtMatKhauCu3.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtMatKhauCu3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
+
         javax.swing.GroupLayout pnlrightLayout = new javax.swing.GroupLayout(pnlright);
         pnlright.setLayout(pnlrightLayout);
         pnlrightLayout.setHorizontalGroup(
@@ -151,17 +184,26 @@ public class Quenmatkhau extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(pnlrightLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
                 .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblLoginPassword4)
-                    .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblLoginPassword2)
-                        .addComponent(txtTenDangNhap, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
-                        .addComponent(txtMatKhauCu)
-                        .addGroup(pnlrightLayout.createSequentialGroup()
-                            .addComponent(btnXacNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(pnlrightLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtMatKhauCu3, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMatKhauCu2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblLoginPassword7)
+                            .addComponent(lblLoginPassword6)
+                            .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtMatKhauCu1)
+                                    .addComponent(lblLoginPassword5)
+                                    .addComponent(lblLoginPassword4)
+                                    .addComponent(lblLoginPassword2)
+                                    .addComponent(txtTenDangNhap, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
+                                    .addComponent(txtMatKhauCu)))))
+                    .addGroup(pnlrightLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(btnXacNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlrightLayout.setVerticalGroup(
@@ -174,20 +216,32 @@ public class Quenmatkhau extends javax.swing.JDialog {
                         .addComponent(lblLogin)))
                 .addGap(35, 35, 35)
                 .addComponent(lblLoginPassword2)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTenDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(lblLoginPassword4)
                 .addGap(18, 18, 18)
+                .addComponent(lblLoginPassword4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtMatKhauCu2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblLoginPassword5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtMatKhauCu, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(lblLoginPassword6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtMatKhauCu3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblLoginPassword7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtMatKhauCu1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnXacNhan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(87, 87, 87))
+                .addGap(86, 86, 86))
         );
 
-        getContentPane().add(pnlright, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 370, 490));
+        getContentPane().add(pnlright, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 370, 660));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -255,11 +309,17 @@ public class Quenmatkhau extends javax.swing.JDialog {
     private javax.swing.JLabel lblLogin1;
     private javax.swing.JLabel lblLoginPassword2;
     private javax.swing.JLabel lblLoginPassword4;
+    private javax.swing.JLabel lblLoginPassword5;
+    private javax.swing.JLabel lblLoginPassword6;
+    private javax.swing.JLabel lblLoginPassword7;
     private javax.swing.JLabel lblThoat;
     private javax.swing.JPanel pnlThoat;
     private javax.swing.JPanel pnlleft;
     private javax.swing.JPanel pnlright;
     private javax.swing.JPasswordField txtMatKhauCu;
+    private javax.swing.JPasswordField txtMatKhauCu1;
+    private javax.swing.JPasswordField txtMatKhauCu2;
+    private javax.swing.JPasswordField txtMatKhauCu3;
     private javax.swing.JTextField txtTenDangNhap;
     // End of variables declaration//GEN-END:variables
     

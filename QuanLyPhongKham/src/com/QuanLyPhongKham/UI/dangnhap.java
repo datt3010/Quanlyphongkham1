@@ -5,11 +5,18 @@
  */
 package com.QuanLyPhongKham.UI;
 
+import Model.NhanVien;
+import DAO.nhanvienDAO;
+import Utilities.MsgBox;
+import java.awt.geom.RoundRectangle2D;
+
 /**
  *
  * @author p
  */
 public class dangnhap extends javax.swing.JFrame {
+
+    nhanvienDAO daonv = new nhanvienDAO();
 
     /**
      * Creates new form dangnhap
@@ -17,8 +24,47 @@ public class dangnhap extends javax.swing.JFrame {
     public dangnhap() {
         initComponents();
         setLocationRelativeTo(null);
+        setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 30, 30));
+        text();
+    }
+    final int max = 100;
+    final int min = 50;
+
+    public void text() {
+        Thread ani = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int x = 10;
+                int y =450;
+                boolean checked = true;
+                while (true) {
+                    if (checked) {
+                        lblchu.setLocation(x, y);
+                        x += 10;
+                    } else {
+                        lblchu.setLocation(x, y);
+                        x -= 10;
+                    }
+                    if (x > max) {
+                        checked = false;
+                        x = 10;
+                    }
+                    if (x < min) {
+                        checked = true;
+                    }
+                    try {
+                        Thread.sleep(500);
+                    } catch (Exception e) {
+
+                    }
+                }
+            }
+
+        });
+        ani.start();
     }
 
+//        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,18 +77,18 @@ public class dangnhap extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblchu = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        lblquenmatkhau = new javax.swing.JLabel();
+        btndoimatkhau = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtuser = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton2 = new javax.swing.JButton();
+        txtpassword = new javax.swing.JPasswordField();
+        btndangnhap = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -54,8 +100,8 @@ public class dangnhap extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/favicon.png"))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel2.setText("Phòng Khám An Nhiên Mang Đến Sự Bình Yên");
+        lblchu.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lblchu.setText("Phòng Khám An Nhiên Mang Đến Sự Bình Yên");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -64,21 +110,21 @@ public class dangnhap extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(62, 62, 62)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel2)))
-                .addContainerGap(67, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(lblchu, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(217, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(57, 57, 57)
+                .addComponent(lblchu)
+                .addGap(121, 121, 121))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 550));
@@ -86,15 +132,15 @@ public class dangnhap extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 102, 102));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setText("Quên mật khẩu ?");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, -1));
+        lblquenmatkhau.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblquenmatkhau.setText("Quên mật khẩu ?");
+        jPanel3.add(lblquenmatkhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(255, 153, 153));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-home-page-23.png"))); // NOI18N
-        jButton1.setText("Đổi mật khẩu?");
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 190, 50));
+        btndoimatkhau.setBackground(new java.awt.Color(255, 153, 153));
+        btndoimatkhau.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btndoimatkhau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-home-page-23.png"))); // NOI18N
+        btndoimatkhau.setText("Đổi mật khẩu?");
+        jPanel3.add(btndoimatkhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 190, 50));
 
         jSeparator2.setBackground(new java.awt.Color(255, 0, 0));
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 320, 10));
@@ -111,29 +157,29 @@ public class dangnhap extends javax.swing.JFrame {
         jLabel4.setText("Mật khẩu");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 77, -1));
 
-        jTextField1.setBackground(new java.awt.Color(255, 102, 102));
-        jTextField1.setBorder(null);
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 164, 326, 33));
+        txtuser.setBackground(new java.awt.Color(255, 102, 102));
+        txtuser.setBorder(null);
+        jPanel3.add(txtuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 164, 326, 33));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Tài Khoản");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 160, -1, 33));
 
-        jPasswordField1.setBackground(new java.awt.Color(255, 102, 102));
-        jPasswordField1.setBorder(null);
-        jPanel3.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 326, 33));
+        txtpassword.setBackground(new java.awt.Color(255, 102, 102));
+        txtpassword.setBorder(null);
+        jPanel3.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 326, 33));
 
-        jButton2.setBackground(new java.awt.Color(255, 153, 153));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_chart_30px.png"))); // NOI18N
-        jButton2.setText("Đăng nhập");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btndangnhap.setBackground(new java.awt.Color(255, 153, 153));
+        btndangnhap.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btndangnhap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_chart_30px.png"))); // NOI18N
+        btndangnhap.setText("Đăng nhập");
+        btndangnhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btndangnhapActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, 50));
+        jPanel3.add(btndangnhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, 50));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 550, 550));
 
@@ -153,11 +199,10 @@ public class dangnhap extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btndangnhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndangnhapActionPerformed
         // TODO add your handling code here:
-        new QuanLyBacSi().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+        login();
+    }//GEN-LAST:event_btndangnhapActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,21 +239,35 @@ public class dangnhap extends javax.swing.JFrame {
         });
     }
 
+    public void login() {
+        String taikhoan = txtuser.getText();
+        String pass = new String(txtpassword.getPassword());
+        NhanVien nhanVien = daonv.SelectByID(taikhoan);
+        if (nhanVien == null) {
+            MsgBox.alert(this, "sai tên đăng nhập");
+        } else if (!pass.equals(nhanVien.getMatkhau())) {
+            MsgBox.alert(this, "sai mật khẩu");
+        } else {
+            Utilities.Auths.user = nhanVien;
+            new QuanLyphongkham().setVisible(true);
+            this.dispose();
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btndangnhap;
+    private javax.swing.JButton btndoimatkhau;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblchu;
+    private javax.swing.JLabel lblquenmatkhau;
+    private javax.swing.JPasswordField txtpassword;
+    private javax.swing.JTextField txtuser;
     // End of variables declaration//GEN-END:variables
 }

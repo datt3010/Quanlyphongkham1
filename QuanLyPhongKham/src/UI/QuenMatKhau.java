@@ -3,27 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.QuanLyPhongKham.UI;
-
-import java.awt.geom.RoundRectangle2D;
-
-
+package UI;
 
 /**
  *
- * @author OS
+ * @author p
  */
-public class DoiMatKhau extends javax.swing.JDialog {
+public class QuenMatKhau extends javax.swing.JDialog {
 
     /**
-     * Creates new form DangNhap_1
+     * Creates new form QuenMatKhau
      */
-    public DoiMatKhau(java.awt.Frame parent, boolean modal) {
+    public QuenMatKhau(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setLocationRelativeTo(null);
-        setTitle("Đổi mật khẩu");
-        setShape(new RoundRectangle2D.Double(0, 0, getWidth(),  getHeight(),  30,30));
     }
 
     /**
@@ -55,8 +48,6 @@ public class DoiMatKhau extends javax.swing.JDialog {
         txtNhacLaiMatKhauMoi = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setUndecorated(true);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlleft.setBackground(new java.awt.Color(0, 102, 255));
 
@@ -89,10 +80,8 @@ public class DoiMatKhau extends javax.swing.JDialog {
                 .addComponent(lblIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblLogin1)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        getContentPane().add(pnlleft, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 490));
 
         pnlright.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -113,24 +102,24 @@ public class DoiMatKhau extends javax.swing.JDialog {
         });
         pnlThoat.add(lblThoat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 39, 40));
 
-        lblLogin.setFont(new java.awt.Font("Agency FB", 1, 40)); // NOI18N
+        lblLogin.setFont(new java.awt.Font("Segoe UI", 1, 40)); // NOI18N
         lblLogin.setForeground(new java.awt.Color(102, 102, 102));
         lblLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLogin.setText("Reset Password");
+        lblLogin.setText("Quên mật khẩu");
         lblLogin.setToolTipText("");
 
-        lblLoginID.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        lblLoginID.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblLoginID.setForeground(new java.awt.Color(102, 102, 102));
         lblLoginID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLoginID.setText("Login ID");
+        lblLoginID.setText("Nhập tài khoản");
 
         txtTenDangNhap.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         txtTenDangNhap.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
 
-        lblLoginPassword.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        lblLoginPassword.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblLoginPassword.setForeground(new java.awt.Color(102, 102, 102));
         lblLoginPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLoginPassword.setText("Login Old Password");
+        lblLoginPassword.setText("Nhập số điện thoại");
 
         txtMatKhauCu.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtMatKhauCu.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
@@ -159,18 +148,18 @@ public class DoiMatKhau extends javax.swing.JDialog {
             }
         });
 
-        lblLoginPassword1.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        lblLoginPassword1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblLoginPassword1.setForeground(new java.awt.Color(102, 102, 102));
         lblLoginPassword1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLoginPassword1.setText("Login New Password");
+        lblLoginPassword1.setText("Nhập mã otp");
 
         txtMatKhauMoi.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtMatKhauMoi.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
 
-        lblLoginPassword2.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        lblLoginPassword2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblLoginPassword2.setForeground(new java.awt.Color(102, 102, 102));
         lblLoginPassword2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLoginPassword2.setText("Enter a New Password");
+        lblLoginPassword2.setText("Nhập mật khẩu mới");
 
         txtNhacLaiMatKhauMoi.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtNhacLaiMatKhauMoi.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
@@ -180,11 +169,11 @@ public class DoiMatKhau extends javax.swing.JDialog {
         pnlrightLayout.setHorizontalGroup(
             pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlrightLayout.createSequentialGroup()
-                .addGap(0, 66, Short.MAX_VALUE)
+                .addGap(0, 26, Short.MAX_VALUE)
                 .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlrightLayout.createSequentialGroup()
                         .addComponent(lblLogin)
-                        .addGap(44, 44, 44)
+                        .addGap(18, 18, 18)
                         .addComponent(pnlThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlrightLayout.createSequentialGroup()
                         .addComponent(lblQuenMatKhau)
@@ -230,7 +219,7 @@ public class DoiMatKhau extends javax.swing.JDialog {
                 .addComponent(lblLoginPassword2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNhacLaiMatKhauMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnThoat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnXacNhan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -239,25 +228,48 @@ public class DoiMatKhau extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        getContentPane().add(pnlright, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 370, 490));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 733, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(pnlleft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, 0)
+                    .addComponent(pnlright, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 524, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(pnlright, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlleft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblThoatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThoatMouseClicked
-    System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_lblThoatMouseClicked
 
-    private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXacNhanActionPerformed
-        
-    }//GEN-LAST:event_btnXacNhanActionPerformed
-
     private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
-        
+
     }//GEN-LAST:event_btnThoatActionPerformed
 
+    private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXacNhanActionPerformed
+
+    }//GEN-LAST:event_btnXacNhanActionPerformed
+
     private void lblQuenMatKhauMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuenMatKhauMouseClicked
-       
+
     }//GEN-LAST:event_lblQuenMatKhauMouseClicked
 
     /**
@@ -277,29 +289,28 @@ public class DoiMatKhau extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DoiMatKhau.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuenMatKhau.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DoiMatKhau.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuenMatKhau.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DoiMatKhau.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuenMatKhau.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DoiMatKhau.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuenMatKhau.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(() -> {
-            DoiMatKhau dialog = new DoiMatKhau(new javax.swing.JFrame(), true);
-            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                @Override
-                public void windowClosing(java.awt.event.WindowEvent e) {
-                    System.exit(0);
-                }
-            });
-            dialog.setVisible(true);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                QuenMatKhau dialog = new QuenMatKhau(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
         });
     }
 
@@ -323,6 +334,4 @@ public class DoiMatKhau extends javax.swing.JDialog {
     private javax.swing.JPasswordField txtNhacLaiMatKhauMoi;
     private javax.swing.JTextField txtTenDangNhap;
     // End of variables declaration//GEN-END:variables
-    
 }
-

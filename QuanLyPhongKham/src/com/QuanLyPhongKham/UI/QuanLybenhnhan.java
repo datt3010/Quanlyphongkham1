@@ -6,6 +6,7 @@
 package com.QuanLyPhongKham.UI;
 
 import java.awt.Color;
+import java.awt.geom.RoundRectangle2D;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -23,6 +24,7 @@ public class QuanLybenhnhan extends javax.swing.JFrame {
     public QuanLybenhnhan() {
         initComponents();
         init();
+       setShape(new RoundRectangle2D.Double(0, 0, getWidth(),  getHeight(),  30,30));
     }
 
     /**
@@ -94,6 +96,7 @@ public class QuanLybenhnhan extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ PHÒNG KHÁM");
+        setUndecorated(true);
 
         pnlTong.setBackground(new java.awt.Color(255, 255, 255));
         pnlTong.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

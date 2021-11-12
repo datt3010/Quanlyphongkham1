@@ -85,16 +85,24 @@ constraint fk_toathuoc_phieukham foreign key(maphieukham) references phieukham(m
 go
 create table dichvu(
 madichvu varchar(15) primary key,
-tendichvu nvarchar(50),
-giatien money
+tendichvu nvarchar(50) not null,
+giatien money not null
 )
 go
 create table hoadon(
 mahoadon int identity(1,1) primary key,
-madichvu varchar(15) not null,
 matoathuoc int not null,
 ngayghi date not null,
-tongbill money
-constraint fk_hoadon_madichvu foreign key(madichvu) references dichvu(madichvu) on delete no action on update no action,
 constraint fk_toathuoc_hoadon foreign key(matoathuoc)references toathuoc(matoathuoc) on delete no action on update no action
 )
+go
+create table chitiethoadon(
+mahoadon int primary key,
+madichvu varchar(15) not null,
+mathuoc varchar(10) not null,
+tongbill money not null,
+constraint fk_chitiethoadon_hoadon foreign key(mahoadon) references hoadon(mahoadon) on delete no action on update no action,
+constraint fk_chitiethoadon_dichvu foreign key(madichvu) references dichvu(madichvu) on delete no action on update no action,
+constraint fk_chitiethoadon_thuoc foreign key(mathuoc) references thuoc(mathuoc) on delete no action on update no action
+)
+select * from nhanvien
