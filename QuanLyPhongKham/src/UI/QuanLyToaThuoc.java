@@ -85,18 +85,24 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         btnXoa = new javax.swing.JButton();
         btnMoi = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
-        rSTableMetro2 = new rojeru_san.complementos.RSTableMetro();
+        tblDanhSachThuoc = new rojeru_san.complementos.RSTableMetro();
         jScrollPane5 = new javax.swing.JScrollPane();
+<<<<<<< Updated upstream
         jTextPane1 = new javax.swing.JTextPane();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTextPane2 = new javax.swing.JTextPane();
         jTextField2 = new javax.swing.JTextField();
         btnMoi1 = new javax.swing.JButton();
+=======
+        txpDSTenThuoc = new javax.swing.JTextPane();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        txpDSLieuLuong = new javax.swing.JTextPane();
+        txtTim = new javax.swing.JTextField();
+        btnTim = new javax.swing.JButton();
+>>>>>>> Stashed changes
         pnlDSThuoc = new javax.swing.JPanel();
-        pnlKhoaHoc2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        rSTableMetro1 = new rojeru_san.complementos.RSTableMetro();
+        tblDSToaThuoc = new rojeru_san.complementos.RSTableMetro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ PHÒNG KHÁM");
@@ -625,28 +631,63 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
                 btnMoiActionPerformed(evt);
             }
         });
+<<<<<<< Updated upstream
         pnlToaThuoc.add(btnMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 290, 80, 35));
+=======
+        pnlToaThuoc.add(btnMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 290, 70, 35));
 
-        rSTableMetro2.setModel(new javax.swing.table.DefaultTableModel(
+        tblDanhSachThuoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Mã Thuốc", "Tên Thuốc", "Liều Lượng", "Đơn Gía", "Hạn Sử Dụng"
             }
-        ));
-        rSTableMetro2.setAltoHead(30);
-        rSTableMetro2.setRowHeight(26);
-        jScrollPane4.setViewportView(rSTableMetro2);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
 
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblDanhSachThuoc.setAltoHead(30);
+        tblDanhSachThuoc.setRowHeight(26);
+        jScrollPane4.setViewportView(tblDanhSachThuoc);
+        if (tblDanhSachThuoc.getColumnModel().getColumnCount() > 0) {
+            tblDanhSachThuoc.getColumnModel().getColumn(0).setMinWidth(100);
+            tblDanhSachThuoc.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tblDanhSachThuoc.getColumnModel().getColumn(0).setMaxWidth(100);
+            tblDanhSachThuoc.getColumnModel().getColumn(3).setMinWidth(140);
+            tblDanhSachThuoc.getColumnModel().getColumn(3).setPreferredWidth(140);
+            tblDanhSachThuoc.getColumnModel().getColumn(3).setMaxWidth(140);
+            tblDanhSachThuoc.getColumnModel().getColumn(4).setMinWidth(140);
+            tblDanhSachThuoc.getColumnModel().getColumn(4).setPreferredWidth(140);
+            tblDanhSachThuoc.getColumnModel().getColumn(4).setMaxWidth(140);
+        }
+
+        pnlToaThuoc.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 860, 230));
+
+        txpDSTenThuoc.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jScrollPane5.setViewportView(txpDSTenThuoc);
+>>>>>>> Stashed changes
+
+        pnlToaThuoc.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 280, 160));
+
+<<<<<<< Updated upstream
         pnlToaThuoc.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 860, 230));
+=======
+        txpDSLieuLuong.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jScrollPane6.setViewportView(txpDSLieuLuong);
+>>>>>>> Stashed changes
 
-        jTextPane1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jScrollPane5.setViewportView(jTextPane1);
+        pnlToaThuoc.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 290, 160));
 
+<<<<<<< Updated upstream
         pnlToaThuoc.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 290, 160));
 
         jTextPane2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -667,34 +708,27 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
             }
         });
         pnlToaThuoc.add(btnMoi1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 80, 35));
+=======
+        txtTim.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        pnlToaThuoc.add(txtTim, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, 350, 35));
+
+        btnTim.setBackground(new java.awt.Color(0, 112, 192));
+        btnTim.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        btnTim.setForeground(new java.awt.Color(255, 255, 255));
+        btnTim.setText("MỚI");
+        btnTim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTimActionPerformed(evt);
+            }
+        });
+        pnlToaThuoc.add(btnTim, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 80, 35));
+>>>>>>> Stashed changes
 
         pnlCard.add(pnlToaThuoc, "card2");
 
         pnlDSThuoc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pnlKhoaHoc2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "TÊN THUỐC", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 17), new java.awt.Color(0, 120, 215))); // NOI18N
-
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-
-        javax.swing.GroupLayout pnlKhoaHoc2Layout = new javax.swing.GroupLayout(pnlKhoaHoc2);
-        pnlKhoaHoc2.setLayout(pnlKhoaHoc2Layout);
-        pnlKhoaHoc2Layout.setHorizontalGroup(
-            pnlKhoaHoc2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlKhoaHoc2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 804, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        pnlKhoaHoc2Layout.setVerticalGroup(
-            pnlKhoaHoc2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlKhoaHoc2Layout.createSequentialGroup()
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        pnlDSThuoc.add(pnlKhoaHoc2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 840, 80));
-
-        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
+        tblDSToaThuoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -705,11 +739,11 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        rSTableMetro1.setAltoHead(35);
-        rSTableMetro1.setRowHeight(26);
-        jScrollPane1.setViewportView(rSTableMetro1);
+        tblDSToaThuoc.setAltoHead(35);
+        tblDSToaThuoc.setRowHeight(26);
+        jScrollPane1.setViewportView(tblDSToaThuoc);
 
-        pnlDSThuoc.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 870, -1));
+        pnlDSThuoc.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 27, 870, 510));
 
         pnlCard.add(pnlDSThuoc, "card3");
 
@@ -1010,9 +1044,15 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMoiActionPerformed
 
+<<<<<<< Updated upstream
     private void btnMoi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoi1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMoi1ActionPerformed
+=======
+    private void btnTimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTimActionPerformed
+>>>>>>> Stashed changes
 
     /**
      * @param args the command line arguments
@@ -1055,10 +1095,14 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.complementos.RSButtonHover btnHocVien;
     private javax.swing.JButton btnMoi;
+<<<<<<< Updated upstream
     private javax.swing.JButton btnMoi1;
+=======
+>>>>>>> Stashed changes
     private rojeru_san.complementos.RSButtonHover btnNguoiHoc;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnTim;
     private javax.swing.JButton btnXoa;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -1068,10 +1112,13 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+<<<<<<< Updated upstream
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
+=======
+>>>>>>> Stashed changes
     private rojerusan.RSFotoCircle lblAnhNV;
     private javax.swing.JLabel lblDanhMuc;
     private javax.swing.JLabel lblDay;
@@ -1100,7 +1147,6 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     private javax.swing.JPanel pnlCard;
     private javax.swing.JPanel pnlDSThuoc;
     private javax.swing.JPanel pnlHeader;
-    private javax.swing.JPanel pnlKhoaHoc2;
     private javax.swing.JPanel pnlLeft;
     private javax.swing.JPanel pnlPhieuKham;
     private javax.swing.JPanel pnlQuanLyBacSi;
@@ -1113,8 +1159,11 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     private javax.swing.JPanel pnlRight;
     private javax.swing.JPanel pnlToaThuoc;
     private javax.swing.JPanel pnlTong;
-    private rojeru_san.complementos.RSTableMetro rSTableMetro1;
-    private rojeru_san.complementos.RSTableMetro rSTableMetro2;
+    private rojeru_san.complementos.RSTableMetro tblDSToaThuoc;
+    private rojeru_san.complementos.RSTableMetro tblDanhSachThuoc;
+    private javax.swing.JTextPane txpDSLieuLuong;
+    private javax.swing.JTextPane txpDSTenThuoc;
+    private javax.swing.JTextField txtTim;
     // End of variables declaration//GEN-END:variables
     private void init(){
         setLocationRelativeTo(null);
