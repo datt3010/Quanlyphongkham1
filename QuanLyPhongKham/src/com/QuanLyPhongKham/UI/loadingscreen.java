@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package com.QuanLyPhongKham.UI;
 
 /**
  *
@@ -49,8 +49,6 @@ public class loadingscreen extends javax.swing.JFrame {
         lblloading.setText("Loading...");
         jPanel1.add(lblloading, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 270, -1));
         jPanel1.add(loadingbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 970, 30));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\PRO1041\\Duan\\QuanLyPhongKham\\QuanLyPhongKham\\src\\Icon\\background.jpg")); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 510));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

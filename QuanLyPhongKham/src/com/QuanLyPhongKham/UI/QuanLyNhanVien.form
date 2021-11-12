@@ -168,6 +168,9 @@
                   <Color blue="4e" green="46" red="36" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="D:\duan1111\Quanlyphongkham1\QuanLyPhongKham\src\com\QuanLyPhongKham\Icon\icons8-menu-30.png"/>
+                </Property>
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
               <Events>

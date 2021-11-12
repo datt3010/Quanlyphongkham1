@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package com.QuanLyPhongKham.UI;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -16,12 +15,12 @@ import javax.swing.JPanel;
  *
  * @author OS
  */
-public class QuanLyBacSi extends javax.swing.JFrame {
+public class QuanLybenhnhan extends javax.swing.JFrame {
 
     /**
      * Creates new form QuanLyPhongKham
      */
-    public QuanLyBacSi() {
+    public QuanLybenhnhan() {
         initComponents();
         init();
     }
@@ -41,8 +40,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         lblTieuDe = new javax.swing.JLabel();
         lblDay = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        lblAnhNV = new rojerusan.RSFotoCircle();
+        lblAnhNVDangNhap = new rojerusan.RSFotoCircle();
         pnlLeft = new javax.swing.JPanel();
         lblDanhMuc = new javax.swing.JLabel();
         pnlQuanLyBacSi = new javax.swing.JPanel();
@@ -91,7 +89,8 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         btnPrevious = new javax.swing.JButton();
         btnNext = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblDSBS = new rojeru_san.complementos.RSTableMetro();
+        tblDSBacSi = new rojeru_san.complementos.RSTableMetro();
+        cldNgaySinh = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ PHÒNG KHÁM");
@@ -116,26 +115,18 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         lblTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTime.setText("00:00  SA");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("MANG ĐẾN SỰ BÌNH YÊN");
-
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
         pnlHeader.setLayout(pnlHeaderLayout);
         pnlHeaderLayout.setHorizontalGroup(
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHeaderLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(lblAnhNV, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
+                .addComponent(lblAnhNVDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(lblXinChao, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlHeaderLayout.createSequentialGroup()
-                        .addGap(171, 171, 171)
-                        .addComponent(lblTieuDe, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlHeaderLayout.createSequentialGroup()
-                        .addGap(302, 302, 302)
-                        .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
+                .addGap(157, 157, 157)
+                .addComponent(lblTieuDe, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
                 .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeaderLayout.createSequentialGroup()
                         .addComponent(lblDay, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -146,23 +137,19 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         );
         pnlHeaderLayout.setVerticalGroup(
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlHeaderLayout.createSequentialGroup()
-                .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlHeaderLayout.createSequentialGroup()
-                        .addComponent(lblTieuDe)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1))
-                    .addGroup(pnlHeaderLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(lblDay)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblTime))
-                    .addComponent(lblAnhNV, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeaderLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblXinChao)
-                .addGap(34, 34, 34))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblXinChao)
+                    .addComponent(lblTieuDe))
+                .addGap(25, 25, 25))
+            .addGroup(pnlHeaderLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(lblDay)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTime)
+                .addContainerGap(23, Short.MAX_VALUE))
+            .addComponent(lblAnhNVDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
         pnlTong.add(pnlHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 100));
@@ -193,7 +180,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
 
         lblIconBacSi.setBackground(new java.awt.Color(54, 70, 78));
         lblIconBacSi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconBacSi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_doctor_male_30px.png"))); // NOI18N
         lblIconBacSi.setToolTipText("Quản Lý Bác Sĩ");
         lblIconBacSi.setOpaque(true);
         lblIconBacSi.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -232,7 +218,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
 
         lblIconNhanVien.setBackground(new java.awt.Color(54, 70, 78));
         lblIconNhanVien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_manager_30px.png"))); // NOI18N
         lblIconNhanVien.setToolTipText("Quản Lý Nhân Viên");
         lblIconNhanVien.setOpaque(true);
         lblIconNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -271,7 +256,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
 
         lblIconBenhNhan.setBackground(new java.awt.Color(54, 70, 78));
         lblIconBenhNhan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconBenhNhan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-male-user-23.png"))); // NOI18N
         lblIconBenhNhan.setToolTipText("Quản Lý Bệnh Nhân");
         lblIconBenhNhan.setOpaque(true);
         lblIconBenhNhan.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -310,7 +294,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
 
         lblIconHoaDon.setBackground(new java.awt.Color(54, 70, 78));
         lblIconHoaDon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconHoaDon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_dollar_place_marker_30px.png"))); // NOI18N
         lblIconHoaDon.setToolTipText("Quản Lý Hoá Đơn");
         lblIconHoaDon.setOpaque(true);
         lblIconHoaDon.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -349,7 +332,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
 
         lblIconPhieuKham.setBackground(new java.awt.Color(54, 70, 78));
         lblIconPhieuKham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconPhieuKham.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_ticket_30px.png"))); // NOI18N
         lblIconPhieuKham.setToolTipText("Quản Lý Phiếu Khám");
         lblIconPhieuKham.setOpaque(true);
         lblIconPhieuKham.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -388,7 +370,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
 
         lblIconThuoc.setBackground(new java.awt.Color(54, 70, 78));
         lblIconThuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconThuoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_clinic_30px.png"))); // NOI18N
         lblIconThuoc.setToolTipText("Quản Lý Thuốc");
         lblIconThuoc.setOpaque(true);
         lblIconThuoc.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -427,7 +408,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
 
         lblIconThongKe.setBackground(new java.awt.Color(54, 70, 78));
         lblIconThongKe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-increase-23.png"))); // NOI18N
         lblIconThongKe.setToolTipText("Quản Lý Thống Kê");
         lblIconThongKe.setOpaque(true);
         lblIconThongKe.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -470,7 +450,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("QUẢN LÝ BÁC SĨ");
+        jLabel6.setText("QUẢN LÝ BỆNH NHÂN");
         pnlRight.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
 
         lblAnhBS.setBackground(new java.awt.Color(255, 51, 0));
@@ -479,7 +459,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         pnlRight.add(lblAnhBS, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 170, 210));
 
         lblMaChuyenNganh.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lblMaChuyenNganh.setText("Mã Chuyên Ngành");
+        lblMaChuyenNganh.setText("Mã Bệnh Nhân");
         pnlRight.add(lblMaChuyenNganh, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
 
         txtMaChuyenNganh.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -495,7 +475,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         pnlRight.add(txtMaBacSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 300, 30));
 
         lblTenBacSi.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lblTenBacSi.setText("Tên Bác Sĩ");
+        lblTenBacSi.setText("Họ và tên Bệnh Nhân");
         pnlRight.add(lblTenBacSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, -1, -1));
 
         txtTenBacSi.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -503,7 +483,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         pnlRight.add(txtTenBacSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 300, 30));
 
         lblMaBacSi.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lblMaBacSi.setText("Mã Bác Sĩ");
+        lblMaBacSi.setText("Mã nhân viên");
         pnlRight.add(lblMaBacSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, -1, -1));
 
         cboGioiTinh.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -519,7 +499,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         pnlRight.add(txtSoDienThoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 300, 30));
 
         lblEmail.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lblEmail.setText("Email");
+        lblEmail.setText("Địa chỉ");
         pnlRight.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, -1, -1));
 
         txtEmail.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -531,7 +511,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         pnlRight.add(lblSoDienThoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, -1, -1));
 
         btnLast.setBackground(new java.awt.Color(0, 112, 192));
-        btnLast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_end_32px_1.png"))); // NOI18N
         btnLast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLastActionPerformed(evt);
@@ -584,7 +563,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         pnlRight.add(btnMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 80, 35));
 
         btnFirst.setBackground(new java.awt.Color(0, 112, 192));
-        btnFirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_skip_to_start_32px_1.png"))); // NOI18N
         btnFirst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFirstActionPerformed(evt);
@@ -593,7 +571,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         pnlRight.add(btnFirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, 80, 35));
 
         btnPrevious.setBackground(new java.awt.Color(0, 112, 192));
-        btnPrevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_rewind_32px.png"))); // NOI18N
         btnPrevious.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPreviousActionPerformed(evt);
@@ -602,7 +579,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         pnlRight.add(btnPrevious, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 290, 80, 35));
 
         btnNext.setBackground(new java.awt.Color(0, 112, 192));
-        btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_fast_forward_32px.png"))); // NOI18N
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
@@ -610,38 +586,42 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         });
         pnlRight.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 290, 80, 35));
 
-        tblDSBS.setModel(new javax.swing.table.DefaultTableModel(
+        tblDSBacSi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã BS", "Họ và Tên", "Giới Tính", "Số ĐT", "Email", "Ngày Sinh"
+                "Mã Bệnh Nhân", "Họ và Tên", "Giới Tính", "Số ĐT", "Ngày sinh", "Mã nhân viên", "Địa chỉ"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        tblDSBS.setAltoHead(35);
-        tblDSBS.setRowHeight(26);
-        jScrollPane1.setViewportView(tblDSBS);
-        if (tblDSBS.getColumnModel().getColumnCount() > 0) {
-            tblDSBS.getColumnModel().getColumn(0).setMinWidth(100);
-            tblDSBS.getColumnModel().getColumn(0).setPreferredWidth(100);
-            tblDSBS.getColumnModel().getColumn(0).setMaxWidth(100);
-            tblDSBS.getColumnModel().getColumn(2).setMinWidth(100);
-            tblDSBS.getColumnModel().getColumn(2).setPreferredWidth(100);
-            tblDSBS.getColumnModel().getColumn(2).setMaxWidth(100);
+        tblDSBacSi.setAltoHead(35);
+        tblDSBacSi.setColorSelBackgound(new java.awt.Color(255, 51, 0));
+        tblDSBacSi.setRowHeight(26);
+        jScrollPane1.setViewportView(tblDSBacSi);
+        if (tblDSBacSi.getColumnModel().getColumnCount() > 0) {
+            tblDSBacSi.getColumnModel().getColumn(0).setMinWidth(100);
+            tblDSBacSi.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tblDSBacSi.getColumnModel().getColumn(0).setMaxWidth(100);
+            tblDSBacSi.getColumnModel().getColumn(2).setMinWidth(100);
+            tblDSBacSi.getColumnModel().getColumn(2).setPreferredWidth(100);
+            tblDSBacSi.getColumnModel().getColumn(2).setMaxWidth(100);
         }
 
-        pnlRight.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 900, 300));
+        pnlRight.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 890, 310));
+
+        cldNgaySinh.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        pnlRight.add(cldNgaySinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 270, 30));
 
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 990, 660));
 
@@ -674,7 +654,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
                             pnlLeft.setSize(i, 760);
                             pnlRight.setLocation(60, 100);
                             pnlRight.setSize(1140, 760);
-                            
                         }
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, e);
@@ -949,7 +928,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new QuanLyBacSi().setVisible(true);
+                new QuanLybenhnhan().setVisible(true);
             }
         });
     }
@@ -964,11 +943,11 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
     private javax.swing.JComboBox<String> cboGioiTinh;
-    private javax.swing.JLabel jLabel1;
+    private com.toedter.calendar.JDateChooser cldNgaySinh;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAnhBS;
-    private rojerusan.RSFotoCircle lblAnhNV;
+    private rojerusan.RSFotoCircle lblAnhNVDangNhap;
     private javax.swing.JLabel lblDanhMuc;
     private javax.swing.JLabel lblDay;
     private javax.swing.JLabel lblEmail;
@@ -1006,7 +985,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     private javax.swing.JPanel pnlQuanLyThuoc;
     private javax.swing.JPanel pnlRight;
     private javax.swing.JPanel pnlTong;
-    private rojeru_san.complementos.RSTableMetro tblDSBS;
+    private rojeru_san.complementos.RSTableMetro tblDSBacSi;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtMaBacSi;
     private javax.swing.JTextField txtMaChuyenNganh;

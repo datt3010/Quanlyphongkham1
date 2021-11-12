@@ -3,23 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package com.QuanLyPhongKham.UI;
 
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
 /**
  *
- * @author Administrator
+ * @author OS
  */
-public class ThongKeBenhNhan extends javax.swing.JFrame {
+public class QuanLyphongkham extends javax.swing.JFrame {
 
     /**
-     * Creates new form ThongKeBenhNhan
+     * Creates new form QuanLyPhongKham
      */
-    public ThongKeBenhNhan() {
+    public QuanLyphongkham() {
         initComponents();
         init();
     }
@@ -35,11 +36,11 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
 
         pnlTong = new javax.swing.JPanel();
         pnlHeader = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        rSFotoCircle1 = new rojerusan.RSFotoCircle();
+        lblXinChao = new javax.swing.JLabel();
+        lblTieuDe = new javax.swing.JLabel();
+        lblDay = new javax.swing.JLabel();
+        lblTime = new javax.swing.JLabel();
+        lblAnhNVDangNhap = new rojerusan.RSFotoCircle();
         pnlLeft = new javax.swing.JPanel();
         lblDanhMuc = new javax.swing.JLabel();
         pnlQuanLyBacSi = new javax.swing.JPanel();
@@ -63,35 +64,51 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
         pnlQuanLyThongKe = new javax.swing.JPanel();
         lblIconThongKe = new javax.swing.JLabel();
         lblThongKe = new javax.swing.JLabel();
-        lblQuanLyThuoc1 = new javax.swing.JLabel();
-        lblIconThuoc1 = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        lblMaChuyenNganh = new javax.swing.JLabel();
+        txtMaChuyenNganh = new javax.swing.JTextField();
+        txtMaBacSi = new javax.swing.JTextField();
+        lblTenBacSi = new javax.swing.JLabel();
+        lblMaBacSi = new javax.swing.JLabel();
+        lblNgaySinh = new javax.swing.JLabel();
+        txtSoDienThoai = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        lblSoDienThoai = new javax.swing.JLabel();
+        btnLast = new javax.swing.JButton();
+        btnXoa = new javax.swing.JButton();
+        btnThem = new javax.swing.JButton();
+        btnSua = new javax.swing.JButton();
+        btnMoi = new javax.swing.JButton();
+        btnFirst = new javax.swing.JButton();
+        btnPrevious = new javax.swing.JButton();
+        btnNext = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        rSTableMetro1 = new rojeru_san.complementos.RSTableMetro();
-        btnXuat = new javax.swing.JButton();
+        tblDSBacSi = new rojeru_san.complementos.RSTableMetro();
+        cldNgaySinh = new com.toedter.calendar.JDateChooser();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("QUẢN LÝ PHÒNG KHÁM");
 
         pnlTong.setBackground(new java.awt.Color(255, 255, 255));
         pnlTong.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlHeader.setBackground(new java.awt.Color(51, 153, 255));
 
-        jLabel1.setFont(new java.awt.Font("Agency FB", 1, 20)); // NOI18N
-        jLabel1.setText("Xin chào, ");
+        lblXinChao.setFont(new java.awt.Font("Agency FB", 1, 20)); // NOI18N
+        lblXinChao.setText("Xin chào, ");
 
-        jLabel2.setFont(new java.awt.Font("Agency FB", 1, 48)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("PHÒNG KHÁM AN NHIÊN");
+        lblTieuDe.setFont(new java.awt.Font("Agency FB", 1, 48)); // NOI18N
+        lblTieuDe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTieuDe.setText("PHÒNG KHÁM AN NHIÊN");
 
-        jLabel3.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("dd/MM/yyyy");
+        lblDay.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
+        lblDay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDay.setText("dd/MM/yyyy");
 
-        jLabel4.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("00:00");
+        lblTime.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        lblTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTime.setText("00:00  SA");
 
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
         pnlHeader.setLayout(pnlHeaderLayout);
@@ -99,36 +116,35 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHeaderLayout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addComponent(rSFotoCircle1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblAnhNVDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(158, 158, 158)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
+                .addComponent(lblXinChao, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(157, 157, 157)
+                .addComponent(lblTieuDe, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
                 .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeaderLayout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblDay, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeaderLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(60, 60, 60))))
+                        .addComponent(lblTime)
+                        .addGap(35, 35, 35))))
         );
         pnlHeaderLayout.setVerticalGroup(
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeaderLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(31, 31, 31))
+                .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblXinChao)
+                    .addComponent(lblTieuDe))
+                .addGap(25, 25, 25))
             .addGroup(pnlHeaderLayout.createSequentialGroup()
-                .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(pnlHeaderLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)))
-                .addContainerGap(24, Short.MAX_VALUE))
-            .addComponent(rSFotoCircle1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(19, 19, 19)
+                .addComponent(lblDay)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTime)
+                .addContainerGap(23, Short.MAX_VALUE))
+            .addComponent(lblAnhNVDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
         pnlTong.add(pnlHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 100));
@@ -139,6 +155,7 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
 
         lblDanhMuc.setBackground(new java.awt.Color(54, 70, 78));
         lblDanhMuc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDanhMuc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-menu-30.png"))); // NOI18N
         lblDanhMuc.setOpaque(true);
         lblDanhMuc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -158,7 +175,6 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
 
         lblIconBacSi.setBackground(new java.awt.Color(54, 70, 78));
         lblIconBacSi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconBacSi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_doctor_male_30px.png"))); // NOI18N
         lblIconBacSi.setToolTipText("Quản Lý Bác Sĩ");
         lblIconBacSi.setOpaque(true);
         lblIconBacSi.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -197,7 +213,6 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
 
         lblIconNhanVien.setBackground(new java.awt.Color(54, 70, 78));
         lblIconNhanVien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_manager_30px.png"))); // NOI18N
         lblIconNhanVien.setToolTipText("Quản Lý Nhân Viên");
         lblIconNhanVien.setOpaque(true);
         lblIconNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -236,7 +251,6 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
 
         lblIconBenhNhan.setBackground(new java.awt.Color(54, 70, 78));
         lblIconBenhNhan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconBenhNhan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-survey-23.png"))); // NOI18N
         lblIconBenhNhan.setToolTipText("Quản Lý Bệnh Nhân");
         lblIconBenhNhan.setOpaque(true);
         lblIconBenhNhan.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -275,7 +289,6 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
 
         lblIconHoaDon.setBackground(new java.awt.Color(54, 70, 78));
         lblIconHoaDon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconHoaDon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-magazine-23.png"))); // NOI18N
         lblIconHoaDon.setToolTipText("Quản Lý Hoá Đơn");
         lblIconHoaDon.setOpaque(true);
         lblIconHoaDon.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -314,7 +327,6 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
 
         lblIconPhieuKham.setBackground(new java.awt.Color(54, 70, 78));
         lblIconPhieuKham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconPhieuKham.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_dollar_place_marker_30px.png"))); // NOI18N
         lblIconPhieuKham.setToolTipText("Quản Lý Phiếu Khám");
         lblIconPhieuKham.setOpaque(true);
         lblIconPhieuKham.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -353,7 +365,6 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
 
         lblIconThuoc.setBackground(new java.awt.Color(54, 70, 78));
         lblIconThuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconThuoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_chart_30px.png"))); // NOI18N
         lblIconThuoc.setToolTipText("Quản Lý Thuốc");
         lblIconThuoc.setOpaque(true);
         lblIconThuoc.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -392,7 +403,6 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
 
         lblIconThongKe.setBackground(new java.awt.Color(54, 70, 78));
         lblIconThongKe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-increase-23.png"))); // NOI18N
         lblIconThongKe.setToolTipText("Quản Lý Thống Kê");
         lblIconThongKe.setOpaque(true);
         lblIconThongKe.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -426,40 +436,6 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
 
         pnlLeft.add(pnlQuanLyThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 210, 40));
 
-        lblQuanLyThuoc1.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
-        lblQuanLyThuoc1.setForeground(new java.awt.Color(255, 255, 255));
-        lblQuanLyThuoc1.setText("Quản lý toa thuốc");
-        lblQuanLyThuoc1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblQuanLyThuoc1MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblQuanLyThuoc1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblQuanLyThuoc1MouseExited(evt);
-            }
-        });
-        pnlLeft.add(lblQuanLyThuoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 140, -1));
-
-        lblIconThuoc1.setBackground(new java.awt.Color(54, 70, 78));
-        lblIconThuoc1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconThuoc1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_chart_30px.png"))); // NOI18N
-        lblIconThuoc1.setToolTipText("Quản Lý Thuốc");
-        lblIconThuoc1.setOpaque(true);
-        lblIconThuoc1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblIconThuoc1MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblIconThuoc1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblIconThuoc1MouseExited(evt);
-            }
-        });
-        pnlLeft.add(lblIconThuoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 40, 40));
-
         pnlTong.add(pnlLeft, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 210, 660));
 
         pnlRight.setBackground(new java.awt.Color(255, 255, 255));
@@ -469,34 +445,157 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("QUẢN LÝ NHÂN VIÊN");
-        pnlRight.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, -1, -1));
+        jLabel6.setText("QUẢN LÝ PHIẾU KHÁM");
+        pnlRight.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
 
-        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Mã bệnh nhân", "Họ tên", "Ngày sinh", "tái khám(số lần)", "Bệnh", "Số điện thoại"
-            }
-        ));
-        jScrollPane1.setViewportView(rSTableMetro1);
+        lblMaChuyenNganh.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblMaChuyenNganh.setText("Mã phiếu khám");
+        pnlRight.add(lblMaChuyenNganh, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
 
-        pnlRight.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 970, 440));
+        txtMaChuyenNganh.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        txtMaChuyenNganh.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        pnlRight.add(txtMaChuyenNganh, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 300, 30));
 
-        btnXuat.setBackground(new java.awt.Color(0, 112, 192));
-        btnXuat.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        btnXuat.setForeground(new java.awt.Color(255, 255, 255));
-        btnXuat.setText("Xuất file excel");
-        btnXuat.addActionListener(new java.awt.event.ActionListener() {
+        txtMaBacSi.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        txtMaBacSi.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        pnlRight.add(txtMaBacSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 300, 30));
+
+        lblTenBacSi.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblTenBacSi.setText("Ngày Khám");
+        pnlRight.add(lblTenBacSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
+
+        lblMaBacSi.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblMaBacSi.setText("Mã Bệnh Nhân");
+        pnlRight.add(lblMaBacSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, -1, -1));
+
+        lblNgaySinh.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblNgaySinh.setText("Mã Nhân Viên");
+        pnlRight.add(lblNgaySinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, -1, -1));
+
+        txtSoDienThoai.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        txtSoDienThoai.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        pnlRight.add(txtSoDienThoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 300, 30));
+
+        txtEmail.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        txtEmail.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        pnlRight.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 300, 30));
+
+        lblSoDienThoai.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblSoDienThoai.setText("Mã Bác Sĩ");
+        pnlRight.add(lblSoDienThoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+
+        btnLast.setBackground(new java.awt.Color(0, 112, 192));
+        btnLast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXuatActionPerformed(evt);
+                btnLastActionPerformed(evt);
             }
         });
-        pnlRight.add(btnXuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 600, 150, 35));
+        pnlRight.add(btnLast, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 290, 80, 35));
+
+        btnXoa.setBackground(new java.awt.Color(0, 112, 192));
+        btnXoa.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        btnXoa.setForeground(new java.awt.Color(255, 255, 255));
+        btnXoa.setText("XOÁ");
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
+            }
+        });
+        pnlRight.add(btnXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 80, 35));
+
+        btnThem.setBackground(new java.awt.Color(0, 112, 192));
+        btnThem.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        btnThem.setForeground(new java.awt.Color(255, 255, 255));
+        btnThem.setText("THÊM");
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
+        pnlRight.add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 80, 35));
+
+        btnSua.setBackground(new java.awt.Color(0, 112, 192));
+        btnSua.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        btnSua.setForeground(new java.awt.Color(255, 255, 255));
+        btnSua.setText("SỬA");
+        btnSua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSuaActionPerformed(evt);
+            }
+        });
+        pnlRight.add(btnSua, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 80, 35));
+
+        btnMoi.setBackground(new java.awt.Color(0, 112, 192));
+        btnMoi.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        btnMoi.setForeground(new java.awt.Color(255, 255, 255));
+        btnMoi.setText("MỚI");
+        btnMoi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMoiActionPerformed(evt);
+            }
+        });
+        pnlRight.add(btnMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 80, 35));
+
+        btnFirst.setBackground(new java.awt.Color(0, 112, 192));
+        btnFirst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFirstActionPerformed(evt);
+            }
+        });
+        pnlRight.add(btnFirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, 80, 35));
+
+        btnPrevious.setBackground(new java.awt.Color(0, 112, 192));
+        btnPrevious.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPreviousActionPerformed(evt);
+            }
+        });
+        pnlRight.add(btnPrevious, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 290, 80, 35));
+
+        btnNext.setBackground(new java.awt.Color(0, 112, 192));
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextActionPerformed(evt);
+            }
+        });
+        pnlRight.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 290, 80, 35));
+
+        tblDSBacSi.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Mã phiếu khám", "Ngày khám", "Mã BS", "Mã Bệnh Nhân", "Mã Nhân Viên", "Mã nhân viên", "Địa chỉ"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblDSBacSi.setAltoHead(35);
+        tblDSBacSi.setColorSelBackgound(new java.awt.Color(255, 51, 0));
+        tblDSBacSi.setRowHeight(26);
+        jScrollPane1.setViewportView(tblDSBacSi);
+        if (tblDSBacSi.getColumnModel().getColumnCount() > 0) {
+            tblDSBacSi.getColumnModel().getColumn(0).setMinWidth(100);
+            tblDSBacSi.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tblDSBacSi.getColumnModel().getColumn(0).setMaxWidth(100);
+            tblDSBacSi.getColumnModel().getColumn(2).setMinWidth(100);
+            tblDSBacSi.getColumnModel().getColumn(2).setPreferredWidth(100);
+            tblDSBacSi.getColumnModel().getColumn(2).setMaxWidth(100);
+        }
+
+        pnlRight.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 890, 310));
+
+        cldNgaySinh.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        pnlRight.add(cldNgaySinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 270, 30));
 
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 990, 660));
 
@@ -513,16 +612,17 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
     int x = 210;
     int i=0;
     private void lblDanhMucMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDanhMucMouseClicked
-        if ( x == 210 ) {
+       if ( x == 210 ) {
             pnlLeft.setSize(210, 760);
             Thread th = new Thread() {
                 @Override
                 public void run(){
                     try {
-
+                        
                         for ( int i = 210; i >= 60; i--){
                             Thread.sleep(1);
                             pnlLeft.setSize(i, 760);
@@ -535,9 +635,9 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
                 }
             };th.start();
             x = 60;
-            //            ImageIcon icon1 = new ImageIcon("C:\\Github\\DuAn1_QuanLyPhongKham\\DuAn1_QuanLyPhongKham\\src\\Icon\\icons8_chevron_right_30px.png");
-            //            lblDanhMuc.setIcon(icon1);
-        }
+//            ImageIcon icon1 = new ImageIcon("C:\\Github\\DuAn1_QuanLyPhongKham\\DuAn1_QuanLyPhongKham\\src\\Icon\\icons8_chevron_right_30px.png");
+//            lblDanhMuc.setIcon(icon1);
+        } 
         else if( x == 60 ){
             pnlLeft.setSize(x, 760);
             Thread th = new Thread(){
@@ -556,22 +656,66 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
                 }
             };th.start();
             x = 210;
-            //            ImageIcon icon = new ImageIcon("C:\\Github\\DuAn1_QuanLyPhongKham\\DuAn1_QuanLyPhongKham\\src\\Icon\\icons8-menu-30.png");
-            //            lblDanhMuc.setIcon(icon);
+//            ImageIcon icon = new ImageIcon("C:\\Github\\DuAn1_QuanLyPhongKham\\DuAn1_QuanLyPhongKham\\src\\Icon\\icons8-menu-30.png");
+//            lblDanhMuc.setIcon(icon);
         }
     }//GEN-LAST:event_lblDanhMucMouseClicked
 
-    private void lblDanhMucMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDanhMucMouseEntered
-        hover(lblDanhMuc);
-    }//GEN-LAST:event_lblDanhMucMouseEntered
+    private void lblIconNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconNhanVienMouseClicked
+        
+    }//GEN-LAST:event_lblIconNhanVienMouseClicked
 
-    private void lblDanhMucMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDanhMucMouseExited
-        NotHover(lblDanhMuc);
-    }//GEN-LAST:event_lblDanhMucMouseExited
+    private void lblQuanLyNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNhanVienMouseClicked
+        
+    }//GEN-LAST:event_lblQuanLyNhanVienMouseClicked
 
     private void lblIconBacSiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBacSiMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_lblIconBacSiMouseClicked
+
+    private void lblQuanLyBacSiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBacSiMouseClicked
+        
+    }//GEN-LAST:event_lblQuanLyBacSiMouseClicked
+
+    private void lblIconHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblIconHoaDonMouseClicked
+
+    private void lblQuanLyHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblQuanLyHoaDonMouseClicked
+
+    private void lblIconBenhNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBenhNhanMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblIconBenhNhanMouseClicked
+
+    private void lblQuanLyBenhNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblQuanLyBenhNhanMouseClicked
+
+    private void lblIconPhieuKhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconPhieuKhamMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblIconPhieuKhamMouseClicked
+
+    private void lblQuanLyPhieuKhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblQuanLyPhieuKhamMouseClicked
+
+    private void lblIconThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKeMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblIconThongKeMouseClicked
+
+    private void lblThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblThongKeMouseClicked
+
+    private void lblIconThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuocMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblIconThuocMouseClicked
+
+    private void lblQuanLyThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuocMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblQuanLyThuocMouseClicked
 
     private void lblIconBacSiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBacSiMouseEntered
         hover(lblIconBacSi);
@@ -581,22 +725,6 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
         NotHover(lblIconBacSi);
     }//GEN-LAST:event_lblIconBacSiMouseExited
 
-    private void lblQuanLyBacSiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBacSiMouseClicked
-
-    }//GEN-LAST:event_lblQuanLyBacSiMouseClicked
-
-    private void lblQuanLyBacSiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBacSiMouseEntered
-        hoverPanel(pnlQuanLyBacSi,lblIconBacSi);
-    }//GEN-LAST:event_lblQuanLyBacSiMouseEntered
-
-    private void lblQuanLyBacSiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBacSiMouseExited
-        NotHoverPanel(pnlQuanLyBacSi,lblIconBacSi);
-    }//GEN-LAST:event_lblQuanLyBacSiMouseExited
-
-    private void lblIconNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconNhanVienMouseClicked
-
-    }//GEN-LAST:event_lblIconNhanVienMouseClicked
-
     private void lblIconNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconNhanVienMouseEntered
         hover(lblIconNhanVien);
     }//GEN-LAST:event_lblIconNhanVienMouseEntered
@@ -604,22 +732,6 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
     private void lblIconNhanVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconNhanVienMouseExited
         NotHover(lblIconNhanVien);
     }//GEN-LAST:event_lblIconNhanVienMouseExited
-
-    private void lblQuanLyNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNhanVienMouseClicked
-
-    }//GEN-LAST:event_lblQuanLyNhanVienMouseClicked
-
-    private void lblQuanLyNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNhanVienMouseEntered
-        hoverPanel(pnlQuanLyNhanVien,lblIconNhanVien);
-    }//GEN-LAST:event_lblQuanLyNhanVienMouseEntered
-
-    private void lblQuanLyNhanVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNhanVienMouseExited
-        NotHoverPanel(pnlQuanLyNhanVien,lblIconNhanVien);
-    }//GEN-LAST:event_lblQuanLyNhanVienMouseExited
-
-    private void lblIconBenhNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBenhNhanMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblIconBenhNhanMouseClicked
 
     private void lblIconBenhNhanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBenhNhanMouseEntered
         hover(lblIconBenhNhan);
@@ -629,22 +741,6 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
         NotHover(lblIconBenhNhan);
     }//GEN-LAST:event_lblIconBenhNhanMouseExited
 
-    private void lblQuanLyBenhNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblQuanLyBenhNhanMouseClicked
-
-    private void lblQuanLyBenhNhanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseEntered
-        hoverPanel(pnlQuanLyBenhNhan,lblIconBenhNhan);
-    }//GEN-LAST:event_lblQuanLyBenhNhanMouseEntered
-
-    private void lblQuanLyBenhNhanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseExited
-        NotHoverPanel(pnlQuanLyBenhNhan,lblIconBenhNhan);
-    }//GEN-LAST:event_lblQuanLyBenhNhanMouseExited
-
-    private void lblIconHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblIconHoaDonMouseClicked
-
     private void lblIconHoaDonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseEntered
         hover(lblIconHoaDon);
     }//GEN-LAST:event_lblIconHoaDonMouseEntered
@@ -652,22 +748,6 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
     private void lblIconHoaDonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseExited
         NotHover(lblIconHoaDon);
     }//GEN-LAST:event_lblIconHoaDonMouseExited
-
-    private void lblQuanLyHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblQuanLyHoaDonMouseClicked
-
-    private void lblQuanLyHoaDonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseEntered
-        hoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
-    }//GEN-LAST:event_lblQuanLyHoaDonMouseEntered
-
-    private void lblQuanLyHoaDonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseExited
-        NotHoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
-    }//GEN-LAST:event_lblQuanLyHoaDonMouseExited
-
-    private void lblIconPhieuKhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconPhieuKhamMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblIconPhieuKhamMouseClicked
 
     private void lblIconPhieuKhamMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconPhieuKhamMouseEntered
         hover(lblIconPhieuKham);
@@ -677,22 +757,6 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
         NotHover(lblIconPhieuKham);
     }//GEN-LAST:event_lblIconPhieuKhamMouseExited
 
-    private void lblQuanLyPhieuKhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblQuanLyPhieuKhamMouseClicked
-
-    private void lblQuanLyPhieuKhamMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseEntered
-        hoverPanel(pnlQuanLyPhieuKham,lblIconPhieuKham);
-    }//GEN-LAST:event_lblQuanLyPhieuKhamMouseEntered
-
-    private void lblQuanLyPhieuKhamMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseExited
-        NotHoverPanel(pnlQuanLyPhieuKham,lblIconPhieuKham);
-    }//GEN-LAST:event_lblQuanLyPhieuKhamMouseExited
-
-    private void lblIconThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuocMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblIconThuocMouseClicked
-
     private void lblIconThuocMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuocMouseEntered
         hover(lblIconThuoc);
     }//GEN-LAST:event_lblIconThuocMouseEntered
@@ -700,22 +764,6 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
     private void lblIconThuocMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuocMouseExited
         NotHover(lblIconThuoc);
     }//GEN-LAST:event_lblIconThuocMouseExited
-
-    private void lblQuanLyThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuocMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblQuanLyThuocMouseClicked
-
-    private void lblQuanLyThuocMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuocMouseEntered
-        hoverPanel(pnlQuanLyThuoc,lblIconThuoc);
-    }//GEN-LAST:event_lblQuanLyThuocMouseEntered
-
-    private void lblQuanLyThuocMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuocMouseExited
-        NotHoverPanel(pnlQuanLyThuoc,lblIconThuoc);
-    }//GEN-LAST:event_lblQuanLyThuocMouseExited
-
-    private void lblIconThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKeMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblIconThongKeMouseClicked
 
     private void lblIconThongKeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKeMouseEntered
         hover(lblIconThongKe);
@@ -725,9 +773,63 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
         NotHover(lblIconThongKe);
     }//GEN-LAST:event_lblIconThongKeMouseExited
 
-    private void lblThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblThongKeMouseClicked
+    private void lblDanhMucMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDanhMucMouseEntered
+        hover(lblDanhMuc);
+    }//GEN-LAST:event_lblDanhMucMouseEntered
+
+    private void lblDanhMucMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDanhMucMouseExited
+        NotHover(lblDanhMuc);
+    }//GEN-LAST:event_lblDanhMucMouseExited
+
+    private void lblQuanLyBacSiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBacSiMouseEntered
+        hoverPanel(pnlQuanLyBacSi,lblIconBacSi);
+        
+    }//GEN-LAST:event_lblQuanLyBacSiMouseEntered
+
+    private void lblQuanLyBacSiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBacSiMouseExited
+        NotHoverPanel(pnlQuanLyBacSi,lblIconBacSi);
+        
+    }//GEN-LAST:event_lblQuanLyBacSiMouseExited
+
+    private void lblQuanLyNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNhanVienMouseEntered
+        hoverPanel(pnlQuanLyNhanVien,lblIconNhanVien);
+    }//GEN-LAST:event_lblQuanLyNhanVienMouseEntered
+
+    private void lblQuanLyNhanVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNhanVienMouseExited
+        NotHoverPanel(pnlQuanLyNhanVien,lblIconNhanVien);
+    }//GEN-LAST:event_lblQuanLyNhanVienMouseExited
+
+    private void lblQuanLyBenhNhanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseEntered
+        hoverPanel(pnlQuanLyBenhNhan,lblIconBenhNhan);
+    }//GEN-LAST:event_lblQuanLyBenhNhanMouseEntered
+
+    private void lblQuanLyBenhNhanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseExited
+        NotHoverPanel(pnlQuanLyBenhNhan,lblIconBenhNhan);
+    }//GEN-LAST:event_lblQuanLyBenhNhanMouseExited
+
+    private void lblQuanLyHoaDonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseEntered
+       hoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
+    }//GEN-LAST:event_lblQuanLyHoaDonMouseEntered
+
+    private void lblQuanLyHoaDonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseExited
+       NotHoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
+    }//GEN-LAST:event_lblQuanLyHoaDonMouseExited
+
+    private void lblQuanLyPhieuKhamMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseEntered
+        hoverPanel(pnlQuanLyPhieuKham,lblIconPhieuKham);
+    }//GEN-LAST:event_lblQuanLyPhieuKhamMouseEntered
+
+    private void lblQuanLyPhieuKhamMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseExited
+        NotHoverPanel(pnlQuanLyPhieuKham,lblIconPhieuKham);
+    }//GEN-LAST:event_lblQuanLyPhieuKhamMouseExited
+
+    private void lblQuanLyThuocMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuocMouseEntered
+        hoverPanel(pnlQuanLyThuoc,lblIconThuoc);
+    }//GEN-LAST:event_lblQuanLyThuocMouseEntered
+
+    private void lblQuanLyThuocMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuocMouseExited
+        NotHoverPanel(pnlQuanLyThuoc,lblIconThuoc);
+    }//GEN-LAST:event_lblQuanLyThuocMouseExited
 
     private void lblThongKeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseEntered
         hoverPanel(pnlQuanLyThongKe,lblIconThongKe);
@@ -737,33 +839,37 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
         NotHoverPanel(pnlQuanLyThongKe,lblIconThongKe);
     }//GEN-LAST:event_lblThongKeMouseExited
 
-    private void btnXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatActionPerformed
+    private void btnLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnXuatActionPerformed
+    }//GEN-LAST:event_btnLastActionPerformed
 
-    private void lblIconThuoc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuoc1MouseClicked
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblIconThuoc1MouseClicked
+    }//GEN-LAST:event_btnXoaActionPerformed
 
-    private void lblIconThuoc1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuoc1MouseEntered
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblIconThuoc1MouseEntered
+    }//GEN-LAST:event_btnThemActionPerformed
 
-    private void lblIconThuoc1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuoc1MouseExited
+    private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblIconThuoc1MouseExited
+    }//GEN-LAST:event_btnSuaActionPerformed
 
-    private void lblQuanLyThuoc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuoc1MouseClicked
+    private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblQuanLyThuoc1MouseClicked
+    }//GEN-LAST:event_btnMoiActionPerformed
 
-    private void lblQuanLyThuoc1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuoc1MouseEntered
+    private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblQuanLyThuoc1MouseEntered
+    }//GEN-LAST:event_btnFirstActionPerformed
 
-    private void lblQuanLyThuoc1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuoc1MouseExited
+    private void btnPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblQuanLyThuoc1MouseExited
+    }//GEN-LAST:event_btnPreviousActionPerformed
+
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -782,33 +888,40 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ThongKeBenhNhan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyBacSi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ThongKeBenhNhan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyBacSi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ThongKeBenhNhan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyBacSi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ThongKeBenhNhan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyBacSi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ThongKeBenhNhan().setVisible(true);
+                new QuanLyphongkham().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnXuat;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton btnFirst;
+    private javax.swing.JButton btnLast;
+    private javax.swing.JButton btnMoi;
+    private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnPrevious;
+    private javax.swing.JButton btnSua;
+    private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnXoa;
+    private com.toedter.calendar.JDateChooser cldNgaySinh;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private rojerusan.RSFotoCircle lblAnhNVDangNhap;
     private javax.swing.JLabel lblDanhMuc;
+    private javax.swing.JLabel lblDay;
     private javax.swing.JLabel lblIconBacSi;
     private javax.swing.JLabel lblIconBenhNhan;
     private javax.swing.JLabel lblIconHoaDon;
@@ -816,15 +929,21 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
     private javax.swing.JLabel lblIconPhieuKham;
     private javax.swing.JLabel lblIconThongKe;
     private javax.swing.JLabel lblIconThuoc;
-    private javax.swing.JLabel lblIconThuoc1;
+    private javax.swing.JLabel lblMaBacSi;
+    private javax.swing.JLabel lblMaChuyenNganh;
+    private javax.swing.JLabel lblNgaySinh;
     private javax.swing.JLabel lblQuanLyBacSi;
     private javax.swing.JLabel lblQuanLyBenhNhan;
     private javax.swing.JLabel lblQuanLyHoaDon;
     private javax.swing.JLabel lblQuanLyNhanVien;
     private javax.swing.JLabel lblQuanLyPhieuKham;
     private javax.swing.JLabel lblQuanLyThuoc;
-    private javax.swing.JLabel lblQuanLyThuoc1;
+    private javax.swing.JLabel lblSoDienThoai;
+    private javax.swing.JLabel lblTenBacSi;
     private javax.swing.JLabel lblThongKe;
+    private javax.swing.JLabel lblTieuDe;
+    private javax.swing.JLabel lblTime;
+    private javax.swing.JLabel lblXinChao;
     private javax.swing.JPanel pnlHeader;
     private javax.swing.JPanel pnlLeft;
     private javax.swing.JPanel pnlQuanLyBacSi;
@@ -836,10 +955,13 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
     private javax.swing.JPanel pnlQuanLyThuoc;
     private javax.swing.JPanel pnlRight;
     private javax.swing.JPanel pnlTong;
-    private rojerusan.RSFotoCircle rSFotoCircle1;
-    private rojeru_san.complementos.RSTableMetro rSTableMetro1;
+    private rojeru_san.complementos.RSTableMetro tblDSBacSi;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtMaBacSi;
+    private javax.swing.JTextField txtMaChuyenNganh;
+    private javax.swing.JTextField txtSoDienThoai;
     // End of variables declaration//GEN-END:variables
- private void init(){
+    private void init(){
         setLocationRelativeTo(null);
     }
     

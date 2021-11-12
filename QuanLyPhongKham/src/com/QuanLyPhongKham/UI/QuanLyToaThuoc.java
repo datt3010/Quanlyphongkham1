@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package com.QuanLyPhongKham.UI;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -520,6 +520,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
 
         pnlCard.setLayout(new java.awt.CardLayout());
 
+        pnlToaThuoc.setBackground(new java.awt.Color(255, 255, 255));
         pnlToaThuoc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlBacSi.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "BÁC SĨ", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 17), new java.awt.Color(0, 120, 215))); // NOI18N
@@ -605,7 +606,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         jList2.setToolTipText("");
         jScrollPane3.setViewportView(jList2);
 
-        pnlToaThuoc.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 240, 160));
+        pnlToaThuoc.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 350, 160));
 
         btnThem.setBackground(new java.awt.Color(0, 112, 192));
         btnThem.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N

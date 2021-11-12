@@ -3,24 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package com.QuanLyPhongKham.UI;
 
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
 /**
  *
  * @author Administrator
  */
-public class QuanLyNhanVien extends javax.swing.JFrame {
+public class ThongKeBenhNhan extends javax.swing.JFrame {
 
     /**
-     * Creates new form QuanLyNhanVien
+     * Creates new form ThongKeBenhNhan
      */
-    public QuanLyNhanVien() {
+    public ThongKeBenhNhan() {
         initComponents();
         init();
     }
@@ -64,35 +63,13 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         pnlQuanLyThongKe = new javax.swing.JPanel();
         lblIconThongKe = new javax.swing.JLabel();
         lblThongKe = new javax.swing.JLabel();
+        lblQuanLyThuoc1 = new javax.swing.JLabel();
+        lblIconThuoc1 = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        lblAnhBS = new javax.swing.JLabel();
-        lblMaChuyenNganh = new javax.swing.JLabel();
-        txtMaNhanVien = new javax.swing.JTextField();
-        lblGioiTinh = new javax.swing.JLabel();
-        lblTenBacSi = new javax.swing.JLabel();
-        lblMaBacSi = new javax.swing.JLabel();
-        cboGioiTinh = new javax.swing.JComboBox<>();
-        lblNgaySinh = new javax.swing.JLabel();
-        lblEmail = new javax.swing.JLabel();
-        txtDiaChi = new javax.swing.JTextField();
-        btnLast = new javax.swing.JButton();
-        btnXoa = new javax.swing.JButton();
-        btnThem = new javax.swing.JButton();
-        btnSua = new javax.swing.JButton();
-        btnMoi = new javax.swing.JButton();
-        btnFirst = new javax.swing.JButton();
-        btnPrevious = new javax.swing.JButton();
-        btnNext = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         rSTableMetro1 = new rojeru_san.complementos.RSTableMetro();
-        txtMatKhau = new javax.swing.JPasswordField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        txtHoVaTen1 = new javax.swing.JTextField();
-        cboChucVu = new javax.swing.JComboBox<>();
-        lblEmail1 = new javax.swing.JLabel();
-        lblEmail2 = new javax.swing.JLabel();
-        txtSoDienThoai1 = new javax.swing.JTextField();
+        btnXuat = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -181,6 +158,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
         lblIconBacSi.setBackground(new java.awt.Color(54, 70, 78));
         lblIconBacSi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconBacSi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_doctor_male_30px.png"))); // NOI18N
         lblIconBacSi.setToolTipText("Quản Lý Bác Sĩ");
         lblIconBacSi.setOpaque(true);
         lblIconBacSi.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -219,6 +197,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
         lblIconNhanVien.setBackground(new java.awt.Color(54, 70, 78));
         lblIconNhanVien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_manager_30px.png"))); // NOI18N
         lblIconNhanVien.setToolTipText("Quản Lý Nhân Viên");
         lblIconNhanVien.setOpaque(true);
         lblIconNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -257,6 +236,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
         lblIconBenhNhan.setBackground(new java.awt.Color(54, 70, 78));
         lblIconBenhNhan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconBenhNhan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-survey-23.png"))); // NOI18N
         lblIconBenhNhan.setToolTipText("Quản Lý Bệnh Nhân");
         lblIconBenhNhan.setOpaque(true);
         lblIconBenhNhan.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -295,6 +275,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
         lblIconHoaDon.setBackground(new java.awt.Color(54, 70, 78));
         lblIconHoaDon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconHoaDon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-magazine-23.png"))); // NOI18N
         lblIconHoaDon.setToolTipText("Quản Lý Hoá Đơn");
         lblIconHoaDon.setOpaque(true);
         lblIconHoaDon.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -333,6 +314,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
         lblIconPhieuKham.setBackground(new java.awt.Color(54, 70, 78));
         lblIconPhieuKham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconPhieuKham.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_dollar_place_marker_30px.png"))); // NOI18N
         lblIconPhieuKham.setToolTipText("Quản Lý Phiếu Khám");
         lblIconPhieuKham.setOpaque(true);
         lblIconPhieuKham.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -371,6 +353,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
         lblIconThuoc.setBackground(new java.awt.Color(54, 70, 78));
         lblIconThuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconThuoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_chart_30px.png"))); // NOI18N
         lblIconThuoc.setToolTipText("Quản Lý Thuốc");
         lblIconThuoc.setOpaque(true);
         lblIconThuoc.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -409,6 +392,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
         lblIconThongKe.setBackground(new java.awt.Color(54, 70, 78));
         lblIconThongKe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-increase-23.png"))); // NOI18N
         lblIconThongKe.setToolTipText("Quản Lý Thống Kê");
         lblIconThongKe.setOpaque(true);
         lblIconThongKe.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -442,6 +426,40 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
         pnlLeft.add(pnlQuanLyThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 210, 40));
 
+        lblQuanLyThuoc1.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        lblQuanLyThuoc1.setForeground(new java.awt.Color(255, 255, 255));
+        lblQuanLyThuoc1.setText("Quản lý toa thuốc");
+        lblQuanLyThuoc1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblQuanLyThuoc1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblQuanLyThuoc1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblQuanLyThuoc1MouseExited(evt);
+            }
+        });
+        pnlLeft.add(lblQuanLyThuoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 140, -1));
+
+        lblIconThuoc1.setBackground(new java.awt.Color(54, 70, 78));
+        lblIconThuoc1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconThuoc1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_chart_30px.png"))); // NOI18N
+        lblIconThuoc1.setToolTipText("Quản Lý Thuốc");
+        lblIconThuoc1.setOpaque(true);
+        lblIconThuoc1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblIconThuoc1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblIconThuoc1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblIconThuoc1MouseExited(evt);
+            }
+        });
+        pnlLeft.add(lblIconThuoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 40, 40));
+
         pnlTong.add(pnlLeft, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 210, 660));
 
         pnlRight.setBackground(new java.awt.Color(255, 255, 255));
@@ -452,177 +470,33 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("QUẢN LÝ NHÂN VIÊN");
-        pnlRight.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
-
-        lblAnhBS.setBackground(new java.awt.Color(255, 51, 0));
-        lblAnhBS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAnhBS.setOpaque(true);
-        pnlRight.add(lblAnhBS, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 170, 210));
-
-        lblMaChuyenNganh.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lblMaChuyenNganh.setText("Mã nhân viên");
-        pnlRight.add(lblMaChuyenNganh, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
-
-        txtMaNhanVien.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        txtMaNhanVien.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        pnlRight.add(txtMaNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 300, 30));
-
-        lblGioiTinh.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lblGioiTinh.setText("Giới Tính");
-        pnlRight.add(lblGioiTinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, -1, -1));
-
-        lblTenBacSi.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lblTenBacSi.setText("Mật khẩu");
-        pnlRight.add(lblTenBacSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, -1, -1));
-
-        lblMaBacSi.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lblMaBacSi.setText("Họ và tên");
-        pnlRight.add(lblMaBacSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, -1, -1));
-
-        cboGioiTinh.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        cboGioiTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ", "Khác", " ", " " }));
-        pnlRight.add(cboGioiTinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 230, -1));
-
-        lblNgaySinh.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lblNgaySinh.setText("Ngày Sinh");
-        pnlRight.add(lblNgaySinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, -1, -1));
-
-        lblEmail.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lblEmail.setText("Địa chỉ");
-        pnlRight.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 220, -1, -1));
-
-        txtDiaChi.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        txtDiaChi.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        txtDiaChi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDiaChiActionPerformed(evt);
-            }
-        });
-        pnlRight.add(txtDiaChi, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 240, 300, 30));
-
-        btnLast.setBackground(new java.awt.Color(0, 112, 192));
-        btnLast.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLastActionPerformed(evt);
-            }
-        });
-        pnlRight.add(btnLast, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 280, 80, 35));
-
-        btnXoa.setBackground(new java.awt.Color(0, 112, 192));
-        btnXoa.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        btnXoa.setForeground(new java.awt.Color(255, 255, 255));
-        btnXoa.setText("XOÁ");
-        btnXoa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXoaActionPerformed(evt);
-            }
-        });
-        pnlRight.add(btnXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 80, 35));
-
-        btnThem.setBackground(new java.awt.Color(0, 112, 192));
-        btnThem.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        btnThem.setForeground(new java.awt.Color(255, 255, 255));
-        btnThem.setText("THÊM");
-        btnThem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThemActionPerformed(evt);
-            }
-        });
-        pnlRight.add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 80, 35));
-
-        btnSua.setBackground(new java.awt.Color(0, 112, 192));
-        btnSua.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        btnSua.setForeground(new java.awt.Color(255, 255, 255));
-        btnSua.setText("SỬA");
-        btnSua.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSuaActionPerformed(evt);
-            }
-        });
-        pnlRight.add(btnSua, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 80, 35));
-
-        btnMoi.setBackground(new java.awt.Color(0, 112, 192));
-        btnMoi.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        btnMoi.setForeground(new java.awt.Color(255, 255, 255));
-        btnMoi.setText("MỚI");
-        btnMoi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMoiActionPerformed(evt);
-            }
-        });
-        pnlRight.add(btnMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 80, 35));
-
-        btnFirst.setBackground(new java.awt.Color(0, 112, 192));
-        btnFirst.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFirstActionPerformed(evt);
-            }
-        });
-        pnlRight.add(btnFirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 280, 80, 35));
-
-        btnPrevious.setBackground(new java.awt.Color(0, 112, 192));
-        btnPrevious.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPreviousActionPerformed(evt);
-            }
-        });
-        pnlRight.add(btnPrevious, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, 80, 35));
-
-        btnNext.setBackground(new java.awt.Color(0, 112, 192));
-        btnNext.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNextActionPerformed(evt);
-            }
-        });
-        pnlRight.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 280, 80, 35));
+        pnlRight.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, -1, -1));
 
         rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Mã nhân viên", "Họ tên", "Mật khẩu", "Giới tính", "Chức vụ", "Số điện thoại", "Địa chỉ"
+                "Mã bệnh nhân", "Họ tên", "Ngày sinh", "tái khám(số lần)", "Bệnh", "Số điện thoại"
             }
         ));
-        rSTableMetro1.setAltoHead(35);
-        rSTableMetro1.setRowHeight(26);
         jScrollPane1.setViewportView(rSTableMetro1);
 
-        pnlRight.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 890, 320));
+        pnlRight.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 970, 440));
 
-        txtMatKhau.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        pnlRight.add(txtMatKhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 300, 30));
-
-        jDateChooser1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        jDateChooser1.setDateFormatString("dd/MM/yyyy");
-        pnlRight.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 300, 30));
-
-        txtHoVaTen1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        txtHoVaTen1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        pnlRight.add(txtHoVaTen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 300, 30));
-
-        cboChucVu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnlRight.add(cboChucVu, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, 300, 30));
-
-        lblEmail1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lblEmail1.setText("Chức vụ");
-        pnlRight.add(lblEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, -1, -1));
-
-        lblEmail2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lblEmail2.setText("Số điện thoại");
-        pnlRight.add(lblEmail2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, -1, -1));
-
-        txtSoDienThoai1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        txtSoDienThoai1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        txtSoDienThoai1.addActionListener(new java.awt.event.ActionListener() {
+        btnXuat.setBackground(new java.awt.Color(0, 112, 192));
+        btnXuat.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        btnXuat.setForeground(new java.awt.Color(255, 255, 255));
+        btnXuat.setText("Xuất file excel");
+        btnXuat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSoDienThoai1ActionPerformed(evt);
+                btnXuatActionPerformed(evt);
             }
         });
-        pnlRight.add(txtSoDienThoai1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 300, 30));
+        pnlRight.add(btnXuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 600, 150, 35));
 
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 990, 660));
 
@@ -713,12 +587,10 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
     private void lblQuanLyBacSiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBacSiMouseEntered
         hoverPanel(pnlQuanLyBacSi,lblIconBacSi);
-
     }//GEN-LAST:event_lblQuanLyBacSiMouseEntered
 
     private void lblQuanLyBacSiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBacSiMouseExited
         NotHoverPanel(pnlQuanLyBacSi,lblIconBacSi);
-
     }//GEN-LAST:event_lblQuanLyBacSiMouseExited
 
     private void lblIconNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconNhanVienMouseClicked
@@ -865,45 +737,33 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         NotHoverPanel(pnlQuanLyThongKe,lblIconThongKe);
     }//GEN-LAST:event_lblThongKeMouseExited
 
-    private void btnLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastActionPerformed
+    private void btnXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLastActionPerformed
+    }//GEN-LAST:event_btnXuatActionPerformed
 
-    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+    private void lblIconThuoc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuoc1MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnXoaActionPerformed
+    }//GEN-LAST:event_lblIconThuoc1MouseClicked
 
-    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+    private void lblIconThuoc1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuoc1MouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnThemActionPerformed
+    }//GEN-LAST:event_lblIconThuoc1MouseEntered
 
-    private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
+    private void lblIconThuoc1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuoc1MouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSuaActionPerformed
+    }//GEN-LAST:event_lblIconThuoc1MouseExited
 
-    private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
+    private void lblQuanLyThuoc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuoc1MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnMoiActionPerformed
+    }//GEN-LAST:event_lblQuanLyThuoc1MouseClicked
 
-    private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
+    private void lblQuanLyThuoc1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuoc1MouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnFirstActionPerformed
+    }//GEN-LAST:event_lblQuanLyThuoc1MouseEntered
 
-    private void btnPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousActionPerformed
+    private void lblQuanLyThuoc1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuoc1MouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnPreviousActionPerformed
-
-    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNextActionPerformed
-
-    private void txtDiaChiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDiaChiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDiaChiActionPerformed
-
-    private void txtSoDienThoai1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSoDienThoai1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSoDienThoai1ActionPerformed
+    }//GEN-LAST:event_lblQuanLyThuoc1MouseExited
 
     /**
      * @param args the command line arguments
@@ -922,48 +782,33 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(QuanLyNhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ThongKeBenhNhan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(QuanLyNhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ThongKeBenhNhan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(QuanLyNhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ThongKeBenhNhan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(QuanLyNhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ThongKeBenhNhan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new QuanLyNhanVien().setVisible(true);
+                new ThongKeBenhNhan().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnFirst;
-    private javax.swing.JButton btnLast;
-    private javax.swing.JButton btnMoi;
-    private javax.swing.JButton btnNext;
-    private javax.swing.JButton btnPrevious;
-    private javax.swing.JButton btnSua;
-    private javax.swing.JButton btnThem;
-    private javax.swing.JButton btnXoa;
-    private javax.swing.JComboBox<String> cboChucVu;
-    private javax.swing.JComboBox<String> cboGioiTinh;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JButton btnXuat;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblAnhBS;
     private javax.swing.JLabel lblDanhMuc;
-    private javax.swing.JLabel lblEmail;
-    private javax.swing.JLabel lblEmail1;
-    private javax.swing.JLabel lblEmail2;
-    private javax.swing.JLabel lblGioiTinh;
     private javax.swing.JLabel lblIconBacSi;
     private javax.swing.JLabel lblIconBenhNhan;
     private javax.swing.JLabel lblIconHoaDon;
@@ -971,16 +816,14 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     private javax.swing.JLabel lblIconPhieuKham;
     private javax.swing.JLabel lblIconThongKe;
     private javax.swing.JLabel lblIconThuoc;
-    private javax.swing.JLabel lblMaBacSi;
-    private javax.swing.JLabel lblMaChuyenNganh;
-    private javax.swing.JLabel lblNgaySinh;
+    private javax.swing.JLabel lblIconThuoc1;
     private javax.swing.JLabel lblQuanLyBacSi;
     private javax.swing.JLabel lblQuanLyBenhNhan;
     private javax.swing.JLabel lblQuanLyHoaDon;
     private javax.swing.JLabel lblQuanLyNhanVien;
     private javax.swing.JLabel lblQuanLyPhieuKham;
     private javax.swing.JLabel lblQuanLyThuoc;
-    private javax.swing.JLabel lblTenBacSi;
+    private javax.swing.JLabel lblQuanLyThuoc1;
     private javax.swing.JLabel lblThongKe;
     private javax.swing.JPanel pnlHeader;
     private javax.swing.JPanel pnlLeft;
@@ -995,13 +838,8 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     private javax.swing.JPanel pnlTong;
     private rojerusan.RSFotoCircle rSFotoCircle1;
     private rojeru_san.complementos.RSTableMetro rSTableMetro1;
-    private javax.swing.JTextField txtDiaChi;
-    private javax.swing.JTextField txtHoVaTen1;
-    private javax.swing.JTextField txtMaNhanVien;
-    private javax.swing.JPasswordField txtMatKhau;
-    private javax.swing.JTextField txtSoDienThoai1;
     // End of variables declaration//GEN-END:variables
-    private void init(){
+ private void init(){
         setLocationRelativeTo(null);
     }
     
