@@ -170,7 +170,11 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+<<<<<<< HEAD:QuanLyPhongKham/src/com/QuanLyPhongKham/UI/QuanLyNhanVien.form
                   <Image iconType="2" name="D:\duan1111\Quanlyphongkham1\QuanLyPhongKham\src\com\QuanLyPhongKham\Icon\icons8-menu-30.png"/>
+=======
+                  <Image iconType="3" name="/Icon/icons8-menu-30.png"/>
+>>>>>>> 7300980b3ffab8810905684dcdf28690e37c1faf:QuanLyPhongKham/src/UI/QuanLyNhanVien.form
                 </Property>
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
@@ -207,6 +211,9 @@
                       <Color blue="4e" green="46" red="36" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Icon/icons8_doctor_male_30px.png"/>
+                    </Property>
                     <Property name="toolTipText" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; B&#xe1;c S&#x129;"/>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
@@ -266,6 +273,9 @@
                       <Color blue="4e" green="46" red="36" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Icon/icons8_manager_30px.png"/>
+                    </Property>
                     <Property name="toolTipText" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Nh&#xe2;n Vi&#xea;n"/>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
@@ -325,6 +335,9 @@
                       <Color blue="4e" green="46" red="36" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Icon/icons8-male-user-23.png"/>
+                    </Property>
                     <Property name="toolTipText" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; B&#x1ec7;nh Nh&#xe2;n"/>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
@@ -384,6 +397,9 @@
                       <Color blue="4e" green="46" red="36" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Icon/icons8_dollar_place_marker_30px.png"/>
+                    </Property>
                     <Property name="toolTipText" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Ho&#xe1; &#x110;&#x1a1;n"/>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
@@ -443,6 +459,9 @@
                       <Color blue="4e" green="46" red="36" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Icon/icons8_ticket_30px.png"/>
+                    </Property>
                     <Property name="toolTipText" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Phi&#x1ebf;u Kh&#xe1;m"/>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
@@ -502,6 +521,9 @@
                       <Color blue="4e" green="46" red="36" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Icon/icons8_clinic_30px.png"/>
+                    </Property>
                     <Property name="toolTipText" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Thu&#x1ed1;c"/>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
@@ -561,6 +583,9 @@
                       <Color blue="4e" green="46" red="36" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Icon/icons8-increase-23.png"/>
+                    </Property>
                     <Property name="toolTipText" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Th&#x1ed1;ng K&#xea;"/>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
@@ -792,6 +817,9 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c0" green="70" red="0" type="rgb"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icon/icons8_end_32px_1.png"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLastActionPerformed"/>
@@ -895,6 +923,9 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c0" green="70" red="0" type="rgb"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icon/icons8_skip_to_start_32px_1.png"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFirstActionPerformed"/>
@@ -910,6 +941,9 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c0" green="70" red="0" type="rgb"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icon/icons8_rewind_32px.png"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPreviousActionPerformed"/>
@@ -924,6 +958,9 @@
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c0" green="70" red="0" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icon/icons8_fast_forward_32px.png"/>
                 </Property>
               </Properties>
               <Events>

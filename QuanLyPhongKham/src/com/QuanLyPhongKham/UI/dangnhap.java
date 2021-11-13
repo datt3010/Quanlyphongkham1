@@ -35,7 +35,7 @@ public class dangnhap extends javax.swing.JFrame {
             @Override
             public void run() {
                 int x = 10;
-                int y =450;
+                int y = 450;
                 boolean checked = true;
                 while (true) {
                     if (checked) {
@@ -101,6 +101,7 @@ public class dangnhap extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/favicon.png"))); // NOI18N
 
         lblchu.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lblchu.setForeground(new java.awt.Color(102, 0, 204));
         lblchu.setText("Phòng Khám An Nhiên Mang Đến Sự Bình Yên");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -108,23 +109,22 @@ public class dangnhap extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblchu, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGap(89, 89, 89)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblchu, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(119, Short.MAX_VALUE)
+                .addContainerGap(115, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(57, 57, 57)
-                .addComponent(lblchu)
-                .addGap(121, 121, 121))
+                .addGap(38, 38, 38)
+                .addComponent(lblchu, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(126, 126, 126))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 550));
@@ -249,10 +249,30 @@ public class dangnhap extends javax.swing.JFrame {
             MsgBox.alert(this, "sai mật khẩu");
         } else {
             Utilities.Auths.user = nhanVien;
-            new QuanLyphongkham().setVisible(true);
+            new QuanLyDichVu().setVisible(true);
             this.dispose();
         }
     }
+    
+
+
+
+//    public void login() {
+//        String taikhoan = txtuser.getText();
+//        String pass = new String(txtpassword.getPassword());
+//        NhanVien nhanVien = daonv.SelectByID(taikhoan);
+//        if (nhanVien == null) {
+//            MsgBox.alert(this, "sai tên đăng nhập");
+//        } else if (!pass.equals(nhanVien.getMatkhau())) {
+//            MsgBox.alert(this, "sai mật khẩu");
+//        } else {
+//            Utilities.Auths.user = nhanVien;
+//            new QuanLyphieukham().setVisible(true);
+//            this.dispose();
+//
+//        }
+//    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btndangnhap;
     private javax.swing.JButton btndoimatkhau;
