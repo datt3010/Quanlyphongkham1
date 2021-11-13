@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.QuanLyPhongKham.UI;
+package UI;
 
 import java.awt.Color;
-import java.awt.geom.RoundRectangle2D;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -24,7 +23,6 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     public QuanLyNhanVien() {
         initComponents();
         init();
-        setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 30, 30));
     }
 
     /**
@@ -97,7 +95,6 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         txtSoDienThoai1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
         pnlTong.setBackground(new java.awt.Color(255, 255, 255));
         pnlTong.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -165,11 +162,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
         lblDanhMuc.setBackground(new java.awt.Color(54, 70, 78));
         lblDanhMuc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-<<<<<<< HEAD:QuanLyPhongKham/src/com/QuanLyPhongKham/UI/QuanLyNhanVien.java
-        lblDanhMuc.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\icons8-menu-30.png")); // NOI18N
-=======
         lblDanhMuc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-menu-30.png"))); // NOI18N
->>>>>>> 7300980b3ffab8810905684dcdf28690e37c1faf:QuanLyPhongKham/src/UI/QuanLyNhanVien.java
         lblDanhMuc.setOpaque(true);
         lblDanhMuc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -659,16 +652,16 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     int x = 210;
-    int i = 0;
+    int i=0;
     private void lblDanhMucMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDanhMucMouseClicked
-        if (x == 210) {
+        if ( x == 210 ) {
             pnlLeft.setSize(210, 760);
             Thread th = new Thread() {
                 @Override
-                public void run() {
+                public void run(){
                     try {
 
-                        for (int i = 210; i >= 60; i--) {
+                        for ( int i = 210; i >= 60; i--){
                             Thread.sleep(1);
                             pnlLeft.setSize(i, 760);
                             pnlRight.setLocation(60, 100);
@@ -678,18 +671,18 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, e);
                     }
                 }
-            };
-            th.start();
+            };th.start();
             x = 60;
             //            ImageIcon icon1 = new ImageIcon("C:\\Github\\DuAn1_QuanLyPhongKham\\DuAn1_QuanLyPhongKham\\src\\Icon\\icons8_chevron_right_30px.png");
             //            lblDanhMuc.setIcon(icon1);
-        } else if (x == 60) {
+        }
+        else if( x == 60 ){
             pnlLeft.setSize(x, 760);
-            Thread th = new Thread() {
+            Thread th = new Thread(){
                 @Override
-                public void run() {
+                public void run(){
                     try {
-                        for (int i = 60; i <= x; i++) {
+                        for (int i = 60; i <= x; i++){
                             Thread.sleep(1);
                             pnlLeft.setSize(i, 760);
                             pnlRight.setLocation(210, 100);
@@ -699,8 +692,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, e);
                     }
                 }
-            };
-            th.start();
+            };th.start();
             x = 210;
             //            ImageIcon icon = new ImageIcon("C:\\Github\\DuAn1_QuanLyPhongKham\\DuAn1_QuanLyPhongKham\\src\\Icon\\icons8-menu-30.png");
             //            lblDanhMuc.setIcon(icon);
@@ -732,12 +724,12 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyBacSiMouseClicked
 
     private void lblQuanLyBacSiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBacSiMouseEntered
-        hoverPanel(pnlQuanLyBacSi, lblIconBacSi);
+        hoverPanel(pnlQuanLyBacSi,lblIconBacSi);
 
     }//GEN-LAST:event_lblQuanLyBacSiMouseEntered
 
     private void lblQuanLyBacSiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBacSiMouseExited
-        NotHoverPanel(pnlQuanLyBacSi, lblIconBacSi);
+        NotHoverPanel(pnlQuanLyBacSi,lblIconBacSi);
 
     }//GEN-LAST:event_lblQuanLyBacSiMouseExited
 
@@ -758,11 +750,11 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyNhanVienMouseClicked
 
     private void lblQuanLyNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNhanVienMouseEntered
-        hoverPanel(pnlQuanLyNhanVien, lblIconNhanVien);
+        hoverPanel(pnlQuanLyNhanVien,lblIconNhanVien);
     }//GEN-LAST:event_lblQuanLyNhanVienMouseEntered
 
     private void lblQuanLyNhanVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNhanVienMouseExited
-        NotHoverPanel(pnlQuanLyNhanVien, lblIconNhanVien);
+        NotHoverPanel(pnlQuanLyNhanVien,lblIconNhanVien);
     }//GEN-LAST:event_lblQuanLyNhanVienMouseExited
 
     private void lblIconBenhNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBenhNhanMouseClicked
@@ -782,11 +774,11 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyBenhNhanMouseClicked
 
     private void lblQuanLyBenhNhanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseEntered
-        hoverPanel(pnlQuanLyBenhNhan, lblIconBenhNhan);
+        hoverPanel(pnlQuanLyBenhNhan,lblIconBenhNhan);
     }//GEN-LAST:event_lblQuanLyBenhNhanMouseEntered
 
     private void lblQuanLyBenhNhanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseExited
-        NotHoverPanel(pnlQuanLyBenhNhan, lblIconBenhNhan);
+        NotHoverPanel(pnlQuanLyBenhNhan,lblIconBenhNhan);
     }//GEN-LAST:event_lblQuanLyBenhNhanMouseExited
 
     private void lblIconHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseClicked
@@ -806,11 +798,11 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyHoaDonMouseClicked
 
     private void lblQuanLyHoaDonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseEntered
-        hoverPanel(pnlQuanLyHoaDon, lblIconHoaDon);
+        hoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
     }//GEN-LAST:event_lblQuanLyHoaDonMouseEntered
 
     private void lblQuanLyHoaDonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseExited
-        NotHoverPanel(pnlQuanLyHoaDon, lblIconHoaDon);
+        NotHoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
     }//GEN-LAST:event_lblQuanLyHoaDonMouseExited
 
     private void lblIconPhieuKhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconPhieuKhamMouseClicked
@@ -830,11 +822,11 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyPhieuKhamMouseClicked
 
     private void lblQuanLyPhieuKhamMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseEntered
-        hoverPanel(pnlQuanLyPhieuKham, lblIconPhieuKham);
+        hoverPanel(pnlQuanLyPhieuKham,lblIconPhieuKham);
     }//GEN-LAST:event_lblQuanLyPhieuKhamMouseEntered
 
     private void lblQuanLyPhieuKhamMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseExited
-        NotHoverPanel(pnlQuanLyPhieuKham, lblIconPhieuKham);
+        NotHoverPanel(pnlQuanLyPhieuKham,lblIconPhieuKham);
     }//GEN-LAST:event_lblQuanLyPhieuKhamMouseExited
 
     private void lblIconThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuocMouseClicked
@@ -854,11 +846,11 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyThuocMouseClicked
 
     private void lblQuanLyThuocMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuocMouseEntered
-        hoverPanel(pnlQuanLyThuoc, lblIconThuoc);
+        hoverPanel(pnlQuanLyThuoc,lblIconThuoc);
     }//GEN-LAST:event_lblQuanLyThuocMouseEntered
 
     private void lblQuanLyThuocMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuocMouseExited
-        NotHoverPanel(pnlQuanLyThuoc, lblIconThuoc);
+        NotHoverPanel(pnlQuanLyThuoc,lblIconThuoc);
     }//GEN-LAST:event_lblQuanLyThuocMouseExited
 
     private void lblIconThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKeMouseClicked
@@ -878,11 +870,11 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_lblThongKeMouseClicked
 
     private void lblThongKeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseEntered
-        hoverPanel(pnlQuanLyThongKe, lblIconThongKe);
+        hoverPanel(pnlQuanLyThongKe,lblIconThongKe);
     }//GEN-LAST:event_lblThongKeMouseEntered
 
     private void lblThongKeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseExited
-        NotHoverPanel(pnlQuanLyThongKe, lblIconThongKe);
+        NotHoverPanel(pnlQuanLyThongKe,lblIconThongKe);
     }//GEN-LAST:event_lblThongKeMouseExited
 
     private void btnLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastActionPerformed
@@ -1021,26 +1013,26 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtMatKhau;
     private javax.swing.JTextField txtSoDienThoai1;
     // End of variables declaration//GEN-END:variables
-    private void init() {
+    private void init(){
         setLocationRelativeTo(null);
     }
-
+    
     //Hover màu
-    private void hover(JLabel lbl) {
-        lbl.setBackground(new java.awt.Color(53, 162, 107));
+    private void hover(JLabel lbl){
+        lbl.setBackground(new java.awt.Color(53,162,107));
     }
-
-    private void NotHover(JLabel lbl) {
-        lbl.setBackground(new java.awt.Color(54, 70, 78));
+    
+    private void NotHover(JLabel lbl){
+        lbl.setBackground(new java.awt.Color(54,70,78));
     }
-
-    private void hoverPanel(JPanel pnl, JLabel lbl) {
-        pnl.setBackground(new java.awt.Color(53, 162, 107));
-        lbl.setBackground(new java.awt.Color(53, 162, 107));
+    
+    private void hoverPanel(JPanel pnl,JLabel lbl){
+        pnl.setBackground(new java.awt.Color(53,162,107));
+        lbl.setBackground(new java.awt.Color(53,162,107));
     }
-
-    private void NotHoverPanel(JPanel pnl, JLabel lbl) {
-        pnl.setBackground(new java.awt.Color(54, 70, 78));
-        lbl.setBackground(new java.awt.Color(54, 70, 78));
+    
+    private void NotHoverPanel(JPanel pnl,JLabel lbl){
+        pnl.setBackground(new java.awt.Color(54,70,78));
+        lbl.setBackground(new java.awt.Color(54,70,78));
     }
 }

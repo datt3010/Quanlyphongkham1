@@ -94,6 +94,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         btnNext = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDSBS = new rojeru_san.complementos.RSTableMetro();
+        cldNgaySinh = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ PHÒNG KHÁM");
@@ -646,6 +647,9 @@ public class QuanLyBacSi extends javax.swing.JFrame {
 
         pnlRight.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 900, 300));
 
+        cldNgaySinh.setDateFormatString("dd/MM/yyyy");
+        pnlRight.add(cldNgaySinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 300, 30));
+
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 990, 660));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -665,36 +669,35 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     int x = 210;
     int i = 0;
     private void lblDanhMucMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDanhMucMouseClicked
-        if (x == 210) {
+       if ( x == 210 ) {
             pnlLeft.setSize(210, 760);
             Thread th = new Thread() {
                 @Override
-                public void run() {
+                public void run(){
                     try {
 
-                        for (int i = 210; i >= 60; i--) {
+                        for ( int i = 210; i >= 60; i--){
                             Thread.sleep(1);
                             pnlLeft.setSize(i, 760);
                             pnlRight.setLocation(60, 100);
                             pnlRight.setSize(1140, 760);
-
                         }
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, e);
                     }
                 }
-            };
-            th.start();
+            };th.start();
             x = 60;
-//            ImageIcon icon1 = new ImageIcon("C:\\Github\\DuAn1_QuanLyPhongKham\\DuAn1_QuanLyPhongKham\\src\\Icon\\icons8_chevron_right_30px.png");
-//            lblDanhMuc.setIcon(icon1);
-        } else if (x == 60) {
+            //            ImageIcon icon1 = new ImageIcon("C:\\Github\\DuAn1_QuanLyPhongKham\\DuAn1_QuanLyPhongKham\\src\\Icon\\icons8_chevron_right_30px.png");
+            //            lblDanhMuc.setIcon(icon1);
+        }
+        else if( x == 60 ){
             pnlLeft.setSize(x, 760);
-            Thread th = new Thread() {
+            Thread th = new Thread(){
                 @Override
-                public void run() {
+                public void run(){
                     try {
-                        for (int i = 60; i <= x; i++) {
+                        for (int i = 60; i <= x; i++){
                             Thread.sleep(1);
                             pnlLeft.setSize(i, 760);
                             pnlRight.setLocation(210, 100);
@@ -704,11 +707,10 @@ public class QuanLyBacSi extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, e);
                     }
                 }
-            };
-            th.start();
+            };th.start();
             x = 210;
-//            ImageIcon icon = new ImageIcon("C:\\Github\\DuAn1_QuanLyPhongKham\\DuAn1_QuanLyPhongKham\\src\\Icon\\icons8-menu-30.png");
-//            lblDanhMuc.setIcon(icon);
+            //            ImageIcon icon = new ImageIcon("C:\\Github\\DuAn1_QuanLyPhongKham\\DuAn1_QuanLyPhongKham\\src\\Icon\\icons8-menu-30.png");
+            //            lblDanhMuc.setIcon(icon);
         }
     }//GEN-LAST:event_lblDanhMucMouseClicked
 
@@ -968,6 +970,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
     private javax.swing.JComboBox<String> cboGioiTinh;
+    private com.toedter.calendar.JDateChooser cldNgaySinh;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;

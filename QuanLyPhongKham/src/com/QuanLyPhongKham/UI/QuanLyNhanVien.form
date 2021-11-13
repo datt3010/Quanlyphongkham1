@@ -3,7 +3,6 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="undecorated" type="boolean" value="true"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -170,11 +169,7 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-<<<<<<< HEAD:QuanLyPhongKham/src/com/QuanLyPhongKham/UI/QuanLyNhanVien.form
-                  <Image iconType="2" name="D:\duan1111\Quanlyphongkham1\QuanLyPhongKham\src\com\QuanLyPhongKham\Icon\icons8-menu-30.png"/>
-=======
                   <Image iconType="3" name="/Icon/icons8-menu-30.png"/>
->>>>>>> 7300980b3ffab8810905684dcdf28690e37c1faf:QuanLyPhongKham/src/UI/QuanLyNhanVien.form
                 </Property>
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>

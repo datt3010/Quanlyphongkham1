@@ -5,10 +5,49 @@
  */
 package Utilities;
 
+import java.awt.Image;
+import java.io.File;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author OS
  */
 public class XImages {
+    public static Image getAppIcon(){
+        URL url = XImages.class.getResource("");
+        return new ImageIcon(url).getImage();
+    }
     
+    //Lưu File vào thư mục Logo
+    public static void Save(File src){
+        //Tạo ra File có thư mục tên Logo , và lấy tên File
+        File file = new File("logo", src.getName());
+        
+        //Kiểm tra File có tồn tại hay chưa, Nếu chưa thì tạo mới
+        if(!file.getParentFile().exists()){
+            file.getParentFile().mkdirs();
+        }
+        
+        //Copy File vào thư mục
+        try {
+            Path from = Paths.get(src.getAbsolutePath());//Copy từ
+            Path to = Paths.get(file.getAbsolutePath());//Copy đến
+            
+            Files.copy(from, to, StandardCopyOption.REPLACE_EXISTING); //Nếu File đó đã tồn tại thì thay thế luôn
+        } catch (Exception e) {
+            e.printStackTrace();
+              
+        }
+    }
+    
+    public static ImageIcon read(String name){
+        File file = new File("logo", name);
+        return new ImageIcon(file.getAbsolutePath());
+    }
 }
