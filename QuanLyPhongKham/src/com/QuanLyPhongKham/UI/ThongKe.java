@@ -19,12 +19,12 @@ import javax.swing.JPanel;
  *
  * @author OS
  */
-public class QuanLyHoaDon extends javax.swing.JFrame {
+public class ThongKe extends javax.swing.JFrame {
 
     /**
      * Creates new form QuanLyPhongKham
      */
-    public QuanLyHoaDon() {
+    public ThongKe() {
         initComponents();
         init();
     }
@@ -75,7 +75,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         pnlRight = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("QUẢN LÝ HOÁ ĐƠN\n");
+        setTitle("THỐNG KÊ");
 
         pnlTong.setBackground(new java.awt.Color(255, 255, 255));
         pnlTong.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -428,7 +428,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         });
         pnlQuanLyThongKe.add(lblThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 140, 20));
 
-        pnlLeft.add(pnlQuanLyThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 210, 40));
+        pnlLeft.add(pnlQuanLyThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 210, 40));
 
         pnlDichVu.setBackground(new java.awt.Color(54, 70, 78));
         pnlDichVu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -467,7 +467,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         });
         pnlDichVu.add(lblDichVu, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 140, 20));
 
-        pnlLeft.add(pnlDichVu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 210, 40));
+        pnlLeft.add(pnlDichVu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 210, 40));
 
         btnDangXuat.setText("ĐĂNG XUẤT");
         btnDangXuat.addActionListener(new java.awt.event.ActionListener() {
@@ -562,11 +562,11 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyBacSiMouseClicked
 
     private void lblIconHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseClicked
-        //this.OpenHoaDon();
+        this.OpenHoaDon();
     }//GEN-LAST:event_lblIconHoaDonMouseClicked
 
     private void lblQuanLyHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseClicked
-        //this.OpenHoaDon();
+        this.OpenHoaDon();
     }//GEN-LAST:event_lblQuanLyHoaDonMouseClicked
 
     private void lblIconBenhNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBenhNhanMouseClicked
@@ -586,11 +586,11 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyPhieuKhamMouseClicked
 
     private void lblIconThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKeMouseClicked
-        this.OpenThongKe();
+        //this.OpenThongKe();
     }//GEN-LAST:event_lblIconThongKeMouseClicked
 
     private void lblThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseClicked
-        this.OpenThongKe();
+        //this.OpenThongKe();
     }//GEN-LAST:event_lblThongKeMouseClicked
 
     private void lblIconThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuocMouseClicked
@@ -626,11 +626,11 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
     }//GEN-LAST:event_lblIconBenhNhanMouseExited
 
     private void lblIconHoaDonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseEntered
-        //hover(lblIconHoaDon);
+        hover(lblIconHoaDon);
     }//GEN-LAST:event_lblIconHoaDonMouseEntered
 
     private void lblIconHoaDonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseExited
-        //NotHover(lblIconHoaDon);
+        NotHover(lblIconHoaDon);
     }//GEN-LAST:event_lblIconHoaDonMouseExited
 
     private void lblIconPhieuKhamMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconPhieuKhamMouseEntered
@@ -692,11 +692,11 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyBenhNhanMouseExited
 
     private void lblQuanLyHoaDonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseEntered
-//       hoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
+       hoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
     }//GEN-LAST:event_lblQuanLyHoaDonMouseEntered
 
     private void lblQuanLyHoaDonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseExited
-//       NotHoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
+       NotHoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
     }//GEN-LAST:event_lblQuanLyHoaDonMouseExited
 
     private void lblQuanLyPhieuKhamMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseEntered
@@ -755,48 +755,12 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(QuanLyHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(QuanLyHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(QuanLyHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(QuanLyHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+       
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new QuanLyHoaDon().setVisible(true);
+                new ThongKe().setVisible(true);
             }
         });
     }
@@ -839,7 +803,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
     private javax.swing.JPanel pnlTong;
     // End of variables declaration//GEN-END:variables
     private void init(){
-        hoverPanel(pnlQuanLyHoaDon, lblIconHoaDon);
+        hoverPanel(pnlQuanLyThongKe, lblIconThongKe);
         setLocationRelativeTo(null);
         this.LoadNgay();
         

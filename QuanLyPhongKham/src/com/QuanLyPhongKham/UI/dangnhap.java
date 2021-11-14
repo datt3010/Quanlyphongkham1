@@ -5,9 +5,9 @@
  */
 package com.QuanLyPhongKham.UI;
 
-import Model.NhanVien;
-import DAO.nhanvienDAO;
-import Utilities.MsgBox;
+import com.QuanLyPhongKham.Model.NhanVien;
+import com.QuanLyPhongKham.DAO.nhanvienDAO;
+import com.QuanLyPhongKham.Utilities.MsgBox;
 import java.awt.geom.RoundRectangle2D;
 
 /**
@@ -248,8 +248,8 @@ public class dangnhap extends javax.swing.JFrame {
         } else if (!pass.equals(nhanVien.getMatkhau())) {
             MsgBox.alert(this, "sai mật khẩu");
         } else {
-            Utilities.Auths.user = nhanVien;
-            new QuanLyDichVu().setVisible(true);
+            com.QuanLyPhongKham.Utilities.Auths.user = nhanVien;
+            //new QuanLyDichVu().setVisible(true);
             this.dispose();
         }
     }

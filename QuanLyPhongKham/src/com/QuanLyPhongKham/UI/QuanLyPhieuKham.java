@@ -19,12 +19,12 @@ import javax.swing.JPanel;
  *
  * @author OS
  */
-public class QuanLyHoaDon extends javax.swing.JFrame {
+public class QuanLyPhieuKham extends javax.swing.JFrame {
 
     /**
      * Creates new form QuanLyPhongKham
      */
-    public QuanLyHoaDon() {
+    public QuanLyPhieuKham() {
         initComponents();
         init();
     }
@@ -75,7 +75,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         pnlRight = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("QUẢN LÝ HOÁ ĐƠN\n");
+        setTitle("QUẢN LÝ PHIẾU KHÁM\n\n");
 
         pnlTong.setBackground(new java.awt.Color(255, 255, 255));
         pnlTong.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -562,11 +562,11 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyBacSiMouseClicked
 
     private void lblIconHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseClicked
-        //this.OpenHoaDon();
+        this.OpenHoaDon();
     }//GEN-LAST:event_lblIconHoaDonMouseClicked
 
     private void lblQuanLyHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseClicked
-        //this.OpenHoaDon();
+        this.OpenHoaDon();
     }//GEN-LAST:event_lblQuanLyHoaDonMouseClicked
 
     private void lblIconBenhNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBenhNhanMouseClicked
@@ -578,11 +578,11 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyBenhNhanMouseClicked
 
     private void lblIconPhieuKhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconPhieuKhamMouseClicked
-        this.OpenPhieuKham();
+        //this.OpenPhieuKham();
     }//GEN-LAST:event_lblIconPhieuKhamMouseClicked
 
     private void lblQuanLyPhieuKhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseClicked
-        this.OpenPhieuKham();
+        //this.OpenPhieuKham();
     }//GEN-LAST:event_lblQuanLyPhieuKhamMouseClicked
 
     private void lblIconThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKeMouseClicked
@@ -626,19 +626,19 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
     }//GEN-LAST:event_lblIconBenhNhanMouseExited
 
     private void lblIconHoaDonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseEntered
-        //hover(lblIconHoaDon);
+        hover(lblIconHoaDon);
     }//GEN-LAST:event_lblIconHoaDonMouseEntered
 
     private void lblIconHoaDonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseExited
-        //NotHover(lblIconHoaDon);
+        NotHover(lblIconHoaDon);
     }//GEN-LAST:event_lblIconHoaDonMouseExited
 
     private void lblIconPhieuKhamMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconPhieuKhamMouseEntered
-        hover(lblIconPhieuKham);
+        //hover(lblIconPhieuKham);
     }//GEN-LAST:event_lblIconPhieuKhamMouseEntered
 
     private void lblIconPhieuKhamMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconPhieuKhamMouseExited
-        NotHover(lblIconPhieuKham);
+        //NotHover(lblIconPhieuKham);
     }//GEN-LAST:event_lblIconPhieuKhamMouseExited
 
     private void lblIconThuocMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuocMouseEntered
@@ -692,19 +692,19 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyBenhNhanMouseExited
 
     private void lblQuanLyHoaDonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseEntered
-//       hoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
+       hoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
     }//GEN-LAST:event_lblQuanLyHoaDonMouseEntered
 
     private void lblQuanLyHoaDonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseExited
-//       NotHoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
+       NotHoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
     }//GEN-LAST:event_lblQuanLyHoaDonMouseExited
 
     private void lblQuanLyPhieuKhamMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseEntered
-        hoverPanel(pnlQuanLyPhieuKham,lblIconPhieuKham);
+        //hoverPanel(pnlQuanLyPhieuKham,lblIconPhieuKham);
     }//GEN-LAST:event_lblQuanLyPhieuKhamMouseEntered
 
     private void lblQuanLyPhieuKhamMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseExited
-        NotHoverPanel(pnlQuanLyPhieuKham,lblIconPhieuKham);
+        //NotHoverPanel(pnlQuanLyPhieuKham,lblIconPhieuKham);
     }//GEN-LAST:event_lblQuanLyPhieuKhamMouseExited
 
     private void lblQuanLyThuocMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuocMouseEntered
@@ -768,14 +768,30 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(QuanLyHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyPhieuKham.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(QuanLyHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyPhieuKham.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(QuanLyHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyPhieuKham.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(QuanLyHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyPhieuKham.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -796,7 +812,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new QuanLyHoaDon().setVisible(true);
+                new QuanLyPhieuKham().setVisible(true);
             }
         });
     }
@@ -839,7 +855,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
     private javax.swing.JPanel pnlTong;
     // End of variables declaration//GEN-END:variables
     private void init(){
-        hoverPanel(pnlQuanLyHoaDon, lblIconHoaDon);
+        hoverPanel(pnlQuanLyPhieuKham, lblIconPhieuKham);
         setLocationRelativeTo(null);
         this.LoadNgay();
         
