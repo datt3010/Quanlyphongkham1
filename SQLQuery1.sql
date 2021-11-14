@@ -24,7 +24,6 @@ sodienthoai varchar(13) check(sodienthoai>13) not null,
 gioitinh nvarchar(10),
 ngaysinh date not null,
 diachi nvarchar(255),
-hinh varchar(100),
 manhanvien varchar(12),
 constraint fk_benhnhan_nhanvien foreign key(manhanvien) references nhanvien(manhanvien) on delete no action on update no action
 )
@@ -72,37 +71,21 @@ maloaithuoc int
 constraint fk_thuoc_loaithuoc foreign key(maloaithuoc) references loaithuoc(maloaithuoc) on delete no action on update cascade
 )
 go
-create table toathuoc(
-matoathuoc int identity(1,1) primary key,
-ngayke date not null,
-lieuluong int not null,
-mathuoc varchar(10) not null,
-maphieukham int not null,
-ghichu nvarchar(255),
-constraint fk_toathuoc_thuoc foreign key(mathuoc) references thuoc(mathuoc) on delete no action on update no action,
-constraint fk_toathuoc_phieukham foreign key(maphieukham) references phieukham(maphieukham) on delete no action on update no action
-)
-go
 create table dichvu(
 madichvu varchar(15) primary key,
 tendichvu nvarchar(50) not null,
 giatien money not null
 )
 go
-create table hoadon(
-mahoadon int identity(1,1) primary key,
-matoathuoc int not null,
-ngayghi date not null,
-constraint fk_toathuoc_hoadon foreign key(matoathuoc)references toathuoc(matoathuoc) on delete no action on update no action
+create table toathuoc(
+maphieukham int,
+mathuoc varchar(10),
+madichvu varchar(15),
+primary key(maphieukham,mathuoc,madichvu),
+soluong int not null,
+tongtienthuoc money not null,
+ghichu nvarchar(255),
+constraint fk_toathuoc_phieukham foreign key(maphieukham) references phieukham(maphieukham) on delete no action on update no action,
+constraint fk_toathuoc_thuoc foreign key(mathuoc)references thuoc(mathuoc) on delete no action on update no action,
+constraint fk_toathuoc_dichvu foreign key(madichvu) references dichvu(madichvu) on delete no action on update no action
 )
-go
-create table chitiethoadon(
-mahoadon int primary key,
-madichvu varchar(15) not null,
-mathuoc varchar(10) not null,
-tongbill money not null,
-constraint fk_chitiethoadon_hoadon foreign key(mahoadon) references hoadon(mahoadon) on delete no action on update no action,
-constraint fk_chitiethoadon_dichvu foreign key(madichvu) references dichvu(madichvu) on delete no action on update no action,
-constraint fk_chitiethoadon_thuoc foreign key(mathuoc) references thuoc(mathuoc) on delete no action on update no action
-)
-select * from nhanvien
