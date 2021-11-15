@@ -73,6 +73,37 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         lblDichVu = new javax.swing.JLabel();
         btnDangXuat = new rojeru_san.complementos.RSButtonHover();
         pnlRight = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel8 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        rSTableMetro1 = new rojeru_san.complementos.RSTableMetro();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ NHÂN VIÊN");
@@ -482,6 +513,124 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         pnlRight.setBackground(new java.awt.Color(255, 255, 255));
         pnlRight.setFocusable(false);
         pnlRight.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Địa chỉ");
+        pnlRight.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 90, 30));
+
+        jTextField1.setText("jTextField1");
+        pnlRight.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 360, 34));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnlRight.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 220, 34));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Tên Nhân Viên");
+        pnlRight.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 130, 30));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Ngày sinh");
+        pnlRight.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 110, 120, 40));
+
+        jTextField2.setText("jTextField1");
+        pnlRight.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 50, 220, 34));
+        pnlRight.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 110, 224, 34));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Số điện thoại");
+        pnlRight.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 50, 120, 30));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Giới tính");
+        pnlRight.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 90, 30));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        pnlRight.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 620, 100));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Tình trạng bệnh");
+        pnlRight.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 140, 30));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnlRight.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 220, 220, 34));
+
+        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Mã nhân viên", "Tên nhân viên", "Số điện thoại", "Giới tính", "Ngày sinh", "Địa chỉ"
+            }
+        ));
+        jScrollPane2.setViewportView(rSTableMetro1);
+
+        pnlRight.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, 1120, 250));
+
+        jTextField3.setText("jTextField1");
+        pnlRight.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, 220, 34));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setText("Search");
+        pnlRight.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 70, 30));
+
+        jButton1.setText("Next");
+        pnlRight.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 740, 90, 30));
+
+        jButton3.setText("Add");
+        pnlRight.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 420, 90, 30));
+
+        jButton4.setText("New");
+        pnlRight.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 420, 90, 30));
+
+        jButton5.setText("Update");
+        pnlRight.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 420, 90, 30));
+
+        jButton6.setText("Delete");
+        pnlRight.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 420, 90, 30));
+
+        jButton7.setText("First");
+        pnlRight.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 750, 90, 30));
+
+        jButton8.setText("Previous");
+        pnlRight.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 750, 90, 30));
+
+        jButton9.setText("End");
+        pnlRight.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 740, 90, 30));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("List of:");
+        pnlRight.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 740, 170, 40));
+
+        jLabel7.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
+        pnlRight.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 190, 160));
+
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel11.setText("Chức Vụ");
+        pnlRight.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 170, -1, -1));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnlRight.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 160, 220, 40));
+
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel12.setText("Mật Khẩu");
+        pnlRight.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, -1, -1));
+
+        jPasswordField1.setText("jPasswordField1");
+        pnlRight.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 220, 30));
+
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -795,7 +944,37 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.complementos.RSButtonHover btnDangXuat;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private rojerusan.RSFotoCircle lblAnhNV;
     private javax.swing.JLabel lblDanhMuc;
     private javax.swing.JLabel lblDay;
@@ -829,6 +1008,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     private javax.swing.JPanel pnlQuanLyThuoc;
     private javax.swing.JPanel pnlRight;
     private javax.swing.JPanel pnlTong;
+    private rojeru_san.complementos.RSTableMetro rSTableMetro1;
     // End of variables declaration//GEN-END:variables
     private void init(){
         hoverPanel(pnlQuanLyNhanVien, lblIconNhanVien);
