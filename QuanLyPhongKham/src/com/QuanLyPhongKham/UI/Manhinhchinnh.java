@@ -19,12 +19,12 @@ import javax.swing.JPanel;
  *
  * @author OS
  */
-public class QuanLyNhanVien extends javax.swing.JFrame {
+public class Manhinhchinnh extends javax.swing.JFrame {
 
     /**
      * Creates new form QuanLyPhongKham
      */
-    public QuanLyNhanVien() {
+    public Manhinhchinnh() {
         initComponents();
         init();
     }
@@ -73,58 +73,36 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         lblDichVu = new javax.swing.JLabel();
         btnDangXuat = new rojeru_san.complementos.RSButtonHover();
         pnlRight = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jLabel8 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        rSTableMetro1 = new rojeru_san.complementos.RSTableMetro();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jLabel12 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        lblbacsi = new javax.swing.JLabel();
+        lblphieukham = new javax.swing.JLabel();
+        lblnhanvien = new javax.swing.JLabel();
+        lblthuoc = new javax.swing.JLabel();
+        lblhoadon = new javax.swing.JLabel();
+        lbldichvu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("QUẢN LÝ NHÂN VIÊN");
+        setTitle("QUẢN LÝ BỆNH NHÂN\n");
 
-        pnlTong.setBackground(new java.awt.Color(255, 255, 255));
-        pnlTong.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlTong.setBackground(new java.awt.Color(153, 254, 255));
 
         pnlHeader.setBackground(new java.awt.Color(51, 153, 255));
 
         lblXinChao.setFont(new java.awt.Font("Agency FB", 1, 20)); // NOI18N
+        lblXinChao.setForeground(new java.awt.Color(255, 208, 175));
         lblXinChao.setText("Xin chào, ");
 
-        lblTieuDe.setFont(new java.awt.Font("Agency FB", 1, 48)); // NOI18N
+        lblTieuDe.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
+        lblTieuDe.setForeground(new java.awt.Color(255, 255, 255));
         lblTieuDe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTieuDe.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\hospital_3_50px.png")); // NOI18N
         lblTieuDe.setText("PHÒNG KHÁM AN NHIÊN");
 
         lblDay.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         lblDay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDay.setText("dd/MM/yyyy");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("MANG ĐẾN SỰ BÌNH YÊN");
 
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
@@ -138,23 +116,25 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
                 .addComponent(lblXinChao, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlHeaderLayout.createSequentialGroup()
-                        .addGap(200, 200, 200)
-                        .addComponent(lblTieuDe, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 349, Short.MAX_VALUE)
-                        .addComponent(lblDay, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTieuDe, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
+                        .addGap(105, 105, 105)
+                        .addComponent(lblDay, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
                     .addGroup(pnlHeaderLayout.createSequentialGroup()
-                        .addGap(320, 320, 320)
-                        .addComponent(jLabel1)))
-                .addContainerGap())
+                        .addGap(353, 353, 353)
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pnlHeaderLayout.setVerticalGroup(
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHeaderLayout.createSequentialGroup()
                 .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlHeaderLayout.createSequentialGroup()
-                        .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblTieuDe)
-                            .addComponent(lblDay))
+                        .addGap(7, 7, 7)
+                        .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblDay)
+                            .addComponent(lblTieuDe))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1))
                     .addComponent(lblAnhNV, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -164,8 +144,6 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
                 .addComponent(lblXinChao)
                 .addGap(34, 34, 34))
         );
-
-        pnlTong.add(pnlHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 100));
 
         pnlLeft.setBackground(new java.awt.Color(54, 70, 78));
         pnlLeft.setForeground(new java.awt.Color(54, 70, 78));
@@ -508,132 +486,66 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         });
         pnlLeft.add(btnDangXuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 690, 170, -1));
 
-        pnlTong.add(pnlLeft, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 210, 790));
-
         pnlRight.setBackground(new java.awt.Color(255, 255, 255));
         pnlRight.setFocusable(false);
-        pnlRight.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlRight.setLayout(new java.awt.GridLayout(3, 3));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Địa chỉ");
-        pnlRight.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 90, 30));
+        lblbacsi.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblbacsi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblbacsi.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\scientist_man_70px.png")); // NOI18N
+        lblbacsi.setText("Quản Lý Bác Sĩ");
+        pnlRight.add(lblbacsi);
 
-        jTextField1.setText("jTextField1");
-        pnlRight.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 360, 34));
+        lblphieukham.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblphieukham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblphieukham.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\bill_70px.png")); // NOI18N
+        lblphieukham.setText("Quản Lý Phiếu Khám");
+        pnlRight.add(lblphieukham);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnlRight.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 220, 34));
+        lblnhanvien.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblnhanvien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblnhanvien.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\management_70px.png")); // NOI18N
+        lblnhanvien.setText("Quản Lý Nhân Viên");
+        pnlRight.add(lblnhanvien);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Tên Nhân Viên");
-        pnlRight.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 130, 30));
+        lblthuoc.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblthuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblthuoc.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\health_book_70px.png")); // NOI18N
+        lblthuoc.setText("Quản Lý Thuốc");
+        pnlRight.add(lblthuoc);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Ngày sinh");
-        pnlRight.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 110, 120, 40));
+        lblhoadon.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblhoadon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblhoadon.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\check_70px.png")); // NOI18N
+        lblhoadon.setText("Quản Lý Hóa Đơn");
+        pnlRight.add(lblhoadon);
 
-        jTextField2.setText("jTextField1");
-        pnlRight.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 50, 220, 34));
-        pnlRight.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 110, 224, 34));
+        lbldichvu.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lbldichvu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbldichvu.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\man_on_phone_70px.png")); // NOI18N
+        lbldichvu.setText("Quản Lý Dịch Vụ");
+        pnlRight.add(lbldichvu);
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Số điện thoại");
-        pnlRight.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 50, 120, 30));
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Giới tính");
-        pnlRight.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 90, 30));
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        pnlRight.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 620, 100));
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Tình trạng bệnh");
-        pnlRight.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 140, 30));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnlRight.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 220, 220, 34));
-
-        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Mã nhân viên", "Tên nhân viên", "Số điện thoại", "Giới tính", "Ngày sinh", "Địa chỉ"
-            }
-        ));
-        jScrollPane2.setViewportView(rSTableMetro1);
-
-        pnlRight.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, 1120, 250));
-
-        jTextField3.setText("jTextField1");
-        pnlRight.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, 220, 34));
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_search_20px.png"))); // NOI18N
-        jLabel9.setText("Search");
-        pnlRight.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, 120, 30));
-
-        jButton1.setText("Next");
-        pnlRight.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 740, 90, 30));
-
-        jButton3.setText("Add");
-        pnlRight.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 420, 90, 30));
-
-        jButton4.setText("New");
-        pnlRight.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 420, 90, 30));
-
-        jButton5.setText("Update");
-        pnlRight.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 420, 90, 30));
-
-        jButton6.setText("Delete");
-        pnlRight.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 420, 90, 30));
-
-        jButton7.setText("First");
-        pnlRight.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 750, 90, 30));
-
-        jButton8.setText("Previous");
-        pnlRight.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 750, 90, 30));
-
-        jButton9.setText("End");
-        pnlRight.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 740, 90, 30));
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("List of:");
-        pnlRight.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 740, 170, 40));
-
-        jLabel7.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
-        pnlRight.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 190, 160));
-
-        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel11.setText("Chức Vụ");
-        pnlRight.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 170, -1, -1));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnlRight.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 160, 220, 40));
-
-        jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel12.setText("Mật Khẩu");
-        pnlRight.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, -1, -1));
-
-        jPasswordField1.setText("jPasswordField1");
-        pnlRight.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 220, 30));
-
-        pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
+        javax.swing.GroupLayout pnlTongLayout = new javax.swing.GroupLayout(pnlTong);
+        pnlTong.setLayout(pnlTongLayout);
+        pnlTongLayout.setHorizontalGroup(
+            pnlTongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(pnlTongLayout.createSequentialGroup()
+                .addComponent(pnlLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(110, 110, 110)
+                .addComponent(pnlRight, javax.swing.GroupLayout.PREFERRED_SIZE, 950, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        pnlTongLayout.setVerticalGroup(
+            pnlTongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTongLayout.createSequentialGroup()
+                .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlTongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlTongLayout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(pnlRight, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -697,19 +609,19 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_lblDanhMucMouseClicked
 
     private void lblIconNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconNhanVienMouseClicked
-        //this.OpenNhanVien();
+        this.OpenNhanVien();
     }//GEN-LAST:event_lblIconNhanVienMouseClicked
 
     private void lblQuanLyNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNhanVienMouseClicked
-            //this.OpenNhanVien();
+            this.OpenNhanVien();
     }//GEN-LAST:event_lblQuanLyNhanVienMouseClicked
 
     private void lblIconBacSiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBacSiMouseClicked
-       this.OpenBacSi();
+        this.OpenBacSi();
     }//GEN-LAST:event_lblIconBacSiMouseClicked
 
     private void lblQuanLyBacSiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBacSiMouseClicked
-       this.OpenBacSi();
+        this.OpenBacSi();
     }//GEN-LAST:event_lblQuanLyBacSiMouseClicked
 
     private void lblIconHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseClicked
@@ -721,11 +633,11 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyHoaDonMouseClicked
 
     private void lblIconBenhNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBenhNhanMouseClicked
-        this.OpenBenhNhan();
+        //this.OpenBenhNhan();
     }//GEN-LAST:event_lblIconBenhNhanMouseClicked
 
     private void lblQuanLyBenhNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseClicked
-        this.OpenBenhNhan();
+        //this.OpenBenhNhan();
     }//GEN-LAST:event_lblQuanLyBenhNhanMouseClicked
 
     private void lblIconPhieuKhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconPhieuKhamMouseClicked
@@ -753,27 +665,27 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyThuocMouseClicked
 
     private void lblIconBacSiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBacSiMouseEntered
-        hover(lblIconBacSi);
+        //hover(lblIconBacSi);
     }//GEN-LAST:event_lblIconBacSiMouseEntered
 
     private void lblIconBacSiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBacSiMouseExited
-        NotHover(lblIconBacSi);
+        //NotHover(lblIconBacSi);
     }//GEN-LAST:event_lblIconBacSiMouseExited
 
     private void lblIconNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconNhanVienMouseEntered
-        //hover(lblIconNhanVien);
+        hover(lblIconNhanVien);
     }//GEN-LAST:event_lblIconNhanVienMouseEntered
 
     private void lblIconNhanVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconNhanVienMouseExited
-        //NotHover(lblIconNhanVien);
+        NotHover(lblIconNhanVien);
     }//GEN-LAST:event_lblIconNhanVienMouseExited
 
     private void lblIconBenhNhanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBenhNhanMouseEntered
-        hover(lblIconBenhNhan);
+//        hover(lblIconBenhNhan);
     }//GEN-LAST:event_lblIconBenhNhanMouseEntered
 
     private void lblIconBenhNhanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBenhNhanMouseExited
-        NotHover(lblIconBenhNhan);
+//        NotHover(lblIconBenhNhan);
     }//GEN-LAST:event_lblIconBenhNhanMouseExited
 
     private void lblIconHoaDonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseEntered
@@ -827,19 +739,19 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyBacSiMouseExited
 
     private void lblQuanLyNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNhanVienMouseEntered
-        //hoverPanel(pnlQuanLyNhanVien,lblIconNhanVien);
+        hoverPanel(pnlQuanLyNhanVien,lblIconNhanVien);
     }//GEN-LAST:event_lblQuanLyNhanVienMouseEntered
 
     private void lblQuanLyNhanVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNhanVienMouseExited
-//        NotHoverPanel(pnlQuanLyNhanVien,lblIconNhanVien);
+        NotHoverPanel(pnlQuanLyNhanVien,lblIconNhanVien);
     }//GEN-LAST:event_lblQuanLyNhanVienMouseExited
 
     private void lblQuanLyBenhNhanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseEntered
-        hoverPanel(pnlQuanLyBenhNhan,lblIconBenhNhan);
+//        hoverPanel(pnlQuanLyBenhNhan,lblIconBenhNhan);
     }//GEN-LAST:event_lblQuanLyBenhNhanMouseEntered
 
     private void lblQuanLyBenhNhanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseExited
-        NotHoverPanel(pnlQuanLyBenhNhan,lblIconBenhNhan);
+//        NotHoverPanel(pnlQuanLyBenhNhan,lblIconBenhNhan);
     }//GEN-LAST:event_lblQuanLyBenhNhanMouseExited
 
     private void lblQuanLyHoaDonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseEntered
@@ -919,13 +831,13 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(QuanLyNhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyBenhNhan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(QuanLyNhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyBenhNhan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(QuanLyNhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyBenhNhan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(QuanLyNhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyBenhNhan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -939,44 +851,14 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new QuanLyNhanVien().setVisible(true);
+                new Manhinhchinnh().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.complementos.RSButtonHover btnDangXuat;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private rojerusan.RSFotoCircle lblAnhNV;
     private javax.swing.JLabel lblDanhMuc;
     private javax.swing.JLabel lblDay;
@@ -998,6 +880,12 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     private javax.swing.JLabel lblThongKe;
     private javax.swing.JLabel lblTieuDe;
     private javax.swing.JLabel lblXinChao;
+    private javax.swing.JLabel lblbacsi;
+    private javax.swing.JLabel lbldichvu;
+    private javax.swing.JLabel lblhoadon;
+    private javax.swing.JLabel lblnhanvien;
+    private javax.swing.JLabel lblphieukham;
+    private javax.swing.JLabel lblthuoc;
     private javax.swing.JPanel pnlDichVu;
     private javax.swing.JPanel pnlHeader;
     private javax.swing.JPanel pnlLeft;
@@ -1010,10 +898,9 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     private javax.swing.JPanel pnlQuanLyThuoc;
     private javax.swing.JPanel pnlRight;
     private javax.swing.JPanel pnlTong;
-    private rojeru_san.complementos.RSTableMetro rSTableMetro1;
     // End of variables declaration//GEN-END:variables
     private void init(){
-        hoverPanel(pnlQuanLyNhanVien, lblIconNhanVien);
+        hoverPanel(pnlQuanLyBenhNhan, lblIconBenhNhan);
         setLocationRelativeTo(null);
         this.LoadNgay();
         
@@ -1056,45 +943,46 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 //   
     private void OpenBacSi(){
         this.dispose();
-        new QuanLyBacSi().setVisible(true);
+//        new QuanLyBacSi().setVisible(true);
     }
+    
     private void OpenBenhNhan(){
         this.dispose();
-        new QuanLyBenhNhan().setVisible(true);
+//        new QuanLyBenhNhan().setVisible(true);
     }
     
     private void OpenNhanVien(){
         this.dispose();
-        new QuanLyNhanVien().setVisible(true);
+//        new QuanLyNhanVien().setVisible(true);
     }
     
     private void OpenHoaDon(){
         this.dispose();
-        new QuanLyHoaDon().setVisible(true);
+//        new QuanLyHoaDon().setVisible(true);
     }
     
     private void OpenPhieuKham(){
         this.dispose();
-        new QuanLyPhieuKham().setVisible(true);
+//        new QuanLyPhieuKham().setVisible(true);
     }
     
     private void OpenThuoc(){
         this.dispose();
-        new QuanLyThuoc().setVisible(true);
+//        new QuanLyThuoc().setVisible(true);
     }
     
     private void OpenDichVu(){
         this.dispose();
-        new QuanLyDichVu().setVisible(true);
+//        new QuanLyDichVu().setVisible(true);
     }
     
     private void OpenLogin(){
         this.dispose();
-        new dangnhap().setVisible(true);
+//        new dangnhap().setVisible(true);
     }
     
     private void OpenThongKe(){
         this.dispose();
-        new ThongKe().setVisible(true);
+//        new ThongKe().setVisible(true);
     }
 }
