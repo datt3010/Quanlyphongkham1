@@ -900,7 +900,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
     
     private void OpenPhieuKham(){
         this.dispose();
-        new QuanLyPhieuKham().setVisible(true);
+//        new QuanLyPhieuKham().setVisible(true);
     }
     
     private void OpenThuoc(){

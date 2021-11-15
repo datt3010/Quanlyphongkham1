@@ -75,6 +75,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         pnlRight = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ BÁC SĨ\n");
@@ -491,6 +492,9 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         pnlRight.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
 
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnlRight.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
+
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -802,6 +806,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     private rojeru_san.complementos.RSButtonHover btnDangXuat;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private rojerusan.RSFotoCircle lblAnhNV;
     private javax.swing.JLabel lblDanhMuc;
