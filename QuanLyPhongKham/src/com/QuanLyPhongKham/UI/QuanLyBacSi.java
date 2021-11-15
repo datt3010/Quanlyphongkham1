@@ -73,6 +73,35 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         lblDichVu = new javax.swing.JLabel();
         btnDangXuat = new rojeru_san.complementos.RSButtonHover();
         pnlRight = new javax.swing.JPanel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        rSTableMetro1 = new rojeru_san.complementos.RSTableMetro();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ BÁC SĨ\n");
@@ -482,6 +511,140 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         pnlRight.setBackground(new java.awt.Color(255, 255, 255));
         pnlRight.setFocusable(false);
         pnlRight.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnlRight.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 240, 30));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Mã bác sỹ");
+        pnlRight.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 90, 30));
+
+        jTextField1.setText("jTextField1");
+        pnlRight.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 240, 30));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Giới tính");
+        pnlRight.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 90, 30));
+
+        jTextField2.setText("jTextField1");
+        pnlRight.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 240, 30));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Tên bác sỹ");
+        pnlRight.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 90, 30));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Điện thoại");
+        pnlRight.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 90, 30));
+
+        jTextField3.setText("jTextField1");
+        pnlRight.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 20, 240, 30));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Ngày sinh");
+        pnlRight.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 90, 30));
+
+        jTextField4.setText("jTextField1");
+        pnlRight.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 240, 30));
+        pnlRight.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 260, 30));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Email");
+        pnlRight.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 90, 30));
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_manager_30px.png"))); // NOI18N
+        pnlRight.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 30, 200, 180));
+
+        jButton1.setText("Chọn ảnh");
+        pnlRight.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 230, 110, 40));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Chuyên ngành");
+        pnlRight.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 120, 30));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnlRight.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 240, 30));
+
+        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Mã bác sỹ", "Tên bác sỹ", "Giới tính", "Ngày sinh", "Chuyên ngành", "Điện thoại", "Email", "Hình"
+            }
+        ));
+        jScrollPane1.setViewportView(rSTableMetro1);
+
+        pnlRight.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 1070, 380));
+
+        jButton2.setText("Delete");
+        pnlRight.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 220, 100, 40));
+
+        jButton3.setText("Last");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        pnlRight.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 730, 100, 40));
+
+        jButton4.setText("New");
+        pnlRight.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 100, 40));
+
+        jButton5.setText("Update");
+        pnlRight.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 220, 100, 40));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Search");
+        pnlRight.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 80, 30));
+
+        jTextField5.setText("jTextField5");
+        pnlRight.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, 290, 30));
+
+        jButton6.setText("Add");
+        pnlRight.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 100, 40));
+
+        jButton7.setText("First");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        pnlRight.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 730, 100, 40));
+
+        jButton8.setText("Previous");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        pnlRight.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 730, 100, 40));
+
+        jButton9.setText("Next");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        pnlRight.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 730, 100, 40));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("List of:");
+        pnlRight.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 730, 230, 40));
+
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -751,6 +914,22 @@ public class QuanLyBacSi extends javax.swing.JFrame {
        this.OpenLogin();
     }//GEN-LAST:event_btnDangXuatActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -791,7 +970,35 @@ public class QuanLyBacSi extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.complementos.RSButtonHover btnDangXuat;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     private rojerusan.RSFotoCircle lblAnhNV;
     private javax.swing.JLabel lblDanhMuc;
     private javax.swing.JLabel lblDay;
@@ -825,6 +1032,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     private javax.swing.JPanel pnlQuanLyThuoc;
     private javax.swing.JPanel pnlRight;
     private javax.swing.JPanel pnlTong;
+    private rojeru_san.complementos.RSTableMetro rSTableMetro1;
     // End of variables declaration//GEN-END:variables
     private void init(){
         hoverPanel(pnlQuanLyBacSi, lblIconBacSi);
