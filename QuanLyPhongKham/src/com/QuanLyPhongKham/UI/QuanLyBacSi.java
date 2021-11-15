@@ -101,6 +101,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ BÁC SĨ\n");
@@ -640,6 +641,9 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         jLabel11.setText("List of:");
         pnlRight.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 730, 230, 40));
 
+        jLabel8.setText("jLabel8");
+        pnlRight.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
+
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -986,6 +990,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
