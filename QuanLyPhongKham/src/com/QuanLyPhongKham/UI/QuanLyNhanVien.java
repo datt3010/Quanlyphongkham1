@@ -484,7 +484,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         pnlRight.setFocusable(false);
         pnlRight.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Quản Lý Nhân Viên");
+        jLabel2.setText("Quản Lý Nhân1 Viên");
         pnlRight.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
 
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));

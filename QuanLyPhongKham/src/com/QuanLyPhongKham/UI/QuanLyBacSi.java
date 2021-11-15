@@ -85,7 +85,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
@@ -558,10 +557,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         jLabel7.setText("Email");
         pnlRight.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 90, 30));
 
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_manager_30px.png"))); // NOI18N
-        pnlRight.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 30, 200, 180));
-
         jButton1.setText("Chọn ảnh");
         pnlRight.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 230, 110, 40));
 
@@ -991,7 +986,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
