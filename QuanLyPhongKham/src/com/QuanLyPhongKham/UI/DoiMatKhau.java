@@ -113,16 +113,16 @@ public class DoiMatKhau extends javax.swing.JDialog {
         });
         pnlThoat.add(lblThoat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 39, 40));
 
-        lblLogin.setFont(new java.awt.Font("Agency FB", 1, 40)); // NOI18N
+        lblLogin.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         lblLogin.setForeground(new java.awt.Color(102, 102, 102));
         lblLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLogin.setText("Reset Password");
+        lblLogin.setText("Đổi mật khẩu");
         lblLogin.setToolTipText("");
 
         lblLoginID.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         lblLoginID.setForeground(new java.awt.Color(102, 102, 102));
         lblLoginID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLoginID.setText("Login ID");
+        lblLoginID.setText("Tên đăng nhập");
 
         txtTenDangNhap.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         txtTenDangNhap.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
@@ -180,15 +180,9 @@ public class DoiMatKhau extends javax.swing.JDialog {
         pnlrightLayout.setHorizontalGroup(
             pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlrightLayout.createSequentialGroup()
-                .addGap(0, 66, Short.MAX_VALUE)
-                .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlrightLayout.createSequentialGroup()
-                        .addComponent(lblLogin)
-                        .addGap(44, 44, 44)
-                        .addComponent(pnlThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlrightLayout.createSequentialGroup()
-                        .addComponent(lblQuenMatKhau)
-                        .addGap(116, 116, 116))))
+                .addGap(0, 138, Short.MAX_VALUE)
+                .addComponent(lblQuenMatKhau)
+                .addGap(116, 116, 116))
             .addGroup(pnlrightLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -205,15 +199,18 @@ public class DoiMatKhau extends javax.swing.JDialog {
                     .addComponent(txtMatKhauMoi)
                     .addComponent(txtNhacLaiMatKhauMoi))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlrightLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(lblLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(pnlThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlrightLayout.setVerticalGroup(
             pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlrightLayout.createSequentialGroup()
-                .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(pnlThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlrightLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblLogin)))
+                    .addComponent(lblLogin))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblLoginID)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -230,7 +227,7 @@ public class DoiMatKhau extends javax.swing.JDialog {
                 .addComponent(lblLoginPassword2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNhacLaiMatKhauMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnThoat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnXacNhan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

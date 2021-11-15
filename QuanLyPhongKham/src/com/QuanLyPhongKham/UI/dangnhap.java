@@ -95,7 +95,7 @@ public class dangnhap extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(153, 221, 255));
+        jPanel2.setBackground(new java.awt.Color(77, 195, 255));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/favicon.png"))); // NOI18N
@@ -114,29 +114,29 @@ public class dangnhap extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblchu, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(lblchu, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(115, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblchu, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(126, 126, 126))
+                .addGap(157, 157, 157))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 550));
 
-        jPanel3.setBackground(new java.awt.Color(77, 195, 255));
+        jPanel3.setBackground(new java.awt.Color(102, 204, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblquenmatkhau.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblquenmatkhau.setText("Quên mật khẩu ?");
         jPanel3.add(lblquenmatkhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, -1));
 
-        btndoimatkhau.setBackground(new java.awt.Color(77, 195, 255));
+        btndoimatkhau.setBackground(new java.awt.Color(102, 204, 255));
         btndoimatkhau.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         btndoimatkhau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-home-page-23.png"))); // NOI18N
         btndoimatkhau.setText("Đổi mật khẩu?");
@@ -153,7 +153,7 @@ public class dangnhap extends javax.swing.JFrame {
         jLabel4.setText("Mật khẩu");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 77, -1));
 
-        txtuser.setBackground(new java.awt.Color(77, 195, 255));
+        txtuser.setBackground(new java.awt.Color(102, 204, 255));
         txtuser.setBorder(null);
         jPanel3.add(txtuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 164, 326, 33));
 
@@ -162,11 +162,11 @@ public class dangnhap extends javax.swing.JFrame {
         jLabel5.setText("Tài Khoản");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 160, -1, 33));
 
-        txtpassword.setBackground(new java.awt.Color(77, 195, 255));
+        txtpassword.setBackground(new java.awt.Color(102, 204, 255));
         txtpassword.setBorder(null);
         jPanel3.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 326, 33));
 
-        btndangnhap.setBackground(new java.awt.Color(77, 195, 255));
+        btndangnhap.setBackground(new java.awt.Color(102, 204, 255));
         btndangnhap.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btndangnhap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_chart_30px.png"))); // NOI18N
         btndangnhap.setText("Đăng nhập");
@@ -234,6 +234,7 @@ public class dangnhap extends javax.swing.JFrame {
             }
         });
     }
+
     public void login() {
         String taikhoan = txtuser.getText();
         String pass = new String(txtpassword.getPassword());
@@ -244,12 +245,30 @@ public class dangnhap extends javax.swing.JFrame {
             MsgBox.alert(this, "sai mật khẩu");
         } else {
             com.QuanLyPhongKham.Utilities.Auths.user = nhanVien;
-            new QuanLyBacSi().setVisible(true);
+            //new QuanLyDichVu().setVisible(true);
             this.dispose();
-
         }
     }
+    
 
+
+
+//    public void login() {
+//        String taikhoan = txtuser.getText();
+//        String pass = new String(txtpassword.getPassword());
+//        NhanVien nhanVien = daonv.SelectByID(taikhoan);
+//        if (nhanVien == null) {
+//            MsgBox.alert(this, "sai tên đăng nhập");
+//        } else if (!pass.equals(nhanVien.getMatkhau())) {
+//            MsgBox.alert(this, "sai mật khẩu");
+//        } else {
+//            Utilities.Auths.user = nhanVien;
+//            new QuanLyphieukham().setVisible(true);
+//            this.dispose();
+//
+//        }
+//    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btndangnhap;
     private javax.swing.JButton btndoimatkhau;
