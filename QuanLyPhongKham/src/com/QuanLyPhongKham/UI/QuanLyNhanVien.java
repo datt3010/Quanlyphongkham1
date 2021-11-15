@@ -582,8 +582,10 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         pnlRight.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, 220, 34));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_search_20px.png"))); // NOI18N
         jLabel9.setText("Search");
-        pnlRight.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 70, 30));
+        pnlRight.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, 120, 30));
 
         jButton1.setText("Next");
         pnlRight.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 740, 90, 30));
