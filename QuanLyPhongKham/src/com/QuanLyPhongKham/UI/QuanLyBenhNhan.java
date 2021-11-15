@@ -475,7 +475,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
                 btnDangXuatActionPerformed(evt);
             }
         });
-        pnlLeft.add(btnDangXuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 170, -1));
+        pnlLeft.add(btnDangXuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 690, 170, -1));
 
         pnlTong.add(pnlLeft, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 210, 790));
 

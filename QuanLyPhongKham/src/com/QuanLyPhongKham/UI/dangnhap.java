@@ -95,7 +95,7 @@ public class dangnhap extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(153, 221, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/favicon.png"))); // NOI18N
@@ -129,19 +129,23 @@ public class dangnhap extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 550));
 
-        jPanel3.setBackground(new java.awt.Color(77, 195, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 102, 102));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblquenmatkhau.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblquenmatkhau.setText("Quên mật khẩu ?");
         jPanel3.add(lblquenmatkhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, -1));
 
-        btndoimatkhau.setBackground(new java.awt.Color(77, 195, 255));
+        btndoimatkhau.setBackground(new java.awt.Color(255, 153, 153));
         btndoimatkhau.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         btndoimatkhau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-home-page-23.png"))); // NOI18N
         btndoimatkhau.setText("Đổi mật khẩu?");
         jPanel3.add(btndoimatkhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 190, 50));
+
+        jSeparator2.setBackground(new java.awt.Color(255, 0, 0));
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 320, 10));
+
+        jSeparator1.setBackground(new java.awt.Color(255, 0, 0));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 320, 20));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
@@ -153,7 +157,7 @@ public class dangnhap extends javax.swing.JFrame {
         jLabel4.setText("Mật khẩu");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 77, -1));
 
-        txtuser.setBackground(new java.awt.Color(77, 195, 255));
+        txtuser.setBackground(new java.awt.Color(255, 102, 102));
         txtuser.setBorder(null);
         jPanel3.add(txtuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 164, 326, 33));
 
@@ -162,11 +166,11 @@ public class dangnhap extends javax.swing.JFrame {
         jLabel5.setText("Tài Khoản");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 160, -1, 33));
 
-        txtpassword.setBackground(new java.awt.Color(77, 195, 255));
+        txtpassword.setBackground(new java.awt.Color(255, 102, 102));
         txtpassword.setBorder(null);
         jPanel3.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 326, 33));
 
-        btndangnhap.setBackground(new java.awt.Color(77, 195, 255));
+        btndangnhap.setBackground(new java.awt.Color(255, 153, 153));
         btndangnhap.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btndangnhap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_chart_30px.png"))); // NOI18N
         btndangnhap.setText("Đăng nhập");
@@ -234,6 +238,7 @@ public class dangnhap extends javax.swing.JFrame {
             }
         });
     }
+
     public void login() {
         String taikhoan = txtuser.getText();
         String pass = new String(txtpassword.getPassword());
@@ -244,12 +249,30 @@ public class dangnhap extends javax.swing.JFrame {
             MsgBox.alert(this, "sai mật khẩu");
         } else {
             com.QuanLyPhongKham.Utilities.Auths.user = nhanVien;
-            new QuanLyBacSi().setVisible(true);
+            //new QuanLyDichVu().setVisible(true);
             this.dispose();
-
         }
     }
+    
 
+
+
+//    public void login() {
+//        String taikhoan = txtuser.getText();
+//        String pass = new String(txtpassword.getPassword());
+//        NhanVien nhanVien = daonv.SelectByID(taikhoan);
+//        if (nhanVien == null) {
+//            MsgBox.alert(this, "sai tên đăng nhập");
+//        } else if (!pass.equals(nhanVien.getMatkhau())) {
+//            MsgBox.alert(this, "sai mật khẩu");
+//        } else {
+//            Utilities.Auths.user = nhanVien;
+//            new QuanLyphieukham().setVisible(true);
+//            this.dispose();
+//
+//        }
+//    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btndangnhap;
     private javax.swing.JButton btndoimatkhau;

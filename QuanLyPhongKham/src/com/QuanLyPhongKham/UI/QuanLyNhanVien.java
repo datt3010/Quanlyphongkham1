@@ -73,7 +73,6 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         lblDichVu = new javax.swing.JLabel();
         btnDangXuat = new rojeru_san.complementos.RSButtonHover();
         pnlRight = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ NHÂN VIÊN");
@@ -483,10 +482,6 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         pnlRight.setBackground(new java.awt.Color(255, 255, 255));
         pnlRight.setFocusable(false);
         pnlRight.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setText("Quản Lý Nhân1 Viên");
-        pnlRight.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
-
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -801,7 +796,6 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.complementos.RSButtonHover btnDangXuat;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private rojerusan.RSFotoCircle lblAnhNV;
     private javax.swing.JLabel lblDanhMuc;
     private javax.swing.JLabel lblDay;
