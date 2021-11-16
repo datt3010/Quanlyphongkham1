@@ -45,9 +45,6 @@ public class XImages {
               
         }
     }
-    
-    public static ImageIcon read(String name){
-        File file = new File("logo", name);
-        return new ImageIcon(file.getAbsolutePath());
-    }
+ 
+
 }

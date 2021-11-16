@@ -7,7 +7,9 @@ package com.QuanLyPhongKham.UI;
 
 import com.QuanLyPhongKham.Model.NhanVien;
 import com.QuanLyPhongKham.DAO.nhanvienDAO;
+import com.QuanLyPhongKham.Utilities.Auths;
 import com.QuanLyPhongKham.Utilities.MsgBox;
+import com.QuanLyPhongKham.Utilities.XImages;
 import java.awt.geom.RoundRectangle2D;
 
 /**
@@ -235,40 +237,45 @@ public class dangnhap extends javax.swing.JFrame {
         });
     }
 
-    public void login() {
-        String taikhoan = txtuser.getText();
-        String pass = new String(txtpassword.getPassword());
-        NhanVien nhanVien = daonv.SelectByID(taikhoan);
-        if (nhanVien == null) {
-            MsgBox.alert(this, "sai tên đăng nhập");
-        } else if (!pass.equals(nhanVien.getMatkhau())) {
-            MsgBox.alert(this, "sai mật khẩu");
-        } else {
-            com.QuanLyPhongKham.Utilities.Auths.user = nhanVien;
-            //new QuanLyDichVu().setVisible(true);
-            this.dispose();
+//    public void login() {
+//        String taikhoan = txtuser.getText();
+//        String pass = new String(txtpassword.getPassword());
+//        NhanVien nhanVien = daonv.SelectByID(taikhoan);
+//        if (taikhoan.equals(nhanVien.getManhanvien())) {
+//            MsgBox.alert(this, "sai tên đăng nhập");
+//        } else if (!pass.equals(nhanVien.getMatkhau())) {
+//            MsgBox.alert(this, "sai mật khẩu");
+//        } else {
+//            com.QuanLyPhongKham.Utilities.Auths.user = nhanVien;
+//            //new QuanLyDichVu().setVisible(true);
+//            this.dispose();
+//        }
+//    }
+     void login() {
+        String manv = txtuser.getText();
+        String matKhau = new String(txtpassword.getPassword());
+        try {
+            NhanVien nhanVien = daonv.SelectByID(manv);
+            if (nhanVien != null) {
+                String matKhau2 = nhanVien.getMatkhau();
+                if (matKhau.equals(matKhau2)) {
+                    Auths.user = nhanVien;
+                    MsgBox.alert(this, "Đăng nhập thành công!");
+                    this.dispose();
+                } else {
+                    MsgBox.alert(this, "Sai mật khẩu!");
+                }
+            } else {
+                MsgBox.alert(this, "Sai tên đăng nhập!");
+            }
+        } catch (Exception e) {
+            MsgBox.alert(this, "Lỗi truy vấn dữ liệu!");
         }
     }
     
 
 
 
-//    public void login() {
-//        String taikhoan = txtuser.getText();
-//        String pass = new String(txtpassword.getPassword());
-//        NhanVien nhanVien = daonv.SelectByID(taikhoan);
-//        if (nhanVien == null) {
-//            MsgBox.alert(this, "sai tên đăng nhập");
-//        } else if (!pass.equals(nhanVien.getMatkhau())) {
-//            MsgBox.alert(this, "sai mật khẩu");
-//        } else {
-//            Utilities.Auths.user = nhanVien;
-//            new QuanLyphieukham().setVisible(true);
-//            this.dispose();
-//
-//        }
-//    }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btndangnhap;
     private javax.swing.JButton btndoimatkhau;
