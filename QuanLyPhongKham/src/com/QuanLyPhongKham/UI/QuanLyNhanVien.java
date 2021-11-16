@@ -1060,7 +1060,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     }
     private void OpenBenhNhan(){
         this.dispose();
-        new QuanLyBenhNhan().setVisible(true);
+//        new QuanLyBenhNhan().setVisible(true);
     }
     
     private void OpenNhanVien(){

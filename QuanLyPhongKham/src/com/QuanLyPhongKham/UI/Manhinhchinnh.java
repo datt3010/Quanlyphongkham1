@@ -943,7 +943,7 @@ public class Manhinhchinnh extends javax.swing.JFrame {
 //   
     private void OpenBacSi(){
         this.dispose();
-//        new QuanLyBacSi().setVisible(true);
+      new QuanLyBacSi().setVisible(true);
     }
     
     private void OpenBenhNhan(){
