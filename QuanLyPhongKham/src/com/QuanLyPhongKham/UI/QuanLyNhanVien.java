@@ -617,7 +617,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         pnlRight.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 740, 170, 40));
 
         jLabel7.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
-        pnlRight.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 190, 230));
+        pnlRight.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 190, 210));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel11.setText("Chức Vụ");
