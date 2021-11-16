@@ -633,9 +633,19 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         pnlRight.add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 370, 90, 30));
 
         btndelete.setText("Delete");
+        btndelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndeleteActionPerformed(evt);
+            }
+        });
         pnlRight.add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 370, 90, 30));
 
         btnfirst.setText("First");
+        btnfirst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnfirstActionPerformed(evt);
+            }
+        });
         pnlRight.add(btnfirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 700, 90, 30));
 
         btnprevious.setText("Previous");
@@ -953,6 +963,15 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtsearchKeyReleased
 
+    private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
+        // TODO add your handling code here:
+        delete();
+    }//GEN-LAST:event_btndeleteActionPerformed
+
+    private void btnfirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfirstActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnfirstActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1216,7 +1235,20 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-
+public void delete() {
+        if (MsgBox.confirm(this, "Bạn có muốn xóa bệnh nhân này không")) {
+            int row = tablebenhnhan.getSelectedRow();
+            int mabenhnhan = (int) tablebenhnhan.getValueAt(row, 0);
+            try {
+                daobn.delete(mabenhnhan);
+                this.filltable();
+                clear();
+                MsgBox.alert(this, "Đã xóa thành công");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
     public void edit() {
         try {
             int mabenhnhan = (int) tablebenhnhan.getValueAt(this.index, 0);

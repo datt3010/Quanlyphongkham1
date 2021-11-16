@@ -103,16 +103,16 @@ INSERT INTO nhanvien(manhanvien,tennhanvien,gioitinh,ngaysinh,matkhau,chucvu,sod
 ('MinhNQ',N'Nguyễn Quốc Minh',N'Khác','2002-11-20','123',N'Nhân Viên','0346064484',N'Bình Định','anh7.png');
 GO
 INSERT INTO benhnhan(tenbenhnhan,sodienthoai,gioitinh,ngaysinh,diachi,manhanvien,trangthai) values
-(N'Nguyễn Hoài Bảo','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','AnNT'),
-(N'Lê Quốc Bảo','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','AnNT'),
-(N'Nguyễn Thành Nam','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','AnNT'),
-(N'Đỗ Huyền Trân','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','AnNT'),
-(N'Nguyễn Thị Bích','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','AnNT'),
-(N'Nguyễn Khắc Tâm','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','AnNT'),
-(N'Phạm Hồng Diễm','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','AnNT'),
-(N'Nguyễn Hoài Nghi','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi','AnNT'),
-(N'Nguyễn Trường','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi','AnNT'),
-(N'Nguyễn Vipp','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi','AnNT');
+(N'Nguyễn Hoài Bảo','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
+(N'Lê Quốc Bảo','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
+(N'Nguyễn Thành Nam','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
+(N'Đỗ Huyền Trân','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
+(N'Nguyễn Thị Bích','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
+(N'Nguyễn Khắc Tâm','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
+(N'Phạm Hồng Diễm','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
+(N'Nguyễn Hoài Nghi','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
+(N'Nguyễn Trường','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
+(N'Nguyễn Vipp','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị');
 GO
 INSERT INTO chuyennganh(machuyennganh,tenchuyennganh) values
 ('CN01','Chuyên Khoa Nhi'),
@@ -207,9 +207,10 @@ INSERT INTO dichvu(madichvu,tendichvu,giatien) values('DV000',N'Null',0),
 ('DV005',N'Nệp Xương',20000),
 ('DV006',N'Phẫu Thuât',100000),
 ('DV007',N'Chup X',50000),
-('DV008',N'Cắt Kính',10000),
+('DV008',N'Cắt Kính',10000),	
 ('DV009',N'Massage',12000);
 GO
+select * from benhnhan
 
 
 
