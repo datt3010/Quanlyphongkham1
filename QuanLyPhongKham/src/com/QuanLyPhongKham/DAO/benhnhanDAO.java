@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package com.QuanLyPhongKham.DAO;
-import com.QuanLyPhongKham.Model.BenhNhan; 
+
+import com.QuanLyPhongKham.Model.BenhNhan;
+import com.QuanLyPhongKham.Utilities.XDate;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,21 +14,24 @@ import java.util.List;
  *
  * @author OS
  */
-public class benhnhanDAO extends QLPhongKham_DAO<BenhNhan,Integer>{
+public class benhnhanDAO extends QLPhongKham_DAO<BenhNhan, Integer> {
 
     @Override
     public void insert(BenhNhan entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "insert into benhnhan(tenbenhnhan,sodienthoai,gioitinh,ngaysinh,diachi,manhanvien,trangthai)values(?,?,?,?,?,?,?)";
+        jdbcHelper.update(sql, entity.getTenbenhnhan(), entity.getSodienthoai(), entity.getGioitinh(), XDate.toString(entity.getNgaysinh(), "yyyy-MM-dd"), entity.getDiachi(), entity.getManhanvien(), entity.getTrangthai());
     }
 
     @Override
     public void update(BenhNhan entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "update benhnhan set tenbenhnhan=?,sodienthoai=?,gioitinh=?,ngaysinh=?,diachi=?,manhanvien=?,trangthai=? where mabenhnhan=?";
+        jdbcHelper.update(sql, entity.getTenbenhnhan(), entity.getSodienthoai(), entity.getGioitinh(), XDate.toString(entity.getNgaysinh(), "YYYY-MM-dd"), entity.getDiachi(), entity.getManhanvien(),entity.getTrangthai(), entity.getMabenhnhan());
     }
 
     @Override
     public void delete(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "delete from benhnhan where mabenhnhan=?";
+        jdbcHelper.update(sql, id);
     }
 
     @Override
@@ -41,7 +46,10 @@ public class benhnhanDAO extends QLPhongKham_DAO<BenhNhan,Integer>{
         List<BenhNhan> list = SelectBySQL(sql, id);
         return list.size() > 0 ? list.get(0) : null;
     }
-
+    public List<BenhNhan> selectbyseach(String key1, String key2) {
+        String sql = "select * from benhnhan where mabenhnhan like ? or tenbenhnhan like ?";
+        return SelectBySQL(sql, "%" + key1 + "%","%"+key2+"%");
+    }
     @Override
     protected List<BenhNhan> SelectBySQL(String sql, Object... args) {
         List<BenhNhan> list = new ArrayList<>();
@@ -64,5 +72,4 @@ public class benhnhanDAO extends QLPhongKham_DAO<BenhNhan,Integer>{
         }
         return list;
     }
-
 }

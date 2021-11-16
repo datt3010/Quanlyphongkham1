@@ -16,8 +16,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import com.QuanLyPhongKham.DAO.benhnhanDAO;
 import com.QuanLyPhongKham.Model.BenhNhan; 
+import com.QuanLyPhongKham.Utilities.MsgBox;
+import com.QuanLyPhongKham.Utilities.XDate;
 import java.util.List;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -25,6 +29,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class QuanLyBenhNhan extends javax.swing.JFrame { 
     benhnhanDAO daobn=new benhnhanDAO();
+    int index;
+    int row=-1;
     /**
      * Creates new form QuanLyPhongKham
      */
@@ -519,9 +525,20 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Địa chỉ");
         pnlRight.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 90, 30));
+
+        txtsearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                txtsearchMouseReleased(evt);
+            }
+        });
+        txtsearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtsearchKeyReleased(evt);
+            }
+        });
         pnlRight.add(txtsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 360, 34));
 
-        comboboxgioitinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboboxgioitinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ", "Khác", " " }));
         pnlRight.add(comboboxgioitinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 220, 34));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -560,7 +577,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         jLabel8.setText("Tình trạng bệnh");
         pnlRight.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 140, 30));
 
-        comboboxtrangthai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboboxtrangthai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Đang điều trị", "Đang chữa bệnh", "Đã khỏi", " " }));
         pnlRight.add(comboboxtrangthai, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, 220, 34));
 
         tablebenhnhan.setModel(new javax.swing.table.DefaultTableModel(
@@ -576,6 +593,11 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         ));
         tablebenhnhan.setAltoHead(35);
         tablebenhnhan.setRowHeight(25);
+        tablebenhnhan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablebenhnhanMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tablebenhnhan);
 
         pnlRight.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 430, 1120, 250));
@@ -592,12 +614,22 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         pnlRight.add(btnnext, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 700, 90, 30));
 
         btnadd.setText("Add");
+        btnadd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddActionPerformed(evt);
+            }
+        });
         pnlRight.add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 320, 90, 30));
 
         btnnew.setText("New");
         pnlRight.add(btnnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 320, 90, 30));
 
         btnupdate.setText("Update");
+        btnupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnupdateActionPerformed(evt);
+            }
+        });
         pnlRight.add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 370, 90, 30));
 
         btndelete.setText("Delete");
@@ -886,6 +918,41 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
        this.OpenLogin();
     }//GEN-LAST:event_btnDangXuatActionPerformed
 
+    private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
+        // TODO add your handling code here:
+        insert();
+    }//GEN-LAST:event_btnaddActionPerformed
+
+    private void tablebenhnhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablebenhnhanMouseClicked
+        // TODO add your handling code here:
+           if (evt.getClickCount() == 2) {
+            this.index = tablebenhnhan.rowAtPoint(evt.getPoint());
+            if (this.index >= 0) {
+                this.edit();
+            }
+        }
+    }//GEN-LAST:event_tablebenhnhanMouseClicked
+
+    private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
+        // TODO add your handling code here:
+        update();
+    }//GEN-LAST:event_btnupdateActionPerformed
+
+    private void txtsearchMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtsearchMouseReleased
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtsearchMouseReleased
+
+    private void txtsearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtsearchKeyReleased
+        // TODO add your handling code here:
+        if(txtsearch.getText().length()>0){
+            this.filltable();
+        }
+        else{
+            this.filltable();
+        }
+    }//GEN-LAST:event_txtsearchKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -997,7 +1064,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         hoverPanel(pnlQuanLyBenhNhan, lblIconBenhNhan);
         setLocationRelativeTo(null);
         this.LoadNgay();
-       filltable();
+        filltable();
     }
     
     //Hover màu
@@ -1082,19 +1149,23 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
     public void setmodel(BenhNhan model) {
         txttenbenhnhan.setText(model.getTenbenhnhan());
         txtdienthoai.setText(model.getSodienthoai());
-        comboboxgioitinh.setSelectedIndex(Integer.parseInt(model.getGioitinh()));
+        comboboxgioitinh.setSelectedItem(model.getGioitinh());
         datechooser.setDate(model.getNgaysinh());
-        comboboxtrangthai.setSelectedIndex(Integer.parseInt(model.getTrangthai()));
+        comboboxtrangthai.setSelectedItem(model.getTrangthai());
         txtaddress.setText(model.getDiachi());
     }
 
     BenhNhan getmodel() {
+        this.row=tablebenhnhan.getSelectedRow();
+        int mabenhnhan=(int) tablebenhnhan.getValueAt(row,0); 
+        
         BenhNhan model = new BenhNhan();
+        model.setMabenhnhan(mabenhnhan);
         model.setTenbenhnhan(txttenbenhnhan.getText());
         model.setSodienthoai(txtdienthoai.getText());
-        model.setGioitinh(String.valueOf(comboboxgioitinh.getSelectedIndex() == 0));
+        model.setGioitinh((String) comboboxgioitinh.getSelectedItem());
         model.setNgaysinh(datechooser.getDate());
-        model.setTrangthai(String.valueOf(comboboxtrangthai.getSelectedIndex() == 0));
+        model.setTrangthai((String) comboboxtrangthai.getSelectedItem());
         model.setDiachi(txtaddress.getText());
         return model;
     }
@@ -1103,7 +1174,8 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tablebenhnhan.getModel();
         model.setRowCount(0);
         try {
-            List<BenhNhan> list = daobn.SelectAll();
+            String key=txtsearch.getText();
+            List<BenhNhan> list = daobn.selectbyseach(key, key);
             for (BenhNhan bn : list) {
                 Object[] row = {
                     bn.getMabenhnhan(),
@@ -1121,5 +1193,52 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
             e.printStackTrace();
         }
 
+    }
+    public void insert() {
+        BenhNhan model = getmodel();
+        try {
+            daobn.insert(model);
+            filltable();
+            clear();
+            MsgBox.alert(this, "Insert thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void update() {
+        BenhNhan model = getmodel();
+        try {
+            daobn.update(model);
+            this.filltable();
+            clear();
+            MsgBox.alert(this, "Cập nhật thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void edit() {
+        try {
+            int mabenhnhan = (int) tablebenhnhan.getValueAt(this.index, 0);
+            BenhNhan model = daobn.SelectByID(mabenhnhan);
+            if (model != null) {
+                this.setmodel(model);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void clear(){
+        txttenbenhnhan.setText("");
+        txtaddress.setText("");
+        txtdienthoai.setText("");
+        datechooser.setDate(XDate.now());
+//        btnupdate.setEnabled(false);
+    }
+      void search(String str) {
+        DefaultTableModel model = (DefaultTableModel) tablebenhnhan.getModel();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<>(model);
+        tablebenhnhan.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(str));    
     }
 }
