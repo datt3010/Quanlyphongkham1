@@ -21,54 +21,57 @@ public class jdbcHelper {
     static String url = "jdbc:sqlserver://localhost:1433;database=quanlyphongkham;";
     static String user = "sa";
     static String pass = "123";
-
-    static {
+    static{
         try {
             Class.forName(driver);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
+    
     //Tạo ra Statement
-    public static PreparedStatement getStatement(String sql, Object... args) throws SQLException {
-        Connection con = DriverManager.getConnection(url, user, pass);
+    //String sql = câu lệnh sql
+    //Object...args : Các dấu ?
+    public static PreparedStatement getstmt(String sql , Object...args) throws SQLException{
+        Connection con = DriverManager.getConnection(url,user,pass);
         PreparedStatement psmt = null;
-        if (sql.trim().startsWith("{")) {
+        if(sql.trim().startsWith("{")){
             psmt = con.prepareCall(sql);
-        } else {
+        }else{
             psmt = con.prepareStatement(sql);
         }
-        //Xác định các dữ liệu cho các dấu ?
-        for (int i = 0; i < args.length; i++) {
-            psmt.setObject(i + 1, args[i]);
+        
+        //Xác định các dâu ? cho câu sql
+        for(int i=0 ; i<args.length;i++){
+            psmt.setObject(i+1,args[i]);
         }
         return psmt;
     }
-
-    //Insert, Update, Delete dùng update (trả về int)
-    public static int update(String sql, Object... args) {
+    
+    //Insert, Update, Delete dùng update (Trả về int)
+    public static int update(String sql , Object...args){
         try {
-            PreparedStatement psmt = jdbcHelper.getStatement(sql, args);
+            PreparedStatement psmt = jdbcHelper.getstmt(sql, args);
             try {
                 return psmt.executeUpdate();
-            } finally {
+            } finally{
                 psmt.getConnection().close();
             }
-        } catch (SQLException e) {
+        }catch(SQLException e) {
             throw new RuntimeException(e);
         }
     }
-
-    //Select dùng query(Trả về ResultSet)
-    public static ResultSet query(String sql, Object... args) throws SQLException {
-        PreparedStatement psmt = jdbcHelper.getStatement(sql, args);
+    
+    //Truy vấn(Select) dùng query (Trả về resultset)
+    public static ResultSet query(String sql, Object...args) throws SQLException{
+        PreparedStatement psmt = jdbcHelper.getstmt(sql, args);
         return psmt.executeQuery();
     }
-
-    //SUM, MIN, MAX trả về 1 đối tượng
-    public static Object value(String sql, Object... args) {
+    
+    //Sum,Count,Min,Max trả về 1 object
+    public static Object value(String sql, Object...args){
         try {
+            //Dùng query để truy vấn ra
             ResultSet rs = jdbcHelper.query(sql, args);
             if(rs.next()){
                 return rs.getObject(0);
