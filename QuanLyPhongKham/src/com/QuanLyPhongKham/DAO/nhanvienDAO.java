@@ -13,20 +13,40 @@ import java.util.List;
  * @author p
  */
 public class nhanvienDAO extends QLPhongKham_DAO<NhanVien, String>{
-
+    String Insert_NhanVien = "Insert into NhanVien ( manhanvien, tennhanvien, gioitinh, ngaysinh, matkhau, chucvu, sodienthoai, diachi, hinh ) VALUES(?,?,?,?,?,?,?,?,?,?)";
+    String Update_NhanVien = "Update NhanVien SET manhienvien=?, tennhanvien=?, gioitinh=?, ngaysinh=?, matkhau=?, chucvu=?, sodienthoai=?, diachi=?, hinh=? Where manhanvien=?";
+    String DELETE_NhanVien = "DELETE FROM nhanvien WHERE manhanvien=?";
+    String SELECTALL_NhanVien = "SELECT * FROM nhanvien";
+    String SELECT_BY_ID_NhanVien ="SELECT * FROM nhanvien WHERE manhanvien=?";
     @Override
     public void insert(NhanVien entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         try {
+            jdbcHelper.update(Insert_NhanVien, entity.getManhanvien(),entity.getTennhanvien(),entity.getGioitinh(),entity.getNgaysinh(),entity.getMatkhau(),
+                    entity.getChucvu(),entity.getSodienthoai(),entity.getDiachi(),entity.getHinh());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } 
     }
 
     @Override
     public void update(NhanVien entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         try {
+            jdbcHelper.update(Update_NhanVien, entity.getManhanvien(),entity.getTennhanvien(),entity.getGioitinh(),entity.getNgaysinh(),entity.getMatkhau(),
+                    entity.getChucvu(),entity.getSodienthoai(),entity.getDiachi(),entity.getHinh());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
     }
 
     @Override
     public void delete(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            jdbcHelper.update(DELETE_NhanVien, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
     }
 
     @Override
