@@ -25,6 +25,7 @@ gioitinh nvarchar(10),
 ngaysinh date not null,
 diachi nvarchar(255),
 manhanvien varchar(12),
+trangthai nvarchar(50),
 constraint fk_benhnhan_nhanvien foreign key(manhanvien) references nhanvien(manhanvien) on delete no action on update cascade
 )
 go
@@ -101,7 +102,7 @@ INSERT INTO nhanvien(manhanvien,tennhanvien,gioitinh,ngaysinh,matkhau,chucvu,sod
 ('BaoCT',N'Cao Thuận Bảo',N'Khác','2002-11-20','123',N'Nhân Viên','0346064484',N'Cần Thơ','anh6.png'),
 ('MinhNQ',N'Nguyễn Quốc Minh',N'Khác','2002-11-20','123',N'Nhân Viên','0346064484',N'Bình Định','anh7.png');
 GO
-INSERT INTO benhnhan(tenbenhnhan,sodienthoai,gioitinh,ngaysinh,diachi,manhanvien) values
+INSERT INTO benhnhan(tenbenhnhan,sodienthoai,gioitinh,ngaysinh,diachi,manhanvien,trangthai) values
 (N'Nguyễn Hoài Bảo','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','AnNT'),
 (N'Lê Quốc Bảo','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','AnNT'),
 (N'Nguyễn Thành Nam','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','AnNT'),
