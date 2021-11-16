@@ -5,7 +5,6 @@
  */
 package com.QuanLyPhongKham.DAO;
 import com.QuanLyPhongKham.Model.BacSi;
-import com.QuanLyPhongKham.Model.PhieuKham;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +12,7 @@ import java.util.List;
  *
  * @author OS
  */
-public class bacsiDAO extends QLPhongKham_DAO<BacSi, Integer>{
+public class bacsiDAO extends QLPhongKham_DAO<BacSi, String>{
     String Insert_BacSy = "INSERT INTO bacsy(mabacsy,tenbacsy,gioitinh,dienthoai,email,ngaysinh,hinh,machuyennganh) values(?,?,?,?,?,?,?,?) ";
     String Update_BacSy = "UPDATE bacsy SET tenbacsy = ?, gioitinh = ?, dienthoai = ?, email = ?, ngaysinh = ?, hinh = ?, machuyennganh = ? ";
     String Delete_BacSy = "DELETE FROM bacsy WHERE mabacsy=?";
@@ -39,7 +38,7 @@ public class bacsiDAO extends QLPhongKham_DAO<BacSi, Integer>{
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(String id) {
         try {
             jdbcHelper.update(Delete_BacSy, id);
         } catch (Exception e) {
@@ -53,7 +52,7 @@ public class bacsiDAO extends QLPhongKham_DAO<BacSi, Integer>{
     }
 
     @Override
-    public BacSi SelectByID(Integer id) {
+    public BacSi SelectByID(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -78,7 +77,5 @@ public class bacsiDAO extends QLPhongKham_DAO<BacSi, Integer>{
             e.printStackTrace();
         }
         return list;
-    }
-    
-    
+    }      
 }
