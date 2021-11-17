@@ -900,11 +900,11 @@ public class Manhinhchinnh extends javax.swing.JFrame {
     private javax.swing.JPanel pnlTong;
     // End of variables declaration//GEN-END:variables
     private void init(){
+        new dangnhap().setVisible(true);
         hoverPanel(pnlQuanLyBenhNhan, lblIconBenhNhan);
         setLocationRelativeTo(null);
+        
         this.LoadNgay();
-        
-        
     }
     
     //Hover màu
