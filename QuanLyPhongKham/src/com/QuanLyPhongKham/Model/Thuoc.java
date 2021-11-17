@@ -19,7 +19,6 @@ public class Thuoc {
     private int donggia;
     private String cachdung;
     private Date hansudung;
-    private Date ngayTao = XDate.now();
     private int maloaithuoc;
 
     public String getMaThuoc() {
@@ -77,13 +76,4 @@ public class Thuoc {
     public void setHansudung(Date hansudung) {
         this.hansudung = hansudung;
     }
-
-    public Date getNgayTao() {
-        return ngayTao;
-    }
-
-    public void setNgayTao(Date ngayTao) {
-        this.ngayTao = ngayTao;
-    }
-    
 }
