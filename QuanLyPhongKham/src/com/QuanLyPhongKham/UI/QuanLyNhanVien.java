@@ -104,6 +104,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         jComboBox3 = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ NHÂN VIÊN");
@@ -633,6 +634,9 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         jPasswordField1.setText("jPasswordField1");
         pnlRight.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 220, 30));
 
+        jLabel13.setText("jLabel13");
+        pnlRight.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, -1, -1));
+
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -962,6 +966,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
