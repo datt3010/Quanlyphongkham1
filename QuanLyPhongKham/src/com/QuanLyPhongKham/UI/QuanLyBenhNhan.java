@@ -648,7 +648,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
                 btnfirstActionPerformed(evt);
             }
         });
-        pnlRight.add(btnfirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 700, 110, 40));
+        pnlRight.add(btnfirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 110, 40));
 
         btnprevious.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnprevious.setText("Previous");
@@ -974,6 +974,10 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
 
     private void btnfirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfirstActionPerformed
         // TODO add your handling code here:
+        int row = tablebenhnhan.getSelectedRow();
+        if (row > 0) {
+            tablebenhnhan.setRowSelectionInterval(0, 0);
+        }
     }//GEN-LAST:event_btnfirstActionPerformed
 
     /**
