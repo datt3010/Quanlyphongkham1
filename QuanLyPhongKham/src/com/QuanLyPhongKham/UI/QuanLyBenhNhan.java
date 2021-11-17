@@ -610,8 +610,9 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         jLabel9.setText("Search");
         pnlRight.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 70, 30));
 
+        btnnext.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnnext.setText("Next");
-        pnlRight.add(btnnext, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 700, 90, 30));
+        pnlRight.add(btnnext, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 700, 110, 40));
 
         btnadd.setText("Add");
         btnadd.addActionListener(new java.awt.event.ActionListener() {
@@ -640,19 +641,22 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         });
         pnlRight.add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 370, 90, 30));
 
+        btnfirst.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnfirst.setText("First");
         btnfirst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnfirstActionPerformed(evt);
             }
         });
-        pnlRight.add(btnfirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 700, 90, 30));
+        pnlRight.add(btnfirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 700, 110, 40));
 
+        btnprevious.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnprevious.setText("Previous");
-        pnlRight.add(btnprevious, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 700, 90, 30));
+        pnlRight.add(btnprevious, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 700, 120, 40));
 
+        btnend.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnend.setText("End");
-        pnlRight.add(btnend, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 700, 90, 30));
+        pnlRight.add(btnend, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 700, 120, 40));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

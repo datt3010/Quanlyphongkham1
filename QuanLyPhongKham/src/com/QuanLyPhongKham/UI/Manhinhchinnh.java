@@ -986,41 +986,41 @@ public class Manhinhchinnh extends javax.swing.JFrame {
 
     private void OpenBenhNhan() {
         this.dispose();
-//        new QuanLyBenhNhan().setVisible(true);
+        new QuanLyBenhNhan().setVisible(true);
     }
 
     private void OpenNhanVien() {
         this.dispose();
-//        new QuanLyNhanVien().setVisible(true);
+        new QuanLyNhanVien().setVisible(true);
     }
 
     private void OpenHoaDon() {
         this.dispose();
-//        new QuanLyHoaDon().setVisible(true);
+        new QuanLyHoaDon().setVisible(true);
     }
 
     private void OpenPhieuKham() {
         this.dispose();
-//        new QuanLyPhieuKham().setVisible(true);
+        new QuanLyPhieuKham().setVisible(true);
     }
 
     private void OpenThuoc() {
         this.dispose();
-//        new QuanLyThuoc().setVisible(true);
+        new QuanLyThuoc().setVisible(true);
     }
 
     private void OpenDichVu() {
         this.dispose();
-//        new QuanLyDichVu().setVisible(true);
+        new QuanLyDichVu().setVisible(true);
     }
 
     private void OpenLogin() {
         this.dispose();
-//        new dangnhap().setVisible(true);
+        new dangnhap().setVisible(true);
     }
 
     private void OpenThongKe() {
         this.dispose();
-//        new ThongKe().setVisible(true);
+        new ThongKe().setVisible(true);
     }
 }
