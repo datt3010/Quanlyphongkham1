@@ -149,9 +149,6 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\duan1111\Quanlyphongkham1\QuanLyPhongKham\src\com\QuanLyPhongKham\Icon\hospital_3_50px.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="PH&#xd2;NG KH&#xc1;M AN NHI&#xca;N"/>
               </Properties>
             </Component>
@@ -748,9 +745,6 @@
                   <Font name="Times New Roman" size="24" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\duan1111\Quanlyphongkham1\QuanLyPhongKham\src\com\QuanLyPhongKham\Icon\scientist_man_70px.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; B&#xe1;c S&#x129;"/>
               </Properties>
               <Events>
@@ -764,9 +758,6 @@
                   <Font name="Times New Roman" size="24" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\duan1111\Quanlyphongkham1\QuanLyPhongKham\src\com\QuanLyPhongKham\Icon\bill_70px.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Phi&#x1ebf;u Kh&#xe1;m"/>
               </Properties>
             </Component>
@@ -776,9 +767,6 @@
                   <Font name="Times New Roman" size="24" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\duan1111\Quanlyphongkham1\QuanLyPhongKham\src\com\QuanLyPhongKham\Icon\management_70px.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Nh&#xe2;n Vi&#xea;n"/>
               </Properties>
             </Component>
@@ -788,9 +776,6 @@
                   <Font name="Times New Roman" size="24" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\duan1111\Quanlyphongkham1\QuanLyPhongKham\src\com\QuanLyPhongKham\Icon\health_book_70px.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Thu&#x1ed1;c"/>
               </Properties>
             </Component>
@@ -800,9 +785,6 @@
                   <Font name="Times New Roman" size="24" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\duan1111\Quanlyphongkham1\QuanLyPhongKham\src\com\QuanLyPhongKham\Icon\check_70px.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; H&#xf3;a &#x110;&#x1a1;n"/>
               </Properties>
             </Component>
@@ -812,9 +794,6 @@
                   <Font name="Times New Roman" size="24" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\duan1111\Quanlyphongkham1\QuanLyPhongKham\src\com\QuanLyPhongKham\Icon\man_on_phone_70px.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; D&#x1ecb;ch V&#x1ee5;"/>
               </Properties>
             </Component>
