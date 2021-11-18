@@ -5,6 +5,7 @@
  */
 package com.QuanLyPhongKham.Utilities;
 
+import java.awt.AlphaComposite;
 import java.awt.Image;
 import java.io.File;
 import java.net.URL;
@@ -45,6 +46,9 @@ public class XImages {
               
         }
     }
- 
-
+    // tao file read de doc text cho icon 
+    public static ImageIcon read(String filename) {
+        File path = new File("logos", filename);
+        return new ImageIcon(path.getAbsolutePath());
+    }
 }
