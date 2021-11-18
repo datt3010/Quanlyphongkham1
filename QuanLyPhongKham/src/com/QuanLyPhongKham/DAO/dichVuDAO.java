@@ -21,7 +21,7 @@ public class dichVuDAO extends QLPhongKham_DAO<DichVu, String> {
 //    String Update_LoaiThuoc = "UPDATE loaithuoc SET tenloai=? WHERE maloaithuoc = ?";
 //    String DELETE_LoaiThuoc = "DELETE FROM loaithuoc WHERE maloaithuoc=?";
     String SELECTALL_DichVu = "SELECT * FROM dichvu";
-    String SELECT_BY_ID_DichVu = "SELECT * FROM dichvu WHERE madichvu=?";
+    String SELECT_BY_ID_DichVu = "SELECT * FROM dichvu WHERE madichvu like ?";
 
     @Override
     public void insert(DichVu entity) {
