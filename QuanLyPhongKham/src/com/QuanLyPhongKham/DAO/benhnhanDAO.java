@@ -80,9 +80,9 @@ public class benhnhanDAO extends QLPhongKham_DAO<BenhNhan, Integer> {
         return list.size() > 0 ? list.get(0) : null;
     }
 
-    public List<BenhNhan> selectbyseach(String key1, String key2) {
-        String sql = "select * from benhnhan where mabenhnhan like ? or tenbenhnhan like ?";
-        return SelectBySQL(sql, "%" + key1 + "%", "%" + key2 + "%");
+    public List<BenhNhan> selectbyseach(String key1, String key2,String key3) {
+        String sql = "select * from benhnhan where mabenhnhan like ? or tenbenhnhan like ? or gioitinh like ?";
+        return SelectBySQL(sql, "%" + key1 + "%", "%" + key2 + "%","%"+key3+"%");
     }
 
     @Override
