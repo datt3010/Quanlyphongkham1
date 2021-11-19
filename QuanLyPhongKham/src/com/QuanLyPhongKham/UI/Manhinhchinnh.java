@@ -109,7 +109,6 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         lblTieuDe.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         lblTieuDe.setForeground(new java.awt.Color(255, 255, 255));
         lblTieuDe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTieuDe.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\hospital_3_50px.png")); // NOI18N
         lblTieuDe.setText("PHÒNG KHÁM AN NHIÊN");
 
         lblDay.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
@@ -508,7 +507,6 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         lblbacsi.setBackground(new java.awt.Color(255, 255, 255));
         lblbacsi.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblbacsi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblbacsi.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\scientist_man_70px.png")); // NOI18N
         lblbacsi.setText("Quản Lý Bác Sĩ");
         lblbacsi.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -522,31 +520,26 @@ public class Manhinhchinnh extends javax.swing.JFrame {
 
         lblphieukham.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblphieukham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblphieukham.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\bill_70px.png")); // NOI18N
         lblphieukham.setText("Quản Lý Phiếu Khám");
         pnlRight.add(lblphieukham);
 
         lblnhanvien.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblnhanvien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblnhanvien.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\management_70px.png")); // NOI18N
         lblnhanvien.setText("Quản Lý Nhân Viên");
         pnlRight.add(lblnhanvien);
 
         lblthuoc.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblthuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblthuoc.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\health_book_70px.png")); // NOI18N
         lblthuoc.setText("Quản Lý Thuốc");
         pnlRight.add(lblthuoc);
 
         lblhoadon.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblhoadon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblhoadon.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\check_70px.png")); // NOI18N
         lblhoadon.setText("Quản Lý Hóa Đơn");
         pnlRight.add(lblhoadon);
 
         lbldichvu.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lbldichvu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbldichvu.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\man_on_phone_70px.png")); // NOI18N
         lbldichvu.setText("Quản Lý Dịch Vụ");
         pnlRight.add(lbldichvu);
 

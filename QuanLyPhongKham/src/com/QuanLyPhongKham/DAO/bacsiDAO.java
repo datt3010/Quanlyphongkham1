@@ -6,6 +6,7 @@
 package com.QuanLyPhongKham.DAO;
 import com.QuanLyPhongKham.Model.BacSi;
 import com.QuanLyPhongKham.Model.BenhNhan;
+import com.QuanLyPhongKham.Utilities.XDate;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,14 +16,14 @@ import java.util.List;
  */
 public class bacsiDAO extends QLPhongKham_DAO<BacSi, String>{
     String Insert_BacSy = "INSERT INTO bacsy(mabacsy,tenbacsy,gioitinh,dienthoai,email,ngaysinh,hinh,machuyennganh) values(?,?,?,?,?,?,?,?) ";
-    String Update_BacSy = "UPDATE bacsy SET tenbacsy = ?, gioitinh = ?, dienthoai = ?, email = ?, ngaysinh = ?, hinh = ?, machuyennganh = ? where mabacsy =?";
-    String Delete_BacSy = "DELETE FROM bacsy WHERE mabacsy=?";
+    String Update_BacSy = "UPDATE bacsy SET tenbacsy = ?, gioitinh = ?, dienthoai = ?, email = ?, ngaysinh = ?, hinh = ?, machuyennganh =? where mabacsy  like ?";
+    String Delete_BacSy = "DELETE FROM bacsy WHERE mabacsy like ?";
     String SELECTALL_BacSy = "SELECT * FROM bacsy";
-    String SELECT_BY_ID_BacSy ="SELECT * FROM bacsy WHERE mabacsy=?";
+    String SELECT_BY_ID_BacSy ="SELECT * FROM bacsy WHERE mabacsy like ?";
     @Override
     public void insert(BacSi entity) {
         try{
-            jdbcHelper.update(Insert_BacSy, entity.getMabacsy(),entity.getTenbacsy(),entity.getGioitinh(),entity.getDienthoai(),entity.getEmail(),entity.getNgaysinh(),entity.getHinh(),entity.getMachuyennganh());
+            jdbcHelper.update(Insert_BacSy, entity.getMabacsy(),entity.getTenbacsy(),entity.getGioitinh(),entity.getDienthoai(),entity.getEmail(),XDate.toString(entity.getNgaysinh(), "yyyy-MM-dd"),entity.getHinh(),entity.getMachuyennganh());
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -32,7 +33,7 @@ public class bacsiDAO extends QLPhongKham_DAO<BacSi, String>{
     @Override
     public void update(BacSi entity) {
         try{
-            jdbcHelper.update(Update_BacSy, entity.getMabacsy(),entity.getTenbacsy(),entity.getGioitinh(),entity.getDienthoai(),entity.getEmail(),entity.getNgaysinh(),entity.getHinh(),entity.getMachuyennganh(),entity.getMabacsy());
+            jdbcHelper.update(Update_BacSy, entity.getTenbacsy(),entity.getGioitinh(),entity.getDienthoai(),entity.getEmail(),XDate.toString(entity.getNgaysinh(), "yyyy-MM-dd"),entity.getHinh(),entity.getMachuyennganh(),entity.getMabacsy());
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -82,9 +83,9 @@ public class bacsiDAO extends QLPhongKham_DAO<BacSi, String>{
         return list;
     }   
     
-    public List<BacSi> SelectKeyword(String keyword,String keyword2,String keyword3,String keyword4,String keyword5) {
+    public List<BacSi> SelectKeyword(String keyword,String keyword2,String keyword3,String keyword4,String keyword5, String keyword6) {
         String sql = "SELECT * FROM bacsy\n"
-                + "WHERE mabacsy LIKE ? OR tenbacsy LIKE ? OR dienthoai LIKE ? OR machuyennganh LIKE ? OR email LIKE ?;";
-        return this.SelectBySQL(sql, "%"+keyword+"%", "%"+keyword2+"%", "%"+keyword3+"%","%"+keyword4+"%","%"+keyword5+"%");
+                + "WHERE mabacsy LIKE ? OR tenbacsy LIKE ? OR dienthoai LIKE ? OR machuyennganh LIKE ? OR email LIKE ? or gioitinh like ?;";
+        return this.SelectBySQL(sql, "%"+keyword+"%", "%"+keyword2+"%", "%"+keyword3+"%","%"+keyword4+"%","%"+keyword5+"%","%"+keyword6+"%");
     }
 }
