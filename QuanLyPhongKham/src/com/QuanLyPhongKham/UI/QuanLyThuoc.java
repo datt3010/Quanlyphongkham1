@@ -80,7 +80,6 @@ public class QuanLyThuoc extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         txtma = new javax.swing.JTextField();
         txtdonvi = new javax.swing.JTextField();
         txtten = new javax.swing.JTextField();
@@ -524,7 +523,6 @@ public class QuanLyThuoc extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel7.setText("Hạn sử dụng:");
 
-        jButton1.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\them_20px.png")); // NOI18N
         jButton1.setText("Thêm");
 
         rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
@@ -540,22 +538,11 @@ public class QuanLyThuoc extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(rSTableMetro1);
 
-        jButton2.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\update_ftp_20px.png")); // NOI18N
         jButton2.setText("Sửa");
 
-        jButton3.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\delete_20px.png")); // NOI18N
         jButton3.setText("Xóa");
 
-        jButton4.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\refresh_20px.png")); // NOI18N
         jButton4.setText("Mới");
-
-        jButton5.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\rewind_20px.png")); // NOI18N
-
-        jButton6.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\rewind_20px.png")); // NOI18N
-
-        jButton7.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\fast_forward_20px.png")); // NOI18N
-
-        jButton8.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\fast_forward_20px.png")); // NOI18N
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -603,7 +590,6 @@ public class QuanLyThuoc extends javax.swing.JFrame {
                                             .addComponent(jLabel6))
                                         .addGap(64, 64, 64)
                                         .addGroup(pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(jTextField6)
                                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)))))))
                     .addGroup(pnlRightLayout.createSequentialGroup()
@@ -631,12 +617,10 @@ public class QuanLyThuoc extends javax.swing.JFrame {
                                 .addComponent(jLabel5)
                                 .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(21, 21, 21)
-                .addGroup(pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtten, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel7))
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtten, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel7))
                 .addGroup(pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlRightLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
@@ -655,7 +639,7 @@ public class QuanLyThuoc extends javax.swing.JFrame {
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -959,7 +943,6 @@ public class QuanLyThuoc extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1057,7 +1040,7 @@ public class QuanLyThuoc extends javax.swing.JFrame {
     }
     private void OpenBenhNhan(){
         this.dispose();
-        new QuanLyBenhNhan().setVisible(true);
+//        new QuanLyBenhNhan().setVisible(true);
     }
     
     private void OpenNhanVien(){
@@ -1072,7 +1055,7 @@ public class QuanLyThuoc extends javax.swing.JFrame {
     
     private void OpenPhieuKham(){
         this.dispose();
-        new QuanLyPhieuKham().setVisible(true);
+//        new QuanLyPhieuKham().setVisible(true);
     }
     
     private void OpenThuoc(){

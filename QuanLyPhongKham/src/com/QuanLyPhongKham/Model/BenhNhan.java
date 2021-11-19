@@ -19,17 +19,17 @@ public class BenhNhan {
     private String gioitinh;
     private Date ngaysinh;
     private String diachi;
-    private String manhanvien;
+    private String madichvu;
     private String trangthai;
-    
-    public BenhNhan(int mabenhnhan, String tenbenhnhan, String sodienthoai, String gioitinh, Date ngaysinh, String diachi, String manhanvien,String trangthai) {
+
+    public BenhNhan(int mabenhnhan, String tenbenhnhan, String sodienthoai, String gioitinh, Date ngaysinh, String diachi, String madichvu, String trangthai) {
         this.mabenhnhan = mabenhnhan;
         this.tenbenhnhan = tenbenhnhan;
         this.sodienthoai = sodienthoai;
         this.gioitinh = gioitinh;
         this.ngaysinh = ngaysinh;
         this.diachi = diachi;
-        this.manhanvien = manhanvien;
+        this.madichvu = madichvu;
         this.trangthai = trangthai;
     }
 
@@ -84,14 +84,6 @@ public class BenhNhan {
         this.diachi = diachi;
     }
 
-    public String getManhanvien() {
-        return manhanvien;
-    }
-
-    public void setManhanvien(String manhanvien) {
-        this.manhanvien = manhanvien;
-    }
-
     public String getTrangthai() {
         return trangthai;
     }
@@ -99,5 +91,12 @@ public class BenhNhan {
     public void setTrangthai(String trangthai) {
         this.trangthai = trangthai;
     }
-    
+
+    public String getMadichvu() {
+        return madichvu;
+    }
+
+    public void setMadichvu(String madichvu) {
+        this.madichvu = madichvu;
+    }
 }

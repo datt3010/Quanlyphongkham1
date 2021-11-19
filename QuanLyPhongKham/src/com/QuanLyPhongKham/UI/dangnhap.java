@@ -198,7 +198,7 @@ public class dangnhap extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btndangnhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndangnhapActionPerformed
-        // TODO add your handling code here:
+            // TODO add your handling code here:
         login();
     }//GEN-LAST:event_btndangnhapActionPerformed
 
@@ -236,24 +236,13 @@ public class dangnhap extends javax.swing.JFrame {
             }
         });
     }
-
-//    public void login() {
-//        String taikhoan = txtuser.getText();
-//        String pass = new String(txtpassword.getPassword());
-//        NhanVien nhanVien = daonv.SelectByID(taikhoan);
-//        if (taikhoan.equals(nhanVien.getManhanvien())) {
-//            MsgBox.alert(this, "sai tên đăng nhập");
-//        } else if (!pass.equals(nhanVien.getMatkhau())) {
-//            MsgBox.alert(this, "sai mật khẩu");
-//        } else {
-//            com.QuanLyPhongKham.Utilities.Auths.user = nhanVien;
-//            //new QuanLyDichVu().setVisible(true);
-//            this.dispose();
-//        }
-//    }
-     void login() {
+    void login() {
         String manv = txtuser.getText();
         String matKhau = new String(txtpassword.getPassword());
+        if (manv.equals("") || matKhau.equals("")) {
+            MsgBox.alert(this, "Tên đăng nhập hoặc mật khẩu không được bỏ trống");
+            return;
+        }
         try {
             NhanVien nhanVien = daonv.SelectByID(manv);
             if (nhanVien != null) {

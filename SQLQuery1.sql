@@ -5,6 +5,12 @@ go
 create database quanlyphongkham;
 go
 use quanlyphongkham;
+create table dichvu(
+madichvu varchar(15) primary key,
+tendichvu nvarchar(50) not null,
+giatien money not null
+)
+go
 create table nhanvien(
 manhanvien varchar(12) primary key,
 tennhanvien nvarchar(50) not null,
@@ -24,9 +30,9 @@ sodienthoai varchar(13) check(sodienthoai>13) not null,
 gioitinh nvarchar(10),
 ngaysinh date not null,
 diachi nvarchar(255),
-manhanvien varchar(12),
+madichvu varchar(15) not null,
 trangthai nvarchar(50),
-constraint fk_benhnhan_nhanvien foreign key(manhanvien) references nhanvien(manhanvien) on delete no action on update cascade
+constraint fk_benhnhan_dichvu foreign key(madichvu)references dichvu(madichvu) on delete no action on update no action
 )
 go
 create table chuyennganh(
@@ -67,31 +73,25 @@ create table thuoc(
 mathuoc varchar(10) primary key ,
 tenthuoc nvarchar(50) not null,
 donvitinh nvarchar(20) not null,
-dongia money not null,
-cachdung nvarchar(100) not null,
 hansudung date,
 maloaithuoc int not null,
 constraint fk_thuoc_loaithuoc foreign key(maloaithuoc) references loaithuoc(maloaithuoc) on delete no action on update cascade
 )
 go
-create table dichvu(
-madichvu varchar(15) primary key,
-tendichvu nvarchar(50) not null,
-giatien money not null
-)
-go
+
 create table toathuoc(
 maphieukham int,
 mathuoc varchar(10),
 madichvu varchar(15),
 primary key(maphieukham,mathuoc,madichvu),
 soluong int not null,
-tongtienthuoc money not null,
-ghichu nvarchar(255),
+tongtien money not null,
+cachdung nvarchar(255),
 constraint fk_toathuoc_phieukham foreign key(maphieukham) references phieukham(maphieukham) on delete no action on update cascade,
 constraint fk_toathuoc_thuoc foreign key(mathuoc)references thuoc(mathuoc) on delete no action on update cascade,
 constraint fk_toathuoc_dichvu foreign key(madichvu) references dichvu(madichvu) on delete no action on update cascade
 )
+select * from benhnhan
 GO
 INSERT INTO nhanvien(manhanvien,tennhanvien,gioitinh,ngaysinh,matkhau,chucvu,sodienthoai,diachi,hinh) values
 ('AnhLN',N'Lê Ngọc Anh',N'Nam','2002-11-20','123',N'Quản Lý','0346064484',N'Quảng Ngãi','anh1.png'),
@@ -102,17 +102,17 @@ INSERT INTO nhanvien(manhanvien,tennhanvien,gioitinh,ngaysinh,matkhau,chucvu,sod
 ('BaoCT',N'Cao Thuận Bảo',N'Khác','2002-11-20','123',N'Nhân Viên','0346064484',N'Cần Thơ','anh6.png'),
 ('MinhNQ',N'Nguyễn Quốc Minh',N'Khác','2002-11-20','123',N'Nhân Viên','0346064484',N'Bình Định','anh7.png');
 GO
-INSERT INTO benhnhan(tenbenhnhan,sodienthoai,gioitinh,ngaysinh,diachi,manhanvien,trangthai) values
-(N'Nguyễn Hoài Bảo','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
-(N'Lê Quốc Bảo','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
-(N'Nguyễn Thành Nam','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
-(N'Đỗ Huyền Trân','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
-(N'Nguyễn Thị Bích','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
-(N'Nguyễn Khắc Tâm','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
-(N'Phạm Hồng Diễm','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
-(N'Nguyễn Hoài Nghi','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
-(N'Nguyễn Trường','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
-(N'Nguyễn Vipp','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị');
+INSERT INTO benhnhan(tenbenhnhan,sodienthoai,gioitinh,ngaysinh,diachi,madichvu,trangthai) values
+(N'Nguyễn Hoài Bảo','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','DV001',N'Đang điều trị'),
+(N'Lê Quốc Bảo','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','DV001',N'Đang điều trị'),
+(N'Nguyễn Thành Nam','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','DV001',N'Đang điều trị'),
+(N'Đỗ Huyền Trân','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','DV001',N'Đang điều trị'),
+(N'Nguyễn Thị Bích','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','DV001',N'Đang điều trị'),
+(N'Nguyễn Khắc Tâm','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','DV001',N'Đang điều trị'),
+(N'Phạm Hồng Diễm','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','DV001',N'Đang điều trị'),
+(N'Nguyễn Hoài Nghi','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi','DV001',N'Đang điều trị'),
+(N'Nguyễn Trường','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi','DV001',N'Đang điều trị'),
+(N'Nguyễn Vipp','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi','DV001',N'Đang điều trị');
 GO
 INSERT INTO chuyennganh(machuyennganh,tenchuyennganh) values
 ('CN01','Chuyên Khoa Nhi'),
