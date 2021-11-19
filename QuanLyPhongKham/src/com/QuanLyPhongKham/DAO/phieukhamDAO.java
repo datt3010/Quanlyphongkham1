@@ -9,7 +9,7 @@ import com.QuanLyPhongKham.Model.PhieuKham;
 import com.QuanLyPhongKham.Utilities.XDate;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.List; 
 
 /**
  *

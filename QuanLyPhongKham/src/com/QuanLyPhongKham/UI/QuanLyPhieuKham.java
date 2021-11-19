@@ -13,6 +13,7 @@ import com.QuanLyPhongKham.Model.BenhNhan;
 import com.QuanLyPhongKham.Model.PhieuKham;
 import com.QuanLyPhongKham.Utilities.Auths;
 import com.QuanLyPhongKham.Utilities.MsgBox;
+import com.QuanLyPhongKham.Utilities.Validation;
 import com.QuanLyPhongKham.Utilities.XDate;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -1482,39 +1483,52 @@ public class QuanLyPhieuKham extends javax.swing.JFrame {
     }
 
     private void insert() {
-        try {
-            PhieuKham pk = getform();
-            pkdao.insert(pk);
-            this.filltable();
-            MsgBox.alert(this, "Insert thành công!!");
-            this.clearForm();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (this.Error()) {
+            try {
+                PhieuKham pk = getform();
+                pkdao.insert(pk);
+                this.filltable();
+                MsgBox.alert(this, "Insert thành công!!");
+                this.clearForm();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
     private void update() {
-        try {
-            PhieuKham pk = getformUpdate();
-            pkdao.update(pk);
-            this.filltable();
-            MsgBox.alert(this, "Update thành công!!");
-            this.clearForm();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (this.row == -1) {
+            MsgBox.alert(this, "Vui lòng chọn phiếu khám cần update!!!");
+            return;
+        }
+        if (this.Error()) {
+            try {
+                PhieuKham pk = getformUpdate();
+                pkdao.update(pk);
+                this.filltable();
+                MsgBox.alert(this, "Update thành công!!");
+                this.clearForm();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
     private void delete() {
         try {
-            if (MsgBox.confirm(this, "Bạn có muốn xoá phiếu khám này không?")) {
+            if (this.row == -1) {
+                MsgBox.alert(this, "Vui lòng chọn phiếu khám cần xoá!!!");
+                return;
+            } else {
                 row = tblDSPhieuKham.getSelectedRow();
                 int maphieukham = (int) tblDSPhieuKham.getValueAt(row, 0);
-                pkdao.delete(maphieukham);
-                this.filltable();
-                MsgBox.alert(this, "Delete thành công!!");
-                this.clearForm();
+                if (MsgBox.confirm(this, "Bạn có muốn xoá phiếu khám này không?")) {
+                    pkdao.delete(maphieukham);
+                    this.filltable();
+                    MsgBox.alert(this, "Delete thành công!!");
+                    this.clearForm();
 
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1525,5 +1539,21 @@ public class QuanLyPhieuKham extends javax.swing.JFrame {
         PhieuKham pk = new PhieuKham();
         this.setform(pk);
         txtBenhNhan.setText("");
+    }
+
+    private boolean Error() {
+        if (Validation.isempty(txtBacSi, "Mã Bác Sĩ đang rỗng!!") == false) {
+            return false;
+        }
+        if (Validation.isempty(txtBenhNhan, "Mã Bệnh Nhân đang rỗng!!") == false) {
+            return false;
+        }
+        if (Validation.isempty(txtNhanVien, "Mã Nhân Viên đang rỗng!!") == false) {
+            return false;
+        }
+        if (Validation.isemptyTXA(txaKetLuanBacSi, "Kết luận của Bác Sĩ đang rỗng!!") == false) {
+            return false;
+        }
+        return true;
     }
 }
