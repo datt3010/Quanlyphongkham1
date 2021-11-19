@@ -1301,6 +1301,7 @@ public class QuanLyPhieuKham extends javax.swing.JFrame {
         this.filltable();
         this.filltableBenhNhan();
         this.filltableBacSi();
+        txtNhanVien.setText(Auths.user.getManhanvien());
     }
 
     //Hover màu
@@ -1463,7 +1464,7 @@ public class QuanLyPhieuKham extends javax.swing.JFrame {
         pk.setNgaykham(XDate.toDate(lblNgayKham1.getText(), "dd/MM/yyyy"));
         pk.setMabacsy(txtBacSi.getText());
         pk.setMabenhnhan(Integer.parseInt(txtBenhNhan.getText()));
-        pk.setManhanvien(txtNhanVien.getText());
+        pk.setManhanvien(Auths.user.getManhanvien());
         pk.setKetluan(txaKetLuanBacSi.getText());
         return pk;
     }

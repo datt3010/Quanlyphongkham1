@@ -91,6 +91,7 @@ public class dangnhap extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtpassword = new javax.swing.JPasswordField();
         btndangnhap = new javax.swing.JButton();
+        lblThoat = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -179,6 +180,16 @@ public class dangnhap extends javax.swing.JFrame {
         });
         jPanel3.add(btndangnhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, 50));
 
+        lblThoat.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lblThoat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblThoat.setText("X");
+        lblThoat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblThoatMouseClicked(evt);
+            }
+        });
+        jPanel3.add(lblThoat, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 40, -1));
+
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 550, 550));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -201,6 +212,10 @@ public class dangnhap extends javax.swing.JFrame {
             // TODO add your handling code here:
         login();
     }//GEN-LAST:event_btndangnhapActionPerformed
+
+    private void lblThoatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThoatMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_lblThoatMouseClicked
 
     /**
      * @param args the command line arguments
@@ -251,6 +266,7 @@ public class dangnhap extends javax.swing.JFrame {
                     Auths.user = nhanVien;
                     MsgBox.alert(this, "Đăng nhập thành công!");
                     this.dispose();
+                    new Manhinhchinnh().setVisible(true);
                 } else {
                     MsgBox.alert(this, "Sai mật khẩu!");
                 }
@@ -277,6 +293,7 @@ public class dangnhap extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel lblThoat;
     private javax.swing.JLabel lblchu;
     private javax.swing.JLabel lblquenmatkhau;
     private javax.swing.JPasswordField txtpassword;
