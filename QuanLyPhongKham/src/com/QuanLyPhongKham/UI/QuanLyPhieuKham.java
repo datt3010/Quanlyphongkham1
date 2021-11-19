@@ -595,6 +595,11 @@ public class QuanLyPhieuKham extends javax.swing.JFrame {
         }
 
         txtTimBenhNhan.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        txtTimBenhNhan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTimBenhNhanActionPerformed(evt);
+            }
+        });
         txtTimBenhNhan.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtTimBenhNhanKeyReleased(evt);
@@ -1145,6 +1150,10 @@ public class QuanLyPhieuKham extends javax.swing.JFrame {
         this.insert();
     }//GEN-LAST:event_btnThemActionPerformed
 
+    private void txtTimBenhNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimBenhNhanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTimBenhNhanActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1341,7 +1350,7 @@ public class QuanLyPhieuKham extends javax.swing.JFrame {
 
     private void OpenHoaDon() {
         this.dispose();
-        new QuanLyHoaDon().setVisible(true);
+//        new QuanLyHoaDon().setVisible(true);
     }
 
     private void OpenPhieuKham() {
@@ -1400,7 +1409,7 @@ public class QuanLyPhieuKham extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-
+    
     private void filltableBenhNhan() {
         DefaultTableModel model = (DefaultTableModel) tblBenhNhan.getModel();
         model.setRowCount(0);
@@ -1423,7 +1432,7 @@ public class QuanLyPhieuKham extends javax.swing.JFrame {
         model.setRowCount(0);
         try {
             String text = txtTimBacSi.getText();
-            List<BacSi> list = bsdao.SelectKeyword(text, text, text, text, text);
+            List<BacSi> list = bsdao.SelectKeyword(text, text, text, text, text, text);
             for (BacSi bs : list) {
                 model.addRow(new Object[]{
                     bs.getMabacsy(), bs.getTenbacsy(), bs.getMachuyennganh()

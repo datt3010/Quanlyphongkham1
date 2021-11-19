@@ -14,6 +14,25 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import com.QuanLyPhongKham.DAO.bacsiDAO;
+import com.QuanLyPhongKham.Model.BacSi;
+import com.QuanLyPhongKham.Utilities.Auths;
+import com.QuanLyPhongKham.Utilities.MsgBox;
+import com.QuanLyPhongKham.Utilities.XDate;
+import com.QuanLyPhongKham.Utilities.XImages;
+import java.util.List;
+import com.QuanLyPhongKham.DAO.chuyennganhDAO;
+import com.QuanLyPhongKham.Model.ChuyenNganh;
+import java.awt.Image;
+import java.io.File;
+import javax.imageio.ImageIO;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFileChooser;
+
+
+
+
 
 /**
  *
@@ -73,33 +92,35 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         lblDichVu = new javax.swing.JLabel();
         btnDangXuat = new rojeru_san.complementos.RSButtonHover();
         pnlRight = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
+        cbochuyennganh = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        NgaySinh = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lblAnhBS = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        rSTableMetro1 = new rojeru_san.complementos.RSTableMetro();
+        tblBacSi = new rojeru_san.complementos.RSTableMetro();
         jButton2 = new javax.swing.JButton();
         txtDienThoai = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnThem = new javax.swing.JButton();
+        btnMoi = new javax.swing.JButton();
+        btnCapNhat = new javax.swing.JButton();
+        btnXoa = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtTimKiem = new javax.swing.JTextField();
-        txtEmail1 = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        txtTenBacSi1 = new javax.swing.JTextField();
-        txtMaBacSi2 = new javax.swing.JTextField();
+        txtTenBacSi = new javax.swing.JTextField();
+        txtMaBacSi = new javax.swing.JTextField();
         btnTimKiem = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        cboGioiTinh = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ BÁC SĨ\n");
@@ -510,52 +531,73 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         pnlRight.setFocusable(false);
         pnlRight.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.setBorder(new javax.swing.border.MatteBorder(null));
-        pnlRight.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 220, 34));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Email:");
-        pnlRight.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 90, 30));
+        cbochuyennganh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ", "Khác" }));
+        cbochuyennganh.setBorder(new javax.swing.border.MatteBorder(null));
+        pnlRight.add(cbochuyennganh, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 240, 220, 34));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Ngày sinh:");
-        pnlRight.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 200, 120, 40));
-        pnlRight.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 200, 224, 34));
+        pnlRight.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 180, 120, 40));
+
+        NgaySinh.setDateFormatString("dd/MM/yyyy");
+        pnlRight.add(NgaySinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 180, 224, 34));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Điện thoại:");
-        pnlRight.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 130, 120, 30));
+        pnlRight.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 120, 120, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Giới tính:");
-        pnlRight.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 90, 30));
+        jLabel6.setText("Chuyên ngành:");
+        pnlRight.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 240, 130, 30));
 
-        jLabel7.setBackground(new java.awt.Color(255, 255, 102));
-        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
-        pnlRight.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 140, 170));
+        lblAnhBS.setBackground(new java.awt.Color(255, 255, 102));
+        lblAnhBS.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
+        pnlRight.add(lblAnhBS, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 140, 170));
 
-        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
+        tblBacSi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã Bác Sĩ", "Tên Bác Sĩ", "Giới Tính", "Điện Thoại", "Email", "Ngày Sinh"
+                "Mã Bác Sĩ", "Tên Bác Sĩ", "Giới Tính", "Điện Thoại", "Email", "Ngày Sinh", "Chuyên ngành"
             }
-        ));
-        jScrollPane2.setViewportView(rSTableMetro1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblBacSi.setRowHeight(25);
+        tblBacSi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblBacSiMouseClicked(evt);
+            }
+        });
+        tblBacSi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tblBacSiKeyReleased(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblBacSi);
 
         pnlRight.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 1120, 240));
 
         jButton2.setText("Chọn ảnh");
-        pnlRight.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 120, 30));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        pnlRight.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 120, 30));
 
         txtDienThoai.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtDienThoai.addActionListener(new java.awt.event.ActionListener() {
@@ -563,31 +605,71 @@ public class QuanLyBacSi extends javax.swing.JFrame {
                 txtDienThoaiActionPerformed(evt);
             }
         });
-        pnlRight.add(txtDienThoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 120, 220, 34));
+        pnlRight.add(txtDienThoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 110, 220, 34));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_fast_forward_32px.png"))); // NOI18N
-        pnlRight.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 740, 90, 30));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        pnlRight.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 90, 30));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/add_25px.png"))); // NOI18N
-        pnlRight.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 90, 30));
+        btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/add_25px.png"))); // NOI18N
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
+        pnlRight.add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, 90, 30));
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/new_ticket_25px.png"))); // NOI18N
-        pnlRight.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 90, 30));
+        btnMoi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/new_ticket_25px.png"))); // NOI18N
+        btnMoi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMoiActionPerformed(evt);
+            }
+        });
+        pnlRight.add(btnMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 320, 90, 30));
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/update_25px.png"))); // NOI18N
-        pnlRight.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 290, 90, 30));
+        btnCapNhat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/update_25px.png"))); // NOI18N
+        btnCapNhat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCapNhatActionPerformed(evt);
+            }
+        });
+        pnlRight.add(btnCapNhat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 320, 90, 30));
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/delete_25px.png"))); // NOI18N
-        pnlRight.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 290, 90, 30));
+        btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/delete_25px.png"))); // NOI18N
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
+            }
+        });
+        pnlRight.add(btnXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 320, 90, 30));
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_skip_to_start_32px_1.png"))); // NOI18N
-        pnlRight.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 740, 90, 30));
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        pnlRight.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 90, 30));
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_rewind_32px.png"))); // NOI18N
-        pnlRight.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 740, 90, 30));
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        pnlRight.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 90, 30));
 
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_end_32px_1.png"))); // NOI18N
-        pnlRight.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 740, 90, 30));
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        pnlRight.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 90, 30));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 102, 102));
@@ -605,36 +687,41 @@ public class QuanLyBacSi extends javax.swing.JFrame {
                 txtTimKiemActionPerformed(evt);
             }
         });
-        pnlRight.add(txtTimKiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 400, 520, 34));
-
-        txtEmail1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        txtEmail1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmail1ActionPerformed(evt);
+        txtTimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTimKiemKeyReleased(evt);
             }
         });
-        pnlRight.add(txtEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 220, 34));
+        pnlRight.add(txtTimKiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 400, 520, 34));
+
+        txtEmail.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
+        pnlRight.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 220, 34));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Tên bác sĩ:");
-        pnlRight.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 60, 120, 30));
+        pnlRight.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 60, 120, 30));
 
-        txtTenBacSi1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        txtTenBacSi1.addActionListener(new java.awt.event.ActionListener() {
+        txtTenBacSi.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtTenBacSi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTenBacSi1ActionPerformed(evt);
+                txtTenBacSiActionPerformed(evt);
             }
         });
-        pnlRight.add(txtTenBacSi1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 220, 34));
+        pnlRight.add(txtTenBacSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 220, 34));
 
-        txtMaBacSi2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        txtMaBacSi2.addActionListener(new java.awt.event.ActionListener() {
+        txtMaBacSi.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtMaBacSi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMaBacSi2ActionPerformed(evt);
+                txtMaBacSiActionPerformed(evt);
             }
         });
-        pnlRight.add(txtMaBacSi2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 220, 34));
+        pnlRight.add(txtMaBacSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 220, 34));
 
         btnTimKiem.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnTimKiem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/search_25px.png"))); // NOI18N
@@ -645,6 +732,20 @@ public class QuanLyBacSi extends javax.swing.JFrame {
             }
         });
         pnlRight.add(btnTimKiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 150, -1));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Email:");
+        pnlRight.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 90, 30));
+
+        cboGioiTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ", "Khác" }));
+        cboGioiTinh.setBorder(new javax.swing.border.MatteBorder(null));
+        pnlRight.add(cboGioiTinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 220, 34));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Giới tính:");
+        pnlRight.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 90, 30));
 
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 
@@ -923,21 +1024,107 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTimKiemActionPerformed
 
-    private void txtEmail1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmail1ActionPerformed
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmail1ActionPerformed
+    }//GEN-LAST:event_txtEmailActionPerformed
 
-    private void txtTenBacSi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTenBacSi1ActionPerformed
+    private void txtTenBacSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTenBacSiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTenBacSi1ActionPerformed
+    }//GEN-LAST:event_txtTenBacSiActionPerformed
 
-    private void txtMaBacSi2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaBacSi2ActionPerformed
+    private void txtMaBacSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaBacSiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtMaBacSi2ActionPerformed
+    }//GEN-LAST:event_txtMaBacSiActionPerformed
 
     private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTimKiemActionPerformed
+
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        // TODO add your handling code here:
+        this.insert();
+    }//GEN-LAST:event_btnThemActionPerformed
+
+    private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
+        // TODO add your handling code here:
+        this.clearForm();
+    }//GEN-LAST:event_btnMoiActionPerformed
+
+    private void btnCapNhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapNhatActionPerformed
+        // TODO add your handling code here:
+        this.update();
+    }//GEN-LAST:event_btnCapNhatActionPerformed
+
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+        // TODO add your handling code here:
+        this.delete();
+    }//GEN-LAST:event_btnXoaActionPerformed
+
+    private void tblBacSiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBacSiMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount() == 2){
+            this.row = tblBacSi.getSelectedRow();
+            this.edit();
+        }
+    }//GEN-LAST:event_tblBacSiMouseClicked
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        row = tblBacSi.getSelectedRow();
+        if(row>0){
+            tblBacSi.setRowSelectionInterval(0, 0);
+            
+            
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void txtTimKiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyReleased
+        // TODO add your handling code here:
+        if(txtTimKiem.getText().length() == 0){
+            this.filltable1();
+        }else{
+            this.filltable1();
+        }
+    }//GEN-LAST:event_txtTimKiemKeyReleased
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.hinh();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        row = tblBacSi.getSelectedRow();
+        if (row >= 0) {
+            tblBacSi.setRowSelectionInterval(--row, row);
+            this.edit();
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        row = tblBacSi.getSelectedRow();
+        if (row >= 0) {
+            tblBacSi.setRowSelectionInterval(++row, row);
+            this.edit();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        row = tblBacSi.getSelectedRow();
+        if (row >= 0) {
+            row = tblBacSi.getRowCount()-1;
+            tblBacSi.setRowSelectionInterval(row, row);
+            this.edit();
+        }
+    
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void tblBacSiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblBacSiKeyReleased
+        // TODO add your handling code here:
+        filltable1();
+    }//GEN-LAST:event_tblBacSiKeyReleased
 
     /**
      * @param args the command line arguments
@@ -978,29 +1165,31 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser NgaySinh;
+    private javax.swing.JButton btnCapNhat;
     private rojeru_san.complementos.RSButtonHover btnDangXuat;
+    private javax.swing.JButton btnMoi;
+    private javax.swing.JButton btnThem;
     private javax.swing.JButton btnTimKiem;
+    private javax.swing.JButton btnXoa;
+    private javax.swing.JComboBox<String> cboGioiTinh;
+    private javax.swing.JComboBox<String> cbochuyennganh;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblAnhBS;
     private rojerusan.RSFotoCircle lblAnhNV;
     private javax.swing.JLabel lblDanhMuc;
     private javax.swing.JLabel lblDay;
@@ -1034,19 +1223,24 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     private javax.swing.JPanel pnlQuanLyThuoc;
     private javax.swing.JPanel pnlRight;
     private javax.swing.JPanel pnlTong;
-    private rojeru_san.complementos.RSTableMetro rSTableMetro1;
+    private rojeru_san.complementos.RSTableMetro tblBacSi;
     private javax.swing.JTextField txtDienThoai;
-    private javax.swing.JTextField txtEmail1;
-    private javax.swing.JTextField txtMaBacSi2;
-    private javax.swing.JTextField txtTenBacSi1;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtMaBacSi;
+    private javax.swing.JTextField txtTenBacSi;
     private javax.swing.JTextField txtTimKiem;
     // End of variables declaration//GEN-END:variables
+    bacsiDAO bsDao = new bacsiDAO();
+    chuyennganhDAO cndao = new chuyennganhDAO();
+    int row = -1;
+    int index = -1;
     private void init(){
         hoverPanel(pnlQuanLyBacSi, lblIconBacSi);
         setLocationRelativeTo(null);
         this.LoadNgay();
-        
-        
+        fillcbochuyennganh();
+        filltable1();
+       
     }
     
     //Hover màu
@@ -1125,5 +1319,127 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     private void OpenThongKe(){
         this.dispose();
         new ThongKe().setVisible(true);
+    }
+     public void filltable1(){
+        DefaultTableModel model = (DefaultTableModel) tblBacSi.getModel();
+        model.setRowCount(0);
+        try{
+            String text = txtTimKiem.getText();
+            List<BacSi> list = bsDao.SelectKeyword(text, text, text, text, text, text);
+            for(BacSi bs : list){
+                model.addRow(new Object[]{
+                bs.getMabacsy(),bs.getTenbacsy(),bs.getGioitinh(),bs.getDienthoai(),bs.getEmail(),XDate.toString(bs.getNgaysinh(), "dd/MM/yyyy"),bs.getMachuyennganh()
+            });
+            }
+//        model.fireTableChanged();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+//    public void filltable(){
+//        DefaultTableModel model = (DefaultTableModel) tblBacSi.getModel();
+//        model.setRowCount(0);
+//        try{
+//            
+//            List<BacSi> list = bsDao.SelectAll();
+//            for(BacSi bs : list){
+//                model.addRow(new Object[]{
+//                bs.getMabacsy(),bs.getTenbacsy(),bs.getGioitinh(),bs.getDienthoai(),bs.getEmail(),XDate.toString(bs.getNgaysinh(), "dd/MM/yyyy"),bs.getMachuyennganh()
+//            });
+//            }
+////        model.fireTableChanged();
+//        }catch(Exception e){
+//            e.printStackTrace();
+//        }
+//    }
+    public void fillcbochuyennganh(){
+        DefaultComboBoxModel model = (DefaultComboBoxModel) cbochuyennganh.getModel();
+        model.removeAllElements();
+        List<ChuyenNganh> list = cndao.SelectAll();
+        for(ChuyenNganh cn : list){
+            model.addElement(cn.getMachuyennganh());
+        }
+    }
+    public BacSi getform(){
+        BacSi bs = new BacSi();
+        bs.setMabacsy(txtMaBacSi.getText());
+        bs.setTenbacsy(txtTenBacSi.getText());
+        bs.setGioitinh((String) cboGioiTinh.getSelectedItem());
+        bs.setDienthoai(txtDienThoai.getText());
+        bs.setEmail(txtEmail.getText());
+        bs.setNgaysinh(NgaySinh.getDate());
+        bs.setHinh(String.valueOf(lblAnhBS.getToolTipText()));
+        bs.setMachuyennganh((String) cbochuyennganh.getSelectedItem());
+        return bs;
+    }
+    public void setform(BacSi bs){
+        txtMaBacSi.setText(bs.getMabacsy());
+        cboGioiTinh.setSelectedItem(bs.getGioitinh());      
+        txtTenBacSi.setText(bs.getTenbacsy());
+        txtDienThoai.setText(bs.getDienthoai());
+        txtEmail.setText(bs.getEmail());
+        NgaySinh.setDate(bs.getNgaysinh());
+        cbochuyennganh.setSelectedItem(bs.getMachuyennganh());
+    }
+    public void insert(){
+        try{
+            BacSi bs = getform();
+            bsDao.insert(bs);
+            this.filltable1();
+            MsgBox.alert(this, "Insert thành công!");
+            this.clearForm();
+        }catch(Exception e){
+            e.fillInStackTrace();
+        }
+    }
+    public void update(){
+        try{
+            BacSi bs = getform();
+            bsDao.update(bs);
+            this.filltable1();
+            MsgBox.alert(this, "Update thành công!");
+            this.clearForm();
+        }catch(Exception e){
+            e.fillInStackTrace();
+        }
+    }
+    public void delete(){
+        try{
+            if(MsgBox.confirm(this, "Bạn có chắc muốn xoá bác sĩ này không?")){
+                row = tblBacSi.getSelectedRow();
+                String mabacsi = (String) tblBacSi.getValueAt(row, 0);              
+                bsDao.delete(mabacsi);
+                filltable1();
+                MsgBox.alert(this, "Xoá thành công!");
+                this.clearForm();
+            }
+        }catch(Exception e){
+            e.fillInStackTrace();
+        }
+    }
+    public void hinh(){
+        try{
+        JFileChooser jfc = new JFileChooser("\\baitap\\duan1\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon");
+        jfc.showOpenDialog(null);
+        
+        File file = jfc.getSelectedFile();
+        Image img = ImageIO.read(file);
+        lblAnhBS.setText("");
+        int width = lblAnhBS.getWidth();
+        int height = lblAnhBS.getHeight();
+        lblAnhBS.setIcon(new ImageIcon(img.getScaledInstance(width, height, 0)));
+        }catch(Exception e){
+            e.fillInStackTrace();
+        }
+    }
+    public void edit(){
+        String mabacsi = (String) tblBacSi.getValueAt(row, 0);
+        BacSi bs = bsDao.SelectByID(mabacsi);
+        this.setform(bs);
+    }
+    private void clearForm() {
+        BacSi bs = new BacSi();
+        this.setform(bs);
+        
     }
 }

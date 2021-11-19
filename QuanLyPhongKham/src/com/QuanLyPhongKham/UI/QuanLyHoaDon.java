@@ -528,7 +528,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 0, 51));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("QUẢN LÝ HOÁ ĐƠN");
-        pnlRight.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, -1));
+        pnlRight.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, -1));
 
         lblThuoc.setBackground(new java.awt.Color(102, 102, 102));
         lblThuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

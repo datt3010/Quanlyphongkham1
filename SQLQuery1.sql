@@ -43,7 +43,7 @@ email varchar(100) not null,
 ngaysinh date not null,
 hinh varchar(100) not null,
 machuyennganh varchar(12) not null,
-constraint fk_bacsy_chuyennganh1 foreign key(machuyennganh) references chuyennganh(machuyennganh) on delete no action on update cascade
+constraint fk_bacsy_chuyennganh1 foreign key(machuyennganh) references chuyennganh(machuyennganh) on delete no action
 )
 go
 create table phieukham(
@@ -216,4 +216,4 @@ INSERT INTO phieukham(ngaykham,mabacsy,mabenhnhan,manhanvien,ketluan) values('20
 ('2021-11-16','BS03',3,N'AnNT',N'Sốt'),
 ('2021-11-16','BS04',4,N'AnNT',N'Viêm ACD'),
 ('2021-11-16','BS05',5,N'AnNT',N'Gãy Chân');
-
+	
