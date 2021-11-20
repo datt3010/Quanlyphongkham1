@@ -5,6 +5,7 @@
  */
 package com.QuanLyPhongKham.DAO;
 import com.QuanLyPhongKham.Model.NhanVien;
+import com.QuanLyPhongKham.Utilities.XDate;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,15 +14,15 @@ import java.util.List;
  * @author p
  */
 public class nhanvienDAO extends QLPhongKham_DAO<NhanVien, String>{
-    String Insert_NhanVien = "Insert into NhanVien ( manhanvien, tennhanvien, gioitinh, ngaysinh, matkhau, chucvu, sodienthoai, diachi, hinh ) VALUES(?,?,?,?,?,?,?,?,?,?)";
-    String Update_NhanVien = "Update NhanVien SET manhienvien=?, tennhanvien=?, gioitinh=?, ngaysinh=?, matkhau=?, chucvu=?, sodienthoai=?, diachi=?, hinh=? Where manhanvien=?";
-    String DELETE_NhanVien = "DELETE FROM nhanvien WHERE manhanvien=?";
+    String Insert_NhanVien = "Insert into NhanVien ( manhanvien, tennhanvien, gioitinh, ngaysinh, matkhau, chucvu, sodienthoai, diachi, hinh ) VALUES(?,?,?,?,?,?,?,?,?)";
+    String Update_NhanVien = "Update NhanVien SET  tennhanvien=?, gioitinh=?, ngaysinh=?, matkhau=?, chucvu=?, sodienthoai=?, diachi=?, hinh=? Where manhanvien like ?";
+    String DELETE_NhanVien = "DELETE FROM nhanvien WHERE manhanvien like ?";
     String SELECTALL_NhanVien = "SELECT * FROM nhanvien";
     String SELECT_BY_ID_NhanVien ="SELECT * FROM nhanvien WHERE manhanvien=?";
     @Override
     public void insert(NhanVien entity) {
          try {
-            jdbcHelper.update(Insert_NhanVien, entity.getManhanvien(),entity.getTennhanvien(),entity.getGioitinh(),entity.getNgaysinh(),entity.getMatkhau(),
+            jdbcHelper.update(Insert_NhanVien, entity.getManhanvien(),entity.getTennhanvien(),entity.getGioitinh(),XDate.toString(entity.getNgaysinh(),"YYYY-MM-dd"),entity.getMatkhau(),
                     entity.getChucvu(),entity.getSodienthoai(),entity.getDiachi(),entity.getHinh());
         } catch (Exception e) {
             e.printStackTrace();
@@ -31,8 +32,8 @@ public class nhanvienDAO extends QLPhongKham_DAO<NhanVien, String>{
     @Override
     public void update(NhanVien entity) {
          try {
-            jdbcHelper.update(Update_NhanVien, entity.getManhanvien(),entity.getTennhanvien(),entity.getGioitinh(),entity.getNgaysinh(),entity.getMatkhau(),
-                    entity.getChucvu(),entity.getSodienthoai(),entity.getDiachi(),entity.getHinh());
+            jdbcHelper.update(Update_NhanVien,entity.getTennhanvien(),entity.getGioitinh(),XDate.toString(entity.getNgaysinh(),"YYYY-MM-dd"),entity.getMatkhau(),
+                    entity.getChucvu(),entity.getSodienthoai(),entity.getDiachi(),entity.getHinh(),entity.getManhanvien());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -54,8 +55,8 @@ public class nhanvienDAO extends QLPhongKham_DAO<NhanVien, String>{
         String sql="select * from nhanvien";
         return SelectBySQL(sql);
     }
-
     @Override
+    
     public NhanVien SelectByID(String id) {
         String sql = "select * from nhanvien where manhanvien like ?";
         List<NhanVien> list = SelectBySQL(sql, id);
@@ -85,5 +86,9 @@ public class nhanvienDAO extends QLPhongKham_DAO<NhanVien, String>{
         }
         return list;
     }
-
+    public List<NhanVien> SelectKeyword (String Keyword,String Keyword2,String Keyword3,String Keyword4,String Keyword5,String Keyword6){
+        String Sql = "Select * from NhanVien "
+                + "Where MaNhanVien like ? or TenNhanVien like ? or GioiTinh like ? or ChucVu like ? or SoDienThoai like ? or Diachi like ?";
+        return this.SelectBySQL(Sql, "%"+ Keyword+ "%","%"+ Keyword2+ "%","%"+ Keyword3+ "%","%"+ Keyword4+ "%","%"+ Keyword5+ "%","%"+ Keyword6+ "%");
+    }
 }

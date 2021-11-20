@@ -6,9 +6,10 @@
 package com.QuanLyPhongKham.DAO;
 
 import com.QuanLyPhongKham.Model.PhieuKham;
+import com.QuanLyPhongKham.Utilities.XDate;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.List; 
 
 /**
  *
@@ -24,7 +25,7 @@ public class phieukhamDAO extends QLPhongKham_DAO<PhieuKham, Integer>{
     @Override
     public void insert(PhieuKham entity) {
         try {
-            jdbcHelper.update(Insert_PhieuKham, entity.getNgaykham(),entity.getMabacsy(),entity.getMabenhnhan(),entity.getManhanvien(),entity.getKetluan());
+            jdbcHelper.update(Insert_PhieuKham, XDate.toString(entity.getNgaykham(), "yyyy-MM-dd"),entity.getMabacsy(),entity.getMabenhnhan(),entity.getManhanvien(),entity.getKetluan());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -33,7 +34,7 @@ public class phieukhamDAO extends QLPhongKham_DAO<PhieuKham, Integer>{
     @Override
     public void update(PhieuKham entity) {
         try {
-            jdbcHelper.update(Update_PhieuKham, entity.getNgaykham(),entity.getMabacsy(),entity.getMabenhnhan(),entity.getManhanvien(),entity.getKetluan(),entity.getMaphieukham());
+            jdbcHelper.update(Update_PhieuKham, XDate.toString(entity.getNgaykham(), "yyyy-MM-dd"),entity.getMabacsy(),entity.getMabenhnhan(),entity.getManhanvien(),entity.getKetluan(),entity.getMaphieukham());
         } catch (Exception e) {
             e.printStackTrace();
         }

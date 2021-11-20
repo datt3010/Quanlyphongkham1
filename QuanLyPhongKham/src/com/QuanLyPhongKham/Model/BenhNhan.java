@@ -13,6 +13,26 @@ import java.util.Date;
  */
 public class BenhNhan {
 
+    private int mabenhnhan;
+    private String tenbenhnhan;
+    private String sodienthoai;
+    private String gioitinh;
+    private Date ngaysinh;
+    private String diachi;
+    private String madichvu;
+    private String trangthai;
+
+    public BenhNhan(int mabenhnhan, String tenbenhnhan, String sodienthoai, String gioitinh, Date ngaysinh, String diachi, String madichvu, String trangthai) {
+        this.mabenhnhan = mabenhnhan;
+        this.tenbenhnhan = tenbenhnhan;
+        this.sodienthoai = sodienthoai;
+        this.gioitinh = gioitinh;
+        this.ngaysinh = ngaysinh;
+        this.diachi = diachi;
+        this.madichvu = madichvu;
+        this.trangthai = trangthai;
+    }
+
     public BenhNhan() {
     }
 
@@ -64,25 +84,6 @@ public class BenhNhan {
         this.diachi = diachi;
     }
 
-    public String getManhanvien() {
-        return manhanvien;
-    }
-
-    public void setManhanvien(String manhanvien) {
-        this.manhanvien = manhanvien;
-    }
-
-    public BenhNhan(int mabenhnhan, String tenbenhnhan, String sodienthoai, String gioitinh, Date ngaysinh, String diachi, String manhanvien, String trangthai) {
-        this.mabenhnhan = mabenhnhan;
-        this.tenbenhnhan = tenbenhnhan;
-        this.sodienthoai = sodienthoai;
-        this.gioitinh = gioitinh;
-        this.ngaysinh = ngaysinh;
-        this.diachi = diachi;
-        this.manhanvien = manhanvien;
-        this.trangthai = trangthai;
-    }
-
     public String getTrangthai() {
         return trangthai;
     }
@@ -90,12 +91,12 @@ public class BenhNhan {
     public void setTrangthai(String trangthai) {
         this.trangthai = trangthai;
     }
-    int mabenhnhan; 
-    String tenbenhnhan;
-    String sodienthoai;
-    String gioitinh;
-    Date ngaysinh;
-    String diachi;
-    String manhanvien;
-    String trangthai; 
+
+    public String getMadichvu() {
+        return madichvu;
+    }
+
+    public void setMadichvu(String madichvu) {
+        this.madichvu = madichvu;
+    }
 }

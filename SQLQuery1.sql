@@ -5,6 +5,12 @@ go
 create database quanlyphongkham;
 go
 use quanlyphongkham;
+create table dichvu(
+madichvu varchar(15) primary key,
+tendichvu nvarchar(50) not null,
+giatien money not null
+)
+go
 create table nhanvien(
 manhanvien varchar(12) primary key,
 tennhanvien nvarchar(50) not null,
@@ -24,9 +30,9 @@ sodienthoai varchar(13) check(sodienthoai>13) not null,
 gioitinh nvarchar(10),
 ngaysinh date not null,
 diachi nvarchar(255),
-manhanvien varchar(12),
+madichvu varchar(15) not null,
 trangthai nvarchar(50),
-constraint fk_benhnhan_nhanvien foreign key(manhanvien) references nhanvien(manhanvien) on delete no action on update cascade
+constraint fk_benhnhan_dichvu foreign key(madichvu)references dichvu(madichvu) on delete no action on update no action
 )
 go
 create table chuyennganh(
@@ -43,7 +49,7 @@ email varchar(100) not null,
 ngaysinh date not null,
 hinh varchar(100) not null,
 machuyennganh varchar(12) not null,
-constraint fk_bacsy_chuyennganh1 foreign key(machuyennganh) references chuyennganh(machuyennganh) on delete no action on update cascade
+constraint fk_bacsy_chuyennganh1 foreign key(machuyennganh) references chuyennganh(machuyennganh) on delete no action
 )
 go
 create table phieukham(
@@ -67,31 +73,25 @@ create table thuoc(
 mathuoc varchar(10) primary key ,
 tenthuoc nvarchar(50) not null,
 donvitinh nvarchar(20) not null,
-dongia money not null,
-cachdung nvarchar(100) not null,
 hansudung date,
 maloaithuoc int not null,
 constraint fk_thuoc_loaithuoc foreign key(maloaithuoc) references loaithuoc(maloaithuoc) on delete no action on update cascade
 )
 go
-create table dichvu(
-madichvu varchar(15) primary key,
-tendichvu nvarchar(50) not null,
-giatien money not null
-)
-go
+
 create table toathuoc(
 maphieukham int,
 mathuoc varchar(10),
 madichvu varchar(15),
 primary key(maphieukham,mathuoc,madichvu),
 soluong int not null,
-tongtienthuoc money not null,
-ghichu nvarchar(255),
+tongtien money not null,
+cachdung nvarchar(255),
 constraint fk_toathuoc_phieukham foreign key(maphieukham) references phieukham(maphieukham) on delete no action on update cascade,
 constraint fk_toathuoc_thuoc foreign key(mathuoc)references thuoc(mathuoc) on delete no action on update cascade,
 constraint fk_toathuoc_dichvu foreign key(madichvu) references dichvu(madichvu) on delete no action on update cascade
 )
+select * from benhnhan
 GO
 INSERT INTO nhanvien(manhanvien,tennhanvien,gioitinh,ngaysinh,matkhau,chucvu,sodienthoai,diachi,hinh) values
 ('AnhLN',N'Lê Ngọc Anh',N'Nam','2002-11-20','123',N'Quản Lý','0346064484',N'Quảng Ngãi','anh1.png'),
@@ -102,17 +102,17 @@ INSERT INTO nhanvien(manhanvien,tennhanvien,gioitinh,ngaysinh,matkhau,chucvu,sod
 ('BaoCT',N'Cao Thuận Bảo',N'Khác','2002-11-20','123',N'Nhân Viên','0346064484',N'Cần Thơ','anh6.png'),
 ('MinhNQ',N'Nguyễn Quốc Minh',N'Khác','2002-11-20','123',N'Nhân Viên','0346064484',N'Bình Định','anh7.png');
 GO
-INSERT INTO benhnhan(tenbenhnhan,sodienthoai,gioitinh,ngaysinh,diachi,manhanvien,trangthai) values
-(N'Nguyễn Hoài Bảo','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
-(N'Lê Quốc Bảo','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
-(N'Nguyễn Thành Nam','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
-(N'Đỗ Huyền Trân','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
-(N'Nguyễn Thị Bích','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
-(N'Nguyễn Khắc Tâm','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
-(N'Phạm Hồng Diễm','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
-(N'Nguyễn Hoài Nghi','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
-(N'Nguyễn Trường','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị'),
-(N'Nguyễn Vipp','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi','AnNT',N'Đang điều trị');
+INSERT INTO benhnhan(tenbenhnhan,sodienthoai,gioitinh,ngaysinh,diachi,madichvu,trangthai) values
+(N'Nguyễn Hoài Bảo','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','DV001',N'Đang điều trị'),
+(N'Lê Quốc Bảo','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','DV001',N'Đang điều trị'),
+(N'Nguyễn Thành Nam','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi','DV001',N'Đang điều trị'),
+(N'Đỗ Huyền Trân','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','DV001',N'Đang điều trị'),
+(N'Nguyễn Thị Bích','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','DV001',N'Đang điều trị'),
+(N'Nguyễn Khắc Tâm','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','DV001',N'Đang điều trị'),
+(N'Phạm Hồng Diễm','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi','DV001',N'Đang điều trị'),
+(N'Nguyễn Hoài Nghi','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi','DV001',N'Đang điều trị'),
+(N'Nguyễn Trường','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi','DV001',N'Đang điều trị'),
+(N'Nguyễn Vipp','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi','DV001',N'Đang điều trị');
 GO
 INSERT INTO chuyennganh(machuyennganh,tenchuyennganh) values
 ('CN01','Chuyên Khoa Nhi'),
@@ -160,44 +160,45 @@ INSERT INTO loaithuoc(tenloai) values(N'Cơ Xương Khớp'),
 (N'Tim Mạch'),
 (N'Vitamin');
 GO
-insert into thuoc(mathuoc,tenthuoc,donvitinh,dongia,cachdung,hansudung,maloaithuoc) values
+
+INSERT INTO thuoc(mathuoc,tenthuoc,donvitinh,dongia,cachdung,hansudung,maloaithuoc) values
 ('TH000','Null',N'Null',0,N'Null','2023-10-12',1),
-('TH001',N'ACEMUC 100 mg gói',N'Gói',10000,N'Ngày 1 gói','2023-10-12',2),
-('TH002',N'ACEMUC gói 200 mg(2)',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',3),
+('TH001',N'ACEMUC 100 mg gói',N'Gói',10000,N'Ngày 1 gói','2023-10-12',1),
+('TH002',N'ACEMUC gói 200 mg(2)',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',1),
 ('TH003',N'ACEMUC viên 200 mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',1),
-('TH004',N'AcetylCystein Boston 100mg',N'Gói',20000,N'Ngày 1v x 2 lần','2023-10-12',4),
-('TH005',N'Acid Ascorbic 500 mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',5),
-('TH006',N'Alphachoay (HGiang)',N'Gói',20000,N'Ngày 1v x 2 lần','2023-10-12',6),
-('TH007',N'ALUMAG-S',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',1),
+('TH004',N'AcetylCystein Boston 100mg',N'Gói',20000,N'Ngày 1v x 2 lần','2023-10-12',2),
+('TH005',N'Acid Ascorbic 500 mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',3),
+('TH006',N'Alphachoay (HGiang)',N'Gói',20000,N'Ngày 1v x 2 lần','2023-10-12',3),
+('TH007',N'ALUMAG-S',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',3),
 ('TH008',N'Amitriptiline 25mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',3),
-('TH009',N'Amlodipin 5mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',6),
-('TH010',N'AMOXICILIN  250MG',N'Gói',20000,N'Ngày 1v x 2 lần','2023-10-12',11),
-('TH011',N'Amoxicilin 500mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',11),
-('TH012',N'ANGELA GOLD LỌ/6OV',N'Gói',20000,N'Ngày 1v x 2 lần','2023-10-12',11),
-('TH013',N'ALIPAS',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',10),
-('TH014',N'Allerfor 4mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',10),
-('TH015',N'ZINNAT 500 mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',10),
-('TH016',N'Zengesic',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',10),
-('TH017',N'Zinmax 250mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',10),
-('TH018',N'PANAGIN',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',10),
-('TH019',N'PANTOPRAZOL 40 mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',2),
-('TH020',N'PESANCORT 15g',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',2),
-('TH021',N'ACTAPULGITE gói',N'Gói',20000,N'Ngày 1v x 2 lần','2023-10-12',2),
-('TH022',N'ALBENDAZOL 0.2',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',2),
-('TH023',N'ACYCLOVIR 800',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',2),
-('TH024',N'Allupurinol 300mg',N'Gói',20000,N'Ngày 1v x 2 lần','2023-10-12',2),
-('TH025',N'ZITROMAX 200ml',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',2),
-('TH026',N'PANTHENOL ',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',2),
-('TH027',N'Partamol 325mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',2),
-('TH028',N'PESANCORT 15g',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',2),
-('TH029',N'Zedcal 200ml',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',2),
-('TH030',N'TANGANIL 500mg(pháp)',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',2),
-('TH031',N'Apesone 50mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',2),
-('TH032',N'Apesone 50mg',N'Gói',20000,N'Ngày 1v x 2 lần','2023-10-12',2),
-('TH033',N'Apesone 50mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',2),
-('TH034',N'Apesone 50mg',N'Gói',20000,N'Ngày 1v x 2 lần','2023-10-12',2),
-('TH035',N'Apesone 50mg',N'Gói',20000,N'Ngày 1v x 2 lần','2023-10-12',2),
-('TH036',N'Apesone 50mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',2);
+('TH009',N'Amlodipin 5mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',4),
+('TH010',N'AMOXICILIN  250MG',N'Gói',20000,N'Ngày 1v x 2 lần','2023-10-12',4),
+('TH011',N'Amoxicilin 500mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',4),
+('TH012',N'ANGELA GOLD LỌ/6OV',N'Gói',20000,N'Ngày 1v x 2 lần','2023-10-12',4),
+('TH013',N'ALIPAS',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',5),
+('TH014',N'Allerfor 4mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',5),
+('TH015',N'ZINNAT 500 mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',5),
+('TH016',N'Zengesic',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',5),
+('TH017',N'Zinmax 250mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',5),
+('TH018',N'PANAGIN',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',6),
+('TH019',N'PANTOPRAZOL 40 mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',6),
+('TH020',N'PESANCORT 15g',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',6),
+('TH021',N'ACTAPULGITE gói',N'Gói',20000,N'Ngày 1v x 2 lần','2023-10-12',6),
+('TH022',N'ALBENDAZOL 0.2',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',7),
+('TH023',N'ACYCLOVIR 800',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',7),
+('TH024',N'Allupurinol 300mg',N'Gói',20000,N'Ngày 1v x 2 lần','2023-10-12',7),
+('TH025',N'ZITROMAX 200ml',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',7),
+('TH026',N'PANTHENOL ',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',8),
+('TH027',N'Partamol 325mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',8),
+('TH028',N'PESANCORT 15g',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',8),
+('TH029',N'Zedcal 200ml',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',8),
+('TH030',N'TANGANIL 500mg(pháp)',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',9),
+('TH031',N'Apesone 50mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',9),
+('TH032',N'Apesone 50mg',N'Gói',20000,N'Ngày 1v x 2 lần','2023-10-12',10),
+('TH033',N'Apesone 50mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',10),
+('TH034',N'Apesone 50mg',N'Gói',20000,N'Ngày 1v x 2 lần','2023-10-12',10),
+('TH035',N'Apesone 50mg',N'Gói',20000,N'Ngày 1v x 2 lần','2023-10-12',11),
+('TH036',N'Apesone 50mg',N'Viên',20000,N'Ngày 1v x 2 lần','2023-10-12',11);
 GO
 INSERT INTO dichvu(madichvu,tendichvu,giatien) values('DV000',N'Null',0),
 ('DV001',N'Khám Mắt',11000),
@@ -210,7 +211,9 @@ INSERT INTO dichvu(madichvu,tendichvu,giatien) values('DV000',N'Null',0),
 ('DV008',N'Cắt Kính',10000),	
 ('DV009',N'Massage',12000);
 GO
-select * from benhnhan
-
-
-
+INSERT INTO phieukham(ngaykham,mabacsy,mabenhnhan,manhanvien,ketluan) values('2021-11-16','BS01',2,N'AnNT',N'Tiêu chảy'),
+('2021-11-16','BS02',3,N'AnNT',N'Ung thư'),
+('2021-11-16','BS03',3,N'AnNT',N'Sốt'),
+('2021-11-16','BS04',4,N'AnNT',N'Viêm ACD'),
+('2021-11-16','BS05',5,N'AnNT',N'Gãy Chân');
+	
