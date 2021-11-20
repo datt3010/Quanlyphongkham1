@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.QuanLyPhongKham.Model.Thuoc;
 import com.QuanLyPhongKham.Utilities.JdbcHelper;
+import com.QuanLyPhongKham.Utilities.XDate;
 
 /**
  *
@@ -18,50 +19,43 @@ import com.QuanLyPhongKham.Utilities.JdbcHelper;
  */
 public class thuocDAO {
 
-    private Object[] mathuoc;
-
     public void insert(Thuoc model) {
         String sql
-                = "insert into thuoc(mathuoc,tenthuoc,donvitinh,dongia,cachdung,hansudung,maloaithuoc) values (?, ?, ?, ?, ?, ?,?)";
+                = "insert into thuoc(mathuoc,tenthuoc,donvitinh,hansudung,maloaithuoc) values (?, ?, ?, ?,?)";
         JdbcHelper.executeUpdate(sql,
                 model.getMaThuoc(),
                 model.getTennthuoc(),
                 model.getDonvi(),
-                model.getDonggia(),
-                model.getCachdung(),
-                model.getHansudung(),
+                XDate.toString(model.getHansudung()),
                 model.getMaloaithuoc()
         );
     }
 
     public void update(Thuoc model) {
         String sql
-                = "UPDATE Thuoc SET tenthuoc=?,donvitinh=?,dongia=?,cachdung=?,hansudung=?,maloaithuoc=? WHERE mathuoc = ?";
+                = "UPDATE Thuoc SET tenthuoc=?,donvitinh=?,hansudung=?,maloaithuoc=? WHERE mathuoc = ?";
         JdbcHelper.executeUpdate(sql,
-                model.getMaThuoc(),
                 model.getTennthuoc(),
                 model.getDonvi(),
-                model.getDonggia(),
-                model.getCachdung(),
-                model.getHansudung(),
+                XDate.toString(model.getHansudung()),
                 model.getMaloaithuoc(),
                 model.getMaThuoc()
         );
     }
 
-    public void delete(Integer MaKH) {
+    public void delete(String id) {
         String sql = "DELETE FROM Thuoc WHERE mathuoc=?";
-        JdbcHelper.executeUpdate(sql, mathuoc);
+        JdbcHelper.executeUpdate(sql, id);
     }
 
-    public List<Thuoc> select() {
+    public List<Thuoc> selectAll() {
         String sql = "SELECT * FROM Thuoc";
         return select(sql);
     }
 
-    public Thuoc findById(Integer makh) {
+    public Thuoc findById(String id) {
         String sql = "SELECT * FROM Thuoc WHERE mathuoc=?";
-        List<Thuoc> list = select(sql, mathuoc);
+        List<Thuoc> list = select(sql, id);
         return list.size() > 0 ? list.get(0) : null;
     }
 
@@ -89,10 +83,8 @@ public class thuocDAO {
         model.setMaThuoc(rs.getString("maThuoc"));
         model.setTennthuoc(rs.getString("tenthuoc"));
         model.setDonvi(rs.getString("donvitinh"));
-        model.setDonggia(rs.getInt("dongia"));
-        model.setCachdung(rs.getString("cachdung"));
         model.setHansudung(rs.getDate("hansudung"));
-        model.setMaloaithuoc(rs.getInt("dongia"));
+        model.setMaloaithuoc(rs.getInt("maloaithuoc"));
         return model;
 
     }
