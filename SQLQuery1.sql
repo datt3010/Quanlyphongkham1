@@ -203,6 +203,7 @@ insert into chitietphieudichvu(madichvu,maphieudichvu,dongia) values
 if OBJECT_ID('trigger_benhnhan') is not null
 drop trigger trigger_benhnhan
 go
+/*tạo trigger cho bệnh nhân để tự tăng cho phiếu dịch vụ*/
 create trigger trigger_benhnhan on benhnhan 
 after insert 
 as
