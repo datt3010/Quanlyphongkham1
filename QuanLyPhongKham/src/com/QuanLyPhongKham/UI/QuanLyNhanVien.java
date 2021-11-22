@@ -604,7 +604,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tablenhanvien);
 
-        pnlRight.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 1120, 190));
+        pnlRight.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, 1120, 280));
         pnlRight.add(txtTenNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 220, 34));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
