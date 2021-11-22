@@ -14,19 +14,25 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
+import com.QuanLyPhongKham.DAO.QuanLyThongKe;
+import java.lang.ModuleLayer.Controller;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author OS
  */
-public class ThongKe extends javax.swing.JFrame {
+public class ThongKeBenhNhan extends javax.swing.JFrame {
 
     /**
      * Creates new form QuanLyPhongKham
      */
-    public ThongKe() {
+    public ThongKeBenhNhan() throws SQLException {
         initComponents();
         init();
+         QuanLyThongKe controller = new QuanLyThongKe();
+         controller.setDataToChart1(view1);
     }
 
     /**
@@ -73,6 +79,7 @@ public class ThongKe extends javax.swing.JFrame {
         lblDichVu = new javax.swing.JLabel();
         btnDangXuat = new rojeru_san.complementos.RSButtonHover();
         pnlRight = new javax.swing.JPanel();
+        view1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("THỐNG KÊ");
@@ -482,6 +489,10 @@ public class ThongKe extends javax.swing.JFrame {
         pnlRight.setBackground(new java.awt.Color(255, 255, 255));
         pnlRight.setFocusable(false);
         pnlRight.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        view1.setLayout(new java.awt.CardLayout());
+        pnlRight.add(view1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 1120, 620));
+
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -760,7 +771,11 @@ public class ThongKe extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ThongKe().setVisible(true);
+                try {
+                    new ThongKeBenhNhan().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(ThongKeBenhNhan.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -801,6 +816,7 @@ public class ThongKe extends javax.swing.JFrame {
     private javax.swing.JPanel pnlQuanLyThuoc;
     private javax.swing.JPanel pnlRight;
     private javax.swing.JPanel pnlTong;
+    private javax.swing.JPanel view1;
     // End of variables declaration//GEN-END:variables
     private void init(){
         hoverPanel(pnlQuanLyThongKe, lblIconThongKe);
@@ -883,8 +899,8 @@ public class ThongKe extends javax.swing.JFrame {
         new dangnhap().setVisible(true);
     }
     
-    private void OpenThongKe(){
+    private void OpenThongKe() throws SQLException{
         this.dispose();
-        new ThongKe().setVisible(true);
+        new ThongKeBenhNhan().setVisible(true);
     }
 }
