@@ -5,9 +5,12 @@
  */
 package com.QuanLyPhongKham.UI;
 
+import com.QuanLyPhongKham.DAO.loaithuocDAO;
 import com.QuanLyPhongKham.DAO.thuocDAO;
+import com.QuanLyPhongKham.Model.LoaiThuoc;
 import com.QuanLyPhongKham.Model.Thuoc;
 import com.QuanLyPhongKham.Utilities.MsgBox;
+import com.QuanLyPhongKham.Utilities.Validation;
 import com.QuanLyPhongKham.Utilities.XDate;
 import java.awt.Dimension;
 import java.awt.HeadlessException;
@@ -16,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -34,122 +38,7 @@ public class QuanLyThuoc extends javax.swing.JFrame {
     public QuanLyThuoc() {
         initComponents();
         init();
-        this.load();
-    }
-    thuocDAO dao = new thuocDAO();
-    int index = 0;
 
-    void load() {
-        DefaultTableModel model = (DefaultTableModel) tblGridView.getModel();
-        model.setRowCount(0);
-        try {
-            List<Thuoc> list = dao.selectAll();
-            for (Thuoc th : list) {
-                Object[] row = {
-                    th.getMaThuoc(),
-                    th.getTennthuoc(),
-                    th.getDonvi(),
-                    XDate.toString(th.getHansudung()),
-                    th.getMaloaithuoc()
-                };
-                model.addRow(row);
-            }
-        } catch (Exception e) {
-            MsgBox.alert(this, "Lỗi truy vấn dữ liệu!");
-            e.printStackTrace();
-        }
-    }
-
-    void insert() {
-        Thuoc model = getModel();
-        try {
-            dao.insert(model);
-            this.load();
-            this.clear();
-            MsgBox.alert(this, "Thêm mới thành công!");
-        } catch (HeadlessException e) {
-            MsgBox.alert(this, "Thêm mới thất bại!");
-        }
-    }
-
-    void update() {
-        Thuoc model = getModel();
-        try {
-            dao.update(model);
-            this.load();
-            MsgBox.alert(this, "Cập nhật thành công!");
-        } catch (Exception e) {
-//            DialogHelper.alert(this, "Cập nhật thất bại!");
-            e.printStackTrace();
-        }
-    }
-
-    void delete() {
-        if (MsgBox.confirm(this, "Bạn thực sự muốn xóa thuốc này?")) {
-            String mathuoc = txtma.getText();
-            try {
-
-                dao.delete(mathuoc);
-                this.load();
-                this.clear();
-                MsgBox.alert(this, "Xóa thành công!");
-            } catch (Exception e) {
-                MsgBox.alert(this, "Xóa thất bại!");
-            }
-        }
-    }
-
-    void clear() {
-        Thuoc model = new Thuoc();
-
-        this.setModel(model);
-        setStatus(true);
-    }
-
-    void edit() {
-        try {
-            String mathuoc = (String) tblGridView.getValueAt(this.index, 0);
-            Thuoc model = dao.findById(mathuoc);
-            if (model != null) {
-                this.setModel(model);
-                this.setStatus(false);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    void setModel(Thuoc model) {
-        txtma.setText(model.getMaThuoc());
-        try {
-        } catch (Exception ex) {
-            MsgBox.alert(this, "Lỗi chuyển dịch");
-        }
-        txtma.setText(model.getMaThuoc());
-        txtthuoc.setText(model.getTennthuoc());
-        txtdonvi.setText(model.getDonvi());
-        txtmaloai.setText(String.valueOf(model.getMaloaithuoc()));
-    }
-
-    Thuoc getModel() {
-        Thuoc model = new Thuoc();
-        model.setMaThuoc(txtma.getText());
-        model.setTennthuoc(txtthuoc.getText());
-        model.setDonvi(txtdonvi.getText());
-        model.setMaloaithuoc(Integer.valueOf(txtmaloai.getText()));
-        return model;
-    }
-
-    void setStatus(boolean insertable) {
-        btnInsert.setEnabled(insertable);
-        btnUpdate.setEnabled(!insertable);
-        btnDelete.setEnabled(!insertable);
-        boolean first = this.index > 0;
-        boolean last = this.index < tblGridView.getRowCount() - 1;
-        btnFirst.setEnabled(!insertable && first);
-        btnPrev.setEnabled(!insertable && first);
-        btnLast.setEnabled(!insertable && last);
-        btnNext.setEnabled(!insertable && last);
     }
 
     @SuppressWarnings("unchecked")
@@ -192,24 +81,26 @@ public class QuanLyThuoc extends javax.swing.JFrame {
         btnDangXuat = new rojeru_san.complementos.RSButtonHover();
         pnlRight = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        txtma = new javax.swing.JTextField();
-        txtdonvi = new javax.swing.JTextField();
-        txtthuoc = new javax.swing.JTextField();
-        btnInsert = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
-        btnclear = new javax.swing.JButton();
-        btnFirst = new javax.swing.JButton();
-        btnPrev = new javax.swing.JButton();
-        btnLast = new javax.swing.JButton();
-        btnNext = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        txtmaloai = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblGridView = new rojeru_san.complementos.RSTableMetro();
+        lblMaThuoc = new javax.swing.JLabel();
+        txtMaThuoc = new javax.swing.JTextField();
+        lblTenThuoc = new javax.swing.JLabel();
+        txtTenThuoc = new javax.swing.JTextField();
+        lblDonViTinh = new javax.swing.JLabel();
+        cboDonViTinh = new javax.swing.JComboBox<>();
+        lblMaLoaiThuoc = new javax.swing.JLabel();
+        cboMaLoaiThuoc = new javax.swing.JComboBox<>();
+        btnThem = new rojeru_san.complementos.RSButtonHover();
+        btnSua = new rojeru_san.complementos.RSButtonHover();
+        btnXoa = new rojeru_san.complementos.RSButtonHover();
+        btnMoi = new rojeru_san.complementos.RSButtonHover();
+        btnTim = new rojeru_san.complementos.RSButtonHover();
+        btnPrevious = new rojeru_san.complementos.RSButtonHover();
+        btnNext = new rojeru_san.complementos.RSButtonHover();
+        btnLast = new rojeru_san.complementos.RSButtonHover();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblThuoc = new rojeru_san.complementos.RSTableMetro();
+        txtSearch = new javax.swing.JTextField();
+        btnFirst = new rojeru_san.complementos.RSButtonHover();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ THUỐC\n\n\n");
@@ -618,211 +509,166 @@ public class QuanLyThuoc extends javax.swing.JFrame {
 
         pnlRight.setBackground(new java.awt.Color(255, 255, 255));
         pnlRight.setFocusable(false);
+        pnlRight.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel2.setText("Mã thuốc:");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel2.setText("QUẢN LÝ THUỐC");
+        pnlRight.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(537, 13, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel3.setText("Tên thuốc:");
+        lblMaThuoc.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblMaThuoc.setText("Mã Thuốc :");
+        pnlRight.add(lblMaThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 62, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel4.setText("Đơn vị tính:");
+        txtMaThuoc.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        txtMaThuoc.setForeground(new java.awt.Color(255, 0, 0));
+        txtMaThuoc.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        pnlRight.add(txtMaThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 59, 239, 28));
 
-        btnInsert.setBackground(new java.awt.Color(255, 255, 255));
-        btnInsert.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\them_20px.png")); // NOI18N
-        btnInsert.setText("Thêm");
-        btnInsert.addActionListener(new java.awt.event.ActionListener() {
+        lblTenThuoc.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblTenThuoc.setText("Tên Thuốc :");
+        pnlRight.add(lblTenThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(679, 62, -1, -1));
+
+        txtTenThuoc.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        txtTenThuoc.setForeground(new java.awt.Color(255, 0, 0));
+        txtTenThuoc.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        pnlRight.add(txtTenThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(787, 59, 239, 28));
+
+        lblDonViTinh.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblDonViTinh.setText("Đơn vị tính: ");
+        pnlRight.add(lblDonViTinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 136, -1, -1));
+
+        cboDonViTinh.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        cboDonViTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gói", "Viên", "Hộp" }));
+        pnlRight.add(cboDonViTinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 133, 229, -1));
+
+        lblMaLoaiThuoc.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblMaLoaiThuoc.setText("Mã Loại Thuốc:");
+        pnlRight.add(lblMaLoaiThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(679, 136, -1, -1));
+
+        cboMaLoaiThuoc.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        pnlRight.add(cboMaLoaiThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(814, 133, 212, -1));
+
+        btnThem.setText("THÊM");
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInsertActionPerformed(evt);
+                btnThemActionPerformed(evt);
             }
         });
+        pnlRight.add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 211, 87, -1));
 
-        btnUpdate.setBackground(new java.awt.Color(255, 255, 255));
-        btnUpdate.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\update_ftp_20px.png")); // NOI18N
-        btnUpdate.setText("Sửa");
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+        btnSua.setText("SỬA");
+        btnSua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
+                btnSuaActionPerformed(evt);
             }
         });
+        pnlRight.add(btnSua, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 211, 87, -1));
 
-        btnDelete.setBackground(new java.awt.Color(255, 255, 255));
-        btnDelete.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\delete_20px.png")); // NOI18N
-        btnDelete.setText("Xóa");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+        btnXoa.setText("XOÁ");
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
+                btnXoaActionPerformed(evt);
             }
         });
+        pnlRight.add(btnXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 211, 87, -1));
 
-        btnclear.setBackground(new java.awt.Color(255, 255, 255));
-        btnclear.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\refresh_20px.png")); // NOI18N
-        btnclear.setText("Mới");
-        btnclear.addActionListener(new java.awt.event.ActionListener() {
+        btnMoi.setText("MỚI");
+        btnMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnclearActionPerformed(evt);
+                btnMoiActionPerformed(evt);
             }
         });
+        pnlRight.add(btnMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 211, 87, -1));
 
-        btnFirst.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\rewind_20px.png")); // NOI18N
-        btnFirst.addActionListener(new java.awt.event.ActionListener() {
+        btnTim.setText("TÌM KIẾM");
+        pnlRight.add(btnTim, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 285, 110, 43));
+
+        btnPrevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_skip_to_start_32px_1.png"))); // NOI18N
+        btnPrevious.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFirstActionPerformed(evt);
+                btnPreviousActionPerformed(evt);
             }
         });
+        pnlRight.add(btnPrevious, new org.netbeans.lib.awtextra.AbsoluteConstraints(773, 211, 87, -1));
 
-        btnPrev.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\rewind_20px.png")); // NOI18N
-        btnPrev.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPrevActionPerformed(evt);
-            }
-        });
-
-        btnLast.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\fast_forward_20px.png")); // NOI18N
-        btnLast.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLastActionPerformed(evt);
-            }
-        });
-
-        btnNext.setIcon(new javax.swing.ImageIcon("D:\\duan1111\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\fast_forward_20px.png")); // NOI18N
+        btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_end_32px_1.png"))); // NOI18N
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
             }
         });
+        pnlRight.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(867, 211, 87, -1));
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel8.setText("Mã loại thuốc:");
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách bảng thuốc", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 18))); // NOI18N
-
-        tblGridView.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Mã  thuốc", "Tên thuốc", "Đơn vị tính", "Hạn sử dụng", "Mã loại thuốc"
-            }
-        ));
-        tblGridView.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblGridViewMouseClicked(evt);
+        btnLast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_fast_forward_32px.png"))); // NOI18N
+        btnLast.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLastActionPerformed(evt);
             }
         });
-        jScrollPane2.setViewportView(tblGridView);
+        pnlRight.add(btnLast, new org.netbeans.lib.awtextra.AbsoluteConstraints(961, 211, 87, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1003, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        tblThuoc.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Mã Thuốc", "Tên Thuốc", "ĐVT", "Mã Loại Thuốc"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
-        javax.swing.GroupLayout pnlRightLayout = new javax.swing.GroupLayout(pnlRight);
-        pnlRight.setLayout(pnlRightLayout);
-        pnlRightLayout.setHorizontalGroup(
-            pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlRightLayout.createSequentialGroup()
-                .addGroup(pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlRightLayout.createSequentialGroup()
-                        .addGap(213, 213, 213)
-                        .addComponent(btnFirst)
-                        .addGap(122, 122, 122)
-                        .addComponent(btnPrev)
-                        .addGap(179, 179, 179)
-                        .addComponent(btnLast)
-                        .addGap(182, 182, 182)
-                        .addComponent(btnNext))
-                    .addGroup(pnlRightLayout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addGroup(pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(39, 39, 39)
-                        .addGroup(pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtthuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtma, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(147, 147, 147)
-                        .addGroup(pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(pnlRightLayout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(65, 65, 65)
-                                .addComponent(txtmaloai, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlRightLayout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtdonvi, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(233, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRightLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54))
-            .addGroup(pnlRightLayout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(197, 197, 197)
-                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(134, 134, 134)
-                .addComponent(btnclear, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(139, 139, 139))
-        );
-        pnlRightLayout.setVerticalGroup(
-            pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlRightLayout.createSequentialGroup()
-                .addGroup(pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlRightLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtma, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtdonvi, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addGap(26, 26, 26)
-                        .addGroup(pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtthuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)))
-                    .addGroup(pnlRightLayout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addGroup(pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtmaloai, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))))
-                .addGroup(pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlRightLayout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnPrev)
-                            .addComponent(btnFirst)
-                            .addComponent(btnLast)
-                            .addComponent(btnNext))
-                        .addGap(41, 41, 41))
-                    .addGroup(pnlRightLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addGroup(pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnclear, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblThuoc.setAltoHead(35);
+        tblThuoc.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tblThuoc.setColorSelBackgound(new java.awt.Color(255, 51, 51));
+        tblThuoc.setFuenteHead(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        tblThuoc.setRowHeight(27);
+        tblThuoc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblThuocMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblThuoc);
+        if (tblThuoc.getColumnModel().getColumnCount() > 0) {
+            tblThuoc.getColumnModel().getColumn(0).setMinWidth(100);
+            tblThuoc.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tblThuoc.getColumnModel().getColumn(0).setMaxWidth(100);
+            tblThuoc.getColumnModel().getColumn(2).setMinWidth(100);
+            tblThuoc.getColumnModel().getColumn(2).setPreferredWidth(100);
+            tblThuoc.getColumnModel().getColumn(2).setMaxWidth(100);
+        }
+
+        pnlRight.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 357, 870, 420));
+
+        txtSearch.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchKeyReleased(evt);
+            }
+        });
+        pnlRight.add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(271, 285, 520, 43));
+
+        btnFirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_rewind_32px.png"))); // NOI18N
+        btnFirst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFirstActionPerformed(evt);
+            }
+        });
+        pnlRight.add(btnFirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(679, 211, 87, -1));
 
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 
@@ -1094,60 +940,56 @@ public class QuanLyThuoc extends javax.swing.JFrame {
         this.OpenLogin();
     }//GEN-LAST:event_btnDangXuatActionPerformed
 
-    private void tblGridViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblGridViewMouseClicked
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
         // TODO add your handling code here:
-        if (evt.getClickCount() == 1) {
-            this.index = tblGridView.rowAtPoint(evt.getPoint());
-            if (this.index >= 0) {
-                this.edit();
+    }//GEN-LAST:event_txtSearchActionPerformed
 
-            }
+    private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
+        if (txtSearch.getText().length() == 0) {
+            this.filltable();
+        } else {
+            this.filltable();
         }
-    }//GEN-LAST:event_tblGridViewMouseClicked
+    }//GEN-LAST:event_txtSearchKeyReleased
 
-    private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
-        // TODO add your handling code here:
-        insert();
-    }//GEN-LAST:event_btnInsertActionPerformed
+    private void tblThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblThuocMouseClicked
+        if (evt.getClickCount() == 2) {
+            this.row = tblThuoc.getSelectedRow();
+            this.edit();
+        }
+    }//GEN-LAST:event_tblThuocMouseClicked
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
-        delete();
-    }//GEN-LAST:event_btnDeleteActionPerformed
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        this.insert();
+    }//GEN-LAST:event_btnThemActionPerformed
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        // TODO add your handling code here:
-        update();
-    }//GEN-LAST:event_btnUpdateActionPerformed
+    private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
+        this.update();
+    }//GEN-LAST:event_btnSuaActionPerformed
 
-    private void btnclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearActionPerformed
-        // TODO add your handling code here:
-        clear();
-    }//GEN-LAST:event_btnclearActionPerformed
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+        this.delete();
+    }//GEN-LAST:event_btnXoaActionPerformed
+
+    private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
+        this.clear();
+    }//GEN-LAST:event_btnMoiActionPerformed
 
     private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
-        // TODO add your handling code here:
-        this.index = 0;
-        this.edit();
+        this.first();
     }//GEN-LAST:event_btnFirstActionPerformed
 
-    private void btnPrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrevActionPerformed
-        // TODO add your handling code here:
-        this.index--;
-        this.edit();
-    }//GEN-LAST:event_btnPrevActionPerformed
-
-    private void btnLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastActionPerformed
-        // TODO add your handling code here:
-        this.index++;
-        this.edit();
-    }//GEN-LAST:event_btnLastActionPerformed
+    private void btnPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousActionPerformed
+        this.previous();
+    }//GEN-LAST:event_btnPreviousActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        // TODO add your handling code here:
-        this.index = tblGridView.getRowCount() - 1;
-        this.edit();
+        this.next();
     }//GEN-LAST:event_btnNextActionPerformed
+
+    private void btnLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastActionPerformed
+        this.last();
+    }//GEN-LAST:event_btnLastActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1165,25 +1007,25 @@ public class QuanLyThuoc extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.complementos.RSButtonHover btnDangXuat;
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnFirst;
-    private javax.swing.JButton btnInsert;
-    private javax.swing.JButton btnLast;
-    private javax.swing.JButton btnNext;
-    private javax.swing.JButton btnPrev;
-    private javax.swing.JButton btnUpdate;
-    private javax.swing.JButton btnclear;
+    private rojeru_san.complementos.RSButtonHover btnFirst;
+    private rojeru_san.complementos.RSButtonHover btnLast;
+    private rojeru_san.complementos.RSButtonHover btnMoi;
+    private rojeru_san.complementos.RSButtonHover btnNext;
+    private rojeru_san.complementos.RSButtonHover btnPrevious;
+    private rojeru_san.complementos.RSButtonHover btnSua;
+    private rojeru_san.complementos.RSButtonHover btnThem;
+    private rojeru_san.complementos.RSButtonHover btnTim;
+    private rojeru_san.complementos.RSButtonHover btnXoa;
+    private javax.swing.JComboBox<String> cboDonViTinh;
+    private javax.swing.JComboBox<String> cboMaLoaiThuoc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private rojerusan.RSFotoCircle lblAnhNV;
     private javax.swing.JLabel lblDanhMuc;
     private javax.swing.JLabel lblDay;
     private javax.swing.JLabel lblDichVu;
+    private javax.swing.JLabel lblDonViTinh;
     private javax.swing.JLabel lblIconBacSi;
     private javax.swing.JLabel lblIconBenhNhan;
     private javax.swing.JLabel lblIconDichVu;
@@ -1192,12 +1034,15 @@ public class QuanLyThuoc extends javax.swing.JFrame {
     private javax.swing.JLabel lblIconPhieuKham;
     private javax.swing.JLabel lblIconThongKe;
     private javax.swing.JLabel lblIconThuoc;
+    private javax.swing.JLabel lblMaLoaiThuoc;
+    private javax.swing.JLabel lblMaThuoc;
     private javax.swing.JLabel lblQuanLyBacSi;
     private javax.swing.JLabel lblQuanLyBenhNhan;
     private javax.swing.JLabel lblQuanLyHoaDon;
     private javax.swing.JLabel lblQuanLyNhanVien;
     private javax.swing.JLabel lblQuanLyPhieuKham;
     private javax.swing.JLabel lblQuanLyThuoc;
+    private javax.swing.JLabel lblTenThuoc;
     private javax.swing.JLabel lblThongKe;
     private javax.swing.JLabel lblTieuDe;
     private javax.swing.JLabel lblXinChao;
@@ -1213,16 +1058,21 @@ public class QuanLyThuoc extends javax.swing.JFrame {
     private javax.swing.JPanel pnlQuanLyThuoc;
     private javax.swing.JPanel pnlRight;
     private javax.swing.JPanel pnlTong;
-    private rojeru_san.complementos.RSTableMetro tblGridView;
-    private javax.swing.JTextField txtdonvi;
-    private javax.swing.JTextField txtma;
-    private javax.swing.JTextField txtmaloai;
-    private javax.swing.JTextField txtthuoc;
+    private rojeru_san.complementos.RSTableMetro tblThuoc;
+    private javax.swing.JTextField txtMaThuoc;
+    private javax.swing.JTextField txtSearch;
+    private javax.swing.JTextField txtTenThuoc;
     // End of variables declaration//GEN-END:variables
+    thuocDAO thdao = new thuocDAO();
+    loaithuocDAO ltdao = new loaithuocDAO();
+    int row = -1;
+
     private void init() {
         hoverPanel(pnlQuanLyThuoc, lblIconThuoc);
         setLocationRelativeTo(null);
         this.LoadNgay();
+        this.filltable();
+        this.fillComboBox();
 
     }
 
@@ -1302,7 +1152,154 @@ public class QuanLyThuoc extends javax.swing.JFrame {
     }
 
     private void OpenThongKe() {
-        //this.dispose();
-//        new ThongKe().setVisible(true);
+        this.dispose();
+        new ThongKe().setVisible(true);
     }
+
+    private void filltable() {
+        DefaultTableModel model = (DefaultTableModel) tblThuoc.getModel();
+        model.setRowCount(0);
+        try {
+            String text = txtSearch.getText();
+            List<Thuoc> list = thdao.SearchKeyWord(text, text, text);
+            for (Thuoc th : list) {
+                model.addRow(new Object[]{
+                    th.getMaThuoc(), th.getTenthuoc(), th.getDonvitinh(), th.getMaloaithuoc()
+                });
+            }
+            model.fireTableDataChanged();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void fillComboBox() {
+        DefaultComboBoxModel model = (DefaultComboBoxModel) cboMaLoaiThuoc.getModel();
+        model.removeAllElements();
+        try {
+            List<LoaiThuoc> list = ltdao.SelectAll();
+            for (LoaiThuoc lt : list) {
+                model.addElement(lt);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private Thuoc getForm() {
+        int maloai = cboMaLoaiThuoc.getSelectedIndex();
+        Thuoc th = new Thuoc();
+        th.setMaThuoc(txtMaThuoc.getText());
+        th.setTenthuoc(txtTenThuoc.getText());
+        th.setDonvitinh((String) cboDonViTinh.getSelectedItem());
+        th.setMaloaithuoc(maloai + 1);
+        return th;
+    }
+
+    private void setForm(Thuoc th) {
+        int maloaithuoc = (int) tblThuoc.getValueAt(row, 3);
+        txtMaThuoc.setText(th.getMaThuoc());
+        txtTenThuoc.setText(th.getTenthuoc());
+        cboDonViTinh.setSelectedItem(th.getDonvitinh());
+        cboMaLoaiThuoc.setSelectedIndex(maloaithuoc - 1);
+    }
+
+    private void edit() {
+        String mathuoc = (String) tblThuoc.getValueAt(row, 0);
+        Thuoc th = thdao.SelectByID(mathuoc);
+        setForm(th);
+    }
+
+    private void clear() {
+        txtMaThuoc.setText("");
+        txtTenThuoc.setText("");
+        cboDonViTinh.setSelectedIndex(0);
+        cboMaLoaiThuoc.setSelectedIndex(0);
+    }
+
+    private void insert() {
+        if (Validate()) {
+            try {
+                Thuoc th = getForm();
+                thdao.insert(th);
+                this.filltable();
+                MsgBox.alert(this, "Insert thành công!!");
+                this.clear();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void update() {
+        if (Validate()) {
+            try {
+                Thuoc th = getForm();
+                thdao.update(th);
+                this.filltable();
+                MsgBox.alert(this, "Update thành công!!");
+                this.clear();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void delete() {
+        if(Validation.isempty(txtMaThuoc, "Mã Thuốc đang rỗng!!")==false){
+            return;
+        }
+        if (MsgBox.confirm(this, "Bạn có muốn xoá thuốc này không?")) {
+            try {
+                String mathuoc = txtMaThuoc.getText();
+                thdao.delete(mathuoc);
+                this.filltable();
+                MsgBox.alert(this, "Delete thành công!!");
+                this.clear();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void first() {
+        row = 0;
+        this.edit();
+        tblThuoc.setRowSelectionInterval(row, row);
+    }
+
+    private void previous() {
+        if (this.row > 0) {
+            this.row--;
+            this.edit();
+            tblThuoc.setRowSelectionInterval(row, row);
+        }
+    }
+
+    private void next() {
+        if (this.row < tblThuoc.getRowCount() - 1) {
+            this.row++;
+            this.edit();
+            tblThuoc.setRowSelectionInterval(row, row);
+        }
+    }
+
+    private void last() {
+        row = tblThuoc.getRowCount() - 1;
+        this.edit();
+        tblThuoc.setRowSelectionInterval(row, row);
+    }
+
+    private boolean Validate() {
+        if (Validation.isempty(txtMaThuoc, "Mã Thuốc đang rỗng!!!") == false) {
+            return false;
+        }
+
+        if (Validation.isempty(txtTenThuoc, "Tên Thuốc đang rỗng!!!") == false) {
+            return false;
+        }
+
+        return true;
+    }
+
 }

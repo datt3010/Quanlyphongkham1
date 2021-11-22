@@ -950,7 +950,7 @@
             <Component class="javax.swing.JButton" name="btnMoi">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/QuanLyPhongKham/Icon/new_ticket_25px.png"/>
+                  <Image iconType="3" name="/com/QuanLyPhongKham/Icon/save_25px.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -973,7 +973,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="1060" y="320" width="90" height="30"/>
+                  <AbsoluteConstraints x="940" y="320" width="90" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -988,7 +988,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="940" y="320" width="90" height="30"/>
+                  <AbsoluteConstraints x="1060" y="320" width="90" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>

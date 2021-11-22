@@ -1300,7 +1300,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
 
     private void OpenThongKe() {
         this.dispose();
-        new ThongKe().setVisible(true);
+        new ThongKeBenhNhan().setVisible(true);
     }
     
     private void fillComBoBoxLoaiThuoc(){

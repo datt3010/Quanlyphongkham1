@@ -623,7 +623,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         });
         pnlRight.add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, 90, 30));
 
-        btnMoi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/new_ticket_25px.png"))); // NOI18N
+        btnMoi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/save_25px.png"))); // NOI18N
         btnMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMoiActionPerformed(evt);
@@ -637,7 +637,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
                 btnCapNhatActionPerformed(evt);
             }
         });
-        pnlRight.add(btnCapNhat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 320, 90, 30));
+        pnlRight.add(btnCapNhat, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 320, 90, 30));
 
         btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/delete_25px.png"))); // NOI18N
         btnXoa.addActionListener(new java.awt.event.ActionListener() {
@@ -645,7 +645,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
                 btnXoaActionPerformed(evt);
             }
         });
-        pnlRight.add(btnXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 320, 90, 30));
+        pnlRight.add(btnXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 320, 90, 30));
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_skip_to_start_32px_1.png"))); // NOI18N
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -1283,7 +1283,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     }
     private void OpenBenhNhan(){
         this.dispose();
-//        new QuanLyBenhNhan().setVisible(true);
+        new QuanLyBenhNhan().setVisible(true);
     }
     
     private void OpenNhanVien(){
@@ -1298,7 +1298,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     
     private void OpenPhieuKham(){
         this.dispose();
-//        new QuanLyPhieuKham().setVisible(true);
+        new QuanLyPhieuKham().setVisible(true);
     }
     
     private void OpenThuoc(){
@@ -1318,7 +1318,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     
     private void OpenThongKe(){
         this.dispose();
-        new ThongKe().setVisible(true);
+        new ThongKeBenhNhan().setVisible(true);
     }
      public void filltable1(){
         DefaultTableModel model = (DefaultTableModel) tblBacSi.getModel();

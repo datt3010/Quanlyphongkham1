@@ -19,7 +19,7 @@ public class PhieuKham {
     private int mabenhnhan;
     private String manhanvien;
     private String ketluan;
-
+    
     public PhieuKham(int maphieukham, String mabacsy, int mabenhnhan, String manhanvien, String ketluan) {
         this.maphieukham = maphieukham;
         this.mabacsy = mabacsy;

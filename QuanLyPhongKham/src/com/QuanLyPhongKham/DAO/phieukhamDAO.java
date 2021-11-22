@@ -85,4 +85,9 @@ public class phieukhamDAO extends QLPhongKham_DAO<PhieuKham, Integer>{
         return list;
     }
     
+    public List<PhieuKham> Search(String k1,String k2, String k3){
+        String sql = "Select * from phieukham where ngaykham like ? or mabacsy like ? or manhanvien like ?";
+        return this.SelectBySQL(sql, "%"+k1+"%", "%"+k2+"%", "%"+k3+"%");
+    }
+    
 }

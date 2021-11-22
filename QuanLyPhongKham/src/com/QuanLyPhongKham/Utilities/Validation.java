@@ -17,7 +17,7 @@ public class Validation {
     public static boolean isempty(JTextField txt , String msg){
         String text = txt.getText();
         if(text.equals("")){
-            JOptionPane.showMessageDialog(txt, msg,"Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, msg,"Error",JOptionPane.ERROR_MESSAGE);
 //            txt.requestFocus();
             return false;
         }

@@ -17,75 +17,77 @@ import com.QuanLyPhongKham.Utilities.XDate;
  *
  * @author OS
  */
-public class thuocDAO {
+public class thuocDAO extends QLPhongKham_DAO<Thuoc, String> {
+    
+    String Insert_Thuoc = "INSERT INTO thuoc(mathuoc,tenthuoc,donvitinh,maloaithuoc) values (?,?,?,?);";
+    String Update_Thuoc = "UPDATE thuoc SET tenthuoc=? , donvitinh=? , maloaithuoc=? WHERE mathuoc =?;";
+    String Delete_Thuoc = "DELETE FROM thuoc Where mathuoc =?;";
+    String SelectAll_Thuoc = "Select * from thuoc;";
+    String SelectByID_Thuoc = "Select * from thuoc where mathuoc = ?;";
 
-    public void insert(Thuoc model) {
-        String sql
-                = "insert into thuoc(mathuoc,tenthuoc,donvitinh,hansudung,maloaithuoc) values (?, ?, ?, ?,?)";
-        JdbcHelper.executeUpdate(sql,
-                model.getMaThuoc(),
-                model.getTennthuoc(),
-                model.getDonvi(),
-                XDate.toString(model.getHansudung()),
-                model.getMaloaithuoc()
-        );
+    @Override
+    public void insert(Thuoc entity) {
+        try {
+            jdbcHelper.update(Insert_Thuoc, entity.getMaThuoc(),entity.getTenthuoc(),entity.getDonvitinh(),entity.getMaloaithuoc());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public void update(Thuoc model) {
-        String sql
-                = "UPDATE Thuoc SET tenthuoc=?,donvitinh=?,hansudung=?,maloaithuoc=? WHERE mathuoc = ?";
-        JdbcHelper.executeUpdate(sql,
-                model.getTennthuoc(),
-                model.getDonvi(),
-                XDate.toString(model.getHansudung()),
-                model.getMaloaithuoc(),
-                model.getMaThuoc()
-        );
+    @Override
+    public void update(Thuoc entity) {
+        try {
+            jdbcHelper.update(Update_Thuoc,entity.getTenthuoc(),entity.getDonvitinh(),entity.getMaloaithuoc(), entity.getMaThuoc());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
+    @Override
     public void delete(String id) {
-        String sql = "DELETE FROM Thuoc WHERE mathuoc=?";
-        JdbcHelper.executeUpdate(sql, id);
+        jdbcHelper.update(Delete_Thuoc, id);
     }
 
-    public List<Thuoc> selectAll() {
-        String sql = "SELECT * FROM Thuoc";
-        return select(sql);
+    @Override
+    public List<Thuoc> SelectAll() {
+        return this.SelectBySQL(SelectAll_Thuoc);
     }
 
-    public Thuoc findById(String id) {
-        String sql = "SELECT * FROM Thuoc WHERE mathuoc=?";
-        List<Thuoc> list = select(sql, id);
-        return list.size() > 0 ? list.get(0) : null;
+    @Override
+    public Thuoc SelectByID(String id) {
+        List<Thuoc> list = this.SelectBySQL(SelectByID_Thuoc, id);
+        return list.size()>0?list.get(0):null;
     }
 
-    private List<Thuoc> select(String sql, Object... args) {
+    @Override
+    protected List<Thuoc> SelectBySQL(String sql, Object... args) {
         List<Thuoc> list = new ArrayList<>();
         try {
-            ResultSet rs = null;
-            try {
-                rs = JdbcHelper.executeQuery(sql, args);
-                while (rs.next()) {
-                    Thuoc model = readFromResultSet(rs);
-                    list.add(model);
-                }
-            } finally {
-                rs.getStatement().getConnection().close();
+            ResultSet rs = jdbcHelper.query(sql, args);
+            while(rs.next()){
+                Thuoc th = new Thuoc();
+                th.setMaThuoc(rs.getString("mathuoc"));
+                th.setTenthuoc(rs.getString("tenthuoc"));
+                th.setDonvitinh(rs.getString("donvitinh"));
+                th.setMaloaithuoc(rs.getInt("maloaithuoc"));
+                list.add(th);
             }
-        } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+            rs.getStatement().getConnection().close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return list;
     }
-
-    private Thuoc readFromResultSet(ResultSet rs) throws SQLException {
-        Thuoc model = new Thuoc();
-        model.setMaThuoc(rs.getString("maThuoc"));
-        model.setTennthuoc(rs.getString("tenthuoc"));
-        model.setDonvi(rs.getString("donvitinh"));
-        model.setHansudung(rs.getDate("hansudung"));
-        model.setMaloaithuoc(rs.getInt("maloaithuoc"));
-        return model;
-
+    
+    public List<Thuoc> SearchKeyWord(String k1,String k2,String k3){
+        String sql ="select * from thuoc\n"
+                +"where mathuoc like ? or tenthuoc like ? or donvitinh like ?;";
+        return this.SelectBySQL(sql, "%"+k1+"%", "%"+k2+"%", "%"+k3+"%" );
     }
+    
+    public List<Thuoc> SearchtoMaLoaiThuoc(int tenloai, String k1 , String k2, String k3){
+        String sql = "Select * from thuoc where maloaithuoc = ? and (mathuoc like ? or tenthuoc like ? or donvitinh like ?)";
+        return this.SelectBySQL(sql, tenloai,"%"+k1+"%","%"+k2+"%","%"+k3+"%");
+    }
+   
 }
