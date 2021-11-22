@@ -13,13 +13,20 @@ import java.util.Date;
  * @author OS
  */
 public class Thuoc {
+
     private String maThuoc;
     private String Tennthuoc;
     private String donvi;
-    private int donggia;
-    private String cachdung;
     private Date hansudung;
     private int maloaithuoc;
+
+    public Date getHansudung() {
+        return hansudung;
+    }
+
+    public void setHansudung(Date hansudung) {
+        this.hansudung = hansudung;
+    }
 
     public String getMaThuoc() {
         return maThuoc;
@@ -53,27 +60,5 @@ public class Thuoc {
         this.donvi = donvi;
     }
 
-    public int getDonggia() {
-        return donggia;
-    }
 
-    public void setDonggia(int donggia) {
-        this.donggia = donggia;
-    }
-
-    public String getCachdung() {
-        return cachdung;
-    }
-
-    public void setCachdung(String cachdung) {
-        this.cachdung = cachdung;
-    }
-
-    public Date getHansudung() {
-        return hansudung;
-    }
-
-    public void setHansudung(Date hansudung) {
-        this.hansudung = hansudung;
-    }
 }

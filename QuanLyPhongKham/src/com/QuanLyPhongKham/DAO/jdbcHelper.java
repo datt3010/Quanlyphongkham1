@@ -71,7 +71,6 @@ public class jdbcHelper {
     //Sum,Count,Min,Max trả về 1 object
     public static Object value(String sql, Object...args){
         try {
-            //Dùng query để truy vấn ra
             ResultSet rs = jdbcHelper.query(sql, args);
             if(rs.next()){
                 return rs.getObject(0);
