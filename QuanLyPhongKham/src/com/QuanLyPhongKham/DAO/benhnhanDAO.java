@@ -95,8 +95,8 @@ public class benhnhanDAO extends QLPhongKham_DAO<BenhNhan, String> {
 
     public List<BenhNhan> SelectKeyword(String keyword, String keyword2, String keyword3, String keyword4, String keyword5) {
         String sql = "SELECT * FROM benhnhan\n"
-                + "WHERE tenbenhnhan LIKE ? OR sodienthoai LIKE ? OR diachi LIKE ? OR manhanvien LIKE ? OR mabenhnhan LIKE ?;";
-        return this.SelectBySQL(sql, "%" + keyword + "%", "%" + keyword2 + "%", "%" + keyword3 + "%", "%" + keyword4 + "%", "%" + keyword5 + "%");
+                + "WHERE tenbenhnhan LIKE ? OR sodienthoai LIKE ? OR diachi LIKE ?  OR mabenhnhan LIKE ?;";
+        return this.SelectBySQL(sql, "%" + keyword + "%", "%" + keyword2 + "%", "%" + keyword3 + "%", "%" + keyword4 + "%");
     }
 
     @Override

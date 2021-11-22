@@ -1312,7 +1312,7 @@ public class QuanLyPhieuKham extends javax.swing.JFrame {
         this.filltable();
         this.filltableBenhNhan();
         this.filltableBacSi();
-        txtNhanVien.setText(Auths.user.getManhanvien());
+        //txtNhanVien.setText(Auths.user.getManhanvien());
     }
 
     //Hover màu
@@ -1445,7 +1445,7 @@ public class QuanLyPhieuKham extends javax.swing.JFrame {
         model.setRowCount(0);
         try {
             String text = txtTimBacSi.getText();
-            List<BacSi> list = bsdao.SelectKeyword(text, text, text, text, text, text);
+            List<BacSi> list = bsdao.SelectKeyword(text, text, text, text, text,text);
             for (BacSi bs : list) {
                 model.addRow(new Object[]{
                     bs.getMabacsy(), bs.getTenbacsy(), bs.getMachuyennganh()

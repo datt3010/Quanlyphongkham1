@@ -15,21 +15,42 @@ import java.util.Date;
 public class Thuoc {
 
     private String maThuoc;
-    private String Tennthuoc;
-    private String donvi;
-    private Date hansudung;
+    private String tenthuoc;
+    private String donvitinh;
     private int maloaithuoc;
 
-    public Date getHansudung() {
-        return hansudung;
+    public Thuoc(String maThuoc, String tenthuoc, String donvitinh, int maloaithuoc) {
+        this.maThuoc = maThuoc;
+        this.tenthuoc = tenthuoc;
+        this.donvitinh = donvitinh;
+        this.maloaithuoc = maloaithuoc;
     }
 
-    public void setHansudung(Date hansudung) {
-        this.hansudung = hansudung;
+    public Thuoc() {
     }
 
     public String getMaThuoc() {
         return maThuoc;
+    }
+
+    public void setMaThuoc(String maThuoc) {
+        this.maThuoc = maThuoc;
+    }
+
+    public String getTenthuoc() {
+        return tenthuoc;
+    }
+
+    public void setTenthuoc(String tenthuoc) {
+        this.tenthuoc = tenthuoc;
+    }
+
+    public String getDonvitinh() {
+        return donvitinh;
+    }
+
+    public void setDonvitinh(String donvitinh) {
+        this.donvitinh = donvitinh;
     }
 
     public int getMaloaithuoc() {
@@ -40,25 +61,11 @@ public class Thuoc {
         this.maloaithuoc = maloaithuoc;
     }
 
-    public void setMaThuoc(String maThuoc) {
-        this.maThuoc = maThuoc;
-    }
+    
 
-    public String getTennthuoc() {
-        return Tennthuoc;
-    }
+    
 
-    public void setTennthuoc(String Tennthuoc) {
-        this.Tennthuoc = Tennthuoc;
-    }
-
-    public String getDonvi() {
-        return donvi;
-    }
-
-    public void setDonvi(String donvi) {
-        this.donvi = donvi;
-    }
+  
 
 
 }
