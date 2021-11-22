@@ -20,18 +20,18 @@ import java.util.List;
  *
  * @author OS
  */
-public class benhnhanDAO extends QLPhongKham_DAO<BenhNhan, Integer> {
+public class benhnhanDAO extends QLPhongKham_DAO<BenhNhan, String> {
 
-    String Insert_BenhNhan = "INSERT INTO benhnhan (tenbenhnhan,sodienthoai,gioitinh,ngaysinh,diachi,madichvu,trangthai) VALUES(?,?,?,?,?,?,?)";
-    String Update_BenhNhan = "UPDATE benhnhan SET tenbenhnhan=? , sodienthoai=? , gioitinh=? , ngaysinh=? , diachi=?, madichvu=?,trangthai=? WHERE mabenhnhan = ?";
-    String DELETE_BenhNhan = "DELETE FROM benhnhan WHERE mabenhnhan=?";
+    String Insert_BenhNhan = "INSERT INTO benhnhan (mabenhnhan,tenbenhnhan,sodienthoai,gioitinh,ngaysinh,diachi,trangthai) VALUES(?,?,?,?,?,?,?)";
+    String Update_BenhNhan = "UPDATE benhnhan SET tenbenhnhan=? , sodienthoai=? , gioitinh=? , ngaysinh=? , diachi=?,trangthai=? WHERE mabenhnhan like ?";
+    String DELETE_BenhNhan = "DELETE FROM benhnhan WHERE mabenhnhan like ?";
     String SELECTALL_BenhNhan = "SELECT * FROM benhnhan";
-    String SELECT_BY_ID_BenhNhan = "SELECT * FROM benhnhan WHERE mabenhnhan=?";
+    String SELECT_BY_ID_BenhNhan = "SELECT * FROM benhnhan WHERE mabenhnhan like ?";
 
     @Override
     public void insert(BenhNhan entity) {
         try {
-            jdbcHelper.update(Insert_BenhNhan, entity.getTenbenhnhan(), entity.getSodienthoai(), entity.getGioitinh(), XDate.toString(entity.getNgaysinh(), "YYYY-MM-dd"), entity.getDiachi(), entity.getMadichvu(), entity.getTrangthai());
+            jdbcHelper.update(Insert_BenhNhan, entity.getMabenhnhan(), entity.getTenbenhnhan(), entity.getSodienthoai(), entity.getGioitinh(), XDate.toString(entity.getNgaysinh(), "YYYY-MM-dd"), entity.getDiachi(), entity.getTrangthai());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -41,31 +41,16 @@ public class benhnhanDAO extends QLPhongKham_DAO<BenhNhan, Integer> {
     @Override
     public void update(BenhNhan entity) {
 
-        String sql = "update benhnhan set tenbenhnhan=?,sodienthoai=?,gioitinh=?,ngaysinh=?,diachi=?,madichvu=?,trangthai=? where mabenhnhan=?";
-        jdbcHelper.update(sql, entity.getTenbenhnhan(), entity.getSodienthoai(), entity.getGioitinh(), XDate.toString(entity.getNgaysinh(), "YYYY-MM-dd"), entity.getDiachi(), entity.getMadichvu(), entity.getTrangthai(), entity.getMabenhnhan());
+        String sql = "update benhnhan set tenbenhnhan=?,sodienthoai=?,gioitinh=?,ngaysinh=?,diachi=?,trangthai=? where mabenhnhan like?";
+        jdbcHelper.update(sql, entity.getTenbenhnhan(), entity.getSodienthoai(), entity.getGioitinh(), XDate.toString(entity.getNgaysinh(), "YYYY-MM-dd"), entity.getDiachi(), entity.getTrangthai(), entity.getMabenhnhan());
 
         try {
-            jdbcHelper.update(Update_BenhNhan, entity.getTenbenhnhan(), entity.getSodienthoai(), entity.getGioitinh(), XDate.toString(entity.getNgaysinh(), "YYYY-MM-dd"), entity.getDiachi(), entity.getMadichvu(), entity.getTrangthai(), entity.getMabenhnhan());
+            jdbcHelper.update(Update_BenhNhan, entity.getTenbenhnhan(), entity.getSodienthoai(), entity.getGioitinh(), XDate.toString(entity.getNgaysinh(), "YYYY-MM-dd"), entity.getDiachi(), entity.getTrangthai(), entity.getMabenhnhan());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
-
-    @Override
-    public void delete(Integer id) {
-
-        String sql = "delete from benhnhan where mabenhnhan=?";
-        jdbcHelper.update(sql, id);
-
-        try {
-            jdbcHelper.update(DELETE_BenhNhan, id);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
     @Override
     public List<BenhNhan> SelectAll() {
         String sql = "select * from benhnhan";
@@ -74,15 +59,15 @@ public class benhnhanDAO extends QLPhongKham_DAO<BenhNhan, Integer> {
     }
 
     @Override
-    public BenhNhan SelectByID(Integer id) {
-        String sql = "select * from benhnhan where mabenhnhan=?";
+    public BenhNhan SelectByID(String id) {
+        String sql = "select * from benhnhan where mabenhnhan like ?";
         List<BenhNhan> list = SelectBySQL(sql, id);
         return list.size() > 0 ? list.get(0) : null;
     }
 
-    public List<BenhNhan> selectbyseach(String key1, String key2,String key3) {
+    public List<BenhNhan> selectbyseach(String key1, String key2, String key3) {
         String sql = "select * from benhnhan where mabenhnhan like ? or tenbenhnhan like ? or gioitinh like ?";
-        return SelectBySQL(sql, "%" + key1 + "%", "%" + key2 + "%","%"+key3+"%");
+        return SelectBySQL(sql, "%" + key1 + "%", "%" + key2 + "%", "%" + key3 + "%");
     }
 
     @Override
@@ -92,13 +77,12 @@ public class benhnhanDAO extends QLPhongKham_DAO<BenhNhan, Integer> {
             ResultSet rs = jdbcHelper.query(sql, args);
             while (rs.next()) {
                 BenhNhan model = new BenhNhan();
-                model.setMabenhnhan(rs.getInt("mabenhnhan"));
+                model.setMabenhnhan(rs.getString("mabenhnhan"));
                 model.setTenbenhnhan(rs.getString("tenbenhnhan"));
                 model.setSodienthoai(rs.getString("sodienthoai"));
                 model.setGioitinh(rs.getString("gioitinh"));
                 model.setNgaysinh(rs.getDate("ngaysinh"));
                 model.setDiachi(rs.getString("diachi"));
-                //model.setMadichvu(rs.getString("madichvu"));
                 model.setTrangthai(rs.getString("trangthai"));
                 list.add(model);
             }
@@ -113,6 +97,18 @@ public class benhnhanDAO extends QLPhongKham_DAO<BenhNhan, Integer> {
         String sql = "SELECT * FROM benhnhan\n"
                 + "WHERE tenbenhnhan LIKE ? OR sodienthoai LIKE ? OR diachi LIKE ? OR manhanvien LIKE ? OR mabenhnhan LIKE ?;";
         return this.SelectBySQL(sql, "%" + keyword + "%", "%" + keyword2 + "%", "%" + keyword3 + "%", "%" + keyword4 + "%", "%" + keyword5 + "%");
+    }
+
+    @Override
+    public void delete(String id) {
+        String sql = "delete from benhnhan where mabenhnhan like ?";
+        jdbcHelper.update(sql, id);
+
+        try {
+            jdbcHelper.update(DELETE_BenhNhan, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

@@ -1428,7 +1428,7 @@ public class QuanLyPhieuKham extends javax.swing.JFrame {
         model.setRowCount(0);
         try {
             String text = txtTimBenhNhan.getText();
-            List<BenhNhan> list = bndao.SelectKeyword(text, text, text, text, text);
+            List<BenhNhan> list = bndao.selectbyseach(text, text, text);
             for (BenhNhan bn : list) {
                 model.addRow(new Object[]{
                     bn.getMabenhnhan(), bn.getTenbenhnhan(), bn.getSodienthoai()

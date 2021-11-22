@@ -5,16 +5,17 @@
  */
 package com.QuanLyPhongKham.UI;
 
+import com.QuanLyPhongKham.Utilities.Auths;
+import com.QuanLyPhongKham.Utilities.MsgBox;
 import java.awt.geom.RoundRectangle2D;
-
-
+import  com.QuanLyPhongKham.DAO.nhanvienDAO; 
 
 /**
  *
  * @author OS
  */
 public class DoiMatKhau extends javax.swing.JDialog {
-
+nhanvienDAO daonv=new nhanvienDAO(); 
     /**
      * Creates new form DangNhap_1
      */
@@ -122,7 +123,7 @@ public class DoiMatKhau extends javax.swing.JDialog {
         lblLoginID.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         lblLoginID.setForeground(new java.awt.Color(102, 102, 102));
         lblLoginID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLoginID.setText("Tên đăng nhập");
+        lblLoginID.setText("Login ID");
 
         txtTenDangNhap.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         txtTenDangNhap.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
@@ -246,7 +247,7 @@ public class DoiMatKhau extends javax.swing.JDialog {
     }//GEN-LAST:event_lblThoatMouseClicked
 
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXacNhanActionPerformed
-        
+       doimatkhau();
     }//GEN-LAST:event_btnXacNhanActionPerformed
 
     private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
@@ -254,7 +255,8 @@ public class DoiMatKhau extends javax.swing.JDialog {
     }//GEN-LAST:event_btnThoatActionPerformed
 
     private void lblQuenMatKhauMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuenMatKhauMouseClicked
-       
+//       new Quenmatkhau(parent, rootPaneCheckingEnabled);
+       this.dispose();
     }//GEN-LAST:event_lblQuenMatKhauMouseClicked
 
     /**
@@ -299,7 +301,36 @@ public class DoiMatKhau extends javax.swing.JDialog {
             dialog.setVisible(true);
         });
     }
-
+public void doimatkhau(){
+    String tendangnhap=txtTenDangNhap.getText();
+    String oldpass= new String(txtMatKhauCu.getPassword()); 
+    String newpass= new String(txtMatKhauMoi.getPassword()); 
+    String confirmpass=new String(txtNhacLaiMatKhauMoi.getPassword()); 
+    if(!tendangnhap.equalsIgnoreCase(Auths.user.getManhanvien())){
+        MsgBox.alert(this,"Sai tên đăng nhập");
+        return; 
+    }
+    else if(!oldpass.equalsIgnoreCase(Auths.user.getMatkhau())){
+        MsgBox.alert(this,"Sai mật khẩu");
+        return; 
+    }
+    else if(!confirmpass.equalsIgnoreCase(newpass)){
+        MsgBox.alert(this,"Mật khẩu xác nhận không khớp mật khẩu mới");
+        return; 
+    }
+    else{
+        Auths.user.setMatkhau(confirmpass);
+        daonv.update(Auths.user);
+        MsgBox.alert(this,"đổi mật khẩu thành công");
+        clear();
+    }
+}
+public void clear(){
+    txtTenDangNhap.setText("");
+    txtMatKhauCu.setText("");
+    txtMatKhauMoi.setText("");
+    txtNhacLaiMatKhauMoi.setText("");
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.complementos.RSButtonHover btnThoat;
     private rojeru_san.complementos.RSButtonHover btnXacNhan;
@@ -320,6 +351,6 @@ public class DoiMatKhau extends javax.swing.JDialog {
     private javax.swing.JPasswordField txtNhacLaiMatKhauMoi;
     private javax.swing.JTextField txtTenDangNhap;
     // End of variables declaration//GEN-END:variables
-    
 }
+
 

@@ -13,34 +13,40 @@ import java.util.Date;
  */
 public class BenhNhan {
 
-    private int mabenhnhan;
-    private String tenbenhnhan;
-    private String sodienthoai;
-    private String gioitinh;
-    private Date ngaysinh;
-    private String diachi;
-    private String madichvu;
-    private String trangthai;
+    public int getMaphieudichvu() {
+        return maphieudichvu;
+    }
 
-    public BenhNhan(int mabenhnhan, String tenbenhnhan, String sodienthoai, String gioitinh, Date ngaysinh, String diachi, String madichvu, String trangthai) {
+    public void setMaphieudichvu(int maphieudichvu) {
+        this.maphieudichvu = maphieudichvu;
+    }
+
+    public BenhNhan(int maphieudichvu, String mabenhnhan, String tenbenhnhan, String sodienthoai, String gioitinh, Date ngaysinh, String diachi, String trangthai) {
+        this.maphieudichvu = maphieudichvu;
         this.mabenhnhan = mabenhnhan;
         this.tenbenhnhan = tenbenhnhan;
         this.sodienthoai = sodienthoai;
         this.gioitinh = gioitinh;
         this.ngaysinh = ngaysinh;
         this.diachi = diachi;
-        this.madichvu = madichvu;
         this.trangthai = trangthai;
     }
-
+    private int maphieudichvu; 
+    private String mabenhnhan;
+    private String tenbenhnhan;
+    private String sodienthoai;
+    private String gioitinh;
+    private Date ngaysinh;
+    private String diachi;
+    private String trangthai;
     public BenhNhan() {
     }
 
-    public int getMabenhnhan() {
+    public String getMabenhnhan() {
         return mabenhnhan;
     }
 
-    public void setMabenhnhan(int mabenhnhan) {
+    public void setMabenhnhan(String mabenhnhan) {
         this.mabenhnhan = mabenhnhan;
     }
 
@@ -92,11 +98,4 @@ public class BenhNhan {
         this.trangthai = trangthai;
     }
 
-    public String getMadichvu() {
-        return madichvu;
-    }
-
-    public void setMadichvu(String madichvu) {
-        this.madichvu = madichvu;
-    }
 }
