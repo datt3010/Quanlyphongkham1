@@ -655,7 +655,7 @@ public class Manhinhchinnh extends javax.swing.JFrame {
     }//GEN-LAST:event_lblIconBenhNhanMouseClicked
 
     private void lblQuanLyBenhNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseClicked
-        //this.OpenBenhNhan();
+        this.OpenBenhNhan();
     }//GEN-LAST:event_lblQuanLyBenhNhanMouseClicked
 
     private void lblIconPhieuKhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconPhieuKhamMouseClicked
@@ -1014,6 +1014,6 @@ public class Manhinhchinnh extends javax.swing.JFrame {
 
     private void OpenThongKe() {
         this.dispose();
-        new ThongKe().setVisible(true);
+        new ThongKeBenhNhan().setVisible(true);
     }
 }

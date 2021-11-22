@@ -20,7 +20,10 @@ import com.QuanLyPhongKham.Model.BenhNhan;
 import com.QuanLyPhongKham.Model.DichVu;
 import com.QuanLyPhongKham.Utilities.MsgBox;
 import com.QuanLyPhongKham.Utilities.XDate;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.RowFilter;
@@ -800,11 +803,19 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyPhieuKhamMouseClicked
 
     private void lblIconThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKeMouseClicked
-        this.OpenThongKe();
+        try {
+            this.OpenThongKe();
+        } catch (SQLException ex) {
+            Logger.getLogger(QuanLyBenhNhan.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_lblIconThongKeMouseClicked
 
     private void lblThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseClicked
-        this.OpenThongKe();
+        try {
+            this.OpenThongKe();
+        } catch (SQLException ex) {
+            Logger.getLogger(QuanLyBenhNhan.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_lblThongKeMouseClicked
 
     private void lblIconThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuocMouseClicked
@@ -1204,8 +1215,8 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
     }
 
     private void OpenBenhNhan() {
-        this.dispose();
-        new QuanLyBenhNhan().setVisible(true);
+//        this.dispose();
+//        new QuanLyBenhNhan().setVisible(true);
     }
 
     private void OpenNhanVien() {
@@ -1238,9 +1249,9 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         new dangnhap().setVisible(true);
     }
 
-    private void OpenThongKe() {
+    private void OpenThongKe() throws SQLException {
         this.dispose();
-        new ThongKe().setVisible(true);
+        new ThongKeBenhNhan().setVisible(true);
     }
 
     public void setmodel(BenhNhan model) {
