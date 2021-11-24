@@ -1317,8 +1317,8 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     }
     
     private void OpenThongKe(){
-        this.dispose();
-        new ThongKeBenhNhan().setVisible(true);
+//        this.dispose();
+//        new ThongKeBenhNhan().setVisible(true);
     }
      public void filltable1(){
         DefaultTableModel model = (DefaultTableModel) tblBacSi.getModel();

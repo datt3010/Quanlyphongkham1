@@ -1152,8 +1152,8 @@ public class QuanLyThuoc extends javax.swing.JFrame {
     }
 
     private void OpenThongKe() {
-        this.dispose();
-        new ThongKe().setVisible(true);
+       // this.dispose();
+        //new ThongKe().setVisible(true);
     }
 
     private void filltable() {

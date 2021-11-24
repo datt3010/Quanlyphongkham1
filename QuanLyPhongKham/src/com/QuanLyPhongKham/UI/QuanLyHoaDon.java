@@ -1299,8 +1299,8 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
     }
 
     private void OpenThongKe() {
-        this.dispose();
-        new ThongKeBenhNhan().setVisible(true);
+//        this.dispose();
+//        new ThongKeBenhNhan().setVisible(true);
     }
     
     private void fillComBoBoxLoaiThuoc(){

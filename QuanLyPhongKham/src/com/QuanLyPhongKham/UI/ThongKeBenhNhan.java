@@ -15,7 +15,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import com.QuanLyPhongKham.DAO.QuanLyThongKe;
-import java.lang.ModuleLayer.Controller;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

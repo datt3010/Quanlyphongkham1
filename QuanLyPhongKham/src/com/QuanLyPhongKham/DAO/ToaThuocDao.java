@@ -15,17 +15,18 @@ import java.util.List;
  *
  * @author OS
  */
-public class ToaThuocDao extends QLPhongKham_DAO<ToaThuoc, Integer>{
+public class ToaThuocDao extends QLPhongKham_DAO<ToaThuoc, Integer> {
+
     String Insert_ToaThuoc = "INSERT INTO toathuoc (maphieukham,mathuoc,soluong,cachdung) VALUES(?,?,?,?)";
     //String Update_ToaThuoc = "UPDATE toathuoc SET maphieukham=? , mathuoc=? , soluong=? , manhanvien=? , ketluan=? WHERE maphieukham = ?";
     String DELETE_ToaThuoc = "DELETE FROM toathuoc WHERE maphieukham=?";
     String SELECTALL_ToaThuoc = "SELECT * FROM toathuoc";
-    String SELECT_BY_ID_ToaThuoc ="SELECT * FROM toathuoc WHERE maphieukham=?";
+    String SELECT_BY_ID_ToaThuoc = "SELECT * FROM toathuoc WHERE maphieukham=?";
 
     @Override
     public void insert(ToaThuoc entity) {
         try {
-            jdbcHelper.update(Insert_ToaThuoc, entity.getMaphieukham(),entity.getMathuoc(),entity.getSoluong(),entity.getCachdung());
+            jdbcHelper.update(Insert_ToaThuoc, entity.getMaphieukham(), entity.getMathuoc(), entity.getSoluong(), entity.getCachdung());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -49,7 +50,7 @@ public class ToaThuocDao extends QLPhongKham_DAO<ToaThuoc, Integer>{
     @Override
     public ToaThuoc SelectByID(Integer id) {
         List<ToaThuoc> list = this.SelectBySQL(SELECT_BY_ID_ToaThuoc, id);
-        return list.size()>0?list.get(0):null;
+        return list.size() > 0 ? list.get(0) : null;
     }
 
     @Override
@@ -57,7 +58,7 @@ public class ToaThuocDao extends QLPhongKham_DAO<ToaThuoc, Integer>{
         List<ToaThuoc> list = new ArrayList<>();
         try {
             ResultSet rs = jdbcHelper.query(sql, args);
-            while(rs.next()){
+            while (rs.next()) {
                 ToaThuoc th = new ToaThuoc();
                 th.setMaphieukham(rs.getInt("maphieukham"));
                 th.setMathuoc(rs.getString("mathuoc"));
@@ -72,4 +73,7 @@ public class ToaThuocDao extends QLPhongKham_DAO<ToaThuoc, Integer>{
         return list;
     }
     
+    
+    
+
 }

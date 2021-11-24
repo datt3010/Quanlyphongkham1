@@ -884,7 +884,7 @@ public class QuanLyDichVu extends javax.swing.JFrame {
     }
     
     private void OpenThongKe(){
-        this.dispose();
-        new ThongKeBenhNhan().setVisible(true);
+//        this.dispose();
+//        new ThongKeBenhNhan().setVisible(true);
     }
 }
