@@ -73,7 +73,7 @@ public class phieukhamDAO extends QLPhongKham_DAO<PhieuKham, Integer>{
                 pk.setMaphieukham(rs.getInt("maphieukham"));
                 pk.setNgaykham(rs.getDate("ngaykham"));
                 pk.setMabacsy(rs.getString("mabacsy"));
-                pk.setMabenhnhan(rs.getInt("mabenhnhan"));
+                pk.setMabenhnhan(rs.getString("mabenhnhan"));
                 pk.setManhanvien(rs.getString("manhanvien"));
                 pk.setKetluan(rs.getString("ketluan"));
                 list.add(pk);

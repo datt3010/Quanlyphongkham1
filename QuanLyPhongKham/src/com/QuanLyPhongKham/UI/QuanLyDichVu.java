@@ -8,11 +8,8 @@ package com.QuanLyPhongKham.UI;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -589,19 +586,11 @@ public class QuanLyDichVu extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyPhieuKhamMouseClicked
 
     private void lblIconThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKeMouseClicked
-        try {
-            this.OpenThongKe();
-        } catch (SQLException ex) {
-            Logger.getLogger(QuanLyDichVu.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.OpenThongKe();
     }//GEN-LAST:event_lblIconThongKeMouseClicked
 
     private void lblThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseClicked
-        try {
-            this.OpenThongKe();
-        } catch (SQLException ex) {
-            Logger.getLogger(QuanLyDichVu.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.OpenThongKe();
     }//GEN-LAST:event_lblThongKeMouseClicked
 
     private void lblIconThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuocMouseClicked
@@ -861,7 +850,7 @@ public class QuanLyDichVu extends javax.swing.JFrame {
     }
     private void OpenBenhNhan(){
         this.dispose();
-//        new QuanLyBenhNhan().setVisible(true);
+        new QuanLyBenhNhan().setVisible(true);
     }
     
     private void OpenNhanVien(){
@@ -894,8 +883,8 @@ public class QuanLyDichVu extends javax.swing.JFrame {
         new dangnhap().setVisible(true);
     }
     
-    private void OpenThongKe() throws SQLException{
-        this.dispose();
-        new ThongKeBenhNhan().setVisible(true);
+    private void OpenThongKe(){
+//        this.dispose();
+//        new ThongKeBenhNhan().setVisible(true);
     }
 }

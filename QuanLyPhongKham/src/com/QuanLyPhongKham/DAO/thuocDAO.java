@@ -89,5 +89,11 @@ public class thuocDAO extends QLPhongKham_DAO<Thuoc, String> {
         String sql = "Select * from thuoc where maloaithuoc = ? and (mathuoc like ? or tenthuoc like ? or donvitinh like ?)";
         return this.SelectBySQL(sql, tenloai,"%"+k1+"%","%"+k2+"%","%"+k3+"%");
     }
+    
+    public Thuoc selectMaThuoc(String tenthuoc){
+        String sql = "select * where tenthuoc like ?";
+        List<Thuoc> list = this.SelectBySQL(sql, "%"+tenthuoc+"%");
+        return list.size()>0?list.get(0):null;
+    }
    
 }

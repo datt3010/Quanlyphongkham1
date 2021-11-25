@@ -1464,7 +1464,7 @@ public class QuanLyPhieuKham extends javax.swing.JFrame {
         pk.setMaphieukham(maphieukham);
         pk.setNgaykham(XDate.toDate(lblNgayKham1.getText(), "dd/MM/yyyy"));
         pk.setMabacsy(txtBacSi.getText());
-        pk.setMabenhnhan(Integer.parseInt(txtBenhNhan.getText()));
+        pk.setMabenhnhan(txtBenhNhan.getText());
         pk.setManhanvien(txtNhanVien.getText());
         pk.setKetluan(txaKetLuanBacSi.getText());
         return pk;
@@ -1474,7 +1474,7 @@ public class QuanLyPhieuKham extends javax.swing.JFrame {
         PhieuKham pk = new PhieuKham();
         pk.setNgaykham(XDate.toDate(lblNgayKham1.getText(), "dd/MM/yyyy"));
         pk.setMabacsy(txtBacSi.getText());
-        pk.setMabenhnhan(Integer.parseInt(txtBenhNhan.getText()));
+        pk.setMabenhnhan(txtBenhNhan.getText());
         pk.setManhanvien(Auths.user.getManhanvien());
         pk.setKetluan(txaKetLuanBacSi.getText());
         return pk;

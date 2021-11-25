@@ -26,9 +26,6 @@ import com.QuanLyPhongKham.DAO.chuyennganhDAO;
 import com.QuanLyPhongKham.Model.ChuyenNganh;
 import java.awt.Image;
 import java.io.File;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFileChooser;
@@ -854,19 +851,11 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyPhieuKhamMouseClicked
 
     private void lblIconThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKeMouseClicked
-        try {
-            this.OpenThongKe();
-        } catch (SQLException ex) {
-            Logger.getLogger(QuanLyBacSi.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.OpenThongKe();
     }//GEN-LAST:event_lblIconThongKeMouseClicked
 
     private void lblThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseClicked
-        try {
-            this.OpenThongKe();
-        } catch (SQLException ex) {
-            Logger.getLogger(QuanLyBacSi.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.OpenThongKe();
     }//GEN-LAST:event_lblThongKeMouseClicked
 
     private void lblIconThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuocMouseClicked
@@ -1327,9 +1316,9 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         new dangnhap().setVisible(true);
     }
     
-    private void OpenThongKe() throws SQLException{
-        this.dispose();
-        new ThongKeBenhNhan().setVisible(true);
+    private void OpenThongKe(){
+//        this.dispose();
+//        new ThongKeBenhNhan().setVisible(true);
     }
      public void filltable1(){
         DefaultTableModel model = (DefaultTableModel) tblBacSi.getModel();

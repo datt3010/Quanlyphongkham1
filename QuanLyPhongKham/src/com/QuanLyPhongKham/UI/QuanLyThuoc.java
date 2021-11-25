@@ -16,12 +16,9 @@ import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -778,19 +775,11 @@ public class QuanLyThuoc extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyPhieuKhamMouseClicked
 
     private void lblIconThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKeMouseClicked
-        try {
-            this.OpenThongKe();
-        } catch (SQLException ex) {
-            Logger.getLogger(QuanLyThuoc.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.OpenThongKe();
     }//GEN-LAST:event_lblIconThongKeMouseClicked
 
     private void lblThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseClicked
-        try {
-            this.OpenThongKe();
-        } catch (SQLException ex) {
-            Logger.getLogger(QuanLyThuoc.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.OpenThongKe();
     }//GEN-LAST:event_lblThongKeMouseClicked
 
     private void lblIconThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuocMouseClicked
@@ -1129,7 +1118,7 @@ public class QuanLyThuoc extends javax.swing.JFrame {
 
     private void OpenBenhNhan() {
         this.dispose();
-//        new QuanLyBenhNhan().setVisible(true);
+        new QuanLyBenhNhan().setVisible(true);
     }
 
     private void OpenNhanVien() {
@@ -1144,7 +1133,7 @@ public class QuanLyThuoc extends javax.swing.JFrame {
 
     private void OpenPhieuKham() {
         this.dispose();
-//        new QuanLyPhieuKham().setVisible(true);
+        new QuanLyPhieuKham().setVisible(true);
     }
 
     private void OpenThuoc() {
@@ -1162,9 +1151,9 @@ public class QuanLyThuoc extends javax.swing.JFrame {
         new dangnhap().setVisible(true);
     }
 
-    private void OpenThongKe() throws SQLException {
-        this.dispose();
-        new ThongKeBenhNhan().setVisible(true);
+    private void OpenThongKe() {
+       // this.dispose();
+        //new ThongKe().setVisible(true);
     }
 
     private void filltable() {

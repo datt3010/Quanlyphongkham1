@@ -673,7 +673,7 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         try {
             this.OpenThongKe();
         } catch (SQLException ex) {
-            Logger.getLogger(Manhinhchinnh.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QuanLyToaThuoc.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_lblIconThongKeMouseClicked
 
@@ -681,7 +681,7 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         try {
             this.OpenThongKe();
         } catch (SQLException ex) {
-            Logger.getLogger(Manhinhchinnh.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QuanLyToaThuoc.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_lblThongKeMouseClicked
 

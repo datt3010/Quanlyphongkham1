@@ -16,11 +16,11 @@ public class PhieuKham {
     private int maphieukham;
     private Date ngaykham;
     private String mabacsy;
-    private int mabenhnhan;
+    private String mabenhnhan;
     private String manhanvien;
     private String ketluan;
     
-    public PhieuKham(int maphieukham, String mabacsy, int mabenhnhan, String manhanvien, String ketluan) {
+    public PhieuKham(int maphieukham, String mabacsy, String mabenhnhan, String manhanvien, String ketluan) {
         this.maphieukham = maphieukham;
         this.mabacsy = mabacsy;
         this.mabenhnhan = mabenhnhan;
@@ -55,11 +55,11 @@ public class PhieuKham {
         this.mabacsy = mabacsy;
     }
 
-    public int getMabenhnhan() {
+    public String getMabenhnhan() {
         return mabenhnhan;
     }
 
-    public void setMabenhnhan(int mabenhnhan) {
+    public void setMabenhnhan(String mabenhnhan) {
         this.mabenhnhan = mabenhnhan;
     }
 
