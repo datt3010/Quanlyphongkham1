@@ -12,9 +12,12 @@ import com.QuanLyPhongKham.Model.LoaiThuoc;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -903,11 +906,19 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyPhieuKhamMouseClicked
 
     private void lblIconThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKeMouseClicked
-        this.OpenThongKe();
+        try {
+            this.OpenThongKe();
+        } catch (SQLException ex) {
+            Logger.getLogger(QuanLyHoaDon.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_lblIconThongKeMouseClicked
 
     private void lblThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseClicked
-        this.OpenThongKe();
+        try {
+            this.OpenThongKe();
+        } catch (SQLException ex) {
+            Logger.getLogger(QuanLyHoaDon.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_lblThongKeMouseClicked
 
     private void lblIconThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuocMouseClicked
@@ -1265,7 +1276,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
 
     private void OpenBenhNhan() {
         this.dispose();
-        new QuanLyBenhNhan().setVisible(true);
+//        new QuanLyBenhNhan().setVisible(true);
     }
 
     private void OpenNhanVien() {
@@ -1298,7 +1309,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         new dangnhap().setVisible(true);
     }
 
-    private void OpenThongKe() {
+    private void OpenThongKe() throws SQLException {
         this.dispose();
         new ThongKeBenhNhan().setVisible(true);
     }

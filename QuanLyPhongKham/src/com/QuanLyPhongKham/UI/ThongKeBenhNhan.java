@@ -15,7 +15,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import com.QuanLyPhongKham.DAO.QuanLyThongKe;
-import java.lang.ModuleLayer.Controller;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -866,7 +865,7 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
     }
     private void OpenBenhNhan(){
         this.dispose();
-        new QuanLyBenhNhan().setVisible(true);
+//        new QuanLyBenhNhan().setVisible(true);
     }
     
     private void OpenNhanVien(){
@@ -881,7 +880,7 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
     
     private void OpenPhieuKham(){
         this.dispose();
-        new QuanLyPhieuKham().setVisible(true);
+//        new QuanLyPhieuKham().setVisible(true);
     }
     
     private void OpenThuoc(){

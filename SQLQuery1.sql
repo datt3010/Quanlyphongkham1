@@ -215,3 +215,4 @@ from benhnhan
 insert into phieudichvu values(@mabenhnhan) 
 end
 select * from phieudichvu
+select * from nhanvien
