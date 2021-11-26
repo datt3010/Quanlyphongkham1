@@ -20,7 +20,7 @@ public class loadingscreen extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setup();
-         setShape(new RoundRectangle2D.Double(0, 0, getWidth(),  getHeight(),  30,30));
+        //setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 30, 30));
     }
 
     /**
@@ -44,15 +44,18 @@ public class loadingscreen extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblphantram.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblphantram.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblphantram.setText("0 %");
-        jPanel1.add(lblphantram, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 450, -1, -1));
+        jPanel1.add(lblphantram, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 430, -1, -1));
 
-        lblloading.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblloading.setFont(new java.awt.Font("Agency FB", 1, 29)); // NOI18N
         lblloading.setText("Loading...");
-        jPanel1.add(lblloading, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 270, -1));
-        jPanel1.add(loadingbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 970, 30));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 510));
+        jPanel1.add(lblloading, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 310, -1));
+        jPanel1.add(loadingbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 970, 20));
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\OS\\Desktop\\DuAn1_QuanLyPhongKham\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\background_hospital.jpg")); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -62,7 +65,7 @@ public class loadingscreen extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -103,41 +106,42 @@ public class loadingscreen extends javax.swing.JFrame {
             }
         });
     }
-void setup(){
-Thread b;
-b=new Thread(new Runnable() {
-    @Override
-    public void run() {
-        try {
-            for(int i=0;i<=100;i++){
-                Thread.sleep(150);
-                lblphantram.setText(i+" %");
-                if(i==10){
-                    lblloading.setText("Connecting database");
+
+    void setup() {
+        Thread b;
+        b = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    for (int i = 0; i <= 100; i++) {
+                        Thread.sleep(150);
+                        lblphantram.setText(i + " %");
+                        if (i == 10) {
+                            lblloading.setText("Connecting database");
+                        }
+                        if (i == 30) {
+                            lblloading.setText("Loading model");
+                        }
+                        if (i == 50) {
+                            lblloading.setText("Loading entity");
+                        }
+                        if (i == 70) {
+                            lblloading.setText("Loading graphics");
+                        }
+                        if (i == 90) {
+                            lblloading.setText("Lauching application");
+                        }
+                        loadingbar.setValue(i);
+                    }
+                } catch (Exception e) {
                 }
-                if(i==30){
-                    lblloading.setText("Loading model");
-                }
-                if(i==50){
-                    lblloading.setText("loading entity");
-                }
-                if(i==70){
-                    lblloading.setText("Loading graphics");
-                }
-                if(i==90){
-                    lblloading.setText("lauching application");
-                }
-                loadingbar.setValue(i);
+                dangnhap a = new dangnhap();
+                a.setVisible(true);
+                dispose();
             }
-        } catch (Exception e) {
-        }
-       dangnhap a=new dangnhap(); 
-       a.setVisible(true);
-       dispose();
+        });
+        b.start();
     }
-});
-b.start();
-}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;

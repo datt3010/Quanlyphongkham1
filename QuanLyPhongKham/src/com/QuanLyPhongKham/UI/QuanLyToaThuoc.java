@@ -20,7 +20,6 @@ import com.QuanLyPhongKham.Model.Thuoc;
 import com.QuanLyPhongKham.Model.ToaThuoc;
 import com.QuanLyPhongKham.Utilities.MsgBox;
 import com.QuanLyPhongKham.Utilities.XDate;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
@@ -36,6 +35,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -760,6 +761,11 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         pnlRight.add(pnlHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 610, 520));
 
         btnInHoaDon.setText("IN HOÁ ĐƠN");
+        btnInHoaDon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInHoaDonActionPerformed(evt);
+            }
+        });
         pnlRight.add(btnInHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 630, 130, -1));
 
         btnDSToaThuoc.setText("DANH SÁCH TOA THUỐC");
@@ -1012,11 +1018,11 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyBenhNhanMouseExited
 
     private void lblQuanLyHoaDonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseEntered
-//       hoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
+       hoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
     }//GEN-LAST:event_lblQuanLyHoaDonMouseEntered
 
     private void lblQuanLyHoaDonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseExited
-//       NotHoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
+       NotHoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
     }//GEN-LAST:event_lblQuanLyHoaDonMouseExited
 
     private void lblQuanLyPhieuKhamMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseEntered
@@ -1125,6 +1131,10 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         this.dispose();
         new QuanLyDanhSachToaThuoc().setVisible(true);
     }//GEN-LAST:event_btnDSToaThuocActionPerformed
+
+    private void btnInHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInHoaDonActionPerformed
+       
+    }//GEN-LAST:event_btnInHoaDonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1410,10 +1420,11 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     }
 
     private void getFormThuoc() {
+        String thuoc=null;
         this.row = tblDSThuoc.getSelectedRow();
         String mathuoc = tblDSThuoc.getValueAt(row, 0).toString();
         Thuoc tth = thdao.SelectByID(mathuoc);
-        
+       
         DefaultTableModel model = (DefaultTableModel) tblHoaDon.getModel();
         model.addRow(new Object[]{
             tth.getMaThuoc(), tth.getTenthuoc(), tth.getDonvitinh() 
@@ -1489,5 +1500,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
             model.removeRow(i);
         }
     }
+    
+    
 
 }

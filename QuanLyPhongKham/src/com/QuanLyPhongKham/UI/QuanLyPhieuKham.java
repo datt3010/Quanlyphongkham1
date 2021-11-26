@@ -755,6 +755,11 @@ public class QuanLyPhieuKham extends javax.swing.JFrame {
         pnlRight.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 250, 540, 160));
 
         btnToaThuoc.setText("TOA THUỐC");
+        btnToaThuoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnToaThuocActionPerformed(evt);
+            }
+        });
         pnlRight.add(btnToaThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 430, 120, -1));
 
         btnThem.setText("THÊM");
@@ -1125,7 +1130,7 @@ public class QuanLyPhieuKham extends javax.swing.JFrame {
     private void tblBenhNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBenhNhanMouseClicked
         if (evt.getClickCount() == 2) {
             this.row = tblBenhNhan.getSelectedRow();
-            int mabenhnhan = (int) tblBenhNhan.getValueAt(row, 0);
+            String mabenhnhan = (String) tblBenhNhan.getValueAt(row, 0);
             txtBenhNhan.setText(String.valueOf(mabenhnhan));
         }
     }//GEN-LAST:event_tblBenhNhanMouseClicked
@@ -1165,6 +1170,10 @@ public class QuanLyPhieuKham extends javax.swing.JFrame {
     private void txtTimBenhNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimBenhNhanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTimBenhNhanActionPerformed
+
+    private void btnToaThuocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToaThuocActionPerformed
+       new QuanLyToaThuoc().setVisible(true);
+    }//GEN-LAST:event_btnToaThuocActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1312,7 +1321,7 @@ public class QuanLyPhieuKham extends javax.swing.JFrame {
         this.filltable();
         this.filltableBenhNhan();
         this.filltableBacSi();
-        //txtNhanVien.setText(Auths.user.getManhanvien());
+        txtNhanVien.setText(Auths.user.getManhanvien());
     }
 
     //Hover màu

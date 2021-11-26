@@ -5,47 +5,52 @@
  */
 package com.QuanLyPhongKham.UI;
 
-import com.QuanLyPhongKham.Utilities.Auths;
-import java.awt.Color;
-import java.awt.Cursor;
+import com.QuanLyPhongKham.DAO.ToaThuocDao;
+import com.QuanLyPhongKham.DAO.benhnhanDAO;
+import com.QuanLyPhongKham.DAO.dichVuDAO;
+import com.QuanLyPhongKham.DAO.hoadonDAO;
+import com.QuanLyPhongKham.DAO.jdbcHelper;
+import com.QuanLyPhongKham.DAO.loaithuocDAO;
+import com.QuanLyPhongKham.DAO.phieukhamDAO;
+import com.QuanLyPhongKham.DAO.thuocDAO;
+import com.QuanLyPhongKham.Model.BenhNhan;
+import com.QuanLyPhongKham.Model.DichVu;
+import com.QuanLyPhongKham.Model.LoaiThuoc;
+import com.QuanLyPhongKham.Model.PhieuKham;
+import com.QuanLyPhongKham.Model.Thuoc;
+import com.QuanLyPhongKham.Model.ToaThuoc;
+import com.QuanLyPhongKham.Utilities.MsgBox;
+import com.QuanLyPhongKham.Utilities.XDate;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author OS
  */
-public class Manhinhchinnh extends javax.swing.JFrame {
+public class QuanLyDanhSachHoaDon extends javax.swing.JFrame {
 
     /**
      * Creates new form QuanLyPhongKham
      */
-    public Manhinhchinnh() {
+    public QuanLyDanhSachHoaDon() {
         initComponents();
         init();
-//        lblbacsi.setIconTextGap(20);
-//        lblphieukham.setIconTextGap(20);
-//        lblnhanvien.setIconTextGap(20);
-//        lblthuoc.setIconTextGap(20);
-//        lblhoadon.setIconTextGap(20);
-//        lblDichVu.setIconTextGap(20);
-//        lblbacsi.setOpaque(true);
-//        lblphieukham.setOpaque(true);
-//        lblnhanvien.setOpaque(true);
-//        lblthuoc.setOpaque(true);
-//        lblhoadon.setOpaque(true);
-//        lbldichvu.setOpaque(true);
-
     }
 
     /**
@@ -92,26 +97,26 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         lblDichVu = new javax.swing.JLabel();
         btnDangXuat = new rojeru_san.complementos.RSButtonHover();
         pnlRight = new javax.swing.JPanel();
-        lblbacsi = new javax.swing.JLabel();
-        lblphieukham = new javax.swing.JLabel();
-        lblnhanvien = new javax.swing.JLabel();
-        lblthuoc = new javax.swing.JLabel();
-        lblhoadon = new javax.swing.JLabel();
-        lbldichvu = new javax.swing.JLabel();
+        lblDanhSachToaThuoc = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblDSHoaDon = new rojeru_san.complementos.RSTableMetro();
+        btnQuayVe = new rojeru_san.complementos.RSButtonHover();
+        txtTimKiem = new javax.swing.JTextField();
+        rSButtonHover1 = new rojeru_san.complementos.RSButtonHover();
+        btnXoa = new rojeru_san.complementos.RSButtonHover();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("QUẢN LÝ BỆNH NHÂN\n");
+        setTitle("DANH SÁCH TOA THUỐC\n");
 
-        pnlTong.setBackground(new java.awt.Color(153, 254, 255));
+        pnlTong.setBackground(new java.awt.Color(255, 255, 255));
+        pnlTong.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlHeader.setBackground(new java.awt.Color(51, 153, 255));
 
         lblXinChao.setFont(new java.awt.Font("Agency FB", 1, 20)); // NOI18N
-        lblXinChao.setForeground(new java.awt.Color(255, 208, 175));
         lblXinChao.setText("Xin chào, ");
 
-        lblTieuDe.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
-        lblTieuDe.setForeground(new java.awt.Color(255, 255, 255));
+        lblTieuDe.setFont(new java.awt.Font("Agency FB", 1, 48)); // NOI18N
         lblTieuDe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTieuDe.setText("PHÒNG KHÁM AN NHIÊN");
 
@@ -119,8 +124,7 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         lblDay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDay.setText("dd/MM/yyyy");
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("MANG ĐẾN SỰ BÌNH YÊN");
 
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
@@ -134,25 +138,23 @@ public class Manhinhchinnh extends javax.swing.JFrame {
                 .addComponent(lblXinChao, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlHeaderLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblTieuDe, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
-                        .addGap(105, 105, 105)
-                        .addComponent(lblDay, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addGap(200, 200, 200)
+                        .addComponent(lblTieuDe, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 349, Short.MAX_VALUE)
+                        .addComponent(lblDay, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlHeaderLayout.createSequentialGroup()
-                        .addGap(353, 353, 353)
-                        .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(320, 320, 320)
+                        .addComponent(jLabel1)))
+                .addContainerGap())
         );
         pnlHeaderLayout.setVerticalGroup(
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHeaderLayout.createSequentialGroup()
                 .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlHeaderLayout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblDay)
-                            .addComponent(lblTieuDe))
+                        .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblTieuDe)
+                            .addComponent(lblDay))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1))
                     .addComponent(lblAnhNV, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -162,6 +164,8 @@ public class Manhinhchinnh extends javax.swing.JFrame {
                 .addComponent(lblXinChao)
                 .addGap(34, 34, 34))
         );
+
+        pnlTong.add(pnlHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 100));
 
         pnlLeft.setBackground(new java.awt.Color(54, 70, 78));
         pnlLeft.setForeground(new java.awt.Color(54, 70, 78));
@@ -504,69 +508,98 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         });
         pnlLeft.add(btnDangXuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 690, 170, -1));
 
+        pnlTong.add(pnlLeft, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 210, 790));
+
         pnlRight.setBackground(new java.awt.Color(255, 255, 255));
         pnlRight.setFocusable(false);
-        pnlRight.setLayout(new java.awt.GridLayout(3, 3));
+        pnlRight.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblbacsi.setBackground(new java.awt.Color(255, 255, 255));
-        lblbacsi.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        lblbacsi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblbacsi.setText("Quản Lý Bác Sĩ");
-        lblbacsi.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblbacsiMouseEntered(evt);
+        lblDanhSachToaThuoc.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        lblDanhSachToaThuoc.setForeground(new java.awt.Color(255, 0, 51));
+        lblDanhSachToaThuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDanhSachToaThuoc.setText("DANH SÁCH TOA THUỐC");
+        pnlRight.add(lblDanhSachToaThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, -1));
+
+        tblDSHoaDon.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Mã PDV", "Bệnh Nhân", "Địa Chỉ", "Dịch Vụ", "Tiền DV", "Tổng Bill"
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblbacsiMouseExited(evt);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-        pnlRight.add(lblbacsi);
+        tblDSHoaDon.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tblDSHoaDon.setColorSelBackgound(new java.awt.Color(255, 0, 0));
+        tblDSHoaDon.setFuenteHead(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        tblDSHoaDon.setRowHeight(35);
+        tblDSHoaDon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDSHoaDonMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblDSHoaDon);
+        if (tblDSHoaDon.getColumnModel().getColumnCount() > 0) {
+            tblDSHoaDon.getColumnModel().getColumn(0).setMinWidth(80);
+            tblDSHoaDon.getColumnModel().getColumn(0).setPreferredWidth(80);
+            tblDSHoaDon.getColumnModel().getColumn(0).setMaxWidth(80);
+            tblDSHoaDon.getColumnModel().getColumn(1).setMinWidth(280);
+            tblDSHoaDon.getColumnModel().getColumn(1).setPreferredWidth(280);
+            tblDSHoaDon.getColumnModel().getColumn(1).setMaxWidth(280);
+            tblDSHoaDon.getColumnModel().getColumn(2).setMinWidth(250);
+            tblDSHoaDon.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tblDSHoaDon.getColumnModel().getColumn(2).setMaxWidth(250);
+            tblDSHoaDon.getColumnModel().getColumn(3).setMinWidth(240);
+            tblDSHoaDon.getColumnModel().getColumn(3).setPreferredWidth(240);
+            tblDSHoaDon.getColumnModel().getColumn(3).setMaxWidth(240);
+            tblDSHoaDon.getColumnModel().getColumn(4).setMinWidth(150);
+            tblDSHoaDon.getColumnModel().getColumn(4).setPreferredWidth(150);
+            tblDSHoaDon.getColumnModel().getColumn(4).setMaxWidth(150);
+            tblDSHoaDon.getColumnModel().getColumn(5).setMinWidth(140);
+            tblDSHoaDon.getColumnModel().getColumn(5).setPreferredWidth(140);
+            tblDSHoaDon.getColumnModel().getColumn(5).setMaxWidth(140);
+        }
 
-        lblphieukham.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        lblphieukham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblphieukham.setText("Quản Lý Phiếu Khám");
-        pnlRight.add(lblphieukham);
+        pnlRight.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 1140, 670));
 
-        lblnhanvien.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        lblnhanvien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblnhanvien.setText("Quản Lý Nhân Viên");
-        pnlRight.add(lblnhanvien);
+        btnQuayVe.setText("< < QUAY VỀ");
+        btnQuayVe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuayVeActionPerformed(evt);
+            }
+        });
+        pnlRight.add(btnQuayVe, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 140, -1));
 
-        lblthuoc.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        lblthuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblthuoc.setText("Quản Lý Thuốc");
-        pnlRight.add(lblthuoc);
+        txtTimKiem.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        txtTimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTimKiemKeyReleased(evt);
+            }
+        });
+        pnlRight.add(txtTimKiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 390, 40));
 
-        lblhoadon.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        lblhoadon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblhoadon.setText("Quản Lý Hóa Đơn");
-        pnlRight.add(lblhoadon);
+        rSButtonHover1.setText("TÌM KIẾM");
+        pnlRight.add(rSButtonHover1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 50, 120, -1));
 
-        lbldichvu.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        lbldichvu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbldichvu.setText("Quản Lý Dịch Vụ");
-        pnlRight.add(lbldichvu);
+        btnXoa.setText("XOÁ HOÁ ĐƠN");
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
+            }
+        });
+        pnlRight.add(btnXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 50, 140, -1));
 
-        javax.swing.GroupLayout pnlTongLayout = new javax.swing.GroupLayout(pnlTong);
-        pnlTong.setLayout(pnlTongLayout);
-        pnlTongLayout.setHorizontalGroup(
-            pnlTongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(pnlTongLayout.createSequentialGroup()
-                .addComponent(pnlLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(110, 110, 110)
-                .addComponent(pnlRight, javax.swing.GroupLayout.PREFERRED_SIZE, 950, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        pnlTongLayout.setVerticalGroup(
-            pnlTongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTongLayout.createSequentialGroup()
-                .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(pnlTongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlTongLayout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(pnlRight, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
+        pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -647,15 +680,15 @@ public class Manhinhchinnh extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyBacSiMouseClicked
 
     private void lblIconHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseClicked
-        this.OpenHoaDon();
+        //this.OpenHoaDon();
     }//GEN-LAST:event_lblIconHoaDonMouseClicked
 
     private void lblQuanLyHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseClicked
-        this.OpenHoaDon();
+        //this.OpenHoaDon();
     }//GEN-LAST:event_lblQuanLyHoaDonMouseClicked
 
     private void lblIconBenhNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBenhNhanMouseClicked
-        //this.OpenBenhNhan();
+        this.OpenBenhNhan();
     }//GEN-LAST:event_lblIconBenhNhanMouseClicked
 
     private void lblQuanLyBenhNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseClicked
@@ -674,7 +707,7 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         try {
             this.OpenThongKe();
         } catch (SQLException ex) {
-            Logger.getLogger(QuanLyToaThuoc.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QuanLyDanhSachHoaDon.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_lblIconThongKeMouseClicked
 
@@ -682,7 +715,7 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         try {
             this.OpenThongKe();
         } catch (SQLException ex) {
-            Logger.getLogger(QuanLyToaThuoc.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QuanLyDanhSachHoaDon.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_lblThongKeMouseClicked
 
@@ -695,11 +728,11 @@ public class Manhinhchinnh extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyThuocMouseClicked
 
     private void lblIconBacSiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBacSiMouseEntered
-        //hover(lblIconBacSi);
+        hover(lblIconBacSi);
     }//GEN-LAST:event_lblIconBacSiMouseEntered
 
     private void lblIconBacSiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBacSiMouseExited
-        //NotHover(lblIconBacSi);
+        NotHover(lblIconBacSi);
     }//GEN-LAST:event_lblIconBacSiMouseExited
 
     private void lblIconNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconNhanVienMouseEntered
@@ -711,19 +744,19 @@ public class Manhinhchinnh extends javax.swing.JFrame {
     }//GEN-LAST:event_lblIconNhanVienMouseExited
 
     private void lblIconBenhNhanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBenhNhanMouseEntered
-//        hover(lblIconBenhNhan);
+        hover(lblIconBenhNhan);
     }//GEN-LAST:event_lblIconBenhNhanMouseEntered
 
     private void lblIconBenhNhanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBenhNhanMouseExited
-//        NotHover(lblIconBenhNhan);
+        NotHover(lblIconBenhNhan);
     }//GEN-LAST:event_lblIconBenhNhanMouseExited
 
     private void lblIconHoaDonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseEntered
-        hover(lblIconHoaDon);
+        //hover(lblIconHoaDon);
     }//GEN-LAST:event_lblIconHoaDonMouseEntered
 
     private void lblIconHoaDonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseExited
-        NotHover(lblIconHoaDon);
+        //NotHover(lblIconHoaDon);
     }//GEN-LAST:event_lblIconHoaDonMouseExited
 
     private void lblIconPhieuKhamMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconPhieuKhamMouseEntered
@@ -777,19 +810,19 @@ public class Manhinhchinnh extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyNhanVienMouseExited
 
     private void lblQuanLyBenhNhanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseEntered
-//        hoverPanel(pnlQuanLyBenhNhan,lblIconBenhNhan);
+        hoverPanel(pnlQuanLyBenhNhan, lblIconBenhNhan);
     }//GEN-LAST:event_lblQuanLyBenhNhanMouseEntered
 
     private void lblQuanLyBenhNhanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseExited
-//        NotHoverPanel(pnlQuanLyBenhNhan,lblIconBenhNhan);
+        NotHoverPanel(pnlQuanLyBenhNhan, lblIconBenhNhan);
     }//GEN-LAST:event_lblQuanLyBenhNhanMouseExited
 
     private void lblQuanLyHoaDonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseEntered
-        hoverPanel(pnlQuanLyHoaDon, lblIconHoaDon);
+//       hoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
     }//GEN-LAST:event_lblQuanLyHoaDonMouseEntered
 
     private void lblQuanLyHoaDonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseExited
-        NotHoverPanel(pnlQuanLyHoaDon, lblIconHoaDon);
+//       NotHoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
     }//GEN-LAST:event_lblQuanLyHoaDonMouseExited
 
     private void lblQuanLyPhieuKhamMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseEntered
@@ -844,18 +877,26 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         this.OpenLogin();
     }//GEN-LAST:event_btnDangXuatActionPerformed
 
-    private void lblbacsiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbacsiMouseEntered
-        // TODO add your handling code here:
+    private void tblDSHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDSHoaDonMouseClicked
 
-        hover(lblbacsi);
-//        
-    }//GEN-LAST:event_lblbacsiMouseEntered
+    }//GEN-LAST:event_tblDSHoaDonMouseClicked
 
-    private void lblbacsiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbacsiMouseExited
-        // TODO add your handling code here:
-//        
-        NotHover(lblbacsi);
-    }//GEN-LAST:event_lblbacsiMouseExited
+    private void btnQuayVeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuayVeActionPerformed
+        this.dispose();
+        new QuanLyHoaDon().setVisible(true);
+    }//GEN-LAST:event_btnQuayVeActionPerformed
+
+    private void txtTimKiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyReleased
+        if (txtTimKiem.getText().length() > 0) {
+            this.LoadData();
+        } else {
+            this.LoadData();
+        }
+    }//GEN-LAST:event_txtTimKiemKeyReleased
+
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+        this.delete();
+    }//GEN-LAST:event_btnXoaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -874,14 +915,134 @@ public class Manhinhchinnh extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(QuanLyBenhNhan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyDanhSachHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(QuanLyBenhNhan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyDanhSachHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(QuanLyBenhNhan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyDanhSachHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(QuanLyBenhNhan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyDanhSachHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -894,16 +1055,20 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Manhinhchinnh().setVisible(true);
+                new QuanLyDanhSachHoaDon().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.complementos.RSButtonHover btnDangXuat;
+    private rojeru_san.complementos.RSButtonHover btnQuayVe;
+    private rojeru_san.complementos.RSButtonHover btnXoa;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private rojerusan.RSFotoCircle lblAnhNV;
     private javax.swing.JLabel lblDanhMuc;
+    private javax.swing.JLabel lblDanhSachToaThuoc;
     private javax.swing.JLabel lblDay;
     private javax.swing.JLabel lblDichVu;
     private javax.swing.JLabel lblIconBacSi;
@@ -923,12 +1088,6 @@ public class Manhinhchinnh extends javax.swing.JFrame {
     private javax.swing.JLabel lblThongKe;
     private javax.swing.JLabel lblTieuDe;
     private javax.swing.JLabel lblXinChao;
-    private javax.swing.JLabel lblbacsi;
-    private javax.swing.JLabel lbldichvu;
-    private javax.swing.JLabel lblhoadon;
-    private javax.swing.JLabel lblnhanvien;
-    private javax.swing.JLabel lblphieukham;
-    private javax.swing.JLabel lblthuoc;
     private javax.swing.JPanel pnlDichVu;
     private javax.swing.JPanel pnlHeader;
     private javax.swing.JPanel pnlLeft;
@@ -941,12 +1100,24 @@ public class Manhinhchinnh extends javax.swing.JFrame {
     private javax.swing.JPanel pnlQuanLyThuoc;
     private javax.swing.JPanel pnlRight;
     private javax.swing.JPanel pnlTong;
+    private rojeru_san.complementos.RSButtonHover rSButtonHover1;
+    private rojeru_san.complementos.RSTableMetro tblDSHoaDon;
+    private javax.swing.JTextField txtTimKiem;
     // End of variables declaration//GEN-END:variables
+
+    //loaithuocDAO ltdao = new loaithuocDAO();
+    //thuocDAO thdao = new thuocDAO();
+    //phieukhamDAO pkdao = new phieukhamDAO();
+    // bndao = new benhnhanDAO();
+    //ToaThuocDao ttdao = new ToaThuocDao();
+    hoadonDAO hddao = new hoadonDAO();
+    int row = -1;
+
     private void init() {
-        //hoverPanel(pnlQuanLyBenhNhan, lblIconBenhNhan);
+
         setLocationRelativeTo(null);
         this.LoadNgay();
-        lblXinChao.setText("Xin chào," +Auths.user.getManhanvien());
+        this.LoadData();
     }
 
     //Hover màu
@@ -969,24 +1140,16 @@ public class Manhinhchinnh extends javax.swing.JFrame {
     }
 
     private void LoadNgay() {
-        new javax.swing.Timer(1000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                Date date = new Date();
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                //SimpleDateFormat sdf1 = new SimpleDateFormat("hh:mm:ss a");
-                String day = sdf.format(date);
-                //String time = sdf1.format(date);
-                lblDay.setText(day);
-                //lblTime.setText(time);
-            }
-        }).start();
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String day = sdf.format(date);
+        lblDay.setText(day);
     }
-//   
 
+//   
     private void OpenBacSi() {
         this.dispose();
-      new QuanLyBacSi().setVisible(true);
+        new QuanLyBacSi().setVisible(true);
     }
 
     private void OpenBenhNhan() {
@@ -1001,7 +1164,7 @@ public class Manhinhchinnh extends javax.swing.JFrame {
 
     private void OpenHoaDon() {
         this.dispose();
-        new QuanLyHoaDon().setVisible(true);
+        new QuanLyDanhSachHoaDon().setVisible(true);
     }
 
     private void OpenPhieuKham() {
@@ -1028,4 +1191,45 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         this.dispose();
         new ThongKeBenhNhan().setVisible(true);
     }
+
+    private void LoadData() {
+        String text = txtTimKiem.getText();
+        DefaultTableModel model = (DefaultTableModel) tblDSHoaDon.getModel();
+        model.setRowCount(0);
+        String sql = "select a.maphieudichvu, b.tenbenhnhan,b.diachi , d.tendichvu,d.giatien,c.dongia \n"
+                + "from phieudichvu a inner join benhnhan b  on a.mabenhnhan = b.mabenhnhan inner join\n"
+                + "chitietphieudichvu c on a.maphieudichvu = c.maphieudichvu inner join dichvu d on c.madichvu = d.madichvu\n"
+                + "where tenbenhnhan like '%" + text + "%' or diachi like '%" + text + "%'\n"
+                + "order by maphieudichvu asc";
+        try {
+            ResultSet rs = jdbcHelper.query(sql);
+            while (rs.next()) {
+                Vector v = new Vector();
+                v.add(rs.getString("maphieudichvu"));
+                v.add(rs.getString("tenbenhnhan"));
+                v.add(rs.getString("diachi"));
+                v.add(rs.getString("tendichvu"));
+                v.add(rs.getFloat("giatien"));
+                v.add(rs.getFloat("dongia"));
+                model.addRow(v);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void delete() {
+        this.row = tblDSHoaDon.getSelectedRow();
+        String maphieudichvu = tblDSHoaDon.getValueAt(row, 0).toString();
+        try {
+            if (MsgBox.confirm(this, "Bạn có muốn xoá hoá đơn này không??")) {
+                hddao.delete(Integer.parseInt(maphieudichvu));
+                this.LoadData();
+                MsgBox.alert(this, "Delete hoá đơn thành công!!!");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
 }

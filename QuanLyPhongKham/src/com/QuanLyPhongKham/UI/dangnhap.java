@@ -147,9 +147,9 @@ public class dangnhap extends javax.swing.JFrame {
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 320, 10));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 320, 20));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 26)); // NOI18N
         jLabel3.setText("Đăng nhập");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 85, 113, -1));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 85, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -157,8 +157,9 @@ public class dangnhap extends javax.swing.JFrame {
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 77, -1));
 
         txtuser.setBackground(new java.awt.Color(102, 204, 255));
+        txtuser.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtuser.setBorder(null);
-        jPanel3.add(txtuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 164, 326, 33));
+        jPanel3.add(txtuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 154, 326, 40));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -166,8 +167,9 @@ public class dangnhap extends javax.swing.JFrame {
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 160, -1, 33));
 
         txtpassword.setBackground(new java.awt.Color(102, 204, 255));
+        txtpassword.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtpassword.setBorder(null);
-        jPanel3.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 326, 33));
+        jPanel3.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 326, 40));
 
         btndangnhap.setBackground(new java.awt.Color(102, 204, 255));
         btndangnhap.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
