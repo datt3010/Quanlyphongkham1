@@ -1372,14 +1372,17 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     public void hinh(){
         try{
         JFileChooser jfc = new JFileChooser("\\Duan1\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon");
-        jfc.showOpenDialog(null);
-        
-        File file = jfc.getSelectedFile();
-        Image img = ImageIO.read(file);
-        lblhinhdaidien.setText("");
-        int width = lblhinhdaidien.getWidth();
-        int height = lblhinhdaidien.getHeight();
-        lblhinhdaidien.setIcon(new ImageIcon(img.getScaledInstance(width, height, 0)));
+        int imgicon =  jfc.showOpenDialog(null);
+        if(imgicon == JFileChooser.APPROVE_OPTION){
+         File file = jfc.getSelectedFile();
+        XImages.Save(file);
+        ImageIcon img = XImages.read(file.getName());
+        Image im = img.getImage();
+        Image img1 = im.getScaledInstance(lblhinhdaidien.getWidth(), lblhinhdaidien.getHeight(), im.SCALE_SMOOTH);
+        ImageIcon icon = new ImageIcon(img1);
+        lblhinhdaidien.setIcon(icon);
+        lblhinhdaidien.setToolTipText(file.getName());
+        }
         }
         catch(Exception e){
             e.fillInStackTrace();

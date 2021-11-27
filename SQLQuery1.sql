@@ -40,6 +40,7 @@ tenchuyennganh nvarchar(100) not null
 go
 create table bacsy(
 mabacsy varchar(12) primary key,
+matkhau varchar(50) not null,
 tenbacsy nvarchar(50) not null,
 gioitinh nvarchar(10) not null,
 dienthoai varchar(13) not null,
@@ -56,6 +57,7 @@ ngaykham date not null,
 mabacsy varchar(12) not null,
 mabenhnhan varchar(15) not null,
 manhanvien varchar(12) not null,
+ngaytaikham date not null,
 ketluan nvarchar(255),
 constraint fk_bacsy_phieukham foreign key(mabacsy) references bacsy(mabacsy) on update cascade,
 constraint fk_benhnhan_phieukham foreign key(mabenhnhan)references benhnhan(mabenhnhan) on delete no action on update cascade,
@@ -117,7 +119,7 @@ INSERT INTO benhnhan(mabenhnhan,tenbenhnhan,sodienthoai,gioitinh,ngaysinh,diachi
 ('BN03',N'Nguyễn Thành Nam','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi',N'Đang điều trị'),
 ('BM04',N'Đỗ Huyền Trân','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi',N'Đang điều trị'),
 ('BN05',N'Nguyễn Thị Bích','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi',N'Đang điều trị'),
-('BM06',N'Nguyễn Khắc Tâm','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi',N'Đang điều trị')
+('BM06',N'Nguyễn Khắc Tâm','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi',N'Đang điều trị'),
 ('BN11',N'Phạm Hồng Diễm','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi',N'Đang điều trị'),
 ('BN08',N'Nguyễn Hoài Nghi','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi',N'Đang điều trị'),
 ('BN09',N'Nguyễn Trường','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi',N'Đang điều trị'),
@@ -135,7 +137,7 @@ INSERT INTO chuyennganh(machuyennganh,tenchuyennganh) values
 ('CN09','Chuyên Khoa Tai Mũi Họng'),
 ('CN10','Chuyên Khoa Gan Mật');
 GO
-INSERT INTO bacsy(mabacsy,tenbacsy,gioitinh,dienthoai,email,ngaysinh,hinh,machuyennganh) values
+INSERT INTO bacsy(mabacsy,matkhau,tenbacsy,gioitinh,dienthoai,email,ngaysinh,hinh,machuyennganh) values
 ('BS01',N'Phạm Xuân Mai',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi1.png','CN01'),
 ('BS02',N'Phạm Hoài Nữ',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi2.png','CN01'),
 ('BS03',N'Phạm Bắc Kinh',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi3.png','CN01'),
@@ -195,11 +197,6 @@ INSERT INTO phieukham(ngaykham,mabacsy,mabenhnhan,manhanvien,ketluan) values('20
 ('2021-11-16','BS03',3,N'AnNT',N'Sốt'),
 ('2021-11-16','BS04',4,N'AnNT',N'Viêm ACD'),
 ('2021-11-16','BS05',5,N'AnNT',N'Gãy Chân');
-insert into phieudichvu(mabenhnhan) values
-(1),
-(2)
-insert into chitietphieudichvu(madichvu,maphieudichvu,dongia) values
-('DV000',3,1200);
 if OBJECT_ID('trigger_benhnhan') is not null
 drop trigger trigger_benhnhan
 go
@@ -216,3 +213,4 @@ insert into phieudichvu values(@mabenhnhan)
 end
 select * from phieudichvu
 select * from nhanvien
+select * from  benhnhan
