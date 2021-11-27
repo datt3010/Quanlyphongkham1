@@ -1026,12 +1026,12 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
     private void tablenhanvienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablenhanvienMouseClicked
         // TODO add your handling code here:
-           if(evt.getClickCount()==2){
-               this.index=tablenhanvien.rowAtPoint(evt.getPoint());
-               if(this.index>=0){
-                   edit();
-               }
-           }
+               if (evt.getClickCount() == 2) {
+            this.index = tablenhanvien.rowAtPoint(evt.getPoint());
+            if (this.index >= 0) {
+                this.edit();
+            }
+        }
     }//GEN-LAST:event_tablenhanvienMouseClicked
 
     private void txtTimKiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyReleased
@@ -1055,39 +1055,37 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
     private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
         // TODO add your handling code here:
-        row = tablenhanvien.getSelectedRow();
-        if(row>0){
+      row= tablenhanvien.getSelectedRow();
+        if (row > 0) {
             tablenhanvien.setRowSelectionInterval(0, 0);
-            this.edit();
+            index = 0;
+            edit();
         }
     }//GEN-LAST:event_btnFirstActionPerformed
 
     private void btnPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousActionPerformed
         // TODO add your handling code here:
-        row = tablenhanvien.getSelectedRow();
-        if(row>=0){
-            tablenhanvien.setRowSelectionInterval(--row, row);
-            this.edit();
+         if (index > 0) {
+            index--;
+            edit();
+            tablenhanvien.setRowSelectionInterval(index, index);
         }
     }//GEN-LAST:event_btnPreviousActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
-        row = tablenhanvien.getSelectedRow();
-        if(row>=0){
-            tablenhanvien.setRowSelectionInterval(++row, row);
-            this.edit();
+        if (index < tablenhanvien.getRowCount() - 1) {
+            index++;
+            edit();
+            tablenhanvien.setRowSelectionInterval(index, index);
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEndActionPerformed
         // TODO add your handling code here:
-        row = tablenhanvien.getSelectedRow();
-        if(row>=0){
-            row = tablenhanvien.getRowCount()-1;
-            tablenhanvien.setRowSelectionInterval(row, row);
-            this.edit();
-        }
+        index = tablenhanvien.getRowCount() - 1;
+        tablenhanvien.setRowSelectionInterval(index, index);
+        edit();
     }//GEN-LAST:event_btnEndActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -1110,6 +1108,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         this.clearForm();
     }//GEN-LAST:event_btnNewActionPerformed
     int row = -1;
+    int row1; 
     /**
      * @param args the command line arguments
      */
