@@ -551,10 +551,15 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Chuyên ngành:");
-        pnlRight.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 240, 130, 30));
+        pnlRight.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, 130, 30));
 
         lblAnhBS.setBackground(new java.awt.Color(255, 255, 102));
         lblAnhBS.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
+        lblAnhBS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAnhBSMouseClicked(evt);
+            }
+        });
         pnlRight.add(lblAnhBS, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 140, 170));
 
         tblBacSi.setModel(new javax.swing.table.DefaultTableModel(
@@ -607,6 +612,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         });
         pnlRight.add(txtDienThoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 110, 220, 34));
 
+        jButton1.setBackground(new java.awt.Color(51, 153, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_fast_forward_32px.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -647,6 +653,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         });
         pnlRight.add(btnXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 320, 90, 30));
 
+        jButton7.setBackground(new java.awt.Color(51, 153, 255));
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_skip_to_start_32px_1.png"))); // NOI18N
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -655,6 +662,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         });
         pnlRight.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 90, 30));
 
+        jButton8.setBackground(new java.awt.Color(51, 153, 255));
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_rewind_32px.png"))); // NOI18N
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -663,6 +671,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         });
         pnlRight.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 90, 30));
 
+        jButton9.setBackground(new java.awt.Color(51, 153, 255));
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_end_32px_1.png"))); // NOI18N
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -736,7 +745,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Email:");
-        pnlRight.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 90, 30));
+        pnlRight.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 90, 30));
 
         cboGioiTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ", "Khác" }));
         cboGioiTinh.setBorder(new javax.swing.border.MatteBorder(null));
@@ -745,7 +754,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Giới tính:");
-        pnlRight.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 90, 30));
+        pnlRight.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 90, 30));
 
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 
@@ -1126,6 +1135,11 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         filltable1();
     }//GEN-LAST:event_tblBacSiKeyReleased
 
+    private void lblAnhBSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAnhBSMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_lblAnhBSMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1240,7 +1254,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         this.LoadNgay();
         fillcbochuyennganh();
         filltable1();
-       
+        lblAnhBS.setToolTipText("");
     }
     
     //Hover màu
@@ -1380,6 +1394,10 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         txtEmail.setText(bs.getEmail());
         NgaySinh.setDate(bs.getNgaysinh());
         cbochuyennganh.setSelectedItem(bs.getMachuyennganh());
+        lblAnhBS.setToolTipText(bs.getHinh());
+        if(bs.getHinh()!=null){
+        lblAnhBS.setIcon(XImages.read(bs.getHinh()));
+    }
     }
     public void insert(){
         try{
@@ -1420,14 +1438,17 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     public void hinh(){
         try{
         JFileChooser jfc = new JFileChooser("\\baitap\\duan1\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon");
-        jfc.showOpenDialog(null);
-        
+        int imgicon = jfc.showOpenDialog(null);
+        if(imgicon == JFileChooser.APPROVE_OPTION){
         File file = jfc.getSelectedFile();
-        Image img = ImageIO.read(file);
-        lblAnhBS.setText("");
-        int width = lblAnhBS.getWidth();
-        int height = lblAnhBS.getHeight();
-        lblAnhBS.setIcon(new ImageIcon(img.getScaledInstance(width, height, 0)));
+        XImages.Save(file);
+        ImageIcon img = XImages.read(file.getName());
+        Image im = img.getImage();
+        Image img1 = im.getScaledInstance(lblAnhBS.getWidth(), lblAnhBS.getHeight(), im.SCALE_SMOOTH);
+        ImageIcon icon = new ImageIcon(img1);
+        lblAnhBS.setIcon(icon);
+        lblAnhBS.setToolTipText(file.getName());
+        }
         }catch(Exception e){
             e.fillInStackTrace();
         }
