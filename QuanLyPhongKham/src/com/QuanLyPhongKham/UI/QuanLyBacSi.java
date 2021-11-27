@@ -121,6 +121,8 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         cboGioiTinh = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txtpass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ BÁC SĨ\n");
@@ -744,8 +746,8 @@ public class QuanLyBacSi extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Email:");
-        pnlRight.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 90, 30));
+        jLabel7.setText("Mật khẩu:");
+        pnlRight.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 90, 30));
 
         cboGioiTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ", "Khác" }));
         cboGioiTinh.setBorder(new javax.swing.border.MatteBorder(null));
@@ -755,6 +757,14 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Giới tính:");
         pnlRight.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 90, 30));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Email:");
+        pnlRight.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 90, 30));
+
+        txtpass.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        pnlRight.add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 220, 30));
 
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 
@@ -1194,6 +1204,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel4;
@@ -1243,6 +1254,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     private javax.swing.JTextField txtMaBacSi;
     private javax.swing.JTextField txtTenBacSi;
     private javax.swing.JTextField txtTimKiem;
+    private javax.swing.JPasswordField txtpass;
     // End of variables declaration//GEN-END:variables
     bacsiDAO bsDao = new bacsiDAO();
     chuyennganhDAO cndao = new chuyennganhDAO();
@@ -1382,6 +1394,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         bs.setDienthoai(txtDienThoai.getText());
         bs.setEmail(txtEmail.getText());
         bs.setNgaysinh(NgaySinh.getDate());
+        bs.setMatkhau(txtpass.getText());
         bs.setHinh(String.valueOf(lblAnhBS.getToolTipText()));
         bs.setMachuyennganh((String) cbochuyennganh.getSelectedItem());
         return bs;
@@ -1393,6 +1406,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         txtDienThoai.setText(bs.getDienthoai());
         txtEmail.setText(bs.getEmail());
         NgaySinh.setDate(bs.getNgaysinh());
+        txtpass.setText(bs.getMatkhau());
         cbochuyennganh.setSelectedItem(bs.getMachuyennganh());
         lblAnhBS.setToolTipText(bs.getHinh());
         if(bs.getHinh()!=null){

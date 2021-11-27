@@ -15,15 +15,15 @@ import java.util.List;
  * @author OS
  */
 public class bacsiDAO extends QLPhongKham_DAO<BacSi, String>{
-    String Insert_BacSy = "INSERT INTO bacsy(mabacsy,tenbacsy,gioitinh,dienthoai,email,ngaysinh,hinh,machuyennganh) values(?,?,?,?,?,?,?,?) ";
-    String Update_BacSy = "UPDATE bacsy SET tenbacsy = ?, gioitinh = ?, dienthoai = ?, email = ?, ngaysinh = ?, hinh = ?, machuyennganh =? where mabacsy  like ?";
+    String Insert_BacSy = "INSERT INTO bacsy(mabacsy,matkhau,tenbacsy,gioitinh,dienthoai,email,ngaysinh,hinh,machuyennganh) values(?,?,?,?,?,?,?,?,?) ";
+    String Update_BacSy = "UPDATE bacsy SET matkhau = ?, tenbacsy = ?, gioitinh = ?, dienthoai = ?, email = ?, ngaysinh = ?, hinh = ?, machuyennganh =? where mabacsy  like ?";
     String Delete_BacSy = "DELETE FROM bacsy WHERE mabacsy like ?";
     String SELECTALL_BacSy = "SELECT * FROM bacsy";
     String SELECT_BY_ID_BacSy ="SELECT * FROM bacsy WHERE mabacsy like ?";
     @Override
     public void insert(BacSi entity) {
         try{
-            jdbcHelper.update(Insert_BacSy, entity.getMabacsy(),entity.getTenbacsy(),entity.getGioitinh(),entity.getDienthoai(),entity.getEmail(),XDate.toString(entity.getNgaysinh(), "yyyy-MM-dd"),entity.getHinh(),entity.getMachuyennganh());
+            jdbcHelper.update(Insert_BacSy, entity.getMabacsy(),entity.getMatkhau(),entity.getTenbacsy(),entity.getGioitinh(),entity.getDienthoai(),entity.getEmail(),XDate.toString(entity.getNgaysinh(), "yyyy-MM-dd"),entity.getHinh(),entity.getMachuyennganh());
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -33,7 +33,7 @@ public class bacsiDAO extends QLPhongKham_DAO<BacSi, String>{
     @Override
     public void update(BacSi entity) {
         try{
-            jdbcHelper.update(Update_BacSy, entity.getTenbacsy(),entity.getGioitinh(),entity.getDienthoai(),entity.getEmail(),XDate.toString(entity.getNgaysinh(), "yyyy-MM-dd"),entity.getHinh(),entity.getMachuyennganh(),entity.getMabacsy());
+            jdbcHelper.update(Update_BacSy, entity.getMatkhau(), entity.getTenbacsy(),entity.getGioitinh(),entity.getDienthoai(),entity.getEmail(),XDate.toString(entity.getNgaysinh(), "yyyy-MM-dd"),entity.getHinh(),entity.getMachuyennganh(),entity.getMabacsy());
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -67,6 +67,7 @@ public class bacsiDAO extends QLPhongKham_DAO<BacSi, String>{
             while(rs.next()){
                 BacSi bs = new BacSi();
                 bs.setMabacsy(rs.getString("mabacsy"));
+                bs.setMatkhau(rs.getString("matkhau"));
                 bs.setTenbacsy(rs.getString("tenbacsy"));
                 bs.setGioitinh(rs.getString("gioitinh"));
                 bs.setDienthoai(rs.getString("dienthoai"));
