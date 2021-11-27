@@ -12,6 +12,7 @@ package com.QuanLyPhongKham.Model;
 public class ToaThuoc {
     private int maphieukham;
     private String mathuoc;
+    private String tenthuoc;
     private int soluong;
     private String cachdung ;
 
@@ -21,7 +22,14 @@ public class ToaThuoc {
         this.soluong = soluong;
         this.cachdung = cachdung;
     }
+    //Xuất Bill
 
+    public ToaThuoc(String tenthuoc, int soluong, String cachdung) {
+        this.tenthuoc = tenthuoc;
+        this.soluong = soluong;
+        this.cachdung = cachdung;
+    }
+    
     public ToaThuoc() {
     }
 
@@ -55,6 +63,14 @@ public class ToaThuoc {
 
     public void setCachdung(String cachdung) {
         this.cachdung = cachdung;
+    }
+
+    public String getTenthuoc() {
+        return tenthuoc;
+    }
+
+    public void setTenthuoc(String tenthuoc) {
+        this.tenthuoc = tenthuoc;
     }
     
     

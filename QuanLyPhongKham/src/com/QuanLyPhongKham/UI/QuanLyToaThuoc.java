@@ -20,11 +20,23 @@ import com.QuanLyPhongKham.Model.Thuoc;
 import com.QuanLyPhongKham.Model.ToaThuoc;
 import com.QuanLyPhongKham.Utilities.MsgBox;
 import com.QuanLyPhongKham.Utilities.XDate;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.print.PageFormat;
+import java.awt.print.Paper;
+import java.awt.print.Printable;
+import static java.awt.print.Printable.NO_SUCH_PAGE;
+import static java.awt.print.Printable.PAGE_EXISTS;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Vector;
@@ -117,11 +129,13 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         pnlHoaDon = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblHoaDon = new rojeru_san.complementos.RSTableMetro();
+        lblPhieuKham1 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txaKetLuanBenhBS = new javax.swing.JTextArea();
         btnInHoaDon = new rojeru_san.complementos.RSButtonHover();
         btnDSToaThuoc = new rojeru_san.complementos.RSButtonHover();
         lblPhieuKham = new javax.swing.JLabel();
         btnThem = new rojeru_san.complementos.RSButtonHover();
-        btnThem2 = new rojeru_san.complementos.RSButtonHover();
         lblMaPhieuKham = new javax.swing.JLabel();
         lblTenBenhNhan = new javax.swing.JLabel();
 
@@ -601,7 +615,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblDSThuoc.setAltoHead(35);
+        tblDSThuoc.setAltoHead(45);
         tblDSThuoc.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
         tblDSThuoc.setColorSelBackgound(new java.awt.Color(255, 0, 0));
         tblDSThuoc.setFuenteHead(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -700,6 +714,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         pnlRight.add(lblTen, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 40, 140, 30));
 
         pnlHoaDon.setBackground(new java.awt.Color(255, 255, 255));
+        pnlHoaDon.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblHoaDon.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -745,18 +760,19 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
             tblHoaDon.getColumnModel().getColumn(3).setMaxWidth(70);
         }
 
-        javax.swing.GroupLayout pnlHoaDonLayout = new javax.swing.GroupLayout(pnlHoaDon);
-        pnlHoaDon.setLayout(pnlHoaDonLayout);
-        pnlHoaDonLayout.setHorizontalGroup(
-            pnlHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlHoaDonLayout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 5, Short.MAX_VALUE))
-        );
-        pnlHoaDonLayout.setVerticalGroup(
-            pnlHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
-        );
+        pnlHoaDon.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 90, 600, 430));
+
+        lblPhieuKham1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblPhieuKham1.setText("Kết Luận Bệnh của Bác Sĩ:");
+        pnlHoaDon.add(lblPhieuKham1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 220, 30));
+
+        txaKetLuanBenhBS.setColumns(20);
+        txaKetLuanBenhBS.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txaKetLuanBenhBS.setForeground(new java.awt.Color(255, 0, 0));
+        txaKetLuanBenhBS.setRows(5);
+        jScrollPane4.setViewportView(txaKetLuanBenhBS);
+
+        pnlHoaDon.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 380, 70));
 
         pnlRight.add(pnlHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 610, 520));
 
@@ -766,7 +782,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
                 btnInHoaDonActionPerformed(evt);
             }
         });
-        pnlRight.add(btnInHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 630, 130, -1));
+        pnlRight.add(btnInHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 720, 130, -1));
 
         btnDSToaThuoc.setText("DANH SÁCH TOA THUỐC");
         btnDSToaThuoc.addActionListener(new java.awt.event.ActionListener() {
@@ -774,7 +790,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
                 btnDSToaThuocActionPerformed(evt);
             }
         });
-        pnlRight.add(btnDSToaThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 630, 210, -1));
+        pnlRight.add(btnDSToaThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 720, 210, -1));
 
         lblPhieuKham.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblPhieuKham.setText("Phiếu Khám : ");
@@ -786,10 +802,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
                 btnThemActionPerformed(evt);
             }
         });
-        pnlRight.add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 630, 90, -1));
-
-        btnThem2.setText("THÊM");
-        pnlRight.add(btnThem2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 630, 90, -1));
+        pnlRight.add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 720, 90, -1));
 
         lblMaPhieuKham.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblMaPhieuKham.setForeground(new java.awt.Color(255, 0, 0));
@@ -1018,11 +1031,11 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyBenhNhanMouseExited
 
     private void lblQuanLyHoaDonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseEntered
-       hoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
+        hoverPanel(pnlQuanLyHoaDon, lblIconHoaDon);
     }//GEN-LAST:event_lblQuanLyHoaDonMouseEntered
 
     private void lblQuanLyHoaDonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseExited
-       NotHoverPanel(pnlQuanLyHoaDon,lblIconHoaDon);
+        NotHoverPanel(pnlQuanLyHoaDon, lblIconHoaDon);
     }//GEN-LAST:event_lblQuanLyHoaDonMouseExited
 
     private void lblQuanLyPhieuKhamMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseEntered
@@ -1133,7 +1146,14 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDSToaThuocActionPerformed
 
     private void btnInHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInHoaDonActionPerformed
-       
+        PrinterJob pj = PrinterJob.getPrinterJob();
+        pj.setPrintable(new BillPrintable(), getPageFormat(pj));
+        try {
+            pj.print();
+
+        } catch (PrinterException ex) {
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_btnInHoaDonActionPerformed
 
     /**
@@ -1207,7 +1227,6 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     private rojeru_san.complementos.RSButtonHover btnDangXuat;
     private rojeru_san.complementos.RSButtonHover btnInHoaDon;
     private rojeru_san.complementos.RSButtonHover btnThem;
-    private rojeru_san.complementos.RSButtonHover btnThem2;
     private rojeru_san.complementos.RSButtonHover btnTim;
     private javax.swing.JComboBox<String> cboLoaiThuoc;
     private javax.swing.JLabel jLabel1;
@@ -1215,6 +1234,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private rojerusan.RSFotoCircle lblAnhNV;
     private javax.swing.JLabel lblDSPhieuKham;
     private javax.swing.JLabel lblDanhMuc;
@@ -1230,6 +1250,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     private javax.swing.JLabel lblIconThuoc;
     private javax.swing.JLabel lblMaPhieuKham;
     private javax.swing.JLabel lblPhieuKham;
+    private javax.swing.JLabel lblPhieuKham1;
     private javax.swing.JLabel lblQuanLyBacSi;
     private javax.swing.JLabel lblQuanLyBenhNhan;
     private javax.swing.JLabel lblQuanLyHoaDon;
@@ -1262,6 +1283,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     private rojeru_san.complementos.RSTableMetro tblDSPhieuKham;
     private rojeru_san.complementos.RSTableMetro tblDSThuoc;
     private rojeru_san.complementos.RSTableMetro tblHoaDon;
+    private javax.swing.JTextArea txaKetLuanBenhBS;
     private javax.swing.JTextField txtTimKiemDichVu;
     private javax.swing.JLabel txtTimKiemTenThuoc;
     private javax.swing.JTextField txtTimKiemThuoc;
@@ -1420,25 +1442,33 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     }
 
     private void getFormThuoc() {
-        String thuoc=null;
+        String thuoc = null;
         this.row = tblDSThuoc.getSelectedRow();
         String mathuoc = tblDSThuoc.getValueAt(row, 0).toString();
         Thuoc tth = thdao.SelectByID(mathuoc);
-       
+        for (int i = 0; i < tblHoaDon.getRowCount(); i++) {
+            String thuocchon = tblHoaDon.getValueAt(i, 0).toString();
+            if (mathuoc.equals(thuocchon)) {
+                JOptionPane.showMessageDialog(this, "Thuốc này đã được chọn, Vui lòng nhập thêm số lượng!!");
+                return;
+            }
+        }
         DefaultTableModel model = (DefaultTableModel) tblHoaDon.getModel();
         model.addRow(new Object[]{
-            tth.getMaThuoc(), tth.getTenthuoc(), tth.getDonvitinh() 
+            tth.getMaThuoc(), tth.getTenthuoc(), tth.getDonvitinh()
         });
-        tblHoaDon.setValueAt("1", tblHoaDon.getRowCount()-1, 3);
-        tblHoaDon.setValueAt("", tblHoaDon.getRowCount()-1, 4);
+        tblHoaDon.setValueAt("1", tblHoaDon.getRowCount() - 1, 3);
+        tblHoaDon.setValueAt("", tblHoaDon.getRowCount() - 1, 4);
         model.fireTableDataChanged();
-        
+
     }
 
     private void getFormPhieuKham() {
         this.row = tblDSPhieuKham.getSelectedRow();
         int maphieukham = (int) tblDSPhieuKham.getValueAt(row, 0);
-        lblMaPhieuKham.setText(String.valueOf(maphieukham));
+        PhieuKham pk = pkdao.SelectByID(maphieukham);
+        lblMaPhieuKham.setText(String.valueOf(pk.getMaphieukham()));
+        txaKetLuanBenhBS.setText(pk.getKetluan());
 
         String mabenhnhan = (String) tblDSPhieuKham.getValueAt(row, 3);
         BenhNhan bn = bndao.SelectByID(mabenhnhan);
@@ -1488,6 +1518,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
             model.setRowCount(0);
             lblMaPhieuKham.setText("");
             lblTenBenhNhan.setText("");
+            txaKetLuanBenhBS.setText("");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1500,7 +1531,140 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
             model.removeRow(i);
         }
     }
-    
-    
+    //Xuất Bill
+    public PageFormat getPageFormat(PrinterJob pj) {
 
+        PageFormat pf = pj.defaultPage();
+        Paper paper = pf.getPaper();
+
+        double middleHeight = 8.0;
+        double headerHeight = 2.0;
+        double footerHeight = 2.0;
+        double width = convert_CM_To_PPI(8);      //printer know only point per inch.default value is 72ppi
+        double height = convert_CM_To_PPI(headerHeight + middleHeight + footerHeight);
+        paper.setSize(width, height);
+        paper.setImageableArea(
+                0,
+                10,
+                width,
+                height - convert_CM_To_PPI(1)
+        );   //define boarder size    after that print area width is about 180 points
+
+        pf.setOrientation(PageFormat.PORTRAIT);           //select orientation portrait or landscape but for this time portrait
+        pf.setPaper(paper);
+
+        return pf;
+    }
+
+    protected static double convert_CM_To_PPI(double cm) {
+        return toPPI(cm * 0.393600787);
+    }
+
+    protected static double toPPI(double inch) {
+        return inch * 72d;
+    }
+
+    public class BillPrintable implements Printable {
+
+        public int print(Graphics graphics, PageFormat pageFormat, int pageIndex)
+                throws PrinterException {
+
+            int result = NO_SUCH_PAGE;
+            if (pageIndex == 0) {
+
+                Graphics2D g2d = (Graphics2D) graphics;
+
+                double width = pageFormat.getImageableWidth();
+
+                g2d.translate((int) pageFormat.getImageableX(), (int) pageFormat.getImageableY());
+
+                ////////// code by alqama//////////////
+                FontMetrics metrics = g2d.getFontMetrics(new Font("Arial", Font.BOLD, 7));
+                //    int idLength=metrics.stringWidth("000000");
+                //int idLength=metrics.stringWidth("00");
+                int idLength = metrics.stringWidth("000");
+                int amtLength = metrics.stringWidth("000000");
+                int qtyLength = metrics.stringWidth("00000");
+                int priceLength = metrics.stringWidth("000000");
+                int prodLength = (int) width - idLength - amtLength - qtyLength - priceLength - 17;
+
+              
+                int productPosition = 0;
+                int discountPosition = prodLength + 5;
+                int pricePosition = discountPosition + idLength + 10;
+                int qtyPosition = pricePosition + priceLength + 4;
+                int amtPosition = qtyPosition + qtyLength;
+
+                try {
+                    /*Draw Header*/
+                    int y = 20;
+                    int yShift = 10;
+                    int headerRectHeight = 15;
+                    int headerRectHeighta = 40;
+
+                    
+                    ArrayList<ToaThuoc> list = new ArrayList<>();
+                    for (int i = 0; i < tblHoaDon.getRowCount(); i++) {
+                        String tenthuoc = tblHoaDon.getValueAt(i, 1).toString();
+                        String soluong = (String) tblHoaDon.getValueAt(i, 3);
+                        String cachdung = (String) tblHoaDon.getValueAt(i, 4);
+                        int soluongep = Integer.parseInt(soluong);
+                        list.add(new ToaThuoc(tenthuoc, soluongep, cachdung));
+                    }
+                    
+                    g2d.setFont(new Font("Monospaced", Font.BOLD, 9));
+                    g2d.drawString("------------------------------------------", 12, y);
+                    y += yShift;
+                    g2d.drawString("             TOA THUỐC           ", 12, y);
+                    y += yShift;
+                    g2d.drawString("                 Ngày: "+lblDay.getText()+"", 12, y);
+                    y += yShift;
+                    g2d.drawString("                 Tên BN: "+lblTenBenhNhan.getText()+"", 12, y);
+                    y += yShift;
+                    g2d.drawString("------------------------------------------", 12, y);
+                    y += headerRectHeight;
+
+                    g2d.drawString("------------------------------------------", 10, y);
+                    y += yShift;
+                    g2d.drawString(" Tên Thuốc                     Số Lượng   ", 10, y);
+                    y += yShift;
+                    g2d.drawString("------------------------------------------", 10, y);
+                    y += headerRectHeight;
+
+                    for (ToaThuoc tt : list) {
+                        g2d.drawString(" " + tt.getTenthuoc() + "              " + tt.getSoluong() + "  ", 10, y);
+                        y += yShift;
+                        g2d.drawString("     Cách dùng: "+tt.getCachdung()+"  ", 10, y);
+                        y += yShift;
+                        g2d.drawString("----------------------------------------", 10, y);
+                        y += yShift;
+                    }
+                    
+                    g2d.drawString("-------------------------------------------", 10, y);
+                    y += yShift;
+
+                    g2d.drawString("-------------------------------------------", 10, y);
+                    y += yShift;
+                    g2d.drawString("          Free Home Delivery         ", 10, y);
+                    y += yShift;
+                    g2d.drawString("             0345565634             ", 10, y);
+                    y += yShift;
+                    g2d.drawString("****************************************", 10, y);
+                    y += yShift;
+                    g2d.drawString("    THANKS TO VISIT OUR CLINIC   ", 10, y);
+                    y += yShift;
+                    g2d.drawString("****************************************", 10, y);
+                    y += yShift;
+
+//            g2d.setFont(new Font("Monospaced",Font.BOLD,10));
+//            g2d.drawString("Customer Shopping Invoice", 30,y);y+=yShift; 
+                } catch (Exception r) {
+                    r.printStackTrace();
+                }
+
+                result = PAGE_EXISTS;
+            }
+            return result;
+        }
+    }
 }
