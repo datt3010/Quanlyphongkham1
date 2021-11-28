@@ -12,13 +12,27 @@ import com.QuanLyPhongKham.DAO.loaithuocDAO;
 import com.QuanLyPhongKham.Model.DichVu;
 import com.QuanLyPhongKham.Model.HoaDon;
 import com.QuanLyPhongKham.Model.LoaiThuoc;
+import com.QuanLyPhongKham.Model.ToaThuoc;
+import static com.QuanLyPhongKham.UI.QuanLyToaThuoc.convert_CM_To_PPI;
 import com.QuanLyPhongKham.Utilities.MsgBox;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.print.PageFormat;
+import java.awt.print.Paper;
+import java.awt.print.Printable;
+import static java.awt.print.Printable.NO_SUCH_PAGE;
+import static java.awt.print.Printable.PAGE_EXISTS;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.sql.ResultSet;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Vector;
@@ -830,6 +844,11 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         pnlRight.add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 730, 90, -1));
 
         btnInHoaDon.setText("IN HOÁ ĐƠN");
+        btnInHoaDon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInHoaDonActionPerformed(evt);
+            }
+        });
         pnlRight.add(btnInHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 730, 130, -1));
 
         btnDanhSachHoaDon.setText("DANH SÁCH HOÁ ĐƠN");
@@ -1185,6 +1204,24 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         new QuanLyDanhSachHoaDon().setVisible(true);
     }//GEN-LAST:event_btnDanhSachHoaDonActionPerformed
 
+    private void btnInHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInHoaDonActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tblHoaDon.getModel();
+        PrinterJob pj = PrinterJob.getPrinterJob();
+        pj.setPrintable(new BillPrintable(), getPageFormat(pj));
+        try {
+            pj.print();
+            model.setRowCount(0);
+            lblMaPhieu.setText("");
+            lblHoVaTen.setText("");
+            lblTien.setText("");
+            lblTongCong.setText("");
+            lblTienThua.setText("");
+            txtKhachTra.setText("0");
+        } catch (PrinterException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_btnInHoaDonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1433,7 +1470,8 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
     private void filltablePhieuDichVu() {
         String text = txtTimKiemThuoc.getText();
         String sql = "select a.maphieudichvu,b.tenbenhnhan,b.diachi\n"
-                + "from phieudichvu a inner join benhnhan b on a.mabenhnhan = b.mabenhnhan\n";
+                + "from phieudichvu a inner join benhnhan b on a.mabenhnhan = b.mabenhnhan\n"
+                +"where maphieudichvu not in (select maphieudichvu from chitietphieudichvu) and (tenbenhnhan like '%"+text+"%')";
         try {
             DefaultTableModel model = (DefaultTableModel) tblDSPhieu.getModel();
             model.setRowCount(0);
@@ -1490,7 +1528,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         float tientong = Float.parseFloat(lblTongCong.getText());
         String tienkhachtra = df.format(Float.parseFloat(txtKhachTra.getText()));
         float tru = Float.parseFloat(tienkhachtra) - tientong;
-        if (txtKhachTra.getText().equals("")) {
+        if (txtKhachTra.getText().equals("0")) {
             lblTienThua.setText("");
         } else {
             lblTienThua.setText(String.valueOf(df.format(tru * 1000)));
@@ -1509,14 +1547,11 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
                     String madichvu = tblHoaDon.getValueAt(i, 0).toString();
                     hd.setMaphieudichvu(Integer.parseInt(lblMaPhieu.getText()));
                     hd.setMadichvu(madichvu);
-                    hd.setDongia(Float.parseFloat(lblTien.getText())*1000);
+                    hd.setDongia(Float.parseFloat(lblTien.getText()) * 1000);
                     hddao.insert(hd);
                 }
                 MsgBox.alert(this, "Insert thành công!!");
-                model.setRowCount(0);
-                lblMaPhieu.setText("");
-                lblHoVaTen.setText("");
-                lblTien.setText("");
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -1531,5 +1566,141 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         }
         this.gettongtien();
     }
+    
+    public PageFormat getPageFormat(PrinterJob pj) {
 
+        PageFormat pf = pj.defaultPage();
+        Paper paper = pf.getPaper();
+
+        double middleHeight = 8.0;
+        double headerHeight = 2.0;
+        double footerHeight = 2.0;
+        double width = convert_CM_To_PPI(8);      //printer know only point per inch.default value is 72ppi
+        double height = convert_CM_To_PPI(headerHeight + middleHeight + footerHeight);
+        paper.setSize(width, height);
+        paper.setImageableArea(
+                0,
+                10,
+                width,
+                height - convert_CM_To_PPI(1)
+        );   //define boarder size    after that print area width is about 180 points
+
+        pf.setOrientation(PageFormat.PORTRAIT);           //select orientation portrait or landscape but for this time portrait
+        pf.setPaper(paper);
+
+        return pf;
+    }
+    protected static double convert_CM_To_PPI(double cm) {
+        return toPPI(cm * 0.393600787);
+    }
+
+    protected static double toPPI(double inch) {
+        return inch * 72d;
+    }
+
+    public class BillPrintable implements Printable {
+
+        public int print(Graphics graphics, PageFormat pageFormat, int pageIndex)
+                throws PrinterException {
+
+            int result = NO_SUCH_PAGE;
+            if (pageIndex == 0) {
+
+                Graphics2D g2d = (Graphics2D) graphics;
+
+                double width = pageFormat.getImageableWidth();
+
+                g2d.translate((int) pageFormat.getImageableX(), (int) pageFormat.getImageableY());
+
+                ////////// code by alqama//////////////
+                FontMetrics metrics = g2d.getFontMetrics(new Font("Arial", Font.BOLD, 7));
+                //    int idLength=metrics.stringWidth("000000");
+                //int idLength=metrics.stringWidth("00");
+                int idLength = metrics.stringWidth("000");
+                int amtLength = metrics.stringWidth("000000");
+                int qtyLength = metrics.stringWidth("00000");
+                int priceLength = metrics.stringWidth("000000");
+                int prodLength = (int) width - idLength - amtLength - qtyLength - priceLength - 17;
+
+                int productPosition = 0;
+                int discountPosition = prodLength + 5;
+                int pricePosition = discountPosition + idLength + 10;
+                int qtyPosition = pricePosition + priceLength + 4;
+                int amtPosition = qtyPosition + qtyLength;
+
+                try {
+                    /*Draw Header*/
+                    int y = 20;
+                    int yShift = 10;
+                    int headerRectHeight = 15;
+                    int headerRectHeighta = 40;
+
+                    ArrayList<DichVu> list = new ArrayList<>();
+                    for (int i = 0; i < tblHoaDon.getRowCount(); i++) {
+                        String tendv = (String) tblHoaDon.getValueAt(i, 1);
+                        String tien = (String) tblHoaDon.getValueAt(i, 2);
+                        
+                        float soluongep = Float.parseFloat(tien);
+                        list.add(new DichVu(tendv, soluongep));
+                    }
+
+                    g2d.setFont(new Font("Monospaced", Font.BOLD, 9));
+                    g2d.drawString("------------------------------------------", 12, y);
+                    y += yShift;
+                    g2d.drawString("             HOÁ ĐƠN THANH TOÁN           ", 12, y);
+                    y += yShift;
+                    g2d.drawString("                 Ngày: " + lblDay.getText() + "", 12, y);
+                    y += yShift;
+                    g2d.drawString("                 Tên BN: " + lblHoVaTen.getText() + "", 12, y);
+                    y += yShift;
+                    g2d.drawString("------------------------------------------", 12, y);
+                    y += headerRectHeight;
+
+                    g2d.drawString("------------------------------------------", 10, y);
+                    y += yShift;
+                    g2d.drawString(" Tên Dịch Vụ                 Đơn Giá   ", 10, y);
+                    y += yShift;
+                    g2d.drawString("------------------------------------------", 10, y);
+                    y += headerRectHeight;
+
+                    for (DichVu tt : list) {
+                        g2d.drawString(" " + tt.getTendichvu() + "                   " + tt.getGiatien()+ "  ", 10, y);
+                        y += yShift;
+                        g2d.drawString("----------------------------------------", 10, y);
+                        y += yShift;
+                    }
+                    g2d.drawString("                 Tổng tiền :  "+lblTien.getText()+"", 10, y);
+                    y += yShift;
+                    g2d.drawString("-------------------------------------------", 10, y);
+                    y += yShift;
+                    g2d.drawString("             Tiền Khách Trả : "+txtKhachTra.getText()+"", 10, y);
+                    y += yShift;
+                    g2d.drawString("-------------------------------------------", 10, y);
+                    y += yShift;
+                    g2d.drawString("                Tiền Thừa : "+lblTienThua.getText()+"", 10, y);
+                    y += yShift;
+                    g2d.drawString("-------------------------------------------", 10, y);
+                    y += yShift;
+                    g2d.drawString("          PHÒNG KHÁM AN NHIÊN         ", 10, y);
+                    y += yShift;
+                    g2d.drawString("             0345565634             ", 10, y);
+                    y += yShift;
+                    g2d.drawString("****************************************", 10, y);
+                    y += yShift;
+                    g2d.drawString("    CẢM ƠN BẠN ĐÃ ỦNG HỘ CHÚNG TÔI   ", 10, y);
+                    y += yShift;
+                    g2d.drawString("****************************************", 10, y);
+                    y += yShift;
+
+//            g2d.setFont(new Font("Monospaced",Font.BOLD,10));
+//            g2d.drawString("Customer Shopping Invoice", 30,y);y+=yShift; 
+                } catch (Exception r) {
+                    r.printStackTrace();
+                }
+
+                result = PAGE_EXISTS;
+            }
+            return result;
+        }
+    }
 }

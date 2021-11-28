@@ -117,6 +117,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtMaNhanVien = new javax.swing.JTextField();
         btnhinh = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ NHÂN VIÊN");
@@ -529,8 +530,8 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Địa chỉ");
-        pnlRight.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 90, 30));
+        jLabel2.setText("Địa chỉ:");
+        pnlRight.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 90, 30));
 
         txtTimKiem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -554,25 +555,25 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Tên Nhân Viên");
-        pnlRight.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 130, 30));
+        jLabel3.setText("Tên Nhân Viên:");
+        pnlRight.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 130, 30));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Ngày sinh");
-        pnlRight.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 110, 120, 40));
+        jLabel4.setText("Ngày sinh:");
+        pnlRight.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, 120, 40));
         pnlRight.add(txtSoDienThoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 60, 220, 34));
         pnlRight.add(jdatengaysinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 110, 224, 34));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Số điện thoại");
+        jLabel5.setText("Số điện thoại:");
         pnlRight.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 60, 120, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Giới tính");
-        pnlRight.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 90, 30));
+        jLabel6.setText("Giới tính:");
+        pnlRight.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 90, 30));
 
         txtDiaChi.setColumns(20);
         txtDiaChi.setRows(5);
@@ -621,7 +622,8 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         jLabel9.setText("Search");
         pnlRight.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 120, 30));
 
-        btnNext.setText("Next");
+        btnNext.setBackground(new java.awt.Color(51, 153, 255));
+        btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_fast_forward_32px.png"))); // NOI18N
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
@@ -629,6 +631,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         });
         pnlRight.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, 90, 30));
 
+        btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/add_25px.png"))); // NOI18N
         btnThem.setText("Add");
         btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -637,6 +640,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         });
         pnlRight.add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 430, 90, 30));
 
+        btnNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/update_25px.png"))); // NOI18N
         btnNew.setText("New");
         btnNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -645,23 +649,26 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         });
         pnlRight.add(btnNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 430, 90, 30));
 
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/update_ftp_20px.png"))); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
-        pnlRight.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 430, 90, 30));
+        pnlRight.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 430, 100, 30));
 
+        btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/delete_25px.png"))); // NOI18N
         btnXoa.setText("Delete");
         btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnXoaActionPerformed(evt);
             }
         });
-        pnlRight.add(btnXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 430, 90, 30));
+        pnlRight.add(btnXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 430, 100, 30));
 
-        btnFirst.setText("First");
+        btnFirst.setBackground(new java.awt.Color(51, 153, 255));
+        btnFirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_skip_to_start_32px_1.png"))); // NOI18N
         btnFirst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFirstActionPerformed(evt);
@@ -669,7 +676,8 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         });
         pnlRight.add(btnFirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, 90, 30));
 
-        btnPrevious.setText("Previous");
+        btnPrevious.setBackground(new java.awt.Color(51, 153, 255));
+        btnPrevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_rewind_32px.png"))); // NOI18N
         btnPrevious.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPreviousActionPerformed(evt);
@@ -677,7 +685,8 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         });
         pnlRight.add(btnPrevious, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, 90, 30));
 
-        btnEnd.setText("End");
+        btnEnd.setBackground(new java.awt.Color(51, 153, 255));
+        btnEnd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_end_32px_1.png"))); // NOI18N
         btnEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEndActionPerformed(evt);
@@ -689,8 +698,8 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         pnlRight.add(lblhinhdaidien, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 190, 210));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel11.setText("Chức Vụ");
-        pnlRight.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 170, -1, -1));
+        jLabel11.setText("Chức Vụ:");
+        pnlRight.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 170, -1, -1));
 
         cboChucVu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nhân Viên", "Quản Lý", " ", " " }));
         cboChucVu.addActionListener(new java.awt.event.ActionListener() {
@@ -701,13 +710,13 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         pnlRight.add(cboChucVu, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 160, 220, 40));
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel12.setText("Mật Khẩu");
-        pnlRight.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, -1, -1));
+        jLabel12.setText("Mật Khẩu:");
+        pnlRight.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, -1, -1));
         pnlRight.add(txtMatKhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 220, 30));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel8.setText("Mã Nhân Viên");
-        pnlRight.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, -1, -1));
+        jLabel8.setText("Mã Nhân Viên:");
+        pnlRight.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, -1, -1));
 
         txtMaNhanVien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -723,6 +732,11 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
             }
         });
         pnlRight.add(btnhinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel7.setText("Quản Lý Nhân Viên");
+        pnlRight.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 220, 40));
 
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 
@@ -1012,12 +1026,12 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
     private void tablenhanvienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablenhanvienMouseClicked
         // TODO add your handling code here:
-           if(evt.getClickCount()==2){
-               this.row=tablenhanvien.rowAtPoint(evt.getPoint());
-               if(this.row>=0){
-                   edit();
-               }
-           }
+               if (evt.getClickCount() == 2) {
+            this.index = tablenhanvien.rowAtPoint(evt.getPoint());
+            if (this.index >= 0) {
+                this.edit();
+            }
+        }
     }//GEN-LAST:event_tablenhanvienMouseClicked
 
     private void txtTimKiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyReleased
@@ -1041,39 +1055,37 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
 
     private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
         // TODO add your handling code here:
-        row = tablenhanvien.getSelectedRow();
-        if(row>0){
+      row= tablenhanvien.getSelectedRow();
+        if (row > 0) {
             tablenhanvien.setRowSelectionInterval(0, 0);
-            this.edit();
+            index = 0;
+            edit();
         }
     }//GEN-LAST:event_btnFirstActionPerformed
 
     private void btnPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousActionPerformed
         // TODO add your handling code here:
-        row = tablenhanvien.getSelectedRow();
-        if(row>=0){
-            tablenhanvien.setRowSelectionInterval(--row, row);
-            this.edit();
+         if (index > 0) {
+            index--;
+            edit();
+            tablenhanvien.setRowSelectionInterval(index, index);
         }
     }//GEN-LAST:event_btnPreviousActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
-        row = tablenhanvien.getSelectedRow();
-        if(row>=0){
-            tablenhanvien.setRowSelectionInterval(++row, row);
-            this.edit();
+        if (index < tablenhanvien.getRowCount() - 1) {
+            index++;
+            edit();
+            tablenhanvien.setRowSelectionInterval(index, index);
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEndActionPerformed
         // TODO add your handling code here:
-        row = tablenhanvien.getSelectedRow();
-        if(row>=0){
-            row = tablenhanvien.getRowCount()-1;
-            tablenhanvien.setRowSelectionInterval(row, row);
-            this.edit();
-        }
+        index = tablenhanvien.getRowCount() - 1;
+        tablenhanvien.setRowSelectionInterval(index, index);
+        edit();
     }//GEN-LAST:event_btnEndActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -1096,6 +1108,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         this.clearForm();
     }//GEN-LAST:event_btnNewActionPerformed
     int row = -1;
+    int row1; 
     /**
      * @param args the command line arguments
      */
@@ -1213,6 +1226,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1360,7 +1374,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     
     void edit (){
             try { 
-                String manhanvien = (String) tablenhanvien.getValueAt(this.row,0);
+                String manhanvien = (String) tablenhanvien.getValueAt(this.index,0);
                 NhanVien model = daonv.SelectByID(manhanvien);
                 if (model != null){
                     this.setmodel(model);
