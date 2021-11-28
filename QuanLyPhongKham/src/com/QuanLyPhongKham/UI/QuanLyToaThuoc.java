@@ -138,6 +138,8 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         btnThem = new rojeru_san.complementos.RSButtonHover();
         lblMaPhieuKham = new javax.swing.JLabel();
         lblTenBenhNhan = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblNgayTaiKham = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ HOÁ ĐƠN\n");
@@ -812,6 +814,14 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         lblTenBenhNhan.setForeground(new java.awt.Color(255, 0, 0));
         pnlRight.add(lblTenBenhNhan, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 40, 220, 30));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel3.setText("Ngày Tái Khám: ");
+        pnlRight.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 610, -1, -1));
+
+        lblNgayTaiKham.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblNgayTaiKham.setForeground(new java.awt.Color(255, 0, 51));
+        pnlRight.add(lblNgayTaiKham, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 610, 160, 20));
+
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1138,6 +1148,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         this.insert();
+        
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnDSToaThuocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDSToaThuocActionPerformed
@@ -1146,11 +1157,16 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDSToaThuocActionPerformed
 
     private void btnInHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInHoaDonActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tblHoaDon.getModel();
         PrinterJob pj = PrinterJob.getPrinterJob();
         pj.setPrintable(new BillPrintable(), getPageFormat(pj));
         try {
             pj.print();
-
+            model.setRowCount(0);
+            lblMaPhieuKham.setText("");
+            lblTenBenhNhan.setText("");
+            txaKetLuanBenhBS.setText("");
+            lblNgayTaiKham.setText("");
         } catch (PrinterException ex) {
             ex.printStackTrace();
         }
@@ -1231,6 +1247,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cboLoaiThuoc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1249,6 +1266,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     private javax.swing.JLabel lblIconThongKe;
     private javax.swing.JLabel lblIconThuoc;
     private javax.swing.JLabel lblMaPhieuKham;
+    private javax.swing.JLabel lblNgayTaiKham;
     private javax.swing.JLabel lblPhieuKham;
     private javax.swing.JLabel lblPhieuKham1;
     private javax.swing.JLabel lblQuanLyBacSi;
@@ -1469,7 +1487,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         PhieuKham pk = pkdao.SelectByID(maphieukham);
         lblMaPhieuKham.setText(String.valueOf(pk.getMaphieukham()));
         txaKetLuanBenhBS.setText(pk.getKetluan());
-
+        lblNgayTaiKham.setText(XDate.toString(pk.getNgaytaikham(),"dd/MM/yyyy"));
         String mabenhnhan = (String) tblDSPhieuKham.getValueAt(row, 3);
         BenhNhan bn = bndao.SelectByID(mabenhnhan);
         lblTenBenhNhan.setText(bn.getTenbenhnhan());
@@ -1515,10 +1533,8 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
                 ttdao.insert(tt);
             }
             MsgBox.alert(this, "Insert thành công!!");
-            model.setRowCount(0);
-            lblMaPhieuKham.setText("");
-            lblTenBenhNhan.setText("");
-            txaKetLuanBenhBS.setText("");
+            this.fillPhieuKham();
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1571,7 +1587,6 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
 
             int result = NO_SUCH_PAGE;
             if (pageIndex == 0) {
-
                 Graphics2D g2d = (Graphics2D) graphics;
 
                 double width = pageFormat.getImageableWidth();
@@ -1617,9 +1632,13 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
                     y += yShift;
                     g2d.drawString("             TOA THUỐC           ", 12, y);
                     y += yShift;
-                    g2d.drawString("                 Ngày: "+lblDay.getText()+"", 12, y);
+                    g2d.drawString("                    Ngày: "+lblDay.getText()+"", 12, y);
                     y += yShift;
-                    g2d.drawString("                 Tên BN: "+lblTenBenhNhan.getText()+"", 12, y);
+                    g2d.drawString("                  Tên BN: "+lblTenBenhNhan.getText()+"", 12, y);
+                    y += yShift;
+                    g2d.drawString("             Ngày Tái Khám:"+lblNgayTaiKham.getText()+"", 12, y);
+                    y += yShift;
+                    g2d.drawString("  Chuẩn đoán Bệnh : "+txaKetLuanBenhBS.getText()+"", 12, y);
                     y += yShift;
                     g2d.drawString("------------------------------------------", 12, y);
                     y += headerRectHeight;
@@ -1639,19 +1658,16 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
                         g2d.drawString("----------------------------------------", 10, y);
                         y += yShift;
                     }
-                    
+                   
                     g2d.drawString("-------------------------------------------", 10, y);
                     y += yShift;
-
-                    g2d.drawString("-------------------------------------------", 10, y);
-                    y += yShift;
-                    g2d.drawString("          Free Home Delivery         ", 10, y);
+                    g2d.drawString("          PHÒNG KHÁM AN NHIÊN         ", 10, y);
                     y += yShift;
                     g2d.drawString("             0345565634             ", 10, y);
                     y += yShift;
                     g2d.drawString("****************************************", 10, y);
                     y += yShift;
-                    g2d.drawString("    THANKS TO VISIT OUR CLINIC   ", 10, y);
+                    g2d.drawString("    CẢM ƠN BẠN ĐÃ ỦNG HỘ CHÚNG TÔI   ", 10, y);
                     y += yShift;
                     g2d.drawString("****************************************", 10, y);
                     y += yShift;
