@@ -102,14 +102,14 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         tblBacSi = new rojeru_san.complementos.RSTableMetro();
         jButton2 = new javax.swing.JButton();
         txtDienThoai = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnnext = new javax.swing.JButton();
         btnThem = new javax.swing.JButton();
         btnMoi = new javax.swing.JButton();
         btnCapNhat = new javax.swing.JButton();
         btnXoa = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        btnfirst = new javax.swing.JButton();
+        btnprev = new javax.swing.JButton();
+        btnlast = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtTimKiem = new javax.swing.JTextField();
@@ -614,14 +614,14 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         });
         pnlRight.add(txtDienThoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 110, 220, 34));
 
-        jButton1.setBackground(new java.awt.Color(51, 153, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_fast_forward_32px.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnnext.setBackground(new java.awt.Color(51, 153, 255));
+        btnnext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_fast_forward_32px.png"))); // NOI18N
+        btnnext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnnextActionPerformed(evt);
             }
         });
-        pnlRight.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 90, 30));
+        pnlRight.add(btnnext, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 90, 30));
 
         btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/add_25px.png"))); // NOI18N
         btnThem.addActionListener(new java.awt.event.ActionListener() {
@@ -631,7 +631,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         });
         pnlRight.add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, 90, 30));
 
-        btnMoi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/save_25px.png"))); // NOI18N
+        btnMoi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/new_ticket_25px.png"))); // NOI18N
         btnMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMoiActionPerformed(evt);
@@ -655,32 +655,32 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         });
         pnlRight.add(btnXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 320, 90, 30));
 
-        jButton7.setBackground(new java.awt.Color(51, 153, 255));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_skip_to_start_32px_1.png"))); // NOI18N
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btnfirst.setBackground(new java.awt.Color(51, 153, 255));
+        btnfirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_skip_to_start_32px_1.png"))); // NOI18N
+        btnfirst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btnfirstActionPerformed(evt);
             }
         });
-        pnlRight.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 90, 30));
+        pnlRight.add(btnfirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 90, 30));
 
-        jButton8.setBackground(new java.awt.Color(51, 153, 255));
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_rewind_32px.png"))); // NOI18N
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        btnprev.setBackground(new java.awt.Color(51, 153, 255));
+        btnprev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_rewind_32px.png"))); // NOI18N
+        btnprev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                btnprevActionPerformed(evt);
             }
         });
-        pnlRight.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 90, 30));
+        pnlRight.add(btnprev, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 90, 30));
 
-        jButton9.setBackground(new java.awt.Color(51, 153, 255));
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_end_32px_1.png"))); // NOI18N
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        btnlast.setBackground(new java.awt.Color(51, 153, 255));
+        btnlast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_end_32px_1.png"))); // NOI18N
+        btnlast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                btnlastActionPerformed(evt);
             }
         });
-        pnlRight.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 90, 30));
+        pnlRight.add(btnlast, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 90, 30));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 102, 102));
@@ -1061,16 +1061,24 @@ public class QuanLyBacSi extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
+        if(!validates()){
+             return;
+        }
         this.insert();
+       
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
         // TODO add your handling code here:
         this.clearForm();
+        txtMaBacSi.setEnabled(true);
     }//GEN-LAST:event_btnMoiActionPerformed
 
     private void btnCapNhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapNhatActionPerformed
         // TODO add your handling code here:
+        if (!validates()) {
+            return;
+        }
         this.update();
     }//GEN-LAST:event_btnCapNhatActionPerformed
 
@@ -1084,18 +1092,25 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         if(evt.getClickCount() == 2){
             this.row = tblBacSi.getSelectedRow();
             this.edit();
+            
         }
     }//GEN-LAST:event_tblBacSiMouseClicked
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void btnfirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfirstActionPerformed
         // TODO add your handling code here:
-        row = tblBacSi.getSelectedRow();
-        if(row>0){
+        
+
+        if (row > 0) {
             tblBacSi.setRowSelectionInterval(0, 0);
-            
-            
+            row = tblBacSi.getSelectedRow();
+            this.edit();
+
+            btnfirst.setEnabled(false);
+            btnlast.setEnabled(true);
+            btnprev.setEnabled(false);
+            btnnext.setEnabled(true);
         }
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_btnfirstActionPerformed
 
     private void txtTimKiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyReleased
         // TODO add your handling code here:
@@ -1111,34 +1126,48 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         this.hinh();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void btnprevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnprevActionPerformed
         // TODO add your handling code here:
-        row = tblBacSi.getSelectedRow();
+        
+        btnfirst.setEnabled(true);
+        btnlast.setEnabled(true);
+        btnnext.setEnabled(true);
         if (row >= 0) {
             tblBacSi.setRowSelectionInterval(--row, row);
+            row = tblBacSi.getSelectedRow();
             this.edit();
         }
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_btnprevActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnnextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnextActionPerformed
         // TODO add your handling code here:
-        row = tblBacSi.getSelectedRow();
+        
+        btnfirst.setEnabled(true);
+        btnlast.setEnabled(true);
+        btnprev.setEnabled(true);
         if (row >= 0) {
             tblBacSi.setRowSelectionInterval(++row, row);
+            row = tblBacSi.getSelectedRow();
             this.edit();
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnnextActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void btnlastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlastActionPerformed
         // TODO add your handling code here:
-        row = tblBacSi.getSelectedRow();
+        
+        
         if (row >= 0) {
             row = tblBacSi.getRowCount()-1;
             tblBacSi.setRowSelectionInterval(row, row);
+            row = tblBacSi.getSelectedRow();
             this.edit();
+            btnlast.setEnabled(false);
+            btnnext.setEnabled(false);
+            btnfirst.setEnabled(true);
+            btnprev.setEnabled(true);
         }
     
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_btnlastActionPerformed
 
     private void tblBacSiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblBacSiKeyReleased
         // TODO add your handling code here:
@@ -1196,13 +1225,13 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnTimKiem;
     private javax.swing.JButton btnXoa;
+    private javax.swing.JButton btnfirst;
+    private javax.swing.JButton btnlast;
+    private javax.swing.JButton btnnext;
+    private javax.swing.JButton btnprev;
     private javax.swing.JComboBox<String> cboGioiTinh;
     private javax.swing.JComboBox<String> cbochuyennganh;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1267,6 +1296,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         fillcbochuyennganh();
         filltable1();
         lblAnhBS.setToolTipText("");
+        
     }
     
     //Hover màu
@@ -1425,6 +1455,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         }
     }
     public void update(){
+        
         try{
             BacSi bs = getform();
             bsDao.update(bs);
@@ -1471,10 +1502,46 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         String mabacsi = (String) tblBacSi.getValueAt(row, 0);
         BacSi bs = bsDao.SelectByID(mabacsi);
         this.setform(bs);
+        updateStatus();
     }
     private void clearForm() {
         BacSi bs = new BacSi();
         this.setform(bs);
         
     }
+    public void updateStatus(){
+        txtMaBacSi.setEnabled(false);
+       
+    }
+     boolean validates() {
+         
+        if (txtMaBacSi.getText().matches("^\\w+$") == false) {
+            JOptionPane.showMessageDialog(this, "Mã bác sĩ không được để trống ", "Chú ý", 1);
+            txtMaBacSi.requestFocus();
+            return false;
+        }
+        if (txtEmail.getText().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$") == false) {
+            JOptionPane.showMessageDialog(this, "Email không hợp lệ ", "Chú ý", 1);
+            txtEmail.requestFocus();
+            return false;
+        }
+        if (txtpass.getText().matches("^\\w+$") == false) {
+            JOptionPane.showMessageDialog(this, "Mật khẩu không hợp lệ ", "Chú ý", 1);
+            txtpass.requestFocus();
+            return false;
+        }
+        if (txtTenBacSi.getText().matches("^\\w+$") == true) {
+            JOptionPane.showMessageDialog(this, "Tên bác sĩ không hợp lệ ", "Chú ý", 1);
+            txtTenBacSi.requestFocus();
+            return false;
+        }
+        if (txtDienThoai.getText().matches("^\\d{7,11}$") == false) {
+            JOptionPane.showMessageDialog(this, "Số điện thoại không hợp lệ ", "Chú ý", 1);
+            txtDienThoai.requestFocus();
+            return false;
+        }
+        
+        return true;
+      }
+    
 }

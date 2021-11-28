@@ -1013,8 +1013,8 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     private void tablenhanvienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablenhanvienMouseClicked
         // TODO add your handling code here:
            if(evt.getClickCount()==2){
-               this.index=tablenhanvien.rowAtPoint(evt.getPoint());
-               if(this.index>=0){
+               this.row=tablenhanvien.rowAtPoint(evt.getPoint());
+               if(this.row>=0){
                    edit();
                }
            }
@@ -1360,7 +1360,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     
     void edit (){
             try { 
-                String manhanvien = (String) tablenhanvien.getValueAt(this.index,0);
+                String manhanvien = (String) tablenhanvien.getValueAt(this.row,0);
                 NhanVien model = daonv.SelectByID(manhanvien);
                 if (model != null){
                     this.setmodel(model);
