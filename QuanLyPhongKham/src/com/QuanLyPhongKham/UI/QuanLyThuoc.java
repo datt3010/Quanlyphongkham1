@@ -534,7 +534,7 @@ public class QuanLyThuoc extends javax.swing.JFrame {
         txtMaThuoc.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtMaThuoc.setForeground(new java.awt.Color(255, 0, 0));
         txtMaThuoc.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        pnlRight.add(txtMaThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 239, 28));
+        pnlRight.add(txtMaThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 60, 240, 28));
 
         lblTenThuoc.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblTenThuoc.setText("Tên Thuốc :");
