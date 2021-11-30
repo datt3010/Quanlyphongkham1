@@ -1064,6 +1064,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         if(!validates()){
              return;
         }
+        
         this.insert();
        
     }//GEN-LAST:event_btnThemActionPerformed
@@ -1071,6 +1072,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
         // TODO add your handling code here:
         this.clearForm();
+        txtpass.setEnabled(true);
         txtMaBacSi.setEnabled(true);
     }//GEN-LAST:event_btnMoiActionPerformed
 
@@ -1392,22 +1394,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-//    public void filltable(){
-//        DefaultTableModel model = (DefaultTableModel) tblBacSi.getModel();
-//        model.setRowCount(0);
-//        try{
-//            
-//            List<BacSi> list = bsDao.SelectAll();
-//            for(BacSi bs : list){
-//                model.addRow(new Object[]{
-//                bs.getMabacsy(),bs.getTenbacsy(),bs.getGioitinh(),bs.getDienthoai(),bs.getEmail(),XDate.toString(bs.getNgaysinh(), "dd/MM/yyyy"),bs.getMachuyennganh()
-//            });
-//            }
-////        model.fireTableChanged();
-//        }catch(Exception e){
-//            e.printStackTrace();
-//        }
-//    }
     public void fillcbochuyennganh(){
         DefaultComboBoxModel model = (DefaultComboBoxModel) cbochuyennganh.getModel();
         model.removeAllElements();
@@ -1511,6 +1497,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     }
     public void updateStatus(){
         txtMaBacSi.setEnabled(false);
+        txtpass.setEnabled(false);
        
     }
      boolean validates() {
