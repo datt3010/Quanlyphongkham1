@@ -20,6 +20,11 @@ public class DichVu {
         this.giatien = giatien;
     }
 
+    public DichVu(String tendichvu, float giatien) {
+        this.tendichvu = tendichvu;
+        this.giatien = giatien;
+    }
+    
     public DichVu() {
     }
 

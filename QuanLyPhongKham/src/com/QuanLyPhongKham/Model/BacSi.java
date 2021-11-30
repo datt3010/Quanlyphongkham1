@@ -12,10 +12,27 @@ import java.util.Date;
  * @author OS
  */
 public class BacSi {
-
     private String mabacsy;
+    private String matkhau;
     private String tenbacsy;
     private String gioitinh;
+    private String dienthoai;
+    private String email;
+    private Date ngaysinh;
+    private String hinh;
+    private String machuyennganh;
+
+    public BacSi(String mabacsy, String matkhau ,String tenbacsy, String gioitinh, String dienthoai, String email, Date ngaysinh, String hinh, String machuyennganh) {
+        this.mabacsy = mabacsy;
+        this.matkhau = matkhau;
+        this.tenbacsy = tenbacsy;
+        this.gioitinh = gioitinh;
+        this.dienthoai = dienthoai;
+        this.email = email;
+        this.ngaysinh = ngaysinh;
+        this.hinh = hinh;
+        this.machuyennganh = machuyennganh;
+    }
 
     public String getMatkhau() {
         return matkhau;
@@ -23,24 +40,6 @@ public class BacSi {
 
     public void setMatkhau(String matkhau) {
         this.matkhau = matkhau;
-    }
-    private String matkhau;
-    private String dienthoai;
-    private String email;
-    private Date ngaysinh;
-    private String hinh;
-    private String machuyennganh;
-
-    public BacSi(String mabacsy, String tenbacsy, String gioitinh, String dienthoai, String matkhau, String email, Date ngaysinh, String hinh, String machuyennganh) {
-        this.mabacsy = mabacsy;
-        this.tenbacsy = tenbacsy;
-        this.gioitinh = gioitinh;
-        this.matkhau = matkhau;
-        this.dienthoai = dienthoai;
-        this.email = email;
-        this.ngaysinh = ngaysinh;
-        this.hinh = hinh;
-        this.machuyennganh = machuyennganh;
     }
 
     public String getMabacsy() {
@@ -110,4 +109,6 @@ public class BacSi {
         this.machuyennganh = machuyennganh;
     }
 
+  
+    
 }

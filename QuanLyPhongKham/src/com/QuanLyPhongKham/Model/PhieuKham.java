@@ -18,13 +18,15 @@ public class PhieuKham {
     private String mabacsy;
     private String mabenhnhan;
     private String manhanvien;
+    private Date ngaytaikham;
     private String ketluan;
     
-    public PhieuKham(int maphieukham, String mabacsy, String mabenhnhan, String manhanvien, String ketluan) {
+    public PhieuKham(int maphieukham, String mabacsy, String mabenhnhan, String manhanvien,Date ngaytaikham, String ketluan) {
         this.maphieukham = maphieukham;
         this.mabacsy = mabacsy;
         this.mabenhnhan = mabenhnhan;
         this.manhanvien = manhanvien;
+        this.ngaytaikham = ngaytaikham;
         this.ketluan = ketluan;
     }
 
@@ -77,6 +79,14 @@ public class PhieuKham {
 
     public void setKetluan(String ketluan) {
         this.ketluan = ketluan;
+    }
+
+    public Date getNgaytaikham() {
+        return ngaytaikham;
+    }
+
+    public void setNgaytaikham(Date ngaytaikham) {
+        this.ngaytaikham = ngaytaikham;
     }
     
     

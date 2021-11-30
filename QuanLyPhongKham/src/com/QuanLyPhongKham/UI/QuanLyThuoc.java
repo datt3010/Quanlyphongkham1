@@ -16,15 +16,25 @@ import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  *
@@ -101,6 +111,7 @@ public class QuanLyThuoc extends javax.swing.JFrame {
         tblThuoc = new rojeru_san.complementos.RSTableMetro();
         txtSearch = new javax.swing.JTextField();
         btnFirst = new rojeru_san.complementos.RSButtonHover();
+        btnExcel = new rojeru_san.complementos.RSButtonHover();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ THUỐC\n\n\n");
@@ -523,7 +534,7 @@ public class QuanLyThuoc extends javax.swing.JFrame {
         txtMaThuoc.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtMaThuoc.setForeground(new java.awt.Color(255, 0, 0));
         txtMaThuoc.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        pnlRight.add(txtMaThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 59, 239, 28));
+        pnlRight.add(txtMaThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 60, 240, 28));
 
         lblTenThuoc.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblTenThuoc.setText("Tên Thuốc :");
@@ -582,7 +593,7 @@ public class QuanLyThuoc extends javax.swing.JFrame {
         pnlRight.add(btnMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 211, 87, -1));
 
         btnTim.setText("TÌM KIẾM");
-        pnlRight.add(btnTim, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 285, 110, 43));
+        pnlRight.add(btnTim, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 290, 110, 43));
 
         btnPrevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_skip_to_start_32px_1.png"))); // NOI18N
         btnPrevious.addActionListener(new java.awt.event.ActionListener() {
@@ -660,7 +671,7 @@ public class QuanLyThuoc extends javax.swing.JFrame {
                 txtSearchKeyReleased(evt);
             }
         });
-        pnlRight.add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(271, 285, 520, 43));
+        pnlRight.add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 520, 43));
 
         btnFirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_rewind_32px.png"))); // NOI18N
         btnFirst.addActionListener(new java.awt.event.ActionListener() {
@@ -669,6 +680,14 @@ public class QuanLyThuoc extends javax.swing.JFrame {
             }
         });
         pnlRight.add(btnFirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(679, 211, 87, -1));
+
+        btnExcel.setText("XUẤT EXCEL");
+        btnExcel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcelActionPerformed(evt);
+            }
+        });
+        pnlRight.add(btnExcel, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 290, 160, -1));
 
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 
@@ -991,6 +1010,10 @@ public class QuanLyThuoc extends javax.swing.JFrame {
         this.last();
     }//GEN-LAST:event_btnLastActionPerformed
 
+    private void btnExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcelActionPerformed
+       this.Export();
+    }//GEN-LAST:event_btnExcelActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1007,6 +1030,7 @@ public class QuanLyThuoc extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.complementos.RSButtonHover btnDangXuat;
+    private rojeru_san.complementos.RSButtonHover btnExcel;
     private rojeru_san.complementos.RSButtonHover btnFirst;
     private rojeru_san.complementos.RSButtonHover btnLast;
     private rojeru_san.complementos.RSButtonHover btnMoi;
@@ -1073,7 +1097,7 @@ public class QuanLyThuoc extends javax.swing.JFrame {
         this.LoadNgay();
         this.filltable();
         this.fillComboBox();
-
+        this.updateStatus();
     }
 
     //Hover màu
@@ -1208,6 +1232,7 @@ public class QuanLyThuoc extends javax.swing.JFrame {
         String mathuoc = (String) tblThuoc.getValueAt(row, 0);
         Thuoc th = thdao.SelectByID(mathuoc);
         setForm(th);
+        this.updateStatus();
     }
 
     private void clear() {
@@ -1215,6 +1240,8 @@ public class QuanLyThuoc extends javax.swing.JFrame {
         txtTenThuoc.setText("");
         cboDonViTinh.setSelectedIndex(0);
         cboMaLoaiThuoc.setSelectedIndex(0);
+        this.row = -1;
+        this.updateStatus();
     }
 
     private void insert() {
@@ -1300,6 +1327,133 @@ public class QuanLyThuoc extends javax.swing.JFrame {
         }
 
         return true;
+    }
+    
+    private void updateStatus(){
+        boolean edit = (this.row>=0);
+        boolean first = (this.row==0);
+        boolean last = (this.row == tblThuoc.getRowCount()-1);
+        
+        txtMaThuoc.setEnabled(!edit);
+        btnThem.setEnabled(!edit);
+        btnXoa.setEnabled(edit);
+        btnSua.setEnabled(edit);
+        btnMoi.setEnabled(edit);
+        
+        btnFirst.setEnabled(edit && !first);
+        btnPrevious.setEnabled(edit && !first);
+        btnNext.setEnabled(edit && !last);
+        btnLast.setEnabled(edit && !last);
+        
+    }
+    
+    XSSFWorkbook workbook;
+
+    private CellStyle headerCellStyle() {
+        CellStyle cellStyle = workbook.createCellStyle();
+        cellStyle.setAlignment(org.apache.poi.ss.usermodel.HorizontalAlignment.CENTER);
+        cellStyle.setVerticalAlignment(org.apache.poi.ss.usermodel.VerticalAlignment.CENTER);
+        cellStyle.setBorderBottom(BorderStyle.THICK);
+        cellStyle.setBorderLeft(BorderStyle.THICK);
+        cellStyle.setBorderRight(BorderStyle.THICK);
+        cellStyle.setBorderTop(BorderStyle.THICK);
+
+        org.apache.poi.ss.usermodel.Font font = workbook.createFont();
+        font.setBold(true);
+        font.setFontName("Times New Roman");
+        font.setFontHeight((short) 350);
+        cellStyle.setFont(font);
+        return cellStyle;
+    }
+    
+    private CellStyle coCellStyle() {
+        CellStyle cellStyle = workbook.createCellStyle();
+        cellStyle.setAlignment(org.apache.poi.ss.usermodel.HorizontalAlignment.CENTER);
+        cellStyle.setVerticalAlignment(org.apache.poi.ss.usermodel.VerticalAlignment.CENTER);
+        cellStyle.setBorderBottom(BorderStyle.THIN);
+        cellStyle.setBorderLeft(BorderStyle.THICK);
+        cellStyle.setBorderRight(BorderStyle.THICK);
+        cellStyle.setBorderTop(BorderStyle.THIN);
+
+        org.apache.poi.ss.usermodel.Font font = workbook.createFont();
+        font.setFontName("Times New Roman");
+        font.setFontHeight((short) 250);
+        cellStyle.setFont(font);
+        return cellStyle;
+    }
+    
+    private void Export() {
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Save as");
+        FileNameExtensionFilter f = new FileNameExtensionFilter("xls", "xlsx");
+        FileOutputStream out = null;
+        chooser.setFileFilter(f);
+        int excel = chooser.showSaveDialog(null);
+        if (excel == JFileChooser.APPROVE_OPTION) {
+            try {
+                workbook = new XSSFWorkbook();
+                XSSFSheet spreadsheet1 = workbook.createSheet("Danh sách Thuốc");
+                XSSFRow rows1 = null;
+                Cell cells1 = null;
+                CellStyle cs = headerCellStyle();
+                CellStyle csc = coCellStyle();
+
+                rows1 = spreadsheet1.createRow((short) 1);
+                rows1.setHeight((short) 500);
+
+                //HEADER
+                cells1 = rows1.createCell(0, CellType.STRING);
+                cells1.setCellValue("Thông tin Thuốc");
+                rows1 = spreadsheet1.createRow((short) 2);
+                rows1.setHeight((short) 500);
+                cells1 = rows1.createCell(0, CellType.STRING);
+                cells1.setCellValue("Mã Thuốc");
+                cells1.setCellStyle(cs);
+                cells1 = rows1.createCell(1, CellType.STRING);
+                cells1.setCellValue("Tên Thuốc");
+                cells1.setCellStyle(cs);
+                cells1 = rows1.createCell(2, CellType.STRING);
+                cells1.setCellValue("Đơn Vị Tính");
+                cells1.setCellStyle(cs);
+                cells1 = rows1.createCell(3, CellType.STRING);
+                cells1.setCellValue("Mã Loại Thuốc");
+                cells1.setCellStyle(cs);
+      
+
+                //ROW
+                List<Thuoc> list = thdao.SelectAll();
+                for (int i = 0; i < list.size(); i++) {
+                    Thuoc dt = list.get(i);
+                    rows1 = spreadsheet1.createRow((short) 3 + i);
+                    rows1.setHeight((short) 500);
+                    cells1 = rows1.createCell(0);
+                    cells1.setCellValue(dt.getMaThuoc());
+                    cells1.setCellStyle(csc);
+                    cells1 = rows1.createCell(1);
+                    cells1.setCellValue(dt.getTenthuoc());
+                    cells1.setCellStyle(csc);
+                    cells1 = rows1.createCell(2);
+                    cells1.setCellValue(dt.getDonvitinh());
+                    cells1.setCellStyle(csc);
+                    cells1.setCellStyle(csc);
+                    cells1 = rows1.createCell(3);
+                    cells1.setCellValue(dt.getMaloaithuoc());
+                    cells1.setCellStyle(csc);
+                    
+                }
+                for (int i = 0; i < 4; i++) {
+                    spreadsheet1.autoSizeColumn(i);
+                }
+                out = new FileOutputStream(chooser.getSelectedFile() + ".xlsx");
+                workbook.write(out);
+                out.close();
+                JOptionPane.showMessageDialog(this, "Xuất file thành công");
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn ổ đĩa");
+        }
     }
 
 }
