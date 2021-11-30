@@ -41,7 +41,7 @@ public class benhnhanDAO extends QLPhongKham_DAO<BenhNhan, String> {
     @Override
     public void update(BenhNhan entity) {
 
-        String sql = "update benhnhan set tenbenhnhan=?,sodienthoai=?,gioitinh=?,ngaysinh=?,diachi=?,trangthai=? where mabenhnhan like?";
+        String sql = "update benhnhan set tenbenhnhan=?,sodienthoai=?,gioitinh=?,ngaysinh=?,diachi=?,trangthai=? where mabenhnhan like ?";
         jdbcHelper.update(sql, entity.getTenbenhnhan(), entity.getSodienthoai(), entity.getGioitinh(), XDate.toString(entity.getNgaysinh(), "YYYY-MM-dd"), entity.getDiachi(), entity.getTrangthai(), entity.getMabenhnhan());
 
         try {

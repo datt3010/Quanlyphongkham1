@@ -4,37 +4,41 @@
  * and open the template in the editor.
  */
 package com.QuanLyPhongKham.DAO;
+
 import com.QuanLyPhongKham.Model.BacSi;
 import com.QuanLyPhongKham.Model.BenhNhan;
 import com.QuanLyPhongKham.Utilities.XDate;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  *
  * @author OS
  */
-public class bacsiDAO extends QLPhongKham_DAO<BacSi, String>{
-    String Insert_BacSy = "INSERT INTO bacsy(mabacsy,tenbacsy,gioitinh,dienthoai,email,ngaysinh,hinh,machuyennganh) values(?,?,?,?,?,?,?,?) ";
-    String Update_BacSy = "UPDATE bacsy SET tenbacsy = ?, gioitinh = ?, dienthoai = ?, email = ?, ngaysinh = ?, hinh = ?, machuyennganh =? where mabacsy  like ?";
+public class bacsiDAO extends QLPhongKham_DAO<BacSi, String> {
+
+    String Insert_BacSy = "INSERT INTO bacsy(mabacsy,matkhau,tenbacsy,gioitinh,dienthoai,email,ngaysinh,hinh,machuyennganh) values(?,?,?,?,?,?,?,?,?)";
+    String Update_BacSy = "UPDATE bacsy SET tenbacsy = ?,matkhau=?, gioitinh = ?, dienthoai = ?, email = ?, ngaysinh = ?, hinh = ?, machuyennganh =? where mabacsy  like ?";
     String Delete_BacSy = "DELETE FROM bacsy WHERE mabacsy like ?";
     String SELECTALL_BacSy = "SELECT * FROM bacsy";
-    String SELECT_BY_ID_BacSy ="SELECT * FROM bacsy WHERE mabacsy like ?";
+    String SELECT_BY_ID_BacSy = "SELECT * FROM bacsy WHERE mabacsy like ?";
+
     @Override
     public void insert(BacSi entity) {
-        try{
-            jdbcHelper.update(Insert_BacSy, entity.getMabacsy(),entity.getTenbacsy(),entity.getGioitinh(),entity.getDienthoai(),entity.getEmail(),XDate.toString(entity.getNgaysinh(), "yyyy-MM-dd"),entity.getHinh(),entity.getMachuyennganh());
-        }catch(Exception e){
+        try {
+            jdbcHelper.update(Insert_BacSy, entity.getMabacsy(), entity.getMatkhau(), entity.getTenbacsy(), entity.getGioitinh(), entity.getDienthoai(), entity.getEmail(), XDate.toString(entity.getNgaysinh(), "yyyy-MM-dd"), entity.getHinh(), entity.getMachuyennganh());
+        } catch (Exception e) {
             e.printStackTrace();
         }
-               
+
     }
 
     @Override
     public void update(BacSi entity) {
-        try{
-            jdbcHelper.update(Update_BacSy, entity.getTenbacsy(),entity.getGioitinh(),entity.getDienthoai(),entity.getEmail(),XDate.toString(entity.getNgaysinh(), "yyyy-MM-dd"),entity.getHinh(),entity.getMachuyennganh(),entity.getMabacsy());
-        }catch(Exception e){
+        try {
+            jdbcHelper.update(Update_BacSy, entity.getTenbacsy(), entity.getMatkhau(), entity.getGioitinh(), entity.getDienthoai(), entity.getEmail(), XDate.toString(entity.getNgaysinh(), "yyyy-MM-dd"), entity.getHinh(), entity.getMachuyennganh(), entity.getMabacsy());
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -55,8 +59,8 @@ public class bacsiDAO extends QLPhongKham_DAO<BacSi, String>{
 
     @Override
     public BacSi SelectByID(String id) {
-       List<BacSi> list = SelectBySQL(SELECT_BY_ID_BacSy, id);
-       return list.size()>0?list.get(0):null;
+        List<BacSi> list = SelectBySQL(SELECT_BY_ID_BacSy, id);
+        return list.size() > 0 ? list.get(0) : null;
     }
 
     @Override
@@ -64,9 +68,10 @@ public class bacsiDAO extends QLPhongKham_DAO<BacSi, String>{
         List<BacSi> list = new ArrayList<>();
         try {
             ResultSet rs = jdbcHelper.query(sql, args);
-            while(rs.next()){
+            while (rs.next()) {
                 BacSi bs = new BacSi();
                 bs.setMabacsy(rs.getString("mabacsy"));
+                bs.setMatkhau(rs.getString("matkhau"));
                 bs.setTenbacsy(rs.getString("tenbacsy"));
                 bs.setGioitinh(rs.getString("gioitinh"));
                 bs.setDienthoai(rs.getString("dienthoai"));
@@ -81,11 +86,11 @@ public class bacsiDAO extends QLPhongKham_DAO<BacSi, String>{
             e.printStackTrace();
         }
         return list;
-    }   
-    
-    public List<BacSi> SelectKeyword(String keyword,String keyword2,String keyword3,String keyword4,String keyword5, String keyword6) {
+    }
+
+    public List<BacSi> SelectKeyword(String keyword, String keyword2, String keyword3, String keyword4, String keyword5, String keyword6) {
         String sql = "SELECT * FROM bacsy\n"
                 + "WHERE mabacsy LIKE ? OR tenbacsy LIKE ? OR dienthoai LIKE ? OR machuyennganh LIKE ? OR email LIKE ? or gioitinh like ?;";
-        return this.SelectBySQL(sql, "%"+keyword+"%", "%"+keyword2+"%", "%"+keyword3+"%","%"+keyword4+"%","%"+keyword5+"%","%"+keyword6+"%");
+        return this.SelectBySQL(sql, "%" + keyword + "%", "%" + keyword2 + "%", "%" + keyword3 + "%", "%" + keyword4 + "%", "%" + keyword5 + "%", "%" + keyword6 + "%");
     }
 }

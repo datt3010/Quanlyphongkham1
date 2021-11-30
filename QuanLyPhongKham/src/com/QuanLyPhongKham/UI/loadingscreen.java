@@ -54,7 +54,7 @@ public class loadingscreen extends javax.swing.JFrame {
         jPanel1.add(loadingbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 970, 20));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\OS\\Desktop\\DuAn1_QuanLyPhongKham\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\background_hospital.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/background_hospital.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -20,6 +20,9 @@ import com.QuanLyPhongKham.Model.BenhNhan;
 import com.QuanLyPhongKham.Model.DichVu;
 import com.QuanLyPhongKham.Utilities.MsgBox;
 import com.QuanLyPhongKham.Utilities.XDate;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -120,6 +123,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         btnend = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         txtmabenhnhan = new javax.swing.JTextField();
+        btnsendsms = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ BỆNH NHÂN\n");
@@ -698,6 +702,14 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         pnlRight.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 120, 30));
         pnlRight.add(txtmabenhnhan, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 220, 34));
 
+        btnsendsms.setText("jButton1");
+        btnsendsms.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsendsmsActionPerformed(evt);
+            }
+        });
+        pnlRight.add(btnsendsms, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
+
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1060,6 +1072,11 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         btndelete.setEnabled(false);
     }//GEN-LAST:event_btnnewActionPerformed
 
+    private void btnsendsmsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsendsmsActionPerformed
+        // TODO add your handling code here:
+        sendsms();
+    }//GEN-LAST:event_btnsendsmsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1111,6 +1128,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
     private javax.swing.JButton btnnew;
     private javax.swing.JButton btnnext;
     private javax.swing.JButton btnprevious;
+    private javax.swing.JButton btnsendsms;
     private javax.swing.JButton btnupdate;
     private javax.swing.JComboBox<String> comboboxgioitinh;
     private javax.swing.JComboBox<String> comboboxtrangthai;
@@ -1388,5 +1406,34 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         btnprevious.setEnabled(!hihi && first);
         btnnext.setEnabled(!hihi && last);
         btnend.setEnabled(!hihi && last);
+    }
+
+    void sendsms() {
+        try {
+            for (int rows : tablebenhnhan.getSelectedRows()) {
+                String code = "ma benh nhan: " + tablebenhnhan.getValueAt(rows, 0) + "\n"
+                        + "ten benh nhan: " + tablebenhnhan.getValueAt(rows, 1)+"\n"
+                        + "\n" + "Gioi tinh: " + tablebenhnhan.getValueAt(rows, 3)+"\n";
+//                        + "\n" + "ngay sinh: " + tablebenhnhan.getValueAt(rows, 4)+"\n"
+//                        + "\n" + "Dia chi: " + tablebenhnhan.getValueAt(rows, 5)+"\n"
+//                        + "\n" + "Trang thai: " + tablebenhnhan.getValueAt(rows, 6);
+                String str = "" + code + "";
+                String str2 = str.replaceAll("\\s", "+");
+                URL url = new URL("http://192.168.1.5:8080/v1/sms/send/?phone=" + tablebenhnhan.getValueAt(rows,2) + "&message=" + str2 + "");
+                InputStream i = null;
+                JOptionPane.showMessageDialog(this, "Thanh cong");
+                try {
+                    i = url.openStream();
+                } catch (Exception e) {
+
+                }
+                if (i != null) {
+
+                }
+            }
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿use EduSys; 
+﻿use Duanmau; 
 go
 drop database quanlyphongkham; 
 go
@@ -57,7 +57,6 @@ ngaykham date not null,
 mabacsy varchar(12) not null,
 mabenhnhan varchar(15) not null,
 manhanvien varchar(12) not null,
-ngaytaikham date not null,
 ketluan nvarchar(255),
 constraint fk_bacsy_phieukham foreign key(mabacsy) references bacsy(mabacsy) on update cascade,
 constraint fk_benhnhan_phieukham foreign key(mabenhnhan)references benhnhan(mabenhnhan) on delete no action on update cascade,
@@ -138,26 +137,26 @@ INSERT INTO chuyennganh(machuyennganh,tenchuyennganh) values
 ('CN10','Chuyên Khoa Gan Mật');
 GO
 INSERT INTO bacsy(mabacsy,matkhau,tenbacsy,gioitinh,dienthoai,email,ngaysinh,hinh,machuyennganh) values
-('BS01',N'Phạm Xuân Mai',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi1.png','CN01'),
-('BS02',N'Phạm Hoài Nữ',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi2.png','CN01'),
-('BS03',N'Phạm Bắc Kinh',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi3.png','CN01'),
-('BS04',N'Phạm Xuân Bắc',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi4.png','CN02'),
-('BS05',N'Phạm Xuân Minh',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi5.png','CN02'),
-('BS06',N'Nguyễn Minh Mẫn',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi6.png','CN03'),
-('BS07',N'Đặng Phú Thịnh',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi7.png','CN03'),
-('BS08',N'Vũ Đức Thiện',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi8.png','CN04'),
-('BS09',N'Dương Hoàng Quân',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi9.png','CN04'),
-('BS10',N'Phạm Xuân Bạch',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi10.png','CN05'),
-('BS11',N'Lê Thị Nữ',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi11.png','CN05'),
-('BS12',N'Võ Đình Việt',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi12.png','CN06'),
-('BS13',N'Nguyễn Thanh Tùng',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi13.png','CN06'),
-('BS14',N'Nguyễn Thanh Hậu',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi14.png','CN07'),
-('BS15',N'Nguyễn Thanh Vương',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi15.png','CN07'),
-('BS16',N'Võ Đình Hưng',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi16.png','CN08'),
-('BS17',N'Lê Thuý Hoa',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi17.png','CN08'),
-('BS18',N'Nguyễn Nhật Lệ',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi18.png','CN09'),
-('BS19',N'Nguyễn Gia Thy',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi19.png','CN09'),
-('BS20',N'Phạm Xuân',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi20.png','CN09')
+('BS01','123',N'Phạm Xuân Mai',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi1.png','CN01'),
+('BS02','123',N'Phạm Hoài Nữ',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi2.png','CN01'),
+('BS03','123',N'Phạm Bắc Kinh',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi3.png','CN01'),
+('BS04','123',N'Phạm Xuân Bắc',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi4.png','CN02'),
+('BS05','123',N'Phạm Xuân Minh',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi5.png','CN02'),
+('BS06','123',N'Nguyễn Minh Mẫn',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi6.png','CN03'),
+('BS07','123',N'Đặng Phú Thịnh',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi7.png','CN03'),
+('BS08','123',N'Vũ Đức Thiện',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi8.png','CN04'),
+('BS09','123',N'Dương Hoàng Quân',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi9.png','CN04'),
+('BS10','123',N'Phạm Xuân Bạch',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi10.png','CN05'),
+('BS11','123',N'Lê Thị Nữ',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi11.png','CN05'),
+('BS12','123',N'Võ Đình Việt',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi12.png','CN06'),
+('BS13','123',N'Nguyễn Thanh Tùng',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi13.png','CN06'),
+('BS14','123',N'Nguyễn Thanh Hậu',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi14.png','CN07'),
+('BS15','123',N'Nguyễn Thanh Vương',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi15.png','CN07'),
+('BS16','123',N'Võ Đình Hưng',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi16.png','CN08'),
+('BS17','123',N'Lê Thuý Hoa',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi17.png','CN08'),
+('BS18','123',N'Nguyễn Nhật Lệ',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi18.png','CN09'),
+('BS19','123',N'Nguyễn Gia Thy',N'Nữ','0326541256','maipham@gmail.com','1990-10-20','bacsi19.png','CN09'),
+('BS20','123',N'Phạm Xuân',N'Nam','0326541256','maipham@gmail.com','1990-10-20','bacsi20.png','CN09')
 GO
 INSERT INTO loaithuoc(tenloai) values(N'Cơ Xương Khớp'),
 (N'Dị ỨNG'),
@@ -197,6 +196,11 @@ INSERT INTO phieukham(ngaykham,mabacsy,mabenhnhan,manhanvien,ketluan) values('20
 ('2021-11-16','BS03',3,N'AnNT',N'Sốt'),
 ('2021-11-16','BS04',4,N'AnNT',N'Viêm ACD'),
 ('2021-11-16','BS05',5,N'AnNT',N'Gãy Chân');
+insert into phieudichvu(mabenhnhan) values
+(1),
+(2)
+insert into chitietphieudichvu(madichvu,maphieudichvu,dongia) values
+('DV000',3,1200);
 if OBJECT_ID('trigger_benhnhan') is not null
 drop trigger trigger_benhnhan
 go
@@ -212,5 +216,4 @@ from benhnhan
 insert into phieudichvu values(@mabenhnhan) 
 end
 select * from phieudichvu
-select * from nhanvien
-select * from  benhnhan
+select * from bacsy

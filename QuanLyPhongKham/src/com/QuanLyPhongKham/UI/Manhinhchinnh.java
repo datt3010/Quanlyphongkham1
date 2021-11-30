@@ -6,9 +6,12 @@
 package com.QuanLyPhongKham.UI;
 
 import com.QuanLyPhongKham.Utilities.Auths;
+import com.QuanLyPhongKham.Utilities.MsgBox;
+import com.QuanLyPhongKham.Utilities.XImages;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -91,6 +94,12 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         lblIconDichVu = new javax.swing.JLabel();
         lblDichVu = new javax.swing.JLabel();
         btnDangXuat = new rojeru_san.complementos.RSButtonHover();
+        pnlQuanLyThongKe1 = new javax.swing.JPanel();
+        lblIconThongKe1 = new javax.swing.JLabel();
+        lblThongKe1 = new javax.swing.JLabel();
+        pnlQuanLyThongKe2 = new javax.swing.JPanel();
+        lblIconThongKe2 = new javax.swing.JLabel();
+        lblThongKe2 = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
         lblbacsi = new javax.swing.JLabel();
         lblphieukham = new javax.swing.JLabel();
@@ -99,10 +108,10 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         lblhoadon = new javax.swing.JLabel();
         lbldichvu = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("QUẢN LÝ BỆNH NHÂN\n");
 
-        pnlTong.setBackground(new java.awt.Color(153, 254, 255));
+        pnlTong.setBackground(new java.awt.Color(204, 204, 204));
 
         pnlHeader.setBackground(new java.awt.Color(51, 153, 255));
 
@@ -110,8 +119,8 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         lblXinChao.setForeground(new java.awt.Color(255, 208, 175));
         lblXinChao.setText("Xin chào, ");
 
+        lblTieuDe.setBackground(new java.awt.Color(0, 0, 0));
         lblTieuDe.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
-        lblTieuDe.setForeground(new java.awt.Color(255, 255, 255));
         lblTieuDe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTieuDe.setText("PHÒNG KHÁM AN NHIÊN");
 
@@ -120,7 +129,6 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         lblDay.setText("dd/MM/yyyy");
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("MANG ĐẾN SỰ BÌNH YÊN");
 
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
@@ -224,6 +232,11 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         pnlLeft.add(pnlQuanLyBacSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 210, 40));
 
         pnlQuanLyNhanVien.setBackground(new java.awt.Color(54, 70, 78));
+        pnlQuanLyNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlQuanLyNhanVienMouseClicked(evt);
+            }
+        });
         pnlQuanLyNhanVien.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconNhanVien.setBackground(new java.awt.Color(54, 70, 78));
@@ -441,7 +454,7 @@ public class Manhinhchinnh extends javax.swing.JFrame {
 
         lblThongKe.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         lblThongKe.setForeground(new java.awt.Color(255, 255, 255));
-        lblThongKe.setText("Thống Kê");
+        lblThongKe.setText("Thống kê bệnh nhân");
         lblThongKe.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblThongKeMouseClicked(evt);
@@ -453,9 +466,9 @@ public class Manhinhchinnh extends javax.swing.JFrame {
                 lblThongKeMouseExited(evt);
             }
         });
-        pnlQuanLyThongKe.add(lblThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 140, 20));
+        pnlQuanLyThongKe.add(lblThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 160, 20));
 
-        pnlLeft.add(pnlQuanLyThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 210, 40));
+        pnlLeft.add(pnlQuanLyThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 210, 40));
 
         pnlDichVu.setBackground(new java.awt.Color(54, 70, 78));
         pnlDichVu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -502,17 +515,98 @@ public class Manhinhchinnh extends javax.swing.JFrame {
                 btnDangXuatActionPerformed(evt);
             }
         });
-        pnlLeft.add(btnDangXuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 690, 170, -1));
+        pnlLeft.add(btnDangXuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 690, 170, -1));
+
+        pnlQuanLyThongKe1.setBackground(new java.awt.Color(54, 70, 78));
+        pnlQuanLyThongKe1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblIconThongKe1.setBackground(new java.awt.Color(54, 70, 78));
+        lblIconThongKe1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconThongKe1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-increase-23.png"))); // NOI18N
+        lblIconThongKe1.setToolTipText("Quản Lý Thống Kê");
+        lblIconThongKe1.setOpaque(true);
+        lblIconThongKe1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblIconThongKe1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblIconThongKe1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblIconThongKe1MouseExited(evt);
+            }
+        });
+        pnlQuanLyThongKe1.add(lblIconThongKe1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 40, 40));
+
+        lblThongKe1.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        lblThongKe1.setForeground(new java.awt.Color(255, 255, 255));
+        lblThongKe1.setText("Quản lý chi tiết dịch vụ");
+        lblThongKe1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblThongKe1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblThongKe1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblThongKe1MouseExited(evt);
+            }
+        });
+        pnlQuanLyThongKe1.add(lblThongKe1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 170, 20));
+
+        pnlLeft.add(pnlQuanLyThongKe1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 230, 40));
+
+        pnlQuanLyThongKe2.setBackground(new java.awt.Color(54, 70, 78));
+        pnlQuanLyThongKe2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblIconThongKe2.setBackground(new java.awt.Color(54, 70, 78));
+        lblIconThongKe2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconThongKe2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-increase-23.png"))); // NOI18N
+        lblIconThongKe2.setToolTipText("Quản Lý Thống Kê");
+        lblIconThongKe2.setOpaque(true);
+        lblIconThongKe2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblIconThongKe2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblIconThongKe2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblIconThongKe2MouseExited(evt);
+            }
+        });
+        pnlQuanLyThongKe2.add(lblIconThongKe2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 40, 40));
+
+        lblThongKe2.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        lblThongKe2.setForeground(new java.awt.Color(255, 255, 255));
+        lblThongKe2.setText("Đổi mật khẩu");
+        lblThongKe2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblThongKe2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblThongKe2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblThongKe2MouseExited(evt);
+            }
+        });
+        pnlQuanLyThongKe2.add(lblThongKe2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 160, 20));
+
+        pnlLeft.add(pnlQuanLyThongKe2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 210, 40));
 
         pnlRight.setBackground(new java.awt.Color(255, 255, 255));
         pnlRight.setFocusable(false);
-        pnlRight.setLayout(new java.awt.GridLayout(3, 3));
+        pnlRight.setLayout(new java.awt.GridLayout(3, 3, 2, 2));
 
         lblbacsi.setBackground(new java.awt.Color(255, 255, 255));
         lblbacsi.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblbacsi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblbacsi.setText("Quản Lý Bác Sĩ");
         lblbacsi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblbacsiMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblbacsiMouseEntered(evt);
             }
@@ -525,26 +619,51 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         lblphieukham.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblphieukham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblphieukham.setText("Quản Lý Phiếu Khám");
+        lblphieukham.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblphieukhamMouseClicked(evt);
+            }
+        });
         pnlRight.add(lblphieukham);
 
         lblnhanvien.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblnhanvien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblnhanvien.setText("Quản Lý Nhân Viên");
+        lblnhanvien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblnhanvienMouseClicked(evt);
+            }
+        });
         pnlRight.add(lblnhanvien);
 
         lblthuoc.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblthuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblthuoc.setText("Quản Lý Thuốc");
+        lblthuoc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblthuocMouseClicked(evt);
+            }
+        });
         pnlRight.add(lblthuoc);
 
         lblhoadon.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblhoadon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblhoadon.setText("Quản Lý Hóa Đơn");
+        lblhoadon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblhoadonMouseClicked(evt);
+            }
+        });
         pnlRight.add(lblhoadon);
 
         lbldichvu.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lbldichvu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbldichvu.setText("Quản Lý Dịch Vụ");
+        lbldichvu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbldichvuMouseClicked(evt);
+            }
+        });
         pnlRight.add(lbldichvu);
 
         javax.swing.GroupLayout pnlTongLayout = new javax.swing.GroupLayout(pnlTong);
@@ -553,8 +672,8 @@ public class Manhinhchinnh extends javax.swing.JFrame {
             pnlTongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(pnlTongLayout.createSequentialGroup()
-                .addComponent(pnlLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(110, 110, 110)
+                .addComponent(pnlLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(79, 79, 79)
                 .addComponent(pnlRight, javax.swing.GroupLayout.PREFERRED_SIZE, 950, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlTongLayout.setVerticalGroup(
@@ -586,6 +705,285 @@ public class Manhinhchinnh extends javax.swing.JFrame {
 
     int x = 210;
     int i = 0;
+    private void lblbacsiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbacsiMouseEntered
+        // TODO add your handling code here:
+//        lblbacsi.setForeground(Color.white);
+//        lblbacsi.setBackground(new Color(255, 255, 143));
+//        lblbacsi.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_lblbacsiMouseEntered
+
+    private void lblbacsiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbacsiMouseExited
+        // TODO add your handling code here:
+//        lblbacsi.setForeground(Color.black);
+//        lblbacsi.setBackground(new Color(255, 255, 255));
+    }//GEN-LAST:event_lblbacsiMouseExited
+
+    private void lblbacsiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbacsiMouseClicked
+        // TODO add your handling code here:
+        OpenBacSi();
+    }//GEN-LAST:event_lblbacsiMouseClicked
+
+    private void lblphieukhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblphieukhamMouseClicked
+        // TODO add your handling code here:
+        OpenPhieuKham();
+    }//GEN-LAST:event_lblphieukhamMouseClicked
+
+    private void lblnhanvienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblnhanvienMouseClicked
+        // TODO add your handling code here:
+        OpenNhanVien();
+    }//GEN-LAST:event_lblnhanvienMouseClicked
+
+    private void lblthuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblthuocMouseClicked
+        // TODO add your handling code here:
+        OpenThuoc();
+    }//GEN-LAST:event_lblthuocMouseClicked
+
+    private void lblhoadonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblhoadonMouseClicked
+        // TODO add your handling code here:
+        OpenHoaDon();
+    }//GEN-LAST:event_lblhoadonMouseClicked
+
+    private void lbldichvuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbldichvuMouseClicked
+        // TODO add your handling code here:
+        OpenDichVu();
+    }//GEN-LAST:event_lbldichvuMouseClicked
+
+    private void lblThongKe1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKe1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblThongKe1MouseExited
+
+    private void lblThongKe1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKe1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblThongKe1MouseEntered
+
+    private void lblThongKe1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKe1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblThongKe1MouseClicked
+
+    private void lblIconThongKe1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKe1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblIconThongKe1MouseExited
+
+    private void lblIconThongKe1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKe1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblIconThongKe1MouseEntered
+
+    private void lblIconThongKe1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKe1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblIconThongKe1MouseClicked
+
+    private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatActionPerformed
+        this.OpenLogin();
+    }//GEN-LAST:event_btnDangXuatActionPerformed
+
+    private void lblDichVuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDichVuMouseExited
+        NotHoverPanel(pnlDichVu, lblIconDichVu);
+    }//GEN-LAST:event_lblDichVuMouseExited
+
+    private void lblDichVuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDichVuMouseEntered
+        hoverPanel(pnlDichVu, lblIconDichVu);
+    }//GEN-LAST:event_lblDichVuMouseEntered
+
+    private void lblDichVuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDichVuMouseClicked
+        this.OpenDichVu();
+    }//GEN-LAST:event_lblDichVuMouseClicked
+
+    private void lblIconDichVuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconDichVuMouseExited
+        NotHover(lblIconDichVu);
+    }//GEN-LAST:event_lblIconDichVuMouseExited
+
+    private void lblIconDichVuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconDichVuMouseEntered
+        hover(lblIconDichVu);
+    }//GEN-LAST:event_lblIconDichVuMouseEntered
+
+    private void lblIconDichVuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconDichVuMouseClicked
+        this.OpenDichVu();
+    }//GEN-LAST:event_lblIconDichVuMouseClicked
+
+    private void lblThongKeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseExited
+        NotHoverPanel(pnlQuanLyThongKe, lblIconThongKe);
+    }//GEN-LAST:event_lblThongKeMouseExited
+
+    private void lblThongKeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseEntered
+        hoverPanel(pnlQuanLyThongKe, lblIconThongKe);
+    }//GEN-LAST:event_lblThongKeMouseEntered
+
+    private void lblThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseClicked
+        try {
+            this.OpenThongKe();
+        } catch (SQLException ex) {
+            Logger.getLogger(Manhinhchinnh.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_lblThongKeMouseClicked
+
+    private void lblIconThongKeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKeMouseExited
+        NotHover(lblIconThongKe);
+    }//GEN-LAST:event_lblIconThongKeMouseExited
+
+    private void lblIconThongKeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKeMouseEntered
+        hover(lblIconThongKe);
+    }//GEN-LAST:event_lblIconThongKeMouseEntered
+
+    private void lblIconThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKeMouseClicked
+        try {
+            this.OpenThongKe();
+        } catch (SQLException ex) {
+            Logger.getLogger(Manhinhchinnh.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_lblIconThongKeMouseClicked
+
+    private void lblQuanLyThuocMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuocMouseExited
+        NotHoverPanel(pnlQuanLyThuoc, lblIconThuoc);
+    }//GEN-LAST:event_lblQuanLyThuocMouseExited
+
+    private void lblQuanLyThuocMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuocMouseEntered
+        hoverPanel(pnlQuanLyThuoc, lblIconThuoc);
+    }//GEN-LAST:event_lblQuanLyThuocMouseEntered
+
+    private void lblQuanLyThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuocMouseClicked
+        this.OpenThuoc();
+    }//GEN-LAST:event_lblQuanLyThuocMouseClicked
+
+    private void lblIconThuocMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuocMouseExited
+        NotHover(lblIconThuoc);
+    }//GEN-LAST:event_lblIconThuocMouseExited
+
+    private void lblIconThuocMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuocMouseEntered
+        hover(lblIconThuoc);
+    }//GEN-LAST:event_lblIconThuocMouseEntered
+
+    private void lblIconThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuocMouseClicked
+        this.OpenThuoc();
+    }//GEN-LAST:event_lblIconThuocMouseClicked
+
+    private void lblQuanLyPhieuKhamMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseExited
+        NotHoverPanel(pnlQuanLyPhieuKham, lblIconPhieuKham);
+    }//GEN-LAST:event_lblQuanLyPhieuKhamMouseExited
+
+    private void lblQuanLyPhieuKhamMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseEntered
+        hoverPanel(pnlQuanLyPhieuKham, lblIconPhieuKham);
+    }//GEN-LAST:event_lblQuanLyPhieuKhamMouseEntered
+
+    private void lblQuanLyPhieuKhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseClicked
+        this.OpenPhieuKham();
+    }//GEN-LAST:event_lblQuanLyPhieuKhamMouseClicked
+
+    private void lblIconPhieuKhamMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconPhieuKhamMouseExited
+        NotHover(lblIconPhieuKham);
+    }//GEN-LAST:event_lblIconPhieuKhamMouseExited
+
+    private void lblIconPhieuKhamMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconPhieuKhamMouseEntered
+        hover(lblIconPhieuKham);
+    }//GEN-LAST:event_lblIconPhieuKhamMouseEntered
+
+    private void lblIconPhieuKhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconPhieuKhamMouseClicked
+        this.OpenPhieuKham();
+    }//GEN-LAST:event_lblIconPhieuKhamMouseClicked
+
+    private void lblQuanLyHoaDonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseExited
+        NotHoverPanel(pnlQuanLyHoaDon, lblIconHoaDon);
+    }//GEN-LAST:event_lblQuanLyHoaDonMouseExited
+
+    private void lblQuanLyHoaDonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseEntered
+        hoverPanel(pnlQuanLyHoaDon, lblIconHoaDon);
+    }//GEN-LAST:event_lblQuanLyHoaDonMouseEntered
+
+    private void lblQuanLyHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseClicked
+        this.OpenHoaDon();
+    }//GEN-LAST:event_lblQuanLyHoaDonMouseClicked
+
+    private void lblIconHoaDonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseExited
+        NotHover(lblIconHoaDon);
+    }//GEN-LAST:event_lblIconHoaDonMouseExited
+
+    private void lblIconHoaDonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseEntered
+        hover(lblIconHoaDon);
+    }//GEN-LAST:event_lblIconHoaDonMouseEntered
+
+    private void lblIconHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseClicked
+        this.OpenHoaDon();
+    }//GEN-LAST:event_lblIconHoaDonMouseClicked
+
+    private void lblQuanLyBenhNhanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseExited
+        NotHoverPanel(pnlQuanLyBenhNhan, lblIconBenhNhan);
+    }//GEN-LAST:event_lblQuanLyBenhNhanMouseExited
+
+    private void lblQuanLyBenhNhanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseEntered
+        hoverPanel(pnlQuanLyBenhNhan, lblIconBenhNhan);
+    }//GEN-LAST:event_lblQuanLyBenhNhanMouseEntered
+
+    private void lblQuanLyBenhNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseClicked
+        this.OpenBenhNhan();
+    }//GEN-LAST:event_lblQuanLyBenhNhanMouseClicked
+
+    private void lblIconBenhNhanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBenhNhanMouseExited
+        //        NotHover(lblIconBenhNhan);
+    }//GEN-LAST:event_lblIconBenhNhanMouseExited
+
+    private void lblIconBenhNhanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBenhNhanMouseEntered
+        //        hover(lblIconBenhNhan);
+    }//GEN-LAST:event_lblIconBenhNhanMouseEntered
+
+    private void lblIconBenhNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBenhNhanMouseClicked
+        this.OpenBenhNhan();
+    }//GEN-LAST:event_lblIconBenhNhanMouseClicked
+
+    private void lblQuanLyNhanVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNhanVienMouseExited
+        NotHoverPanel(pnlQuanLyNhanVien, lblIconNhanVien);
+    }//GEN-LAST:event_lblQuanLyNhanVienMouseExited
+
+    private void lblQuanLyNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNhanVienMouseEntered
+        hoverPanel(pnlQuanLyNhanVien, lblIconNhanVien);
+    }//GEN-LAST:event_lblQuanLyNhanVienMouseEntered
+
+    private void lblQuanLyNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNhanVienMouseClicked
+        this.OpenNhanVien();
+    }//GEN-LAST:event_lblQuanLyNhanVienMouseClicked
+
+    private void lblIconNhanVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconNhanVienMouseExited
+        NotHover(lblIconNhanVien);
+    }//GEN-LAST:event_lblIconNhanVienMouseExited
+
+    private void lblIconNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconNhanVienMouseEntered
+        hover(lblIconNhanVien);
+    }//GEN-LAST:event_lblIconNhanVienMouseEntered
+
+    private void lblIconNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconNhanVienMouseClicked
+        this.OpenNhanVien();
+    }//GEN-LAST:event_lblIconNhanVienMouseClicked
+
+    private void lblQuanLyBacSiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBacSiMouseExited
+        NotHoverPanel(pnlQuanLyBacSi, lblIconBacSi);
+    }//GEN-LAST:event_lblQuanLyBacSiMouseExited
+
+    private void lblQuanLyBacSiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBacSiMouseEntered
+        hoverPanel(pnlQuanLyBacSi, lblIconBacSi);
+    }//GEN-LAST:event_lblQuanLyBacSiMouseEntered
+
+    private void lblQuanLyBacSiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBacSiMouseClicked
+        this.OpenBacSi();
+    }//GEN-LAST:event_lblQuanLyBacSiMouseClicked
+
+    private void lblIconBacSiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBacSiMouseExited
+        //NotHover(lblIconBacSi);
+    }//GEN-LAST:event_lblIconBacSiMouseExited
+
+    private void lblIconBacSiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBacSiMouseEntered
+        //hover(lblIconBacSi);
+    }//GEN-LAST:event_lblIconBacSiMouseEntered
+
+    private void lblIconBacSiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBacSiMouseClicked
+        this.OpenBacSi();
+    }//GEN-LAST:event_lblIconBacSiMouseClicked
+
+    private void lblDanhMucMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDanhMucMouseExited
+        NotHover(lblDanhMuc);
+    }//GEN-LAST:event_lblDanhMucMouseExited
+
+    private void lblDanhMucMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDanhMucMouseEntered
+        hover(lblDanhMuc);
+    }//GEN-LAST:event_lblDanhMucMouseEntered
+
     private void lblDanhMucMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDanhMucMouseClicked
         if (x == 210) {
             pnlLeft.setSize(210, 790);
@@ -630,232 +1028,40 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lblDanhMucMouseClicked
 
-    private void lblIconNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconNhanVienMouseClicked
-        this.OpenNhanVien();
-    }//GEN-LAST:event_lblIconNhanVienMouseClicked
-
-    private void lblQuanLyNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNhanVienMouseClicked
-        this.OpenNhanVien();
-    }//GEN-LAST:event_lblQuanLyNhanVienMouseClicked
-
-    private void lblIconBacSiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBacSiMouseClicked
-        this.OpenBacSi();
-    }//GEN-LAST:event_lblIconBacSiMouseClicked
-
-    private void lblQuanLyBacSiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBacSiMouseClicked
-        this.OpenBacSi();
-    }//GEN-LAST:event_lblQuanLyBacSiMouseClicked
-
-    private void lblIconHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseClicked
-        this.OpenHoaDon();
-    }//GEN-LAST:event_lblIconHoaDonMouseClicked
-
-    private void lblQuanLyHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseClicked
-        this.OpenHoaDon();
-    }//GEN-LAST:event_lblQuanLyHoaDonMouseClicked
-
-    private void lblIconBenhNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBenhNhanMouseClicked
-        //this.OpenBenhNhan();
-    }//GEN-LAST:event_lblIconBenhNhanMouseClicked
-
-    private void lblQuanLyBenhNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseClicked
-        this.OpenBenhNhan();
-    }//GEN-LAST:event_lblQuanLyBenhNhanMouseClicked
-
-    private void lblIconPhieuKhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconPhieuKhamMouseClicked
-        this.OpenPhieuKham();
-    }//GEN-LAST:event_lblIconPhieuKhamMouseClicked
-
-    private void lblQuanLyPhieuKhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseClicked
-        this.OpenPhieuKham();
-    }//GEN-LAST:event_lblQuanLyPhieuKhamMouseClicked
-
-    private void lblIconThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKeMouseClicked
-        try {
-            this.OpenThongKe();
-        } catch (SQLException ex) {
-            Logger.getLogger(QuanLyToaThuoc.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_lblIconThongKeMouseClicked
-
-    private void lblThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseClicked
-        try {
-            this.OpenThongKe();
-        } catch (SQLException ex) {
-            Logger.getLogger(QuanLyToaThuoc.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_lblThongKeMouseClicked
-
-    private void lblIconThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuocMouseClicked
-        this.OpenThuoc();
-    }//GEN-LAST:event_lblIconThuocMouseClicked
-
-    private void lblQuanLyThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuocMouseClicked
-        this.OpenThuoc();
-    }//GEN-LAST:event_lblQuanLyThuocMouseClicked
-
-    private void lblIconBacSiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBacSiMouseEntered
-        //hover(lblIconBacSi);
-    }//GEN-LAST:event_lblIconBacSiMouseEntered
-
-    private void lblIconBacSiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBacSiMouseExited
-        //NotHover(lblIconBacSi);
-    }//GEN-LAST:event_lblIconBacSiMouseExited
-
-    private void lblIconNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconNhanVienMouseEntered
-        hover(lblIconNhanVien);
-    }//GEN-LAST:event_lblIconNhanVienMouseEntered
-
-    private void lblIconNhanVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconNhanVienMouseExited
-        NotHover(lblIconNhanVien);
-    }//GEN-LAST:event_lblIconNhanVienMouseExited
-
-    private void lblIconBenhNhanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBenhNhanMouseEntered
-//        hover(lblIconBenhNhan);
-    }//GEN-LAST:event_lblIconBenhNhanMouseEntered
-
-    private void lblIconBenhNhanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBenhNhanMouseExited
-//        NotHover(lblIconBenhNhan);
-    }//GEN-LAST:event_lblIconBenhNhanMouseExited
-
-    private void lblIconHoaDonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseEntered
-        hover(lblIconHoaDon);
-    }//GEN-LAST:event_lblIconHoaDonMouseEntered
-
-    private void lblIconHoaDonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseExited
-        NotHover(lblIconHoaDon);
-    }//GEN-LAST:event_lblIconHoaDonMouseExited
-
-    private void lblIconPhieuKhamMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconPhieuKhamMouseEntered
-        hover(lblIconPhieuKham);
-    }//GEN-LAST:event_lblIconPhieuKhamMouseEntered
-
-    private void lblIconPhieuKhamMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconPhieuKhamMouseExited
-        NotHover(lblIconPhieuKham);
-    }//GEN-LAST:event_lblIconPhieuKhamMouseExited
-
-    private void lblIconThuocMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuocMouseEntered
-        hover(lblIconThuoc);
-    }//GEN-LAST:event_lblIconThuocMouseEntered
-
-    private void lblIconThuocMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuocMouseExited
-        NotHover(lblIconThuoc);
-    }//GEN-LAST:event_lblIconThuocMouseExited
-
-    private void lblIconThongKeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKeMouseEntered
-        hover(lblIconThongKe);
-    }//GEN-LAST:event_lblIconThongKeMouseEntered
-
-    private void lblIconThongKeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKeMouseExited
-        NotHover(lblIconThongKe);
-    }//GEN-LAST:event_lblIconThongKeMouseExited
-
-    private void lblDanhMucMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDanhMucMouseEntered
-        hover(lblDanhMuc);
-    }//GEN-LAST:event_lblDanhMucMouseEntered
-
-    private void lblDanhMucMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDanhMucMouseExited
-        NotHover(lblDanhMuc);
-    }//GEN-LAST:event_lblDanhMucMouseExited
-
-    private void lblQuanLyBacSiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBacSiMouseEntered
-        hoverPanel(pnlQuanLyBacSi, lblIconBacSi);
-
-    }//GEN-LAST:event_lblQuanLyBacSiMouseEntered
-
-    private void lblQuanLyBacSiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBacSiMouseExited
-        NotHoverPanel(pnlQuanLyBacSi, lblIconBacSi);
-
-    }//GEN-LAST:event_lblQuanLyBacSiMouseExited
-
-    private void lblQuanLyNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNhanVienMouseEntered
-        hoverPanel(pnlQuanLyNhanVien, lblIconNhanVien);
-    }//GEN-LAST:event_lblQuanLyNhanVienMouseEntered
-
-    private void lblQuanLyNhanVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNhanVienMouseExited
-        NotHoverPanel(pnlQuanLyNhanVien, lblIconNhanVien);
-    }//GEN-LAST:event_lblQuanLyNhanVienMouseExited
-
-    private void lblQuanLyBenhNhanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseEntered
-//        hoverPanel(pnlQuanLyBenhNhan,lblIconBenhNhan);
-    }//GEN-LAST:event_lblQuanLyBenhNhanMouseEntered
-
-    private void lblQuanLyBenhNhanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBenhNhanMouseExited
-//        NotHoverPanel(pnlQuanLyBenhNhan,lblIconBenhNhan);
-    }//GEN-LAST:event_lblQuanLyBenhNhanMouseExited
-
-    private void lblQuanLyHoaDonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseEntered
-        hoverPanel(pnlQuanLyHoaDon, lblIconHoaDon);
-    }//GEN-LAST:event_lblQuanLyHoaDonMouseEntered
-
-    private void lblQuanLyHoaDonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHoaDonMouseExited
-        NotHoverPanel(pnlQuanLyHoaDon, lblIconHoaDon);
-    }//GEN-LAST:event_lblQuanLyHoaDonMouseExited
-
-    private void lblQuanLyPhieuKhamMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseEntered
-        hoverPanel(pnlQuanLyPhieuKham, lblIconPhieuKham);
-    }//GEN-LAST:event_lblQuanLyPhieuKhamMouseEntered
-
-    private void lblQuanLyPhieuKhamMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyPhieuKhamMouseExited
-        NotHoverPanel(pnlQuanLyPhieuKham, lblIconPhieuKham);
-    }//GEN-LAST:event_lblQuanLyPhieuKhamMouseExited
-
-    private void lblQuanLyThuocMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuocMouseEntered
-        hoverPanel(pnlQuanLyThuoc, lblIconThuoc);
-    }//GEN-LAST:event_lblQuanLyThuocMouseEntered
-
-    private void lblQuanLyThuocMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuocMouseExited
-        NotHoverPanel(pnlQuanLyThuoc, lblIconThuoc);
-    }//GEN-LAST:event_lblQuanLyThuocMouseExited
-
-    private void lblThongKeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseEntered
-        hoverPanel(pnlQuanLyThongKe, lblIconThongKe);
-    }//GEN-LAST:event_lblThongKeMouseEntered
-
-    private void lblThongKeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseExited
-        NotHoverPanel(pnlQuanLyThongKe, lblIconThongKe);
-    }//GEN-LAST:event_lblThongKeMouseExited
-
-    private void lblIconDichVuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconDichVuMouseClicked
-        this.OpenDichVu();
-    }//GEN-LAST:event_lblIconDichVuMouseClicked
-
-    private void lblIconDichVuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconDichVuMouseEntered
-        hover(lblIconDichVu);
-    }//GEN-LAST:event_lblIconDichVuMouseEntered
-
-    private void lblIconDichVuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconDichVuMouseExited
-        NotHover(lblIconDichVu);
-    }//GEN-LAST:event_lblIconDichVuMouseExited
-
-    private void lblDichVuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDichVuMouseClicked
-        this.OpenDichVu();
-    }//GEN-LAST:event_lblDichVuMouseClicked
-
-    private void lblDichVuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDichVuMouseEntered
-        hoverPanel(pnlDichVu, lblIconDichVu);
-    }//GEN-LAST:event_lblDichVuMouseEntered
-
-    private void lblDichVuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDichVuMouseExited
-        NotHoverPanel(pnlDichVu, lblIconDichVu);
-    }//GEN-LAST:event_lblDichVuMouseExited
-
-    private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatActionPerformed
-        this.OpenLogin();
-    }//GEN-LAST:event_btnDangXuatActionPerformed
-
-    private void lblbacsiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbacsiMouseEntered
+    private void lblIconThongKe2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKe2MouseClicked
         // TODO add your handling code here:
+    }//GEN-LAST:event_lblIconThongKe2MouseClicked
 
-        hover(lblbacsi);
-//        
-    }//GEN-LAST:event_lblbacsiMouseEntered
-
-    private void lblbacsiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbacsiMouseExited
+    private void lblIconThongKe2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKe2MouseEntered
         // TODO add your handling code here:
-//        
-        NotHover(lblbacsi);
-    }//GEN-LAST:event_lblbacsiMouseExited
+    }//GEN-LAST:event_lblIconThongKe2MouseEntered
+
+    private void lblIconThongKe2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKe2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblIconThongKe2MouseExited
+
+    private void lblThongKe2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKe2MouseClicked
+        // TODO add your handling code here:
+        this.OpenQuenpass();
+    }//GEN-LAST:event_lblThongKe2MouseClicked
+
+    private void lblThongKe2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKe2MouseEntered
+        // TODO add your handling code here:
+        hoverPanel(pnlQuanLyThongKe2, lblIconThongKe2);
+    }//GEN-LAST:event_lblThongKe2MouseEntered
+
+    private void lblThongKe2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKe2MouseExited
+        // TODO add your handling code here:
+        NotHoverPanel(pnlQuanLyThongKe2, lblIconThongKe2);
+    }//GEN-LAST:event_lblThongKe2MouseExited
+
+    private void pnlQuanLyNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlQuanLyNhanVienMouseClicked
+        // TODO add your handling code here:
+        if (Auths.userbacsy != null) {
+            MsgBox.alert(this, "Ban khong co quyen chon chuc nang nay");
+            return;
+        }
+    }//GEN-LAST:event_pnlQuanLyNhanVienMouseClicked
 
     /**
      * @param args the command line arguments
@@ -913,6 +1119,8 @@ public class Manhinhchinnh extends javax.swing.JFrame {
     private javax.swing.JLabel lblIconNhanVien;
     private javax.swing.JLabel lblIconPhieuKham;
     private javax.swing.JLabel lblIconThongKe;
+    private javax.swing.JLabel lblIconThongKe1;
+    private javax.swing.JLabel lblIconThongKe2;
     private javax.swing.JLabel lblIconThuoc;
     private javax.swing.JLabel lblQuanLyBacSi;
     private javax.swing.JLabel lblQuanLyBenhNhan;
@@ -921,6 +1129,8 @@ public class Manhinhchinnh extends javax.swing.JFrame {
     private javax.swing.JLabel lblQuanLyPhieuKham;
     private javax.swing.JLabel lblQuanLyThuoc;
     private javax.swing.JLabel lblThongKe;
+    private javax.swing.JLabel lblThongKe1;
+    private javax.swing.JLabel lblThongKe2;
     private javax.swing.JLabel lblTieuDe;
     private javax.swing.JLabel lblXinChao;
     private javax.swing.JLabel lblbacsi;
@@ -938,6 +1148,8 @@ public class Manhinhchinnh extends javax.swing.JFrame {
     private javax.swing.JPanel pnlQuanLyNhanVien;
     private javax.swing.JPanel pnlQuanLyPhieuKham;
     private javax.swing.JPanel pnlQuanLyThongKe;
+    private javax.swing.JPanel pnlQuanLyThongKe1;
+    private javax.swing.JPanel pnlQuanLyThongKe2;
     private javax.swing.JPanel pnlQuanLyThuoc;
     private javax.swing.JPanel pnlRight;
     private javax.swing.JPanel pnlTong;
@@ -946,7 +1158,13 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         //hoverPanel(pnlQuanLyBenhNhan, lblIconBenhNhan);
         setLocationRelativeTo(null);
         this.LoadNgay();
-        lblXinChao.setText("Xin chào," +Auths.user.getManhanvien());
+        if(Auths.user!=null){
+            pnlQuanLyBacSi.hide();
+        }
+        else if(Auths.userbacsy!=null){
+            pnlQuanLyNhanVien.setBackground(new Color(21,22,100));
+            pnlQuanLyNhanVien.setEnabled(false);
+        }
     }
 
     //Hover màu
@@ -982,50 +1200,72 @@ public class Manhinhchinnh extends javax.swing.JFrame {
             }
         }).start();
     }
-//   
 
     private void OpenBacSi() {
-        this.dispose();
-      new QuanLyBacSi().setVisible(true);
+        //this.dispose();
+        new QuanLyBacSi().setVisible(true);
     }
 
     private void OpenBenhNhan() {
-        this.dispose();
+        //this.dispose();
         new QuanLyBenhNhan().setVisible(true);
     }
 
     private void OpenNhanVien() {
-        this.dispose();
+        //this.dispose();
         new QuanLyNhanVien().setVisible(true);
     }
 
     private void OpenHoaDon() {
-        this.dispose();
-        new QuanLyHoaDon().setVisible(true);
+        //this.dispose();
+        new QuanLyDanhSachHoaDon().setVisible(true);
     }
 
     private void OpenPhieuKham() {
-        this.dispose();
+        //this.dispose();
         new QuanLyPhieuKham().setVisible(true);
     }
 
     private void OpenThuoc() {
-        this.dispose();
+        //this.dispose();
         new QuanLyThuoc().setVisible(true);
     }
 
     private void OpenDichVu() {
-        this.dispose();
+        //this.dispose();
         new QuanLyDichVu().setVisible(true);
     }
 
     private void OpenLogin() {
-        this.dispose();
-        new dangnhap().setVisible(true);
+        //this.dispose();
+         new dangnhap(this, true).setVisible(true);
     }
 
     private void OpenThongKe() throws SQLException {
-        this.dispose();
+        //this.dispose();
         new ThongKeBenhNhan().setVisible(true);
+    }
+
+    private void OpenQuenpass() {
+        //this.dispose();
+        new DoiMatKhau(this, rootPaneCheckingEnabled).setVisible(true);
+    }
+    public void imageicon() {
+        if (Auths.user.getHinh() != null) {
+            lblAnhNV.setToolTipText(Auths.user.getHinh());
+            ImageIcon icon = XImages.read(Auths.user.getHinh());
+            Image im = icon.getImage();
+            Image image = im.getScaledInstance(lblAnhNV.getWidth(), lblAnhNV.getHeight(), im.SCALE_SMOOTH);
+            ImageIcon icon1 = new ImageIcon(image);
+            lblAnhNV.setImagenDefault(icon1);
+        }
+//        if (Auths.userbacsy.getHinh() != null) {
+//            lblAnhNV.setToolTipText(Auths.userbacsy.getHinh());
+//            ImageIcon icon = XImages.read(Auths.userbacsy.getHinh());
+//            Image im = icon.getImage();
+//            Image image = im.getScaledInstance(lblAnhNV.getWidth(), lblAnhNV.getHeight(), im.SCALE_SMOOTH);
+//            ImageIcon icon1 = new ImageIcon(image);
+//            lblAnhNV.setImagenDefault(icon1);
+//        }
     }
 }
