@@ -24,6 +24,7 @@ public class Quenmatkhau extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         setTitle("Đổi mật khẩu");
          setShape(new RoundRectangle2D.Double(0, 0, getWidth(),  getHeight(),  30,30));
+         
     }
 
     /**

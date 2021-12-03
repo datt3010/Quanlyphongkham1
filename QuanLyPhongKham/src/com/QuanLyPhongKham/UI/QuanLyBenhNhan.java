@@ -18,8 +18,11 @@ import com.QuanLyPhongKham.DAO.benhnhanDAO;
 import com.QuanLyPhongKham.DAO.dichVuDAO;
 import com.QuanLyPhongKham.Model.BenhNhan;
 import com.QuanLyPhongKham.Model.DichVu;
+import com.QuanLyPhongKham.Utilities.Auths;
 import com.QuanLyPhongKham.Utilities.MsgBox;
 import com.QuanLyPhongKham.Utilities.XDate;
+import com.QuanLyPhongKham.Utilities.XImages;
+import java.awt.Image;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -1186,6 +1189,8 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     private void init() {
         hoverPanel(pnlQuanLyBenhNhan, lblIconBenhNhan);
+        lblXinChao.setText(Auths.user.getTennhanvien());
+        imageicon();
         setLocationRelativeTo(null);
         this.LoadNgay();
         datechooser.setDate(XDate.now());
@@ -1249,7 +1254,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
 
     private void OpenPhieuKham() {
         this.dispose();
-        //       new QuanLyPhieuKham().setVisible(true);
+       //       new QuanLyPhieuKham().setVisible(true);
     }
 
     private void OpenThuoc() {
@@ -1434,6 +1439,16 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
+        }
+    }
+      public void imageicon() {
+        if (Auths.user.getHinh() != null) {
+            lblAnhNV.setToolTipText(Auths.user.getHinh());
+            ImageIcon icon = XImages.read(Auths.user.getHinh());
+            Image im = icon.getImage();
+            Image image = im.getScaledInstance(lblAnhNV.getWidth(), lblAnhNV.getHeight(), im.SCALE_SMOOTH);
+            ImageIcon icon1 = new ImageIcon(image);
+            lblAnhNV.setImagenDefault(icon1);
         }
     }
 }

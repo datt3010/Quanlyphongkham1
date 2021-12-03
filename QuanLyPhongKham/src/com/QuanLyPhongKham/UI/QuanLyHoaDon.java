@@ -14,13 +14,16 @@ import com.QuanLyPhongKham.Model.HoaDon;
 import com.QuanLyPhongKham.Model.LoaiThuoc;
 import com.QuanLyPhongKham.Model.ToaThuoc;
 import static com.QuanLyPhongKham.UI.QuanLyToaThuoc.convert_CM_To_PPI;
+import com.QuanLyPhongKham.Utilities.Auths;
 import com.QuanLyPhongKham.Utilities.MsgBox;
 import com.QuanLyPhongKham.Utilities.XDate;
+import com.QuanLyPhongKham.Utilities.XImages;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.print.PageFormat;
@@ -1077,11 +1080,11 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyNhanVienMouseClicked
 
     private void lblIconBacSiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBacSiMouseClicked
-        this.OpenBacSi();
+//        this.OpenBacSi();
     }//GEN-LAST:event_lblIconBacSiMouseClicked
 
     private void lblQuanLyBacSiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBacSiMouseClicked
-        this.OpenBacSi();
+//        this.OpenBacSi();
     }//GEN-LAST:event_lblQuanLyBacSiMouseClicked
 
     private void lblIconHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseClicked
@@ -1528,7 +1531,6 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
     float tongtien;
     String tien = null;
     DecimalFormat df = new DecimalFormat("###,###,###");
-
     private void init() {
         hoverPanel(pnlQuanLyHoaDon, lblIconHoaDon);
         setLocationRelativeTo(null);
@@ -1536,6 +1538,8 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         this.showbtn1();
         this.filltableDichVu();
         this.filltablePhieuDichVu();
+        lblXinChao.setText(Auths.user.getTennhanvien());
+        imageicon();
         //this.gettongtien();
         this.updateStatus();
     }
@@ -1582,8 +1586,10 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
 
 //   
     private void OpenBacSi() {
-        this.dispose();
-        new QuanLyBacSi().setVisible(true);
+        if (Auths.user.getTennhanvien().equals(lblXinChao.getText())){
+            MsgBox.alert(this, "Bạn không có chức năng này");
+            return;
+        }
     }
 
     private void OpenBenhNhan() {
@@ -1947,5 +1953,15 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         btnThem.setEnabled(!edit);
         btnInHoaDon.setEnabled(!edit);
         btnMoi.setEnabled(edit);
+    }
+      public void imageicon() {
+        if (Auths.user.getHinh() != null) {
+            lblAnhNV.setToolTipText(Auths.user.getHinh());
+            ImageIcon icon = XImages.read(Auths.user.getHinh());
+            Image im = icon.getImage();
+            Image image = im.getScaledInstance(lblAnhNV.getWidth(), lblAnhNV.getHeight(), im.SCALE_SMOOTH);
+            ImageIcon icon1 = new ImageIcon(image);
+            lblAnhNV.setImagenDefault(icon1);
+        }
     }
 }

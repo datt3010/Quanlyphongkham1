@@ -30,7 +30,9 @@ sodienthoai varchar(13) check(sodienthoai>13) not null,
 gioitinh nvarchar(10),
 ngaysinh date not null,
 diachi nvarchar(255),
-trangthai nvarchar(50)
+trangthai nvarchar(50),
+manhanvien varchar(12),
+constraint fk_benhnhan_nhanvien foreign key(manhanvien) references nhanvien(manhanvien) on delete no action
 )
 go
 create table chuyennganh(
@@ -60,7 +62,6 @@ manhanvien varchar(12) not null,
 ketluan nvarchar(255),
 constraint fk_bacsy_phieukham foreign key(mabacsy) references bacsy(mabacsy) on update cascade,
 constraint fk_benhnhan_phieukham foreign key(mabenhnhan)references benhnhan(mabenhnhan) on delete no action on update cascade,
-constraint fk_nhanvien_phieukham foreign key(manhanvien) references nhanvien(manhanvien) on delete no action
 )
 go
 create table loaithuoc(
@@ -112,17 +113,17 @@ INSERT INTO nhanvien(manhanvien,tennhanvien,gioitinh,ngaysinh,matkhau,chucvu,sod
 ('BaoCT',N'Cao Thuận Bảo',N'Khác','2002-11-20','123',N'Nhân Viên','0346064484',N'Cần Thơ','anh6.png'),
 ('MinhNQ',N'Nguyễn Quốc Minh',N'Khác','2002-11-20','123',N'Nhân Viên','0346064484',N'Bình Định','anh7.png');
 GO
-INSERT INTO benhnhan(mabenhnhan,tenbenhnhan,sodienthoai,gioitinh,ngaysinh,diachi,trangthai) values
-('BN01',N'Nguyễn Hoài Bảo','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi',N'Đang điều trị'),
-('BN02',N'Lê Quốc Bảo','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi',N'Đang điều trị'),
-('BN03',N'Nguyễn Thành Nam','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi',N'Đang điều trị'),
-('BM04',N'Đỗ Huyền Trân','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi',N'Đang điều trị'),
-('BN05',N'Nguyễn Thị Bích','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi',N'Đang điều trị'),
-('BM06',N'Nguyễn Khắc Tâm','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi',N'Đang điều trị'),
-('BN11',N'Phạm Hồng Diễm','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi',N'Đang điều trị'),
-('BN08',N'Nguyễn Hoài Nghi','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi',N'Đang điều trị'),
-('BN09',N'Nguyễn Trường','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi',N'Đang điều trị'),
-('BN10',N'Nguyễn Vipp','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi',N'Đang điều trị');
+INSERT INTO benhnhan(mabenhnhan,tenbenhnhan,sodienthoai,gioitinh,ngaysinh,diachi,trangthai,manhanvien) values
+('BN01',N'Nguyễn Hoài Bảo','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi',N'Đang điều trị','AnNT'),
+('BN02',N'Lê Quốc Bảo','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi',N'Đang điều trị','AnNT'),
+('BN03',N'Nguyễn Thành Nam','0123562451',N'Nam','2002-11-21',N'Quảng Ngãi',N'Đang điều trị','AnNT'),
+('BM04',N'Đỗ Huyền Trân','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi',N'Đang điều trị','AnNT'),
+('BN05',N'Nguyễn Thị Bích','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi',N'Đang điều trị','AnNT'),
+('BM06',N'Nguyễn Khắc Tâm','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi',N'Đang điều trị','AnNT'),
+('BN11',N'Phạm Hồng Diễm','0123562451',N'Nữ','2002-11-21',N'Quảng Ngãi',N'Đang điều trị','AnNT'),
+('BN08',N'Nguyễn Hoài Nghi','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi',N'Đang điều trị','AnNT'),
+('BN09',N'Nguyễn Trường','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi',N'Đang điều trị','AnNT'),
+('BN10',N'Nguyễn Vipp','0123562451',N'Khác','2002-11-21',N'Quảng Ngãi',N'Đang điều trị','AnNT');
 GO
 INSERT INTO chuyennganh(machuyennganh,tenchuyennganh) values
 ('CN01','Chuyên Khoa Nhi'),
@@ -177,10 +178,43 @@ INSERT INTO thuoc(mathuoc,tenthuoc,donvitinh,maloaithuoc) values
 ('TH002',N'ACEMUC gói 200 mg(2)',N'Viên',1),
 ('TH003',N'ACEMUC viên 200 mg',N'Viên',1),
 ('TH004',N'AcetylCystein Boston 100mg',N'Gói',2),
-('TH005',N'Acid Ascorbic 500 mg',N'Viên',3),
-('TH006',N'Alphachoay (HGiang)',N'Gói',3)
+('TH005',N'Acid Ascorbic 500 mg',N'Viên',2),
+('TH007',N'Amlodipin 5mg Nang',N'Hộp',2),
+('TH008',N'Betadine SK 125ml',N'Gói',2),
+('TH009',N'Betadine SK 30ml',N'Gói',3),
+('TH010',N'Intima VSPN 200ml Đỏ',N'Gói',3),
+('TH011',N'Intima VSPN 200ml Trắng',N'Gói',3),
+('TH012',N'Intima VSPN 200ml Xanh',N'Gói',3),
+('TH013',N'Neotergynan Đặt Pháp',N'Hộp',4),
+('TH014',N'Newchoice',N'Hộp',4),
+('TH015',N'Orgamentril 5mg Viên',N'Viên',4),
+('TH016',N'Polygynax',N'Gói',4),
+('TH017',N'Rotunda Viên TW2',N'Hộp',4),
+('TH018',N'Tanganil 500mg Viên Pháp',N'Gói',5),
+('TH019',N'Cebraton Hộp 5 Vỉ TPC',N'Gói',5),
+('TH020',N'Cinarizin 25mg Hà nội',N'Hộp',5),
+('TH021',N'Digoxin Lọ 50v Hungary',N'Gói',5),
+('TH022',N'Kaleorid 600mg Đan Mạch',N'Hộp',6),
+('TH023',N'Lipanthyl 200mg Viên Pháp',N'Gói',6),
+('TH024',N'Lipitor 10mg Nén Mỹ',N'Hộp',6),
+('TH025',N'Micardis 40mg Viên Đức',N'Gói',6),
+('TH026',N'Serapid 5mg Viên HQ',N'Hộp',6),
+('TH027',N'Azi 200mg Bột Hậu Giang',N'Gói',7),
+('TH028',N'Azi 250mg Viên Z120',N'Viên',7),
+('TH029',N'Azi 500mg Viên Ấn Độ',N'Viên',7),
+('TH030',N'Ery 500mg Viên Vidipha',N'Gói',8),
+('TH031',N'Flagyl 250mg Viên Sanofi',N'Gói',8),
+('TH032',N'Furosemid 40mg Viên MKP',N'Hộp',8),
+('TH033',N'Genta Tiêm HD',N'Gói',8),
+('TH034',N'Heptamyl 187,8mg Pháp',N'Hộp',8),
+('TH035',N'Roxi 150mg Viên Ấn',N'Gói',9),
+('TH036',N'Sulfaguanidin 500mg Viên MKP',N'Gói',9),
+('TH037',N'Telfast 180mg Viên Sanofi',N'Gói',9),
+('TH038',N'Telfast 60mg Viên Sanofi',N'Viên',9),
+('TH039',N'inidazol 500mg Viên Ấn Độ',N'Gói',9),
+('TH040',N'Cefpo 100mg Gói Ngọt USP',N'Hộp',9)
 GO
-INSERT INTO dichvu(madichvu,tendichvu,giatien) values('DV000',N'Null',0),
+INSERT INTO dichvu(madichvu,tendichvu,giatien) values('DV000',N'Khám Bình thường', 10000),
 ('DV001',N'Khám Mắt',11000),
 ('DV002',N'Khám Chân',12000),
 ('DV003',N'Khám Tay',10000),
@@ -191,14 +225,16 @@ INSERT INTO dichvu(madichvu,tendichvu,giatien) values('DV000',N'Null',0),
 ('DV008',N'Cắt Kính',10000),	
 ('DV009',N'Massage',12000);
 GO
-INSERT INTO phieukham(ngaykham,mabacsy,mabenhnhan,manhanvien,ketluan) values('2021-11-16','BS01',2,N'AnNT',N'Tiêu chảy'),
-('2021-11-16','BS02',3,N'AnNT',N'Ung thư'),
-('2021-11-16','BS03',3,N'AnNT',N'Sốt'),
-('2021-11-16','BS04',4,N'AnNT',N'Viêm ACD'),
-('2021-11-16','BS05',5,N'AnNT',N'Gãy Chân');
+INSERT INTO phieukham(ngaykham,mabacsy,mabenhnhan,manhanvien,ketluan) values('2021-11-16','BS01',N'BN01',N'AnNT',N'Tiêu chảy'),
+('2021-11-16','BS02',N'BN02',N'AnNT',N'Ung thư'),
+('2021-11-16','BS03',N'BN03',N'AnNT',N'Sốt'),
+('2021-11-16','BS04',N'BM04',N'AnNT',N'Viêm ACD'),
+('2021-11-16','BS05',N'BN03',N'AnNT',N'Gãy Chân');
+go
 insert into phieudichvu(mabenhnhan) values
-(1),
-(2)
+(N'BN02'),
+(N'BN03')
+GO
 insert into chitietphieudichvu(madichvu,maphieudichvu,dongia) values
 ('DV000',3,1200);
 if OBJECT_ID('trigger_benhnhan') is not null
@@ -217,3 +253,5 @@ insert into phieudichvu values(@mabenhnhan)
 end
 select * from phieudichvu
 select * from bacsy
+select * from nhanvien
+select * from benhnhan

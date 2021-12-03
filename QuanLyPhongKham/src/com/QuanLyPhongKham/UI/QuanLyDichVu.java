@@ -5,7 +5,10 @@
  */
 package com.QuanLyPhongKham.UI;
 
+import com.QuanLyPhongKham.Utilities.Auths;
+import com.QuanLyPhongKham.Utilities.XImages;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -806,8 +809,8 @@ public class QuanLyDichVu extends javax.swing.JFrame {
         hoverPanel(pnlDichVu, lblIconDichVu);
         setLocationRelativeTo(null);
         this.LoadNgay();
-        
-        
+       lblXinChao.setText(Auths.user.getTennhanvien());
+       imageicon();
     }
     
     //Hover màu
@@ -886,5 +889,15 @@ public class QuanLyDichVu extends javax.swing.JFrame {
     private void OpenThongKe(){
 //        this.dispose();
 //        new ThongKeBenhNhan().setVisible(true);
+    }
+      public void imageicon() {
+        if (Auths.user.getHinh() != null) {
+            lblAnhNV.setToolTipText(Auths.user.getHinh());
+            ImageIcon icon = XImages.read(Auths.user.getHinh());
+            Image im = icon.getImage();
+            Image image = im.getScaledInstance(lblAnhNV.getWidth(), lblAnhNV.getHeight(), im.SCALE_SMOOTH);
+            ImageIcon icon1 = new ImageIcon(image);
+            lblAnhNV.setImagenDefault(icon1);
+        }
     }
 }
