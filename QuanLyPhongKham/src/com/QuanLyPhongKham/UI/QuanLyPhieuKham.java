@@ -1208,9 +1208,9 @@ public class QuanLyPhieuKham extends javax.swing.JFrame {
         this.filltable();
         this.filltableBenhNhan();  
         this.updateStatus();
-//        lblXinChao.setText(lblXinChao.getText()+Auths.userbacsy.getMabacsy());
-//        txtBS.setText(Auths.userbacsy.getMabacsy());
-//        this.LoadUser();
+        lblXinChao.setText(lblXinChao.getText()+Auths.userbacsy.getMabacsy());
+        txtBS.setText(Auths.userbacsy.getMabacsy());
+
     }
 
     //Hover màu

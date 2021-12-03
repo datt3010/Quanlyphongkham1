@@ -1298,7 +1298,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         fillcbochuyennganh();
         filltable1();
         lblAnhBS.setToolTipText("");
-        
+        lblXinChao.setText(lblXinChao.getText()+Auths.userbacsy.getMabacsy());
     }
     
     //Hover màu
