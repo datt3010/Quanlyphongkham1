@@ -559,8 +559,8 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Tên bác sĩ");
-        pnlRight.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 90, 30));
+        jLabel3.setText("Tên Bệnh nhân");
+        pnlRight.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 120, 30));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -632,6 +632,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         pnlRight.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 70, 30));
 
         btnnext.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnnext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_fast_forward_32px.png"))); // NOI18N
         btnnext.setText("Next");
         btnnext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -640,6 +641,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         });
         pnlRight.add(btnnext, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 700, 110, 40));
 
+        btnadd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/them_20px.png"))); // NOI18N
         btnadd.setText("Add");
         btnadd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -648,6 +650,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         });
         pnlRight.add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 210, 100, 40));
 
+        btnnew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/refresh_20px.png"))); // NOI18N
         btnnew.setText("New");
         btnnew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -656,6 +659,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         });
         pnlRight.add(btnnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 210, 100, 40));
 
+        btnupdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/update_25px.png"))); // NOI18N
         btnupdate.setText("Update");
         btnupdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -664,6 +668,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         });
         pnlRight.add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 270, 100, 40));
 
+        btndelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/delete_20px.png"))); // NOI18N
         btndelete.setText("Delete");
         btndelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -673,6 +678,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         pnlRight.add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 270, 100, 40));
 
         btnfirst.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnfirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_skip_to_start_32px_1.png"))); // NOI18N
         btnfirst.setText("First");
         btnfirst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -682,6 +688,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         pnlRight.add(btnfirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 700, 110, 40));
 
         btnprevious.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnprevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_rewind_32px.png"))); // NOI18N
         btnprevious.setText("Previous");
         btnprevious.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -691,6 +698,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         pnlRight.add(btnprevious, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 700, 110, 40));
 
         btnend.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnend.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_end_32px_1.png"))); // NOI18N
         btnend.setText("End");
         btnend.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -705,13 +713,14 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         pnlRight.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 120, 30));
         pnlRight.add(txtmabenhnhan, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 220, 34));
 
-        btnsendsms.setText("jButton1");
+        btnsendsms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/facebook_20px.png"))); // NOI18N
+        btnsendsms.setText("Gửi thông tin");
         btnsendsms.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsendsmsActionPerformed(evt);
             }
         });
-        pnlRight.add(btnsendsms, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
+        pnlRight.add(btnsendsms, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 330, 130, 40));
 
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 
