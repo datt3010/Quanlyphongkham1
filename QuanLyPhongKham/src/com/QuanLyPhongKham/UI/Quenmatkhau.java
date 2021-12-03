@@ -302,6 +302,9 @@ public class Quenmatkhau extends javax.swing.JDialog {
         });
     }
 
+  public void quenmatkhau() {
+
+ }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.complementos.RSButtonHover btnThoat;
     private rojeru_san.complementos.RSButtonHover btnXacNhan;

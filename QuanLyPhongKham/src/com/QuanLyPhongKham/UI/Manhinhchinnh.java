@@ -1214,12 +1214,14 @@ public class Manhinhchinnh extends javax.swing.JFrame {
             }
         }).start();
     }
- private void optenToathuoc(){
-     if(Auths.isLogin()){
-         MsgBox.alert(this,"Bạn chưa được cấp sử dụng chức năng này");
-         return; 
- }
- }
+
+    private void optenToathuoc() {
+        if (Auths.isLogin()) {
+            MsgBox.alert(this, "Bạn chưa được cấp sử dụng chức năng này");
+            return;
+        }
+    }
+
     private void OpenBacSi() {
         //this.dispose();
         if (Auths.isLogin1()) {
@@ -1255,6 +1257,7 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         }
         new QuanLyNhanVien().setVisible(true);
     }
+
     private void OpenHoaDon() {
         //this.dispose();
         if (Auths.isLogin1()) {
@@ -1265,9 +1268,9 @@ public class Manhinhchinnh extends javax.swing.JFrame {
     }
 
     private void OpenPhieuKham() {
-        if(Auths.isLogin()){
-            MsgBox.alert(this,"ban khong co chuc nang nay");
-            return; 
+        if (Auths.isLogin()) {
+            MsgBox.alert(this, "ban khong co chuc nang nay");
+            return;
         }
         //this.dispose();
         new QuanLyPhieuKham().setVisible(true);
@@ -1275,9 +1278,9 @@ public class Manhinhchinnh extends javax.swing.JFrame {
 
     private void OpenThuoc() {
         //this.dispose();
-         if(Auths.isLogin()){
-            MsgBox.alert(this,"ban khong co chuc nang nay");
-            return; 
+        if (Auths.isLogin()) {
+            MsgBox.alert(this, "ban khong co chuc nang nay");
+            return;
         }
         new QuanLyThuoc().setVisible(true);
     }
@@ -1299,24 +1302,26 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         //this.dispose();
         new dangnhap(this, true).setVisible(true);
     }
- private void Openchitietdichvu(){
-     if(Auths.isLogin1()){
-         MsgBox.alert(this,"ban khong co chuc nang nay");
-         return; 
-     }
-     if(!Auths.user.getChucvu().equals("Quản Lý")){
-         MsgBox.alert(this,"chỉ có quản lý mới sử dụng chức năng này");
-     }
- }
+
+    private void Openchitietdichvu() {
+        if (Auths.isLogin1()) {
+            MsgBox.alert(this, "ban khong co chuc nang nay");
+            return;
+        }
+        if (!Auths.user.getChucvu().equals("Quản Lý")) {
+            MsgBox.alert(this, "chỉ có quản lý mới sử dụng chức năng này");
+        }
+    }
+
     private void OpenThongKe() throws SQLException {
         //this.dispose();
         if (Auths.isLogin1()) {
             MsgBox.alert(this, "ban khong co chuc nang nay");
             return;
         }
-        if(!Auths.user.getChucvu().equals("Quản Lý")){
-            MsgBox.alert(this,"chỉ có quản lý mới sử dụng chức năng này");
-            return; 
+        if (!Auths.user.getChucvu().equals("Quản Lý")) {
+            MsgBox.alert(this, "chỉ có quản lý mới sử dụng chức năng này");
+            return;
         }
         new ThongKeBenhNhan().setVisible(true);
     }
@@ -1325,6 +1330,7 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         //this.dispose();
         new DoiMatKhau(this, rootPaneCheckingEnabled).setVisible(true);
     }
+
     public void imageicon() {
         if (Auths.user.getHinh() != null) {
             lblAnhNV.setToolTipText(Auths.user.getHinh());
@@ -1347,4 +1353,3 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         }
     }
 }
-
