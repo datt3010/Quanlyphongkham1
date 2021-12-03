@@ -18,6 +18,7 @@ import com.QuanLyPhongKham.DAO.nhanvienDAO;
 import com.QuanLyPhongKham.Model.BenhNhan;
 import com.QuanLyPhongKham.Model.NhanVien;
 import com.QuanLyPhongKham.Model.PhieuKham;
+import com.QuanLyPhongKham.Utilities.Auths;
 import com.QuanLyPhongKham.Utilities.MsgBox;
 import com.QuanLyPhongKham.Utilities.XDate;
 import com.QuanLyPhongKham.Utilities.XImages;
@@ -1279,6 +1280,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         this.LoadNgay();
         filltable1();
+        lblXinChao.setText(lblXinChao.getText()+Auths.user);
         
     }
     
