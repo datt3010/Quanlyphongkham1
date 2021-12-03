@@ -26,9 +26,6 @@ import com.QuanLyPhongKham.DAO.chuyennganhDAO;
 import com.QuanLyPhongKham.Model.ChuyenNganh;
 import java.awt.Image;
 import java.io.File;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFileChooser;
@@ -49,7 +46,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     public QuanLyBacSi() {
         initComponents();
         init();
-       
     }
 
     /**
@@ -407,11 +403,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         pnlLeft.add(pnlQuanLyPhieuKham, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 210, 40));
 
         pnlQuanLyThuoc.setBackground(new java.awt.Color(54, 70, 78));
-        pnlQuanLyThuoc.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlQuanLyThuocMouseClicked(evt);
-            }
-        });
         pnlQuanLyThuoc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconThuoc.setBackground(new java.awt.Color(54, 70, 78));
@@ -851,7 +842,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     }//GEN-LAST:event_lblIconBacSiMouseClicked
 
     private void lblQuanLyBacSiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyBacSiMouseClicked
-           this.OpenBacSi();
+           //this.OpenBacSi();
     }//GEN-LAST:event_lblQuanLyBacSiMouseClicked
 
     private void lblIconHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconHoaDonMouseClicked
@@ -879,27 +870,19 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     }//GEN-LAST:event_lblQuanLyPhieuKhamMouseClicked
 
     private void lblIconThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThongKeMouseClicked
-        try {
-            this.OpenThongKe();
-        } catch (SQLException ex) {
-            Logger.getLogger(QuanLyBacSi.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.OpenThongKe();
     }//GEN-LAST:event_lblIconThongKeMouseClicked
 
     private void lblThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseClicked
-        try {
-            this.OpenThongKe();
-        } catch (SQLException ex) {
-            Logger.getLogger(QuanLyBacSi.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.OpenThongKe();
     }//GEN-LAST:event_lblThongKeMouseClicked
 
     private void lblIconThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconThuocMouseClicked
-        this.openThuoc();
+        this.OpenThuoc();
     }//GEN-LAST:event_lblIconThuocMouseClicked
 
     private void lblQuanLyThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyThuocMouseClicked
-       this.openThuoc();
+       this.OpenThuoc();
     }//GEN-LAST:event_lblQuanLyThuocMouseClicked
 
     private void lblIconBacSiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconBacSiMouseEntered
@@ -1173,6 +1156,8 @@ public class QuanLyBacSi extends javax.swing.JFrame {
 
     private void btnlastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlastActionPerformed
         // TODO add your handling code here:
+        
+        
         if (row >= 0) {
             row = tblBacSi.getRowCount()-1;
             tblBacSi.setRowSelectionInterval(row, row);
@@ -1195,11 +1180,6 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_lblAnhBSMouseClicked
-
-    private void pnlQuanLyThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlQuanLyThuocMouseClicked
-        // TODO add your handling code here:
-        openThuoc();
-    }//GEN-LAST:event_pnlQuanLyThuocMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1311,16 +1291,14 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     chuyennganhDAO cndao = new chuyennganhDAO();
     int row = -1;
     int index = -1;
-
-    private void init() {
+    private void init(){
         hoverPanel(pnlQuanLyBacSi, lblIconBacSi);
         setLocationRelativeTo(null);
-        lblXinChao.setText(Auths.user.getTennhanvien());
-        imageicon();
         this.LoadNgay();
         fillcbochuyennganh();
         filltable1();
-
+        lblAnhBS.setToolTipText("");
+        lblXinChao.setText(lblXinChao.getText()+Auths.userbacsy.getMabacsy());
     }
     
     //Hover màu
@@ -1357,135 +1335,59 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         }).start();
     }
 //   
-    private void openThuoc(){
-        if(Auths.isLogin()){
-            MsgBox.alert(this,"ban chưa được sử dựng chức năng này");
-            return;
-        }
-    }
- private void optenToathuoc(){
-     if(Auths.isLogin()){
-         MsgBox.alert(this,"Bạn chưa được cấp sử dụng chức năng này");
-         return; 
- }
- }
-    private void OpenBacSi() {
-        //this.dispose();
-        if (Auths.isLogin1()) {
-            MsgBox.alert(this, "ban khong co chuc nang nay");
-            return;
-        }
-        if (!Auths.user.getChucvu().equals("Quản Lý")) {
-            MsgBox.alert(this, "chỉ có quản lý mới sử dụng chức năng này");
-            return;
-        }
-        new QuanLyBacSi().setVisible(true);
+    private void OpenBacSi(){
         this.dispose();
+        new QuanLyBacSi().setVisible(true);
     }
-
-    private void OpenBenhNhan() {
-        //this.dispose();
-        if (Auths.isLogin1()) {
-            MsgBox.alert(this, "ban khong co chuc nang nay");
-            return;
-        }
+    private void OpenBenhNhan(){
+        this.dispose();
         new QuanLyBenhNhan().setVisible(true);
     }
-
-    private void OpenNhanVien() {
-        //this.dispose();
-        if (Auths.isLogin1()) {
-            MsgBox.alert(this, "ban khong co chuc nang nay");
-            return;
-        }
-        if (!Auths.user.getChucvu().equals("Quản Lý")) {
-            MsgBox.alert(this, "chỉ có quản lý mới sử dụng chức năng này");
-            return;
-        }
+    
+    private void OpenNhanVien(){
+        this.dispose();
         new QuanLyNhanVien().setVisible(true);
     }
-    private void OpenHoaDon() {
-        //this.dispose();
-        if (Auths.isLogin1()) {
-            MsgBox.alert(this, "ban khong co chuc nang nay");
-            return;
-        }
+    
+    private void OpenHoaDon(){
+        this.dispose();
         new QuanLyHoaDon().setVisible(true);
     }
-
-    private void OpenPhieuKham() {
-        if(Auths.isLogin()){
-            MsgBox.alert(this,"ban khong co chuc nang nay");
-            return; 
-        }
-        //this.dispose();
+    
+    private void OpenPhieuKham(){
+        this.dispose();
         new QuanLyPhieuKham().setVisible(true);
     }
-
-    private void OpenThuoc() {
-        //this.dispose();
-        if (Auths.isLogin()) {
-            MsgBox.alert(this, "ban khong co chuc nang nay");
-            return;
-        }
+    
+    private void OpenThuoc(){
+        this.dispose();
+        new QuanLyThuoc().setVisible(true);
     }
-
-    private void OpenDichVu() {
-        if (Auths.isLogin1()) {
-            MsgBox.alert(this, "ban khong co chuc nang nay");
-            return;
-        }
-        if (!Auths.user.getChucvu().equals("Quản Lý")) {
-            MsgBox.alert(this, "chỉ có quản lý mới sử dụng chức năng này");
-            return;
-        }
-        //this.dispose();
+    
+    private void OpenDichVu(){
+        this.dispose();
         new QuanLyDichVu().setVisible(true);
     }
-
-    private void OpenLogin() {
-        //this.dispose();
-        new dangnhap(this, true).setVisible(true);
+    
+    private void OpenLogin(){
+        this.dispose();
+        new dangnhap().setVisible(true);
     }
-
-    private void Openchitietdichvu() {
-        if (Auths.isLogin1()) {
-            MsgBox.alert(this, "ban khong co chuc nang nay");
-            return;
-        }
-        if (!Auths.user.getChucvu().equals("Quản Lý")) {
-            MsgBox.alert(this, "chỉ có quản lý mới sử dụng chức năng này");
-        }
+    
+    private void OpenThongKe(){
+//        this.dispose();
+//        new ThongKeBenhNhan().setVisible(true);
     }
-
-    private void OpenThongKe() throws SQLException {
-        //this.dispose();
-        if (Auths.isLogin1()) {
-            MsgBox.alert(this, "ban khong co chuc nang nay");
-            return;
-        }
-        if (!Auths.user.getChucvu().equals("Quản Lý")) {
-            MsgBox.alert(this, "chỉ có quản lý mới sử dụng chức năng này");
-            return;
-        }
-        new ThongKeBenhNhan().setVisible(true);
-    }
-
-    private void OpenQuenpass() {
-        //this.dispose();
-        new DoiMatKhau(this, rootPaneCheckingEnabled).setVisible(true);
-    }
-
-    public void filltable1() {
+     public void filltable1(){
         DefaultTableModel model = (DefaultTableModel) tblBacSi.getModel();
         model.setRowCount(0);
-        try {
+        try{
             String text = txtTimKiem.getText();
             List<BacSi> list = bsDao.SelectKeyword(text, text, text, text, text, text);
-            for (BacSi bs : list) {
+            for(BacSi bs : list){
                 model.addRow(new Object[]{
-                    bs.getMabacsy(), bs.getTenbacsy(), bs.getGioitinh(), bs.getDienthoai(), bs.getEmail(), XDate.toString(bs.getNgaysinh(), "dd/MM/yyyy"), bs.getMachuyennganh()
-                });
+                bs.getMabacsy(),bs.getTenbacsy(),bs.getGioitinh(),bs.getDienthoai(),bs.getEmail(),XDate.toString(bs.getNgaysinh(), "dd/MM/yyyy"),bs.getMachuyennganh()
+            });
             }
 //        model.fireTableChanged();
         }catch(Exception e){
@@ -1628,14 +1530,5 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         
         return true;
       }
-     public void imageicon() {
-        if (Auths.user.getHinh() != null) {
-            lblAnhNV.setToolTipText(Auths.user.getHinh());
-            ImageIcon icon = XImages.read(Auths.user.getHinh());
-            Image im = icon.getImage();
-            Image image = im.getScaledInstance(lblAnhNV.getWidth(), lblAnhNV.getHeight(), im.SCALE_SMOOTH);
-            ImageIcon icon1 = new ImageIcon(image);
-            lblAnhNV.setImagenDefault(icon1);
-        }
-    }
+    
 }
