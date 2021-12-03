@@ -865,7 +865,7 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
     }
     private void OpenBenhNhan(){
         this.dispose();
-//        new QuanLyBenhNhan().setVisible(true);
+        new QuanLyBenhNhan().setVisible(true);
     }
     
     private void OpenNhanVien(){
@@ -880,7 +880,7 @@ public class ThongKeBenhNhan extends javax.swing.JFrame {
     
     private void OpenPhieuKham(){
         this.dispose();
-//        new QuanLyPhieuKham().setVisible(true);
+        new QuanLyPhieuKham().setVisible(true);
     }
     
     private void OpenThuoc(){

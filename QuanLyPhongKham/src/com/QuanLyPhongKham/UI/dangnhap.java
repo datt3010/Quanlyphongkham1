@@ -209,7 +209,7 @@ public class dangnhap extends javax.swing.JDialog {
             }
         });
         jPanel3.add(btnQR, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 230, 50));
-        jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 320, 10));
+        jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 320, 10));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 320, 20));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
@@ -232,7 +232,7 @@ public class dangnhap extends javax.swing.JDialog {
 
         txtpassword.setText("123");
         txtpassword.setBorder(null);
-        jPanel3.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 326, 33));
+        jPanel3.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 326, 30));
 
         btndangnhap.setBackground(new java.awt.Color(51, 51, 51));
         btndangnhap.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N

@@ -75,11 +75,6 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\Downloads\Quanlyphongkham1\QuanLyPhongKham\src\com\QuanLyPhongKham\Icon\Blue We Care For Your Health Facebook Post.png"/>
-            </Property>
-          </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">
 

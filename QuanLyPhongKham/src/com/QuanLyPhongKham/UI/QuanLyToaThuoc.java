@@ -109,6 +109,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         lblDichVu = new javax.swing.JLabel();
         btnDangXuat = new rojeru_san.complementos.RSButtonHover();
         pnlRight = new javax.swing.JPanel();
+        pnl1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         lblThuoc = new javax.swing.JLabel();
         lblDSPhieuKham = new javax.swing.JLabel();
@@ -140,6 +141,14 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         lblTenBenhNhan = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblNgayTaiKham = new javax.swing.JLabel();
+        btnMoi = new rojeru_san.complementos.RSButtonHover();
+        btnTienDichVu = new rojeru_san.complementos.RSButtonHover();
+        pnl2 = new javax.swing.JPanel();
+        btnQuayVe = new rojeru_san.complementos.RSButtonHover();
+        txtTim = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tblDSPhieuKham1 = new rojeru_san.complementos.RSTableMetro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ HOÁ ĐƠN\n");
@@ -548,13 +557,17 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
 
         pnlRight.setBackground(new java.awt.Color(255, 255, 255));
         pnlRight.setFocusable(false);
-        pnlRight.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlRight.setOpaque(false);
+        pnlRight.setLayout(new java.awt.CardLayout());
+
+        pnl1.setBackground(new java.awt.Color(255, 255, 255));
+        pnl1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 51));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("QUẢN LÝ TOA THUỐC");
-        pnlRight.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, -1));
+        pnl1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, -1));
 
         lblThuoc.setBackground(new java.awt.Color(102, 102, 102));
         lblThuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -567,7 +580,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
                 lblThuocMouseClicked(evt);
             }
         });
-        pnlRight.add(lblThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 40, 40));
+        pnl1.add(lblThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 40, 40));
 
         lblDSPhieuKham.setBackground(new java.awt.Color(102, 102, 102));
         lblDSPhieuKham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -579,7 +592,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
                 lblDSPhieuKhamMouseClicked(evt);
             }
         });
-        pnlRight.add(lblDSPhieuKham, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 40, 40));
+        pnl1.add(lblDSPhieuKham, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 40, 40));
 
         pnlCard.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 2, new java.awt.Color(0, 0, 0)));
         pnlCard.setLayout(new java.awt.CardLayout());
@@ -709,11 +722,11 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
 
         pnlCard.add(pnlDSPhieuKham, "card3");
 
-        pnlRight.add(pnlCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 550, 520));
+        pnl1.add(pnlCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 560, 520));
 
         lblTen.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblTen.setText("Tên Bệnh Nhân:");
-        pnlRight.add(lblTen, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 40, 140, 30));
+        pnl1.add(lblTen, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 40, 140, 30));
 
         pnlHoaDon.setBackground(new java.awt.Color(255, 255, 255));
         pnlHoaDon.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -776,7 +789,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
 
         pnlHoaDon.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 380, 70));
 
-        pnlRight.add(pnlHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 610, 520));
+        pnl1.add(pnlHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 610, 520));
 
         btnInHoaDon.setText("IN HOÁ ĐƠN");
         btnInHoaDon.addActionListener(new java.awt.event.ActionListener() {
@@ -784,7 +797,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
                 btnInHoaDonActionPerformed(evt);
             }
         });
-        pnlRight.add(btnInHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 720, 130, -1));
+        pnl1.add(btnInHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 720, 130, -1));
 
         btnDSToaThuoc.setText("DANH SÁCH TOA THUỐC");
         btnDSToaThuoc.addActionListener(new java.awt.event.ActionListener() {
@@ -792,11 +805,11 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
                 btnDSToaThuocActionPerformed(evt);
             }
         });
-        pnlRight.add(btnDSToaThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 720, 210, -1));
+        pnl1.add(btnDSToaThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 720, 210, -1));
 
         lblPhieuKham.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblPhieuKham.setText("Phiếu Khám : ");
-        pnlRight.add(lblPhieuKham, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 120, 30));
+        pnl1.add(lblPhieuKham, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 120, 30));
 
         btnThem.setText("THÊM");
         btnThem.addActionListener(new java.awt.event.ActionListener() {
@@ -804,23 +817,118 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
                 btnThemActionPerformed(evt);
             }
         });
-        pnlRight.add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 720, 90, -1));
+        pnl1.add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 720, 90, -1));
 
         lblMaPhieuKham.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblMaPhieuKham.setForeground(new java.awt.Color(255, 0, 0));
-        pnlRight.add(lblMaPhieuKham, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, 40, 30));
+        pnl1.add(lblMaPhieuKham, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, 40, 30));
 
         lblTenBenhNhan.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblTenBenhNhan.setForeground(new java.awt.Color(255, 0, 0));
-        pnlRight.add(lblTenBenhNhan, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 40, 220, 30));
+        pnl1.add(lblTenBenhNhan, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 40, 220, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel3.setText("Ngày Tái Khám: ");
-        pnlRight.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 610, -1, -1));
+        pnl1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 610, -1, -1));
 
         lblNgayTaiKham.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblNgayTaiKham.setForeground(new java.awt.Color(255, 0, 51));
-        pnlRight.add(lblNgayTaiKham, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 610, 160, 20));
+        pnl1.add(lblNgayTaiKham, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 610, 160, 20));
+
+        btnMoi.setText("MỚI");
+        btnMoi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMoiActionPerformed(evt);
+            }
+        });
+        pnl1.add(btnMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 720, 90, -1));
+
+        btnTienDichVu.setText("TÍNH TIỀN DỊCH VỤ");
+        btnTienDichVu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTienDichVuActionPerformed(evt);
+            }
+        });
+        pnl1.add(btnTienDichVu, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 720, 210, -1));
+
+        pnlRight.add(pnl1, "card16");
+
+        pnl2.setBackground(new java.awt.Color(255, 255, 255));
+        pnl2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnQuayVe.setText("< < QUAY VỀ");
+        btnQuayVe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuayVeActionPerformed(evt);
+            }
+        });
+        pnl2.add(btnQuayVe, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 140, -1));
+
+        txtTim.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtTim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTimActionPerformed(evt);
+            }
+        });
+        txtTim.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTimKeyReleased(evt);
+            }
+        });
+        pnl2.add(txtTim, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 400, 40));
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\OS\\Desktop\\DuAn1_QuanLyPhongKham\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\icons8_search_35px.png")); // NOI18N
+        jLabel4.setOpaque(true);
+        pnl2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 40, 50, 40));
+
+        tblDSPhieuKham1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Mã PK", "Mã BN", "Họ Tên", "Địa chỉ", "SĐT", "Ngày Khám", "Kết luận"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblDSPhieuKham1.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tblDSPhieuKham1.setColorSelBackgound(new java.awt.Color(255, 0, 0));
+        tblDSPhieuKham1.setFuenteHead(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        tblDSPhieuKham1.setRowHeight(35);
+        tblDSPhieuKham1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDSPhieuKham1MouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(tblDSPhieuKham1);
+        if (tblDSPhieuKham1.getColumnModel().getColumnCount() > 0) {
+            tblDSPhieuKham1.getColumnModel().getColumn(0).setMinWidth(80);
+            tblDSPhieuKham1.getColumnModel().getColumn(0).setPreferredWidth(80);
+            tblDSPhieuKham1.getColumnModel().getColumn(0).setMaxWidth(80);
+            tblDSPhieuKham1.getColumnModel().getColumn(1).setMinWidth(100);
+            tblDSPhieuKham1.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tblDSPhieuKham1.getColumnModel().getColumn(1).setMaxWidth(100);
+            tblDSPhieuKham1.getColumnModel().getColumn(2).setMinWidth(220);
+            tblDSPhieuKham1.getColumnModel().getColumn(2).setPreferredWidth(220);
+            tblDSPhieuKham1.getColumnModel().getColumn(2).setMaxWidth(220);
+            tblDSPhieuKham1.getColumnModel().getColumn(3).setMinWidth(260);
+            tblDSPhieuKham1.getColumnModel().getColumn(3).setPreferredWidth(260);
+            tblDSPhieuKham1.getColumnModel().getColumn(3).setMaxWidth(260);
+            tblDSPhieuKham1.getColumnModel().getColumn(4).setMinWidth(160);
+            tblDSPhieuKham1.getColumnModel().getColumn(4).setPreferredWidth(160);
+            tblDSPhieuKham1.getColumnModel().getColumn(4).setMaxWidth(160);
+        }
+
+        pnl2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 1140, 670));
+
+        pnlRight.add(pnl2, "card3");
 
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 
@@ -1148,12 +1256,13 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         this.insert();
-        
+
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnDSToaThuocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDSToaThuocActionPerformed
-        this.dispose();
-        new QuanLyDanhSachToaThuoc().setVisible(true);
+        pnl2.show();
+        pnl1.show(false);
+        this.LoadData();
     }//GEN-LAST:event_btnDSToaThuocActionPerformed
 
     private void btnInHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInHoaDonActionPerformed
@@ -1171,6 +1280,51 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_btnInHoaDonActionPerformed
+
+    private void btnQuayVeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuayVeActionPerformed
+        pnl1.show();
+        pnl2.show(false);
+    }//GEN-LAST:event_btnQuayVeActionPerformed
+
+    private void txtTimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimActionPerformed
+        if (txtTim.getText().length() > 0) {
+            this.LoadData();
+        } else {
+            this.LoadData();
+        }
+    }//GEN-LAST:event_txtTimActionPerformed
+
+    private void txtTimKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKeyReleased
+        if (txtTim.getText().length() > 0) {
+            this.LoadData();
+        } else {
+            this.LoadData();
+        }
+    }//GEN-LAST:event_txtTimKeyReleased
+
+    private void tblDSPhieuKham1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDSPhieuKham1MouseClicked
+      if(evt.getClickCount()==2){
+          this.row = tblDSPhieuKham1.getSelectedRow();
+          this.OnclickTableDS();
+          pnl1.show();
+          pnl2.show(false);
+          btnThem.setEnabled(false);
+          btnInHoaDon.setEnabled(false);
+      }
+    }//GEN-LAST:event_tblDSPhieuKham1MouseClicked
+
+    private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
+        
+        DefaultTableModel model = (DefaultTableModel) tblHoaDon.getModel();
+        model.setRowCount(0);
+        this.clear();
+        
+    }//GEN-LAST:event_btnMoiActionPerformed
+
+    private void btnTienDichVuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTienDichVuActionPerformed
+        this.dispose();
+        new QuanLyHoaDon().setVisible(true);
+    }//GEN-LAST:event_btnTienDichVuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1242,16 +1396,21 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     private rojeru_san.complementos.RSButtonHover btnDSToaThuoc;
     private rojeru_san.complementos.RSButtonHover btnDangXuat;
     private rojeru_san.complementos.RSButtonHover btnInHoaDon;
+    private rojeru_san.complementos.RSButtonHover btnMoi;
+    private rojeru_san.complementos.RSButtonHover btnQuayVe;
     private rojeru_san.complementos.RSButtonHover btnThem;
+    private rojeru_san.complementos.RSButtonHover btnTienDichVu;
     private rojeru_san.complementos.RSButtonHover btnTim;
     private javax.swing.JComboBox<String> cboLoaiThuoc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private rojerusan.RSFotoCircle lblAnhNV;
     private javax.swing.JLabel lblDSPhieuKham;
     private javax.swing.JLabel lblDanhMuc;
@@ -1282,6 +1441,8 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     private javax.swing.JLabel lblThuoc;
     private javax.swing.JLabel lblTieuDe;
     private javax.swing.JLabel lblXinChao;
+    private javax.swing.JPanel pnl1;
+    private javax.swing.JPanel pnl2;
     private javax.swing.JPanel pnlCard;
     private javax.swing.JPanel pnlDSPhieuKham;
     private javax.swing.JPanel pnlDichVu;
@@ -1299,9 +1460,11 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
     private javax.swing.JPanel pnlThuoc;
     private javax.swing.JPanel pnlTong;
     private rojeru_san.complementos.RSTableMetro tblDSPhieuKham;
+    private rojeru_san.complementos.RSTableMetro tblDSPhieuKham1;
     private rojeru_san.complementos.RSTableMetro tblDSThuoc;
     private rojeru_san.complementos.RSTableMetro tblHoaDon;
     private javax.swing.JTextArea txaKetLuanBenhBS;
+    private javax.swing.JTextField txtTim;
     private javax.swing.JTextField txtTimKiemDichVu;
     private javax.swing.JLabel txtTimKiemTenThuoc;
     private javax.swing.JTextField txtTimKiemThuoc;
@@ -1321,7 +1484,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         this.fillComBoBoxLoaiThuoc();
         this.fillDSthuoc();
         this.fillPhieuKham();
-
+        this.updateStatus();
     }
 
     //Hover màu
@@ -1487,7 +1650,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         PhieuKham pk = pkdao.SelectByID(maphieukham);
         lblMaPhieuKham.setText(String.valueOf(pk.getMaphieukham()));
         txaKetLuanBenhBS.setText(pk.getKetluan());
-        lblNgayTaiKham.setText(XDate.toString(pk.getNgaytaikham(),"dd/MM/yyyy"));
+        lblNgayTaiKham.setText(XDate.toString(pk.getNgaytaikham(), "dd/MM/yyyy"));
         String mabenhnhan = (String) tblDSPhieuKham.getValueAt(row, 3);
         BenhNhan bn = bndao.SelectByID(mabenhnhan);
         lblTenBenhNhan.setText(bn.getTenbenhnhan());
@@ -1534,7 +1697,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
             }
             MsgBox.alert(this, "Insert thành công!!");
             this.fillPhieuKham();
-            
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1547,6 +1710,7 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
             model.removeRow(i);
         }
     }
+
     //Xuất Bill
     public PageFormat getPageFormat(PrinterJob pj) {
 
@@ -1580,6 +1744,8 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
         return inch * 72d;
     }
 
+  
+
     public class BillPrintable implements Printable {
 
         public int print(Graphics graphics, PageFormat pageFormat, int pageIndex)
@@ -1603,7 +1769,6 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
                 int priceLength = metrics.stringWidth("000000");
                 int prodLength = (int) width - idLength - amtLength - qtyLength - priceLength - 17;
 
-              
                 int productPosition = 0;
                 int discountPosition = prodLength + 5;
                 int pricePosition = discountPosition + idLength + 10;
@@ -1617,7 +1782,6 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
                     int headerRectHeight = 15;
                     int headerRectHeighta = 40;
 
-                    
                     ArrayList<ToaThuoc> list = new ArrayList<>();
                     for (int i = 0; i < tblHoaDon.getRowCount(); i++) {
                         String tenthuoc = tblHoaDon.getValueAt(i, 1).toString();
@@ -1626,19 +1790,19 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
                         int soluongep = Integer.parseInt(soluong);
                         list.add(new ToaThuoc(tenthuoc, soluongep, cachdung));
                     }
-                    
+
                     g2d.setFont(new Font("Monospaced", Font.BOLD, 9));
                     g2d.drawString("------------------------------------------", 12, y);
                     y += yShift;
                     g2d.drawString("             TOA THUỐC           ", 12, y);
                     y += yShift;
-                    g2d.drawString("                    Ngày: "+lblDay.getText()+"", 12, y);
+                    g2d.drawString("                    Ngày: " + lblDay.getText() + "", 12, y);
                     y += yShift;
-                    g2d.drawString("                  Tên BN: "+lblTenBenhNhan.getText()+"", 12, y);
+                    g2d.drawString("                  Tên BN: " + lblTenBenhNhan.getText() + "", 12, y);
                     y += yShift;
-                    g2d.drawString("             Ngày Tái Khám:"+lblNgayTaiKham.getText()+"", 12, y);
+                    g2d.drawString("             Ngày Tái Khám:" + lblNgayTaiKham.getText() + "", 12, y);
                     y += yShift;
-                    g2d.drawString("  Chuẩn đoán Bệnh : "+txaKetLuanBenhBS.getText()+"", 12, y);
+                    g2d.drawString("  Chuẩn đoán Bệnh : " + txaKetLuanBenhBS.getText() + "", 12, y);
                     y += yShift;
                     g2d.drawString("------------------------------------------", 12, y);
                     y += headerRectHeight;
@@ -1653,12 +1817,12 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
                     for (ToaThuoc tt : list) {
                         g2d.drawString(" " + tt.getTenthuoc() + "              " + tt.getSoluong() + "  ", 10, y);
                         y += yShift;
-                        g2d.drawString("     Cách dùng: "+tt.getCachdung()+"  ", 10, y);
+                        g2d.drawString("     Cách dùng: " + tt.getCachdung() + "  ", 10, y);
                         y += yShift;
                         g2d.drawString("----------------------------------------", 10, y);
                         y += yShift;
                     }
-                   
+
                     g2d.drawString("-------------------------------------------", 10, y);
                     y += yShift;
                     g2d.drawString("          PHÒNG KHÁM AN NHIÊN         ", 10, y);
@@ -1682,5 +1846,79 @@ public class QuanLyToaThuoc extends javax.swing.JFrame {
             }
             return result;
         }
+    }
+
+    private void LoadData() {
+        String text = txtTim.getText();
+        DefaultTableModel model = (DefaultTableModel) tblDSPhieuKham1.getModel();
+        model.setRowCount(0);
+        String sql = "select distinct(a.maphieukham), b.mabenhnhan, c.tenbenhnhan,c.diachi,c.sodienthoai,b.ngaykham,b.ketluan	\n"
+                + "from toathuoc a inner join phieukham b on a.maphieukham = b.maphieukham inner join benhnhan c on b.mabenhnhan = c.mabenhnhan \n"
+                + "where tenbenhnhan like '%" + text + "%' or ngaykham like '%" + text + "%'";
+        try {
+            ResultSet rs = jdbcHelper.query(sql);
+            while (rs.next()) {
+                Vector v = new Vector();
+                v.add(rs.getString("maphieukham"));
+                v.add(rs.getString("mabenhnhan"));
+                v.add(rs.getString("tenbenhnhan"));
+                v.add(rs.getString("diachi"));
+                v.add(rs.getString("sodienthoai"));
+                v.add(XDate.toString(rs.getDate("ngaykham"), "dd/MM/yyyy"));
+                v.add(rs.getString("ketluan"));
+                model.addRow(v);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void OnclickTableDS() {
+        String maphieukham = (String) tblDSPhieuKham1.getValueAt(row, 0);
+        int maphieu = Integer.valueOf(maphieukham);
+        DefaultTableModel model = (DefaultTableModel) tblHoaDon.getModel();
+        model.setRowCount(0);
+        String sql = "select a.maphieukham , c.tenbenhnhan , b.ketluan,d.mathuoc,d.tenthuoc,d.donvitinh,a.soluong,a.cachdung,b.ngaytaikham\n"
+                + "from toathuoc a inner join phieukham b on a.maphieukham = b.maphieukham inner join benhnhan c on b.mabenhnhan = c.mabenhnhan join thuoc d on a.mathuoc = d.mathuoc\n"
+                + "where a.maphieukham ='"+maphieu+"'";
+        try {
+            ResultSet rs = jdbcHelper.query(sql);
+            while (rs.next()) {
+                String maphieu1 = rs.getString("maphieukham");
+                String tenbenhnhan = rs.getString("tenbenhnhan");
+                String ketluan = rs.getString("ketluan");
+                Date ngaytaikham = rs.getDate("ngaytaikham");
+                Vector v = new Vector();
+                v.add(rs.getString("mathuoc"));
+                v.add(rs.getString("tenthuoc"));
+                v.add(rs.getString("donvitinh"));
+                v.add(rs.getString("soluong"));
+                v.add(rs.getString("cachdung"));
+                model.addRow(v);
+                lblMaPhieuKham.setText(maphieu1);
+                lblTenBenhNhan.setText(tenbenhnhan);
+                txaKetLuanBenhBS.setText(ketluan);
+                lblNgayTaiKham.setText(XDate.toString(ngaytaikham, "dd/MM/yyyy"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private void clear(){
+        DefaultTableModel model = (DefaultTableModel) tblHoaDon.getModel();
+        model.setRowCount(0);
+        lblMaPhieuKham.setText("");
+        lblTenBenhNhan.setText("");
+        txaKetLuanBenhBS.setText("");
+        lblNgayTaiKham.setText(String.valueOf(0));
+        this.row = -1;
+        this.updateStatus();
+    }
+    private void updateStatus(){
+        boolean edit = (this.row >=0);
+        btnThem.setEnabled(!edit);
+        btnInHoaDon.setEnabled(!edit);
+        btnMoi.setEnabled(edit);
     }
 }

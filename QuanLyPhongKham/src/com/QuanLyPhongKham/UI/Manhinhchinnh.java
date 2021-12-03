@@ -1218,7 +1218,7 @@ public class Manhinhchinnh extends javax.swing.JFrame {
 
     private void OpenHoaDon() {
         //this.dispose();
-        new QuanLyDanhSachHoaDon().setVisible(true);
+        new QuanLyHoaDon().setVisible(true);
     }
 
     private void OpenPhieuKham() {

@@ -1167,7 +1167,7 @@ public class QuanLyThuoc extends javax.swing.JFrame {
 
     private void OpenDichVu() {
         this.dispose();
-        new QuanLyDichVu().setVisible(true);
+        new QuanLyHoaDon().setVisible(true);
     }
 
     private void OpenLogin() {

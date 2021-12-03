@@ -21,7 +21,7 @@ public class BenhNhan {
         this.maphieudichvu = maphieudichvu;
     }
 
-    public BenhNhan(int maphieudichvu, String mabenhnhan, String tenbenhnhan, String sodienthoai, String gioitinh, Date ngaysinh, String diachi, String trangthai) {
+    public BenhNhan(int maphieudichvu, String mabenhnhan, String tenbenhnhan, String sodienthoai, String gioitinh, Date ngaysinh, String diachi, String trangthai,String manhanvien) {
         this.maphieudichvu = maphieudichvu;
         this.mabenhnhan = mabenhnhan;
         this.tenbenhnhan = tenbenhnhan;
@@ -30,6 +30,7 @@ public class BenhNhan {
         this.ngaysinh = ngaysinh;
         this.diachi = diachi;
         this.trangthai = trangthai;
+        this.manhanvien = manhanvien;
     }
     private int maphieudichvu; 
     private String mabenhnhan;
@@ -39,6 +40,8 @@ public class BenhNhan {
     private Date ngaysinh;
     private String diachi;
     private String trangthai;
+    private String manhanvien;
+
     public BenhNhan() {
     }
 
@@ -97,5 +100,11 @@ public class BenhNhan {
     public void setTrangthai(String trangthai) {
         this.trangthai = trangthai;
     }
+     public String getManhanvien() {
+        return manhanvien;
+    }
 
+    public void setManhanvien(String manhanvien) {
+        this.manhanvien = manhanvien;
+    }
 }

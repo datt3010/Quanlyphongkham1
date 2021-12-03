@@ -84,6 +84,7 @@ public class benhnhanDAO extends QLPhongKham_DAO<BenhNhan, String> {
                 model.setNgaysinh(rs.getDate("ngaysinh"));
                 model.setDiachi(rs.getString("diachi"));
                 model.setTrangthai(rs.getString("trangthai"));
+                model.setManhanvien(rs.getString("manhanvien"));
                 list.add(model);
             }
 
