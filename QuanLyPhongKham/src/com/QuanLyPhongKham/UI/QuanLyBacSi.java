@@ -1372,7 +1372,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     
     private void OpenLogin(){
         this.dispose();
-        new dangnhap().setVisible(true);
+        new dangnhap(this, true).setVisible(true);
     }
     
     private void OpenThongKe(){

@@ -126,7 +126,6 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         btnend = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         txtmabenhnhan = new javax.swing.JTextField();
-        btnsendsms = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ BỆNH NHÂN\n");
@@ -555,45 +554,45 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         pnlRight.add(txtsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 360, 34));
 
         comboboxgioitinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ", "Khác", " " }));
-        pnlRight.add(comboboxgioitinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 220, 34));
+        pnlRight.add(comboboxgioitinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 220, 34));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Tên Bệnh nhân");
-        pnlRight.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 120, 30));
+        pnlRight.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 140, 30));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Ngày sinh");
-        pnlRight.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, 120, 40));
-        pnlRight.add(txtdienthoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 220, 34));
+        pnlRight.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 120, 40));
+        pnlRight.add(txtdienthoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 220, 34));
 
         datechooser.setDateFormatString("dd/MM/YYYY\n");
-        pnlRight.add(datechooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 80, 224, 34));
+        pnlRight.add(datechooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 224, 34));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Số điện thoại");
-        pnlRight.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, 120, 30));
+        pnlRight.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 120, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Giới tính");
-        pnlRight.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 90, 30));
+        pnlRight.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 90, 30));
 
         txtaddress.setColumns(20);
         txtaddress.setRows(5);
         jScrollPane1.setViewportView(txtaddress);
 
-        pnlRight.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 620, 100));
+        pnlRight.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 620, 100));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Tình trạng bệnh");
-        pnlRight.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 140, 30));
+        pnlRight.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 140, 30));
 
         comboboxtrangthai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Đang điều trị", "Đang chữa bệnh", "Đã khỏi", " " }));
-        pnlRight.add(comboboxtrangthai, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 220, 34));
+        pnlRight.add(comboboxtrangthai, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 140, 220, 34));
 
         tablebenhnhan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -625,7 +624,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tablebenhnhan);
 
         pnlRight.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 430, 1110, 250));
-        pnlRight.add(txttenbenhnhan, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 220, 34));
+        pnlRight.add(txttenbenhnhan, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 220, 34));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setText("Search");
@@ -639,7 +638,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
                 btnnextActionPerformed(evt);
             }
         });
-        pnlRight.add(btnnext, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 700, 110, 40));
+        pnlRight.add(btnnext, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 700, 110, 40));
 
         btnadd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/them_20px.png"))); // NOI18N
         btnadd.setText("Add");
@@ -705,22 +704,13 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
                 btnendActionPerformed(evt);
             }
         });
-        pnlRight.add(btnend, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 700, 110, 40));
+        pnlRight.add(btnend, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 700, 110, 40));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Mã bệnh nhân");
-        pnlRight.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 120, 30));
-        pnlRight.add(txtmabenhnhan, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 220, 34));
-
-        btnsendsms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/facebook_20px.png"))); // NOI18N
-        btnsendsms.setText("Gửi thông tin");
-        btnsendsms.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnsendsmsActionPerformed(evt);
-            }
-        });
-        pnlRight.add(btnsendsms, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 330, 130, 40));
+        pnlRight.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 120, 30));
+        pnlRight.add(txtmabenhnhan, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 220, 34));
 
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 
@@ -1084,11 +1074,6 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
         btndelete.setEnabled(false);
     }//GEN-LAST:event_btnnewActionPerformed
 
-    private void btnsendsmsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsendsmsActionPerformed
-        // TODO add your handling code here:
-        sendsms();
-    }//GEN-LAST:event_btnsendsmsActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -1140,7 +1125,6 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
     private javax.swing.JButton btnnew;
     private javax.swing.JButton btnnext;
     private javax.swing.JButton btnprevious;
-    private javax.swing.JButton btnsendsms;
     private javax.swing.JButton btnupdate;
     private javax.swing.JComboBox<String> comboboxgioitinh;
     private javax.swing.JComboBox<String> comboboxtrangthai;
@@ -1278,7 +1262,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
 
     private void OpenLogin() {
         this.dispose();
-        new dangnhap().setVisible(true);
+        new dangnhap(this, true).setVisible(true);
     }
 
     private void OpenThongKe() throws SQLException {

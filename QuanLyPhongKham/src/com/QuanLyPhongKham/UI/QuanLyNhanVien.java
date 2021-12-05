@@ -23,11 +23,17 @@ import com.QuanLyPhongKham.Utilities.MsgBox;
 import com.QuanLyPhongKham.Utilities.XDate;
 import com.QuanLyPhongKham.Utilities.XImages;
 import java.awt.Image;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
+import net.glxn.qrgen.QRCode;
+import net.glxn.qrgen.image.ImageType;
 /**
  *
  * @author OS
@@ -119,6 +125,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         txtMaNhanVien = new javax.swing.JTextField();
         btnhinh = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        btntaoQR = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QUẢN LÝ NHÂN VIÊN");
@@ -639,7 +646,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
                 btnThemActionPerformed(evt);
             }
         });
-        pnlRight.add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 430, 90, 30));
+        pnlRight.add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 430, 90, 30));
 
         btnNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/update_25px.png"))); // NOI18N
         btnNew.setText("New");
@@ -648,7 +655,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
                 btnNewActionPerformed(evt);
             }
         });
-        pnlRight.add(btnNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 430, 90, 30));
+        pnlRight.add(btnNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 430, 90, 30));
 
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/update_ftp_20px.png"))); // NOI18N
         btnUpdate.setText("Update");
@@ -657,7 +664,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
                 btnUpdateActionPerformed(evt);
             }
         });
-        pnlRight.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 430, 100, 30));
+        pnlRight.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 430, 100, 30));
 
         btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/delete_25px.png"))); // NOI18N
         btnXoa.setText("Delete");
@@ -666,7 +673,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
                 btnXoaActionPerformed(evt);
             }
         });
-        pnlRight.add(btnXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 430, 100, 30));
+        pnlRight.add(btnXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 430, 100, 30));
 
         btnFirst.setBackground(new java.awt.Color(51, 153, 255));
         btnFirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_skip_to_start_32px_1.png"))); // NOI18N
@@ -738,6 +745,15 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 0, 0));
         jLabel7.setText("Quản Lý Nhân Viên");
         pnlRight.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 220, 40));
+
+        btntaoQR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/qr_code_20px.png"))); // NOI18N
+        btntaoQR.setText("Tạo QR");
+        btntaoQR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntaoQRActionPerformed(evt);
+            }
+        });
+        pnlRight.add(btntaoQR, new org.netbeans.lib.awtextra.AbsoluteConstraints(657, 430, -1, 30));
 
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 
@@ -1108,6 +1124,11 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.clearForm();
     }//GEN-LAST:event_btnNewActionPerformed
+
+    private void btntaoQRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntaoQRActionPerformed
+        // TODO add your handling code here:
+        this.QR();
+    }//GEN-LAST:event_btntaoQRActionPerformed
     int row = -1;
     int row1; 
     /**
@@ -1217,6 +1238,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnXoa;
     private javax.swing.JButton btnhinh;
+    private javax.swing.JButton btntaoQR;
     private javax.swing.JComboBox<String> cboChucVu;
     private javax.swing.JComboBox<String> cboGioiTinh;
     private javax.swing.JLabel jLabel1;
@@ -1354,7 +1376,7 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
     
     private void OpenLogin(){
         this.dispose();
-        new dangnhap().setVisible(true);
+        new dangnhap(this, true).setVisible(true);
     }
     
     private void OpenThongKe(){
@@ -1402,6 +1424,26 @@ public class QuanLyNhanVien extends javax.swing.JFrame {
         }
         catch(Exception e){
             e.fillInStackTrace();
+        }
+    }
+    public void QR() {
+        if (Auths.user.getManhanvien().equals(txtMaNhanVien.getText())) {
+            try {
+                ByteArrayOutputStream out = QRCode.from(txtMaNhanVien.getText()).to(ImageType.PNG).stream();
+                String f_name = txtMaNhanVien.getText();
+                String Path_name = "src\\com\\QuanLyPhongKham\\";
+
+                FileOutputStream fout = new FileOutputStream(new File(Path_name + (f_name + ".JPG")));
+                fout.write(out.toByteArray());
+                fout.flush();
+
+                MsgBox.alert(this, "Tạo thành công");
+            } catch (Exception e) {
+                MsgBox.alert(this, "Thất bại");
+                e.printStackTrace();
+            }
+        } else {
+            MsgBox.alert(this, "Chỉ tạo QR của bản thân");
         }
     }
      public void update() {

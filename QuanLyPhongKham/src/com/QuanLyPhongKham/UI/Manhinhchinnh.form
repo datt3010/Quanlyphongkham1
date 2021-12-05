@@ -40,7 +40,7 @@
     <Container class="javax.swing.JPanel" name="pnlTong">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
       </Properties>
 
@@ -50,7 +50,7 @@
               <Component id="pnlHeader" min="-2" max="-2" attributes="0"/>
               <Group type="102" attributes="0">
                   <Component id="pnlLeft" min="-2" pref="241" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="pnlRight" min="-2" pref="950" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -62,8 +62,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="pnlLeft" min="-2" pref="790" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="110" pref="110" max="-2" attributes="0"/>
-                          <Component id="pnlRight" min="-2" pref="590" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                          <Component id="pnlRight" min="-2" pref="609" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -277,9 +277,6 @@
                   <Color blue="4e" green="46" red="36" type="rgb"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlQuanLyNhanVienMouseClicked"/>
-              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="0" y="120" width="210" height="40"/>
@@ -727,9 +724,6 @@
                   <Color blue="4e" green="46" red="36" type="rgb"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlQuanLyThongKe1MouseClicked"/>
-              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="0" y="400" width="230" height="40"/>
@@ -771,7 +765,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; Toa Thu&#x1ed1;c"/>
+                    <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; chi ti&#x1ebf;t d&#x1ecb;ch v&#x1ee5;"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblThongKe1MouseClicked"/>
@@ -853,16 +847,16 @@
         <Container class="javax.swing.JPanel" name="pnlRight">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="cc" green="cc" red="0" type="rgb"/>
             </Property>
             <Property name="focusable" type="boolean" value="false"/>
           </Properties>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="3"/>
-            <Property name="horizontalGap" type="int" value="2"/>
+            <Property name="horizontalGap" type="int" value="10"/>
             <Property name="rows" type="int" value="3"/>
-            <Property name="verticalGap" type="int" value="2"/>
+            <Property name="verticalGap" type="int" value="10"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="lblbacsi">

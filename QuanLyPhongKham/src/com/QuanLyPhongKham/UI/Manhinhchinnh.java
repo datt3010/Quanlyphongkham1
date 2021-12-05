@@ -5,13 +5,9 @@
  */
 package com.QuanLyPhongKham.UI;
 
-import com.QuanLyPhongKham.Utilities.Auths;
-import com.QuanLyPhongKham.Utilities.MsgBox;
-import com.QuanLyPhongKham.Utilities.XImages;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -36,19 +32,6 @@ public class Manhinhchinnh extends javax.swing.JFrame {
     public Manhinhchinnh() {
         initComponents();
         init();
-        setTitle("Phong kham An Nhien");
-//        lblbacsi.setIconTextGap(20);
-//        lblphieukham.setIconTextGap(20);
-//        lblnhanvien.setIconTextGap(20);
-//        lblthuoc.setIconTextGap(20);
-//        lblhoadon.setIconTextGap(20);
-//        lblDichVu.setIconTextGap(20);
-//        lblbacsi.setOpaque(true);
-//        lblphieukham.setOpaque(true);
-//        lblnhanvien.setOpaque(true);
-//        lblthuoc.setOpaque(true);
-//        lblhoadon.setOpaque(true);
-//        lbldichvu.setOpaque(true);
 
     }
 
@@ -112,7 +95,7 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("QUẢN LÝ BỆNH NHÂN\n");
 
-        pnlTong.setBackground(new java.awt.Color(204, 204, 204));
+        pnlTong.setBackground(new java.awt.Color(255, 255, 255));
 
         pnlHeader.setBackground(new java.awt.Color(51, 153, 255));
 
@@ -233,11 +216,6 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         pnlLeft.add(pnlQuanLyBacSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 210, 40));
 
         pnlQuanLyNhanVien.setBackground(new java.awt.Color(54, 70, 78));
-        pnlQuanLyNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlQuanLyNhanVienMouseClicked(evt);
-            }
-        });
         pnlQuanLyNhanVien.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconNhanVien.setBackground(new java.awt.Color(54, 70, 78));
@@ -519,11 +497,6 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         pnlLeft.add(btnDangXuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 690, 170, -1));
 
         pnlQuanLyThongKe1.setBackground(new java.awt.Color(54, 70, 78));
-        pnlQuanLyThongKe1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlQuanLyThongKe1MouseClicked(evt);
-            }
-        });
         pnlQuanLyThongKe1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconThongKe1.setBackground(new java.awt.Color(54, 70, 78));
@@ -546,7 +519,7 @@ public class Manhinhchinnh extends javax.swing.JFrame {
 
         lblThongKe1.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         lblThongKe1.setForeground(new java.awt.Color(255, 255, 255));
-        lblThongKe1.setText("Quản lý Toa Thuốc");
+        lblThongKe1.setText("Quản lý chi tiết dịch vụ");
         lblThongKe1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblThongKe1MouseClicked(evt);
@@ -601,13 +574,14 @@ public class Manhinhchinnh extends javax.swing.JFrame {
 
         pnlLeft.add(pnlQuanLyThongKe2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 210, 40));
 
-        pnlRight.setBackground(new java.awt.Color(255, 255, 255));
+        pnlRight.setBackground(new java.awt.Color(0, 204, 204));
         pnlRight.setFocusable(false);
-        pnlRight.setLayout(new java.awt.GridLayout(3, 3, 2, 2));
+        pnlRight.setLayout(new java.awt.GridLayout(3, 3, 10, 10));
 
         lblbacsi.setBackground(new java.awt.Color(255, 255, 255));
         lblbacsi.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblbacsi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblbacsi.setIcon(new javax.swing.ImageIcon("D:\\Downloads\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\scientist_man_70px.png")); // NOI18N
         lblbacsi.setText("Quản Lý Bác Sĩ");
         lblbacsi.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -624,6 +598,7 @@ public class Manhinhchinnh extends javax.swing.JFrame {
 
         lblphieukham.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblphieukham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblphieukham.setIcon(new javax.swing.ImageIcon("D:\\Downloads\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\check_70px.png")); // NOI18N
         lblphieukham.setText("Quản Lý Phiếu Khám");
         lblphieukham.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -634,6 +609,7 @@ public class Manhinhchinnh extends javax.swing.JFrame {
 
         lblnhanvien.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblnhanvien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblnhanvien.setIcon(new javax.swing.ImageIcon("D:\\Downloads\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\management_70px.png")); // NOI18N
         lblnhanvien.setText("Quản Lý Nhân Viên");
         lblnhanvien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -644,6 +620,7 @@ public class Manhinhchinnh extends javax.swing.JFrame {
 
         lblthuoc.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblthuoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblthuoc.setIcon(new javax.swing.ImageIcon("D:\\Downloads\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\health_book_70px.png")); // NOI18N
         lblthuoc.setText("Quản Lý Thuốc");
         lblthuoc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -654,6 +631,7 @@ public class Manhinhchinnh extends javax.swing.JFrame {
 
         lblhoadon.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblhoadon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblhoadon.setIcon(new javax.swing.ImageIcon("D:\\Downloads\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\bill_70px.png")); // NOI18N
         lblhoadon.setText("Quản Lý Hóa Đơn");
         lblhoadon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -664,6 +642,7 @@ public class Manhinhchinnh extends javax.swing.JFrame {
 
         lbldichvu.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lbldichvu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbldichvu.setIcon(new javax.swing.ImageIcon("D:\\Downloads\\Quanlyphongkham1\\QuanLyPhongKham\\src\\com\\QuanLyPhongKham\\Icon\\management_70px.png")); // NOI18N
         lbldichvu.setText("Quản Lý Dịch Vụ");
         lbldichvu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -679,7 +658,7 @@ public class Manhinhchinnh extends javax.swing.JFrame {
             .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(pnlTongLayout.createSequentialGroup()
                 .addComponent(pnlLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79)
+                .addGap(34, 34, 34)
                 .addComponent(pnlRight, javax.swing.GroupLayout.PREFERRED_SIZE, 950, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlTongLayout.setVerticalGroup(
@@ -689,8 +668,8 @@ public class Manhinhchinnh extends javax.swing.JFrame {
                 .addGroup(pnlTongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlTongLayout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(pnlRight, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(86, 86, 86)
+                        .addComponent(pnlRight, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -712,16 +691,16 @@ public class Manhinhchinnh extends javax.swing.JFrame {
     int x = 210;
     int i = 0;
     private void lblbacsiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbacsiMouseEntered
-        // TODO add your handling code here:
-//        lblbacsi.setForeground(Color.white);
-//        lblbacsi.setBackground(new Color(255, 255, 143));
-//        lblbacsi.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //TODO add your handling code here:
+        lblbacsi.setForeground(Color.white);
+        lblbacsi.setBackground(new Color(255, 255, 143));
+        lblbacsi.setCursor(new Cursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_lblbacsiMouseEntered
 
     private void lblbacsiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbacsiMouseExited
-        // TODO add your handling code here:
-//        lblbacsi.setForeground(Color.black);
-//        lblbacsi.setBackground(new Color(255, 255, 255));
+        //TODO add your handling code here:
+        lblbacsi.setForeground(Color.black);
+        lblbacsi.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_lblbacsiMouseExited
 
     private void lblbacsiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbacsiMouseClicked
@@ -1061,19 +1040,6 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         NotHoverPanel(pnlQuanLyThongKe2, lblIconThongKe2);
     }//GEN-LAST:event_lblThongKe2MouseExited
 
-    private void pnlQuanLyNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlQuanLyNhanVienMouseClicked
-        // TODO add your handling code here:
-        if (Auths.userbacsy != null) {
-            MsgBox.alert(this, "Ban khong co quyen chon chuc nang nay");
-            return;
-        }
-    }//GEN-LAST:event_pnlQuanLyNhanVienMouseClicked
-
-    private void pnlQuanLyThongKe1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlQuanLyThongKe1MouseClicked
-        // TODO add your handling code here:
-        optenToathuoc();
-    }//GEN-LAST:event_pnlQuanLyThongKe1MouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -1169,16 +1135,9 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         //hoverPanel(pnlQuanLyBenhNhan, lblIconBenhNhan);
         setLocationRelativeTo(null);
         this.LoadNgay();
-        if (Auths.user != null) {
-            lblXinChao.setText(Auths.user.getTennhanvien());
-            imageicon();
-            pnlQuanLyPhieuKham.setEnabled(false);
-            pnlQuanLyHoaDon.setEnabled(false);
-            pnlDichVu.setEnabled(false);
-        } else if (Auths.userbacsy != null) {
-            lblXinChao.setText(Auths.userbacsy.getTenbacsy());
-            imageicon2();
-        }
+        new Chao(this, true).setVisible(true);
+        new dangnhap(this, true).setVisible(true);
+
     }
 
     //Hover màu
@@ -1215,85 +1174,37 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         }).start();
     }
 
-    private void optenToathuoc() {
-        if (Auths.isLogin()) {
-            MsgBox.alert(this, "Bạn chưa được cấp sử dụng chức năng này");
-            return;
-        }
-    }
-
     private void OpenBacSi() {
         //this.dispose();
-//        if (Auths.isLogin1()) {
-//            MsgBox.alert(this, "ban khong co chuc nang nay");
-//            return;
-//        }
-//        if (!Auths.user.getChucvu().equals("Quản Lý")) {
-//            MsgBox.alert(this, "chỉ có quản lý mới sử dụng chức năng này");
-//            return;
-//        }
         new QuanLyBacSi().setVisible(true);
-        this.dispose();
     }
 
     private void OpenBenhNhan() {
         //this.dispose();
-        if (Auths.isLogin1()) {
-            MsgBox.alert(this, "ban khong co chuc nang nay");
-            return;
-        }
         new QuanLyBenhNhan().setVisible(true);
     }
 
     private void OpenNhanVien() {
         //this.dispose();
-        if (Auths.isLogin1()) {
-            MsgBox.alert(this, "ban khong co chuc nang nay");
-            return;
-        }
-        if (!Auths.user.getChucvu().equals("Quản Lý")) {
-            MsgBox.alert(this, "chỉ có quản lý mới sử dụng chức năng này");
-            return;
-        }
         new QuanLyNhanVien().setVisible(true);
     }
 
     private void OpenHoaDon() {
         //this.dispose();
-        if (Auths.isLogin1()) {
-            MsgBox.alert(this, "ban khong co chuc nang nay");
-            return;
-        }
         new QuanLyHoaDon().setVisible(true);
     }
 
     private void OpenPhieuKham() {
-        if (Auths.isLogin()) {
-            MsgBox.alert(this, "ban khong co chuc nang nay");
-            return;
-        }
         //this.dispose();
         new QuanLyPhieuKham().setVisible(true);
     }
 
     private void OpenThuoc() {
         //this.dispose();
-        if (Auths.isLogin()) {
-            MsgBox.alert(this, "ban khong co chuc nang nay");
-            return;
-        }
         new QuanLyThuoc().setVisible(true);
     }
 
     private void OpenDichVu() {
-        if (Auths.isLogin1()) {
-            MsgBox.alert(this, "ban khong co chuc nang nay");
-            return;
-        }
-        if (!Auths.user.getChucvu().equals("Quản Lý")) {
-            MsgBox.alert(this, "chỉ có quản lý mới sử dụng chức năng này");
-            return;
-        }
         //this.dispose();
         new QuanLyDichVu().setVisible(true);
     }
@@ -1303,53 +1214,13 @@ public class Manhinhchinnh extends javax.swing.JFrame {
         new dangnhap(this, true).setVisible(true);
     }
 
-    private void Openchitietdichvu() {
-        if (Auths.isLogin1()) {
-            MsgBox.alert(this, "ban khong co chuc nang nay");
-            return;
-        }
-        if (!Auths.user.getChucvu().equals("Quản Lý")) {
-            MsgBox.alert(this, "chỉ có quản lý mới sử dụng chức năng này");
-        }
-    }
-
     private void OpenThongKe() throws SQLException {
         //this.dispose();
-        if (Auths.isLogin1()) {
-            MsgBox.alert(this, "ban khong co chuc nang nay");
-            return;
-        }
-        if (!Auths.user.getChucvu().equals("Quản Lý")) {
-            MsgBox.alert(this, "chỉ có quản lý mới sử dụng chức năng này");
-            return;
-        }
         new ThongKeBenhNhan().setVisible(true);
     }
 
     private void OpenQuenpass() {
         //this.dispose();
         new DoiMatKhau(this, rootPaneCheckingEnabled).setVisible(true);
-    }
-
-    public void imageicon() {
-        if (Auths.user.getHinh() != null) {
-            lblAnhNV.setToolTipText(Auths.user.getHinh());
-            ImageIcon icon = XImages.read(Auths.user.getHinh());
-            Image im = icon.getImage();
-            Image image = im.getScaledInstance(lblAnhNV.getWidth(), lblAnhNV.getHeight(), im.SCALE_SMOOTH);
-            ImageIcon icon1 = new ImageIcon(image);
-            lblAnhNV.setImagenDefault(icon1);
-        }
-
-    }
-    public void imageicon2() {
-        if (Auths.userbacsy.getHinh() != null) {
-            lblAnhNV.setToolTipText(Auths.userbacsy.getHinh());
-            ImageIcon icon = XImages.read(Auths.userbacsy.getHinh());
-            Image im = icon.getImage();
-            Image image = im.getScaledInstance(lblAnhNV.getWidth(), lblAnhNV.getHeight(), im.SCALE_SMOOTH);
-            ImageIcon icon1 = new ImageIcon(image);
-            lblAnhNV.setImagenDefault(icon1);
-        }
     }
 }
