@@ -4,45 +4,36 @@
  * and open the template in the editor.
  */
 package com.QuanLyPhongKham.UI;
-
-import java.awt.geom.RoundRectangle2D;
-import com.QuanLyPhongKham.DAO.nhanvienDAO;
-import com.QuanLyPhongKham.Utilities.MsgBox;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Random;
-import javax.swing.Timer;
+import com.QuanLyPhongKham.Model.BacSi;
+import com.QuanLyPhongKham.DAO.bacsiDAO; 
 import com.QuanLyPhongKham.Model.NhanVien;
+import com.QuanLyPhongKham.Utilities.MsgBox;
+import java.awt.geom.RoundRectangle2D;
+import java.util.Properties;
+import java.util.Random;
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
-
 /**
  *
- * @author OS
+ * @author p
  */
-public class Quenmatkhau extends javax.swing.JDialog {
-
-    nhanvienDAO daonv = new nhanvienDAO();
-    Random rand = new Random();
-    int otp = rand.nextInt(9999);
-    Timer timer;
-    boolean testime = false;
-
+public class quenmatkhau2 extends javax.swing.JFrame {
+bacsiDAO daobs=new bacsiDAO();
+    Random rand=new Random();
+    int otp=rand.nextInt(9999); 
     /**
-     * Creates new form DangNhap_1
+     * Creates new form quenmatkhau2
      */
-    public Quenmatkhau(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public quenmatkhau2() {
         initComponents();
-        txtnewpassword.enable(false);
-        txtconfirmpassword.enable(false);
+      btnxacnhan.setEnabled(false);
         setLocationRelativeTo(null);
-        setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 30, 30));
-        btnXacNhan1.hide();
-        
-
+         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 30, 30));
     }
 
     /**
@@ -62,8 +53,6 @@ public class Quenmatkhau extends javax.swing.JDialog {
         lblThoat = new javax.swing.JLabel();
         lblLogin = new javax.swing.JLabel();
         txtTenDangNhap = new javax.swing.JTextField();
-        btnThoat = new rojeru_san.complementos.RSButtonHover();
-        btnlaycode = new rojeru_san.complementos.RSButtonHover();
         lblLoginPassword2 = new javax.swing.JLabel();
         lblLoginPassword4 = new javax.swing.JLabel();
         lblLoginPassword5 = new javax.swing.JLabel();
@@ -71,14 +60,14 @@ public class Quenmatkhau extends javax.swing.JDialog {
         lblLoginPassword6 = new javax.swing.JLabel();
         lblLoginPassword7 = new javax.swing.JLabel();
         txtnewpassword = new javax.swing.JPasswordField();
-        lbltimer = new javax.swing.JLabel();
         txtotp = new javax.swing.JTextField();
-        btnXacNhan1 = new rojeru_san.complementos.RSButtonHover();
-        txtsodienthoai = new javax.swing.JTextField();
+        txtemail = new javax.swing.JTextField();
+        btnlayotp = new javax.swing.JButton();
+        btnthoat = new javax.swing.JButton();
+        btnxacnhan = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlleft.setBackground(new java.awt.Color(0, 102, 255));
 
@@ -111,10 +100,8 @@ public class Quenmatkhau extends javax.swing.JDialog {
                 .addComponent(lblIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblLogin1)
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addContainerGap(350, Short.MAX_VALUE))
         );
-
-        getContentPane().add(pnlleft, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 660));
 
         pnlright.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -144,20 +131,6 @@ public class Quenmatkhau extends javax.swing.JDialog {
         txtTenDangNhap.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         txtTenDangNhap.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
 
-        btnThoat.setText("THOÁT");
-        btnThoat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThoatActionPerformed(evt);
-            }
-        });
-
-        btnlaycode.setText("Lay Code");
-        btnlaycode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlaycodeActionPerformed(evt);
-            }
-        });
-
         lblLoginPassword2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lblLoginPassword2.setForeground(new java.awt.Color(102, 102, 102));
         lblLoginPassword2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -166,7 +139,7 @@ public class Quenmatkhau extends javax.swing.JDialog {
         lblLoginPassword4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lblLoginPassword4.setForeground(new java.awt.Color(102, 102, 102));
         lblLoginPassword4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLoginPassword4.setText("Số điện thoại");
+        lblLoginPassword4.setText("Email");
 
         lblLoginPassword5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lblLoginPassword5.setForeground(new java.awt.Color(102, 102, 102));
@@ -189,20 +162,33 @@ public class Quenmatkhau extends javax.swing.JDialog {
         txtnewpassword.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtnewpassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
 
-        lbltimer.setText("60");
-
         txtotp.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         txtotp.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
 
-        btnXacNhan1.setText("XÁC NHẬN");
-        btnXacNhan1.addActionListener(new java.awt.event.ActionListener() {
+        txtemail.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        txtemail.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
+
+        btnlayotp.setBackground(new java.awt.Color(0, 112, 192));
+        btnlayotp.setForeground(new java.awt.Color(255, 255, 255));
+        btnlayotp.setText("Lấy mã OTP");
+        btnlayotp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXacNhan1ActionPerformed(evt);
+                btnlayotpActionPerformed(evt);
             }
         });
 
-        txtsodienthoai.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        txtsodienthoai.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
+        btnthoat.setBackground(new java.awt.Color(0, 112, 192));
+        btnthoat.setForeground(new java.awt.Color(255, 255, 255));
+        btnthoat.setText("Thoát");
+
+        btnxacnhan.setBackground(new java.awt.Color(0, 112, 192));
+        btnxacnhan.setForeground(new java.awt.Color(255, 255, 255));
+        btnxacnhan.setText("Xác nhận");
+        btnxacnhan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnxacnhanActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlrightLayout = new javax.swing.GroupLayout(pnlright);
         pnlright.setLayout(pnlrightLayout);
@@ -215,33 +201,27 @@ public class Quenmatkhau extends javax.swing.JDialog {
                 .addComponent(pnlThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(pnlrightLayout.createSequentialGroup()
                 .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlrightLayout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtnewpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblLoginPassword7)
-                                    .addComponent(lblLoginPassword6)
-                                    .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtconfirmpassword)
-                                        .addComponent(lblLoginPassword5)
-                                        .addComponent(lblLoginPassword4)
-                                        .addComponent(lblLoginPassword2)
-                                        .addComponent(txtTenDangNhap, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
-                                        .addComponent(txtotp, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
-                                        .addComponent(txtsodienthoai, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE))))
-                            .addGroup(pnlrightLayout.createSequentialGroup()
-                                .addGap(160, 160, 160)
-                                .addComponent(lbltimer)))
-                        .addGroup(pnlrightLayout.createSequentialGroup()
-                            .addGap(25, 25, 25)
-                            .addComponent(btnXacNhan1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlrightLayout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(btnlaycode, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(35, 35, 35)
+                        .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtnewpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblLoginPassword7)
+                            .addComponent(lblLoginPassword6)
+                            .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlrightLayout.createSequentialGroup()
+                                    .addComponent(btnlayotp, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnxacnhan, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtconfirmpassword, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblLoginPassword5, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblLoginPassword4, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblLoginPassword2, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtTenDangNhap, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
+                                .addComponent(txtotp, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtemail, javax.swing.GroupLayout.Alignment.LEADING))))
+                    .addGroup(pnlrightLayout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(btnthoat, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlrightLayout.setVerticalGroup(
@@ -259,7 +239,7 @@ public class Quenmatkhau extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(lblLoginPassword4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtsodienthoai, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblLoginPassword5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -272,18 +252,39 @@ public class Quenmatkhau extends javax.swing.JDialog {
                 .addComponent(lblLoginPassword7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtconfirmpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addComponent(lbltimer)
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addGroup(pnlrightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnXacNhan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnlayotp, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnxacnhan, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnlaycode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                .addComponent(btnthoat, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
-        getContentPane().add(pnlright, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 370, 660));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 730, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(pnlleft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, 0)
+                    .addComponent(pnlright, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 660, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(pnlleft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnlright, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -292,18 +293,15 @@ public class Quenmatkhau extends javax.swing.JDialog {
         System.exit(0);
     }//GEN-LAST:event_lblThoatMouseClicked
 
-    private void btnlaycodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlaycodeActionPerformed
-        checkuser();
-    }//GEN-LAST:event_btnlaycodeActionPerformed
-
-    private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
-
-    }//GEN-LAST:event_btnThoatActionPerformed
-
-    private void btnXacNhan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXacNhan1ActionPerformed
+    private void btnlayotpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlayotpActionPerformed
         // TODO add your handling code here:
-             checkuser2();
-    }//GEN-LAST:event_btnXacNhan1ActionPerformed
+        check(); 
+    }//GEN-LAST:event_btnlayotpActionPerformed
+
+    private void btnxacnhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnxacnhanActionPerformed
+        // TODO add your handling code here:
+        checkuser2();
+    }//GEN-LAST:event_btnxacnhanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -322,120 +320,94 @@ public class Quenmatkhau extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DoiMatKhau.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(quenmatkhau2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DoiMatKhau.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(quenmatkhau2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DoiMatKhau.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(quenmatkhau2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DoiMatKhau.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(quenmatkhau2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(() -> {
-            Quenmatkhau dialog = new Quenmatkhau(new javax.swing.JFrame(), true);
-            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                @Override
-                public void windowClosing(java.awt.event.WindowEvent e) {
-                    System.exit(0);
-                }
-            });
-            dialog.setVisible(true);
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new quenmatkhau2().setVisible(true);
+            }
         });
     }
-
-    public void sendcodesdt() {
+    public String getbyemail() {
+        String manv = txtTenDangNhap.getText();
+        return daobs.SelectByID(manv).getEmail();
+    }    public void guiemail() {
+        String email =getbyemail();
+        MimeMessage mm = null;
         try {
-            String manv = txtTenDangNhap.getText();
-            String to = getbySodienthoai();
-            String str = "" + otp + "";
-            String str2 = str.replaceAll("\\s", "+");
-            URL url = new URL("http://192.168.1.5:8080/v1/sms/send/?phone=" + to + "&message=" + str2 + "");
-            InputStream i = null;
-            MsgBox.alert(this, "nhan ma otp thanh cong");
-            txtnewpassword.enable(true);
-            txtconfirmpassword.enable(true);
-            btnlaycode.hide();
-            btnXacNhan1.show();
-            try {
-                i = url.openStream();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (i != null) {
-
-            }
-        } catch (MalformedURLException e) {
+            BacSi bs = daobs.SelectByemail(email);
+            Properties p = new Properties();
+            p.put("mail.smtp.auth", "true");
+            p.put("mail.smtp.starttls.enable", "true");
+            p.put("mail.smtp.host", "smtp.gmail.com");
+            p.put("mail.smtp.port", 587);
+            String user = "dathtps18655@fpt.edu.vn";
+            String pass = "Dat30102002";
+            Session ss = Session.getInstance(p, new javax.mail.Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(user, pass);
+                }
+            ;
+            });
+           mm = new MimeMessage(ss);
+            mm.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+            mm.setSubject("Quen mat khau");
+            mm.setText("ma otp cua ban la: " + otp);
+            Transport.send(mm);
+            MsgBox.alert(this, "gui email thanh cong");
+            btnxacnhan.setEnabled(true);
+            btnlayotp.setEnabled(false);
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public String getbySodienthoai() {
-        String manv = txtTenDangNhap.getText();
-        return daonv.SelectByID(manv).getSodienthoai();
-    }
-    public void runclock() {
-        timer = new Timer(1000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int x = Integer.parseInt(lbltimer.getText());
-                if (x > 0) {
-                    lbltimer.setText(String.valueOf(--x));
-                    testime = true;
-                }
-                else if(x<=0){
-                  btnXacNhan1.hide();
-                  btnlaycode.show();
-                }
-                else {
-                    lbltimer.setText("60");
-                    testime = false;
-                    timer.stop();
-                }
-            }
-        });
-        timer.start();
-    }
-    public boolean checkuser() {
+    public boolean check() {
         String user = txtTenDangNhap.getText();
-        String sodienthoai = txtsodienthoai.getText();
+        String email = txtemail.getText();
+        BacSi bs = daobs.SelectByID(user);
         if (user.isEmpty()) {
-            MsgBox.alert(this, "vui lòng nhập user để lấy OTP");
+            MsgBox.alert(this, "Yêu cầu bạn nhập mã bác sĩ");
             return false;
         } else {
-            if (daonv.SelectByID(user) != null) {
-                if (sodienthoai.isEmpty()) {
-                    MsgBox.alert(this, "Phone không được bỏ trống");
+            if (daobs.SelectByID(user) == null) {
+                MsgBox.alert(this, "Không tìm thấy mã bác sĩ này");
+                return false;
+            } else {
+                if (email.isEmpty()) {
+                    MsgBox.alert(this, "Yêu cầu nhập email để lấy otp");
                     return false;
                 } else {
-                    if (daonv.Selectbyphone(sodienthoai) == null) {
-                        MsgBox.alert(this, "số điện thoại này không tồn tại");
+                    if (daobs.SelectByemail(email) == null) {
+                        MsgBox.alert(this, "không tồn tại gmail này");
                         return false;
                     } else {
-                        sendcodesdt();
-                        runclock();
+                        guiemail();
                     }
                 }
-
-            } else {
-                MsgBox.alert(this, "không tìm thấy mã nhân viên này");
-                return false;
             }
         }
         return true;
     }
-    public boolean checkuser2() {
+      public boolean checkuser2() {
         String user = txtTenDangNhap.getText();
-        NhanVien nv = daonv.SelectByID(user);
+        BacSi bs = daobs.SelectByID(user);
        int otp1=Integer.parseInt(txtotp.getText()); 
        String otp3=txtotp.getText(); 
         String newpass = new String(txtnewpassword.getPassword());
         String confirmpass = new String(txtconfirmpassword.getPassword());
-        if (otp3.isEmpty()) {
+        if (otp3.equals("")) {
             MsgBox.alert(this, "vui lòng nhập mã xác thực");
             return false;
         } else {
@@ -455,21 +427,19 @@ public class Quenmatkhau extends javax.swing.JDialog {
                             MsgBox.alert(this, "mật khẩu xác nhận không trùng khớp");
                             return false;
                         } else {
-                            nv.setMatkhau(confirmpass);
-                            daonv.update(nv);
-
+                            bs.setMatkhau(confirmpass);
+                            daobs.update(bs);
                         }
                     }
                 }
             }
         }
-        MsgBox.alert(this, "Đổi mật khẩu thành công");
         return true;
-    }
+      }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rojeru_san.complementos.RSButtonHover btnThoat;
-    private rojeru_san.complementos.RSButtonHover btnXacNhan1;
-    private rojeru_san.complementos.RSButtonHover btnlaycode;
+    private javax.swing.JButton btnlayotp;
+    private javax.swing.JButton btnthoat;
+    private javax.swing.JButton btnxacnhan;
     private javax.swing.JLabel lblIcon;
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblLogin1;
@@ -479,15 +449,13 @@ public class Quenmatkhau extends javax.swing.JDialog {
     private javax.swing.JLabel lblLoginPassword6;
     private javax.swing.JLabel lblLoginPassword7;
     private javax.swing.JLabel lblThoat;
-    private javax.swing.JLabel lbltimer;
     private javax.swing.JPanel pnlThoat;
     private javax.swing.JPanel pnlleft;
     private javax.swing.JPanel pnlright;
     private javax.swing.JTextField txtTenDangNhap;
     private javax.swing.JPasswordField txtconfirmpassword;
+    private javax.swing.JTextField txtemail;
     private javax.swing.JPasswordField txtnewpassword;
     private javax.swing.JTextField txtotp;
-    private javax.swing.JTextField txtsodienthoai;
     // End of variables declaration//GEN-END:variables
-
 }

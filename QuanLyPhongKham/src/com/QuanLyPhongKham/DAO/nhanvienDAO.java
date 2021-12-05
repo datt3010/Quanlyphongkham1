@@ -62,7 +62,16 @@ public class nhanvienDAO extends QLPhongKham_DAO<NhanVien, String>{
         List<NhanVien> list = SelectBySQL(sql, id);
         return list.size() > 0 ? list.get(0) : null;
     }
- 
+  public NhanVien Selectbyphone(String id) {
+        String sql = "select * from nhanvien where sodienthoai like ?";
+        List<NhanVien> list = SelectBySQL(sql, id);
+        return list.size() > 0 ? list.get(0) : null;
+    }
+  public NhanVien seleconenhanvienbyphone(String id) {
+        String sql = "select sodienthoai from nhanvien where manhanvien like ?";
+        List<NhanVien> list = SelectBySQL(sql, id);
+        return list.size() > 0 ? list.get(0) : null;
+    }
     @Override
     protected List<NhanVien> SelectBySQL(String sql, Object... args) {
         List<NhanVien> list = new ArrayList<>();
