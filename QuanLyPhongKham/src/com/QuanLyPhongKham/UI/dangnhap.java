@@ -197,6 +197,11 @@ public class dangnhap extends javax.swing.JDialog {
 
         lblquenmatkhau.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblquenmatkhau.setText("Quên mật khẩu ?");
+        lblquenmatkhau.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblquenmatkhauMouseClicked(evt);
+            }
+        });
         jPanel3.add(lblquenmatkhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, -1));
 
         btnQR.setBackground(new java.awt.Color(255, 255, 255));
@@ -288,6 +293,11 @@ public class dangnhap extends javax.swing.JDialog {
         // TODO add your handling code here:
         QR();
     }//GEN-LAST:event_btnQRActionPerformed
+
+    private void lblquenmatkhauMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblquenmatkhauMouseClicked
+        // TODO add your handling code here:
+        MsgBox.confirm(this,"1.Bác sĩ\n"+"2.Nhân viên"); 
+    }//GEN-LAST:event_lblquenmatkhauMouseClicked
 
     /**
      * @param args the command line arguments

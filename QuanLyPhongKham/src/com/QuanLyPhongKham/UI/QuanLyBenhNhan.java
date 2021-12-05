@@ -648,7 +648,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
                 btnaddActionPerformed(evt);
             }
         });
-        pnlRight.add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 210, 100, 40));
+        pnlRight.add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 50, 100, 40));
 
         btnnew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/refresh_20px.png"))); // NOI18N
         btnnew.setText("New");
@@ -657,7 +657,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
                 btnnewActionPerformed(evt);
             }
         });
-        pnlRight.add(btnnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 210, 100, 40));
+        pnlRight.add(btnnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 50, 100, 40));
 
         btnupdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/update_25px.png"))); // NOI18N
         btnupdate.setText("Update");
@@ -666,7 +666,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
                 btnupdateActionPerformed(evt);
             }
         });
-        pnlRight.add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 270, 100, 40));
+        pnlRight.add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 110, 100, 40));
 
         btndelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/delete_20px.png"))); // NOI18N
         btndelete.setText("Delete");
@@ -675,7 +675,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
                 btndeleteActionPerformed(evt);
             }
         });
-        pnlRight.add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 270, 100, 40));
+        pnlRight.add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 110, 100, 40));
 
         btnfirst.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnfirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/QuanLyPhongKham/Icon/icons8_skip_to_start_32px_1.png"))); // NOI18N
@@ -720,7 +720,7 @@ public class QuanLyBenhNhan extends javax.swing.JFrame {
                 btnsendsmsActionPerformed(evt);
             }
         });
-        pnlRight.add(btnsendsms, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 330, 130, 40));
+        pnlRight.add(btnsendsms, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 170, 130, 40));
 
         pnlTong.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 1190, 790));
 

@@ -20,6 +20,8 @@ public class bacsiDAO extends QLPhongKham_DAO<BacSi, String>{
     String Delete_BacSy = "DELETE FROM bacsy WHERE mabacsy like ?";
     String SELECTALL_BacSy = "SELECT * FROM bacsy";
     String SELECT_BY_ID_BacSy ="SELECT * FROM bacsy WHERE mabacsy like ?";
+    String SELECT_BY_EMAIL="SELECT * FROM bacsy where  email like ?";
+    String SELECT_BY_ONEEMAIL="SELECT email FROM bacsy where mabacsy like ?";
     @Override
     public void insert(BacSi entity) {
         try{
@@ -58,7 +60,14 @@ public class bacsiDAO extends QLPhongKham_DAO<BacSi, String>{
        List<BacSi> list = SelectBySQL(SELECT_BY_ID_BacSy, id);
        return list.size()>0?list.get(0):null;
     }
-
+    public BacSi SelectByemail(String id) {
+       List<BacSi> list = SelectBySQL(SELECT_BY_EMAIL, id);
+       return list.size()>0?list.get(0):null;
+    }
+     public BacSi Selectbyoneemail(String id) {
+       List<BacSi> list = SelectBySQL(SELECT_BY_ONEEMAIL, id);
+       return list.size()>0?list.get(0):null;
+    }
     @Override
     protected List<BacSi> SelectBySQL(String sql, Object... args) {
         List<BacSi> list = new ArrayList<>();
