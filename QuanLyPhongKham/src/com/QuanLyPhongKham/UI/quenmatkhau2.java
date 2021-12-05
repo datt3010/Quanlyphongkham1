@@ -12,12 +12,13 @@ import java.awt.geom.RoundRectangle2D;
 import java.util.Properties;
 import java.util.Random;
 import javax.mail.Message;
-import javax.mail.PasswordAuthentication;
+import javax.mail.PasswordAuthentication; 
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author p
