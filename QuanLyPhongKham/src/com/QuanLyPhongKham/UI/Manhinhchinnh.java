@@ -1224,14 +1224,14 @@ public class Manhinhchinnh extends javax.swing.JFrame {
 
     private void OpenBacSi() {
         //this.dispose();
-        if (Auths.isLogin1()) {
-            MsgBox.alert(this, "ban khong co chuc nang nay");
-            return;
-        }
-        if (!Auths.user.getChucvu().equals("Quản Lý")) {
-            MsgBox.alert(this, "chỉ có quản lý mới sử dụng chức năng này");
-            return;
-        }
+//        if (Auths.isLogin1()) {
+//            MsgBox.alert(this, "ban khong co chuc nang nay");
+//            return;
+//        }
+//        if (!Auths.user.getChucvu().equals("Quản Lý")) {
+//            MsgBox.alert(this, "chỉ có quản lý mới sử dụng chức năng này");
+//            return;
+//        }
         new QuanLyBacSi().setVisible(true);
         this.dispose();
     }

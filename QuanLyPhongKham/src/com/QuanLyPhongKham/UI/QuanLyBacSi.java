@@ -1094,7 +1094,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         if(evt.getClickCount() == 2){
             this.row = tblBacSi.getSelectedRow();
             this.edit();
-            
+           
         }
     }//GEN-LAST:event_tblBacSiMouseClicked
 
@@ -1289,6 +1289,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     bacsiDAO bsDao = new bacsiDAO();
     chuyennganhDAO cndao = new chuyennganhDAO();
+    
     int row = -1;
     int index = -1;
     private void init(){
@@ -1298,7 +1299,7 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         fillcbochuyennganh();
         filltable1();
         lblAnhBS.setToolTipText("");
-        lblXinChao.setText(lblXinChao.getText()+Auths.userbacsy.getMabacsy());
+//        lblXinChao.setText(Auths.userbacsy.getMabacsy());
     }
     
     //Hover màu
@@ -1399,11 +1400,13 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         model.removeAllElements();
         List<ChuyenNganh> list = cndao.SelectAll();
         for(ChuyenNganh cn : list){
-            model.addElement(cn.getMachuyennganh());
+            model.addElement(cn.getTenchuyennganh());
         }
     }
     public BacSi getform(){
         BacSi bs = new BacSi();
+        
+        
         bs.setMabacsy(txtMaBacSi.getText());
         bs.setTenbacsy(txtTenBacSi.getText());
         bs.setGioitinh((String) cboGioiTinh.getSelectedItem());
@@ -1412,10 +1415,32 @@ public class QuanLyBacSi extends javax.swing.JFrame {
         bs.setNgaysinh(NgaySinh.getDate());
         bs.setMatkhau(txtpass.getText());
         bs.setHinh(String.valueOf(lblAnhBS.getToolTipText()));
-        bs.setMachuyennganh((String) cbochuyennganh.getSelectedItem());
+        if(cbochuyennganh.getSelectedItem().equals("Chuyên Khoa Nhi")){
+            bs.setMachuyennganh("CN01") ;
+        }else if(cbochuyennganh.getSelectedItem().equals("Chuyên Khoa Mắt")){
+            bs.setMachuyennganh("CN02") ;
+        }else if(cbochuyennganh.getSelectedItem().equals("Chuyên Khoa Tiêu Hoá")){
+            bs.setMachuyennganh("CN03") ;
+        }else if(cbochuyennganh.getSelectedItem().equals("Chuyên Tim Mạch")){
+            bs.setMachuyennganh("CN04") ;
+        }else if(cbochuyennganh.getSelectedItem().equals("Chuyên Khoa Răng Miệng")){
+            bs.setMachuyennganh("CN05") ;
+        }else if(cbochuyennganh.getSelectedItem().equals("Chuyên Khoa Thần Kinh")){
+            bs.setMachuyennganh("CN06") ;
+        }else if(cbochuyennganh.getSelectedItem().equals("Chuyên Khoa Tiêu Hoá")){
+            bs.setMachuyennganh("CN07") ;
+        }else if(cbochuyennganh.getSelectedItem().equals("Chuyên Khoa Cơ Xương Khớp")){
+            bs.setMachuyennganh("CN08") ;
+        }else if(cbochuyennganh.getSelectedItem().equals("Chuyên Khoa Tai Mũi Họng")){
+            bs.setMachuyennganh("CN09") ;
+        }else if(cbochuyennganh.getSelectedItem().equals("Chuyên Khoa Gan Mật")){
+            bs.setMachuyennganh("CN010") ;
+        }
+        
         return bs;
     }
     public void setform(BacSi bs){
+        
         txtMaBacSi.setText(bs.getMabacsy());
         cboGioiTinh.setSelectedItem(bs.getGioitinh());      
         txtTenBacSi.setText(bs.getTenbacsy());
@@ -1486,8 +1511,12 @@ public class QuanLyBacSi extends javax.swing.JFrame {
     }
     public void edit(){
         String mabacsi = (String) tblBacSi.getValueAt(row, 0);
+        String macn = (String) tblBacSi.getValueAt(row, 6);
+        
         BacSi bs = bsDao.SelectByID(mabacsi);
+        ChuyenNganh cn = cndao.SelectByID(macn);
         this.setform(bs);
+        this.cbochuyennganh.setSelectedItem(cn.getTenchuyennganh());
         updateStatus();
     }
     private void clearForm() {
